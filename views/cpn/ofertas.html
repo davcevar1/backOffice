@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+  <style>
+    body {
+      /*background: url(bg.png);*/
+      background-position: center;
+      background-size: cover;
+    }
+    .cb-btn-checkbox {
+      padding: 0;
+      background-color: #FFF;
+      border-radius: 100vw;
+      border-color: #CCC;
+      border-width: 2px;
+      transition: background-color .2s, border-width .2s, transform .2s, visibility .2s, opacity .2s;
+    }
+    .cb-btn-checkbox .cb-icon {
+      display: block;
+      font-size: 24px;
+    }
+    .panel {
+      color: #666666;
+    }
+    .panel:not(.cb-disabled) {
+      border-color: #4da737;
+    }
+    .panel.cb-selectable {
+      transition: opacity .2s;
+      cursor: pointer;
+    }
+    .panel.cb-selectable:hover {
+      border-color: #4da737;
+      background-color: rgba(81, 177, 55, .05);
+    }
+    .panel.cb-selectable:not(.cb-disabled) .cb-title {
+      color: #4da737;
+    }
+    .panel.cb-selectable .panel-body {
+      padding: 8px;
+    }
+    .panel.cb-selectable .cb-title {
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .panel.cb-selectable .cb-description {
+      text-align: center;
+      font-size: 11px;
+      color: #2f7d36;
+      margin-bottom: 5px;
+    }
+    .panel.cb-selectable .cb-actions {
+      position: absolute;
+      top: 0;
+      right: 0;
+      visibility: hidden;
+      transition: transform .2s, visibility .2s, opacity .2s;
+      transform: translateX(10px);
+      opacity: 0;
+    }
+    .panel.cb-selectable .cb-actions .btn:focus,
+    .panel.cb-selectable .cb-actions .btn:active {
+      outline: none;
+    }
+    .panel.cb-selectable .cb-btn-checkbox {
+      position: absolute;
+      left: 5px;
+      top: 5px;
+    }
+    .panel.cb-selectable.cb-selected {
+      background: linear-gradient(to bottom, #00b100 80%, #008905 100%);
+      border-color: #35723f;
+      color: #FFF;
+    }
+    .panel.cb-selectable.cb-selected .cb-title,
+    .panel.cb-selectable.cb-selected .cb-description,
+    .panel.cb-selectable.cb-selected .text-muted {
+      color: #FFF;
+    }
+    .panel.cb-selectable:not(.cb-selected) .cb-btn-checkbox {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-10px);
+    }
+    .panel.cb-selectable:not(.cb-selected) .cb-btn-checkbox .cb-icon {
+      visibility: hidden;
+    }
+    .panel.cb-selectable.cb-selected .cb-btn-checkbox {
+      border: 1px solid #4da737;
+      background-color: #4da737;
+      color: #FFF;
+    }
+    .panel.cb-selectable.cb-selected .cb-btn-checkbox .cb-icon {
+      visibility: visible;
+    }
+    .panel.cb-selectable:hover:not(.cb-selected) .cb-btn-checkbox {
+      opacity: 1;
+      visibility: visible;
+      color: #CCC;
+      border: 1px solid #35723f;
+      transform: translateX(0);
+    }
+    .panel.cb-selectable.cb-disabled {
+      opacity: .4;
+      pointer-events: none;
+      border-color: transparent;
+    }
+    .nav-pills > li > a {
+      color: #666;
+      opacity: .4;
+      font-size: 22px;
+    }
+    .nav-pills > li.active > a,
+    .nav-pills > li.active > a:hover,
+    .nav-pills > li.active > a:active,
+    .nav-pills > li.active > a:focus {
+      font-weight: bold;
+      color: #666;
+      opacity: 1;
+      background-color: transparent;
+      border-bottom: 1px solid #666;
+    }
+    .cb-checkboxes .checkbox {
+      border-bottom: 1px solid #666;
+      padding: 5px 0;
+    }
+    .cb-steps {
+      margin-top: 20px;
+      max-width: 600px;
+      margin: auto;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-view-container-root cb-view-container cb-group-layout container-fluid">
+      <h1 class="text-center">Crédito Consumo</h1>
+      <ul class="cb-steps" style="margin-top: 20px;">
+          <li>Ingreso</li>
+          <li class="active">Oferta</li>
+          <li>Solicitud</li>
+          <li>Contrato</li>
+          <li>Carga de documentos</li>
+      </ul>
+      <h2 class="text-center">Oferta Crediticia</h2> 
+      <div style="width: 300px; margin: auto;">
+        <div class="panel panel-default cb-selectable cb-flex cb-middle" ng-click="toggleSelection(offer, offers)" ng-repeat="offer in offers" ng-class="{'cb-selected':offer.selected, 'cb-disabled':offer.disabled}" style="position: relative;">
+          <div class="panel-body cb-grow">
+            <div class="cb-title">{{ offer.name }}</div>
+            <div class="cb-description">{{ offer.description }}</div>
+            <div class="cb-flex cb-gutters cb-center cb-middle text-center">
+              <div class="cb-grow">
+                <div class="small text-muted">Monto máximo</div>
+                <div style="font-weight: bold;">{{ offer.maxAmount | currency }} USD</div>
+              </div>
+              <div class="cb-grow">
+                <div class="small text-muted">Plazo máximo</div>
+                <div style="font-weight: bold;">{{ offer.maxTime }} Meses</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--
+      <fieldset class="cb-group cb-group-simple">
+        <div class="cb-flex cb-bottom cb-gutters">
+          <div style="width: 300px;">
+            <div class="panel panel-default cb-selectable cb-flex cb-middle" ng-click="toggleSelection(offer, offers)" ng-repeat="offer in offers" ng-class="{'cb-selected':offer.selected, 'cb-disabled':offer.disabled}" style="position: relative;">
+              <div class="cb-btn-checkbox">
+                <div class="cb-icon">
+                  <svg><use  ng-href="../../images/factoricons-regular.svg#check" xlink:href=""></use></svg>
+                </div>
+              </div>
+              <div class="panel-body cb-grow">
+                <div class="cb-title" style="text-align: center;font-weight: 600; text-transform: uppercase;">{{ offer.name }}</div>
+                <div class="cb-flex cb-gutters cb-center cb-middle text-center">
+                  <div class="cb-grow">
+                    <div class="small text-muted">Monto máximo</div>
+                    <div style="font-weight: bold;">{{ offer.maxAmount | currency }} USD</div>
+                  </div>
+                  <div class="cb-grow">
+                    <div class="small text-muted">Plazo máximo</div>
+                    <div style="font-weight: bold;">{{ offer.maxTime }} Meses</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cb-grow text-center">
+            <div class="dropup" style="position: relative; display: inline-block;">
+              <button class="btn btn-default" data-toggle="dropdown">Registrar</button>
+              <div class="dropdown-menu" style="padding: 15px; padding-top:0; width: 250px; margin-left: -82px;">
+                <div class="cb-checkboxes" ng-click="$event.stopPropagation()">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" ng-model="request.spouseIncome"> Ingresos cónyuge
+                    </label>
+                  </div>
+                  <div ng-show="request.spouseIncome">
+                    <div class="form-group">
+                      <div class="control-label">Cédula del cónyuge</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="control-label">Registre ingresos</div>
+                      <div class="cb-control">
+                        <div class="input-group">
+                          <input type="text" kendo-numeric-text-box k-options="{format:'c', spinners: false, decimals:0}" class="text-right" />
+                          <span class="input-group-addon">USD</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="checkbox" style="border: 0;">
+                    <label>
+                      <input type="checkbox" ng-model="request.otherIncome"> Otros ingresos deudor o cónyuge
+                    </label>
+                  </div>
+                  <div ng-show="request.otherIncome">
+                    <div class="form-group">
+                      <div class="control-label">Arriendo</div>
+                      <div class="cb-control">
+                        <div class="input-group">
+                          <input type="text" class="text-right" kendo-numeric-text-box k-options="{format:'c', spinners: false, decimals:0}" />
+                          <span class="input-group-addon">USD</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="control-label">Honorarios profesionales</div>
+                      <div class="cb-control">
+                        <div class="input-group">
+                          <input type="text" class="text-right" kendo-numeric-text-box k-options="{format:'c', spinners: false, decimals:0}" />
+                          <span class="input-group-addon">USD</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="control-label">Pensiones alimenticias</div>
+                      <div class="cb-control">
+                        <div class="input-group">
+                          <input type="text" class="text-right" kendo-numeric-text-box k-options="{format:'c', spinners: false, decimals:0}" />
+                          <span class="input-group-addon">USD</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="control-label">Negocio propio</div>
+                      <div class="cb-control">
+                        <div class="input-group">
+                          <input type="text" class="text-right" kendo-numeric-text-box k-options="{format:'c', spinners: false, decimals:0}" />
+                          <span class="input-group-addon">USD</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center" ng-click="$event.stopPropagation()">
+                  <button class="btn btn-primary">Continuar</button>
+                </div>
+              </div>
+            </div>
+            <div>Incremente su monto de crédito</div>
+          </div>
+        </div>
+      </fieldset>
+    -->
+      <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+          <a href="ubicacion.html" class="btn btn-default navbar-btn" style="min-width: 120px;">Anterior</a>
+          <a href="flow-prestamo.html" class="btn btn-primary navbar-btn" style="min-width: 120px;">Continuar</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

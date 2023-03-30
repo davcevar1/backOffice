@@ -1,0 +1,1147 @@
+.cb-login {
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    background-image: url(images/bg.svg);
+    background-size: cover;
+    height: fit-content;
+    min-height: 100vh;
+
+    h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .help-block {
+        font-size: 12px;
+        color: @brand-1;
+    }
+
+    .cb-main {
+        margin: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        position: relative;
+
+        .cb-logo {
+            margin: 30px auto;
+            background-image: url(images/logo-trafalgar.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 190px;
+            height: 120px;
+        }
+
+        .cb-content {
+            max-width: 380px;
+            width: 100%;
+            margin: 0 auto;
+
+            h3 {
+                font-family: @font-text;
+                font-size: 16px;
+                //color: #fff;
+                font-weight: 300;
+                margin: 0 0 12px;
+                padding-right: 40px;
+                margin-bottom: 50px;
+
+                span {
+                    font-weight: 600;
+                }
+            }
+
+            .checkbox {
+                color: @color-text-pastel2;
+            }
+
+            .btn-vk {
+                display: block;
+                margin-bottom: 10px;
+                color: @link-color;
+                font-family: @font-text2;
+                font-size: @font-size;
+                font-weight: 800;
+                letter-spacing: .5px;
+                margin-bottom: 20px;
+
+                &:hover,
+                &:focus {
+                    color: @link-color-hover;
+
+                    .svg {
+                        fill: @link-color-hover;
+                    }
+                }
+
+                &.active-vk {
+                    color: @link-color-hover;
+
+                    .svg {
+                        fill: @link-color-hover;
+                    }
+                }
+
+                .svg {
+                    width: 16px;
+                    vertical-align: middle;
+                    fill: @link-color;
+                    margin-right: 3px;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .alert-danger {
+                background-color: @background-alert;
+                border-radius: @border-radius;
+                border: none;
+                padding: 10px;
+
+                &#msg-error,
+                &#msg-codigo-invalido {
+                    display: none;
+                }
+
+                .svg {
+                    fill: @color-alert;
+                    width: 25px;
+                    float: left;
+                    margin: 3px 10px 10px 0;
+                }
+
+                p {
+                    color: @color-alert;
+                    font-family: @font-text2;
+                    font-size: 12px;
+
+                    a {
+                        color: @link-color;
+                        text-decoration: underline;
+                        letter-spacing: .5px;
+                        font-weight: bold;
+
+                        &:hover {
+                            color: @link-color-hover;
+                        }
+                    }
+                }
+            }
+
+            .alert-success {
+                background-color: @background-success;
+                border-radius: @border-radius;
+                border: none;
+                padding: 15px 10px;
+
+                &#msg-contrasena-segura,
+                &#msg-cuenta-segura {
+                    display: none;
+                }
+
+                .svg {
+                    fill: @color-text;
+                    width: 25px;
+                    height: 25px;
+                    float: left;
+                    margin: -4px 10px 10px 0;
+                }
+
+                p {
+                    //color: @color-text;
+                    font-family: @font-text2;
+                    font-size: 12px;
+
+                    a {
+                        color: @link-color;
+                        text-decoration: underline;
+                        letter-spacing: .5px;
+                        font-weight: bold;
+
+                        &:hover {
+                            color: @link-color-hover;
+                        }
+                    }
+                }
+            }
+
+            .k-widget {
+                background-color: transparent;
+            }
+
+            .form-group {
+                margin-bottom: 25px;
+                position: relative;
+
+                input {
+                    background-color: #FFF;
+                    border: 0;
+                    border-radius: 4px;
+                    padding: .75rem;
+                    height: unset;
+                    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.07), inset 1px 2px 4px rgba(0, 0, 0, 0.25);
+                    text-indent: 28px;
+
+                    &:focus {
+                        box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.07), inset 1px 2px 4px rgba(0, 0, 0, 0.25), inset 0 -3px 0 @brand-1;
+                    }
+
+                    +.cb-icon--prefix {
+                        margin-top: -44px;
+                        position: absolute;
+                        height: 44px;
+                        margin-left: 10px;
+                        font-size: 24px;
+                        opacity: .5;
+                        display: block;
+                    }
+                }
+
+                .pass-toggle {
+                    position: absolute;
+                    right: 0px;
+                    height: 44px;
+                    width: 44px;
+                    display: flex;
+                    top: 20px;
+                    padding: 0px;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                select.form-control {
+                    color: #262227;
+                    font-family: @font-text;
+                    margin-bottom: 10px;
+                    border: 2px solid @grey-color;
+                    border-radius: @border-radius;
+                    padding: 7px 15px;
+                    height: 40px;
+                    font-size: 18px;
+                    font-weight: 300;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    -ms-appearance: none;
+                    outline: none;
+                    opacity: .80;
+                    background: @background-input url(../../../assets/img/arrow-down.png) no-repeat right 10px center;
+
+                    //Fix para internet explorer
+                    @media screen and (-ms-high-contrast: active),
+                    (-ms-high-contrast: none) {
+                        background-image: none !important;
+                    }
+
+                    &.active,
+                    &:focus {
+                        border-color: @border-color-controls;
+                        box-shadow: none;
+                        outline: none;
+                    }
+
+                    option:disabled {
+                        color: @grey-color;
+                    }
+
+                    &:disabled {
+                        opacity: .95;
+                        cursor: default;
+                    }
+                }
+
+                .icon-pass {
+                    width: 14px;
+                    fill: #6a4872;
+                    position: absolute;
+                    top: 36px;
+                    left: 17px;
+                }
+
+                .icon-success,
+                .icon-error {
+                    width: 16px;
+                    position: absolute;
+                    top: 36px;
+                    right: -30px;
+                    display: none;
+                }
+
+                .icon-success {
+                    fill: #FFF;
+                    //filter: invert(.5) sepia(1) saturate(5) hue-rotate(118deg);
+                }
+
+                .icon-error {
+                    fill: @color-error;
+                    filter: invert(.5) sepia(1) saturate(5) hue-rotate(333deg);
+                }
+
+                small.help-block {
+                    display: none !important;
+                }
+
+                &.has-success {
+                    .icon-success {
+                        display: block;
+                    }
+
+                    .icon-error {
+                        display: none;
+                    }
+                }
+
+                &.error {
+                    .icon-success {
+                        display: none;
+                    }
+
+                    .icon-error {
+                        display: block;
+                    }
+
+                    input {
+                        background-color: @background-alert;
+                    }
+                }
+
+                &.preg1,
+                &.preg3 {
+
+                    .icon-success,
+                    .icon-error {
+                        top: 87px;
+                        right: -30px;
+                    }
+                }
+
+                &.preg2 {
+
+                    .icon-success,
+                    .icon-error {
+                        top: 63px;
+                        right: -30px;
+                    }
+                }
+            }
+
+            .btn {
+                border-radius: 100vh;
+                background-color: #320000;
+                color: #FFF;
+                font-weight: 600;
+                font-size: 16px;
+                padding: 12px 24px;
+            }
+
+            label.check {
+                font-size: 12px;
+                letter-spacing: 0;
+                font-weight: 300;
+                vertical-align: middle;
+                margin-top: 15px;
+                float: left;
+                display: none;
+
+                input {
+                    vertical-align: middle;
+                }
+
+                &.active {
+                    display: block;
+                }
+            }
+
+            .terminos {
+                font-size: 11px;
+                color: @color-text;
+                font-family: @font-text2;
+                padding: 25px 10px 0 0
+            }
+
+            .cont-terminos {
+                a {
+                    margin-bottom: 10px;
+                    font-family: @font-text2;
+                    font-size: @font-size;
+                    color: @color-text2;
+                    font-weight: bold;
+                    display: block;
+
+                    span {
+                        text-decoration: underline;
+                    }
+
+                    .svg {
+                        float: right;
+                        width: 13px;
+                        display: block;
+                        fill: @blue;
+                        margin-top: 5px;
+                        height: 10px
+                    }
+
+                    .icon-angle-down {
+                        display: block;
+                    }
+
+                    .icon-angle-up {
+                        display: none;
+                    }
+
+                    .st0 {
+                        fill: @blue;
+                    }
+
+                    &.collapsed {
+                        .icon-angle-down {
+                            display: none;
+                        }
+
+                        .icon-angle-up {
+                            display: block;
+                        }
+                    }
+
+                    &:hover,
+                    &:focus {
+                        text-decoration: none;
+                        color: @link-light-hover;
+                    }
+                }
+
+                .nolink {
+                    margin-bottom: 10px;
+                    font-family: @font-text2;
+                    font-size: @font-size;
+                    color: @link-color;
+                    font-weight: bold;
+                    display: block;
+
+                    span {
+                        text-decoration: underline;
+                    }
+                }
+
+                .panel-collapse {
+                    padding: 10px;
+                    background-color: @background-light;
+                    border-radius: @border-radius;
+                    border: 2px solid @grey-color;
+                    position: relative;
+
+                    .panel-body {
+                        padding-top: 0;
+                        padding-left: 0;
+                        padding-bottom: 15px;
+                        height: 100px;
+                        overflow: auto;
+
+                        p {
+                            font-size: 12px;
+                            font-family: @font-text2;
+                            font-weight: 300;
+
+                            &:last-child {
+                                padding-bottom: 15px;
+                            }
+                        }
+                    }
+
+                    &:after {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        height: 40%;
+                        width: 100%;
+                        content: "";
+                        background: linear-gradient(to top, rgba(245, 245, 245, 1) 2%, rgba(245, 245, 245, 0) 98%);
+                        pointer-events: none;
+                        /* so the text is still selectable */
+                    }
+                }
+            }
+        }
+    }
+
+    .cb-social {
+        a {
+            padding: .5rem;
+            border-radius: 100vh;
+            background-color: rgba(255, 255, 255, .3);
+
+            .cb-icon {
+                display: block;
+            }
+        }
+    }
+
+    @media (max-width:767px) {
+
+        .list--images.image-picker-active+.icon-error,
+        .list--images.image-picker-active+.icon-success {
+            display: none !important;
+        }
+    }
+}
+
+.popover-content {
+    font-family: @font-text2;
+    font-size: @font-size;
+    color: @color-text;
+}
+
+/*** BootstrapValidator ***/
+
+.bv-form .tooltip-inner {
+    text-align: left;
+}
+
+.bv-form .bv-icon-no-label {
+    top: 0;
+}
+
+.bv-form .bv-icon-input-group {
+    top: 0;
+    z-index: 100;
+}
+
+#pwindicator {
+    margin-top: -10px;
+    background-color: @background-light;
+    width: @width0;
+    border-radius: @border-radius;
+    padding: 10px;
+    display: none;
+
+    .label {
+        float: right;
+        font-family: @font-text2;
+        font-size: 11px;
+        color: @color-text;
+        font-weight: 600;
+        letter-spacing: .5px;
+        display: none;
+    }
+
+    .fortaleza {
+        font-family: @font-text2;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: .5px;
+        color: @color-text;
+    }
+
+    .bg-bar {
+        background-color: #fff;
+        border-radius: @border-radius;
+        height: 5px;
+        width: 100%;
+        margin-top: 2px;
+
+        .bar {
+            height: 5px;
+            border-radius: @border-radius;
+        }
+    }
+
+    ul {
+        padding: 0;
+        margin: 10px 0 0;
+
+        li {
+            list-style: none;
+            font-family: @font-text2;
+            font-size: 11px;
+            color: @color-text;
+            margin-bottom: 5px;
+
+            .svg {
+                width: 14px;
+                height: 14px;
+                color: @color-text;
+                margin-top: -2px;
+                vertical-align: middle;
+            }
+
+            &.complete {
+                opacity: .4;
+            }
+        }
+    }
+
+    &.pw-muy-debil {
+        .lab-md {
+            display: block;
+        }
+    }
+
+    &.pw-debil {
+        .lab-d {
+            display: block;
+        }
+    }
+
+    &.pw-fuerte {
+        .lab-f {
+            display: block;
+        }
+    }
+}
+
+.pw-muy-debil {
+    .bar {
+        background: @color0;
+        width: 30px;
+    }
+}
+
+.pw-debil {
+    .bar {
+        background: @color2;
+        width: 90px;
+    }
+}
+
+.pw-fuerte {
+    .bar {
+        background: @color1;
+        width: @width0;
+    }
+}
+
+@media (max-width:340px) {
+    #pwindicator {
+        margin-top: -4px;
+    }
+}
+
+/* Hacks IE9, IE10, IE11 */
+
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+    @heightfix: 20px;
+
+    .cb-login {
+        .cb-main {
+            .cb-content {
+                .btn-vk {
+                    height: @heightfix;
+                    margin-bottom: 15px;
+                }
+
+                .form-group {
+                    margin-bottom: 20px;
+
+                    .icon-pass {
+                        height: 15px;
+                    }
+
+                    .icon-success {
+                        height: 12px;
+                    }
+
+                    .icon-error {
+                        height: 16px;
+                    }
+                }
+
+                button {
+                    .svg {
+                        height: 10px;
+                    }
+                }
+
+                h1 {
+                    margin-bottom: 20px;
+                    margin-top: 10px;
+                }
+
+                .alert-danger {
+                    .svg {
+                        height: 25px;
+                    }
+                }
+
+                .foot {
+                    .no-user {
+                        margin: 20px auto 10px;
+                    }
+
+                    .redes {
+                        margin-bottom: 3px;
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.list--images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    border: 0;
+    box-shadow: 0 0;
+    margin: auto;
+    width: fit-content !important;
+
+    @media (max-width: 479px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .list-item {
+        border-radius: 4px;
+        width: 90px;
+        height: 90px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #FFF;
+        overflow: hidden;
+
+        &.k-state-selected {
+            border: solid 3px @brand-2;
+            opacity: 1 !important;
+            box-sizing: border-box;
+
+            .icon-selected {
+                display: block;
+            }
+        }
+
+        .icon-selected {
+            fill: #fff;
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+            display: none;
+            background-color: @color-success;
+            padding: 2px;
+            border-radius: 50%;
+        }
+    }
+
+    &.image-picker-active {
+        background-color: #000;
+
+        .thumbnail {
+            opacity: .6;
+        }
+    }
+}
+
+#msg-tiempo-expirado {
+    display: none;
+}
+
+/* Hacks Safari */
+
+#k1 {
+    top: 20px !important;
+    left: 20px !important;
+}
+
+#k2 {
+    top: 220px !important;
+    left: 220px !important;
+}
+
+#k3 {
+    top: 450px !important;
+    left: 20px !important;
+}
+
+#k4 {
+    top: 500px !important;
+    left: 420px !important;
+}
+
+#k5 {
+    top: 20px !important;
+    left: 620px !important;
+}
+
+.cb-menu-left {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.cb-menu-left .box-1 {
+    height: 225px;
+
+    & fieldset {
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+.cb-menu-left .box-2 {
+    height: 470px;
+}
+
+.cb-menu-left iframe {
+    width: 100%;
+    padding: 0px;
+    border: none;
+}
+
+.cb-menu-left .box-3 {
+    height: 420px;
+}
+
+.cb-menu-left .box-4 {
+    height: 360px;
+}
+
+.advertising {
+    height: 100%;
+    width: 100%;
+    padding-top: 20px;
+}
+
+#VA_VAIMAGEBUTTONNN_123989 {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+#VA_VAIMAGEBUTTONNN_893989 {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+#VA_VAIMAGEBUTTONNN_689989 {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+#VA_VAIMAGEBUTTONNN_898359 {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+#VA_VAIMAGEBUTTONNN_765359 {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+#VA_VAIMAGEBUTTONNN_834359 {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+#VA_VAIMAGEBUTTONNN_906359 {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.advertisingPosition {
+    height: 100%;
+    width: 100%;
+}
+
+/* *** keyboard light theme ***
+  for when jQuery UI themes are not being used
+  See https://jsfiddle.net/Mottie/jsh0377k/
+ */
+
+.ui-keyboard {
+    /* adjust overall keyboard size using "font-size" */
+    font-size: 14px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    padding: 4px;
+    /* include the following setting to place the
+	keyboard at the bottom of the browser window */
+    width: 624px;
+    height: auto;
+    left: 50%;
+    /*margin-left: -339px;*/
+    top: auto;
+    bottom: auto;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    position: fixed;
+    white-space: nowrap;
+    overflow-x: auto;
+    /* see issue #484 */
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+.ui-keyboard-has-focus {
+    z-index: 16001;
+}
+
+.ui-keyboard-button {
+    border: 1px solid #e7e7e7;
+    padding: 0 0.5em;
+    margin: 1px;
+    min-width: 3em;
+    height: 3em;
+    line-height: 3em;
+    vertical-align: top;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #777;
+    text-align: center;
+    border-radius: 5px;
+    /*-webkit-box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.5);
+	box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.5);*/
+    background: white;
+    background-image: -webkit-linear-gradient(-90deg, white 0%, #f2f2f2 100%);
+    background-image: linear-gradient(-90deg, white 0%, #f2f2f2 100%);
+    cursor: pointer;
+    overflow: hidden;
+    -moz-user-focus: ignore;
+}
+
+.ui-keyboard-button:not([disabled]):hover {
+    background: #eee;
+    background-image: -webkit-linear-gradient(-90deg, #f2f2f2 0%, #e7e7e7 100%);
+    background-image: linear-gradient(-90deg, #f2f2f2 0%, #e7e7e7 100%);
+}
+
+.ui-keyboard-button:not([disabled]):active {
+    background: #ddd;
+    background-image: -webkit-linear-gradient(-90deg, #e5e5e5 0%, #d3d3d3 100%);
+    background-image: linear-gradient(-90deg, #e5e5e5 0%, #d3d3d3 100%);
+}
+
+.ui-keyboard-button span {
+    display: block;
+    width: 100%;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* make action keys extra-wide */
+
+.ui-keyboard-actionkey:not(.ui-keyboard-dec):not(.ui-keyboard-combo) {
+    min-width: 6em;
+}
+
+.ui-keyboard-space {
+    width: 15em;
+}
+
+.ui-keyboard-actionkey:not(.ui-keyboard-dec):not(.ui-keyboard-combo) span {
+    font-size: 0.8em;
+    position: relative;
+    top: -1em;
+    left: -1.6em;
+}
+
+.ui-keyboard-placeholder {
+    color: #888;
+}
+
+/* disabled or readonly inputs, or use input[disabled='disabled'] { color: #f00; } */
+
+.ui-keyboard-nokeyboard {
+    color: #888;
+    border-color: #888;
+}
+
+.ui-keyboard-spacer {
+    display: inline-block;
+    width: 1px;
+    height: 0;
+    cursor: default;
+}
+
+.ui-keyboard-NBSP span,
+.ui-keyboard-ZWSP span,
+.ui-keyboard-ZWNJ span,
+.ui-keyboard-ZWJ span,
+.ui-keyboard-LRM span,
+.ui-keyboard-RLM span {
+    font-size: 0.5em;
+    line-height: 1.5em;
+    white-space: normal;
+}
+
+/* combo key styling - toggles diacritics on/off */
+
+.ui-keyboard-button.ui-keyboard-combo.ui-state-default {
+    -webkit-box-shadow: 1px 1px 3px 0 rgba(213, 133, 18, 0.5);
+    box-shadow: 1px 1px 3px 0 rgba(213, 133, 18, 0.5);
+    border-color: #d58512;
+}
+
+.ui-keyboard-button.ui-keyboard-combo.ui-state-active {
+    -webkit-box-shadow: 1px 1px 3px 0 rgba(38, 154, 188, 0.5);
+    box-shadow: 1px 1px 3px 0 rgba(38, 154, 188, 0.5);
+    border-color: #269abc;
+}
+
+/* (in)valid inputs */
+
+button.ui-keyboard-accept.ui-keyboard-valid-input {
+    -webkit-box-shadow: 1px 1px 3px 0 rgba(57, 132, 57, 0.5);
+    box-shadow: 1px 1px 3px 0 rgba(57, 132, 57, 0.5);
+    border-color: #398439;
+}
+
+button.ui-keyboard-accept.ui-keyboard-valid-input:not([disabled]):hover {
+    border-color: #4cae4c;
+}
+
+button.ui-keyboard-accept.ui-keyboard-invalid-input {
+    -webkit-box-shadow: 1px 1px 3px 0 rgba(172, 41, 37, 0.5);
+    box-shadow: 1px 1px 3px 0 rgba(172, 41, 37, 0.5);
+    border-color: #ac2925;
+}
+
+button.ui-keyboard-accept.ui-keyboard-invalid-input:not([disabled]):hover {
+    border-color: #d43f3a;
+}
+
+/* unlocked icon (keyboard enabled) */
+
+button.ui-keyboard-toggle span {
+    width: .9em;
+    height: .9em;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    /* light theme unlocked icon - fill: #111 */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzExMSI+PHBhdGggZD0iTTguNyw0LjRINy41SDUuMHYtMS45YzAtMS40LTEuMS0yLjUtMi41LTIuNWMtMS40LDAtMi41LDEuMS0yLjUsMi41djEuOWgxLjIgdi0xLjljMC0wLjcsMC42LTEuMiwxLjItMS4yczEuMiwwLjYsMS4yLDEuMnYxLjljLTAuNywwLTEuMiwwLjYtMS4yLDEuMlY4LjggYzAsMC43LDAuNiwxLjIsMS4yLDEuMmg1LjBDOS40LDEwLDEwLDkuNCwxMCw4LjhWNS42QzEwLDUuMCw5LjQsNC40LDguOCw0LjR6IE02LjYsNy40djEuMCBjMCwwLjItMC4xLDAuMy0wLjMsMC4zUzYuMCw4LjYsNi4wLDguNFY3LjRjLTAuMi0wLjEtMC4zLTAuMy0wLjMtMC41YzAtMC4zLDAuMy0wLjYsMC42LTAuNiBTNi45LDYuNiw2LjksNi45QzYuOSw3LjEsNi44LDcuMyw2LjYsNy40eiIvPjwvc3ZnPg==');
+}
+
+/* locked icon (keyboard disabled) */
+
+button.ui-keyboard-toggle.ui-keyboard-disabled span {
+    /* light theme locked icon - fill: #111 */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzExMSI+PHBhdGggZD0iTTcuNCA0LjRWMi41YzAtMS40LTEuMS0yLjUtMi41LTIuNWMtMS40IDAtMi41IDEuMS0yLjUgMi41djEuOSBjLTAuNyAwLTEuMiAwLjUtMS4yIDEuMnYzLjFDMS4zIDkuNCAxLjggMTAgMi41IDEwaDQuOWMwLjcgMCAxLjItMC42IDEuMi0xLjJWNS42IEM4LjcgNC45IDguMSA0LjQgNy40IDQuNHogTTUuMyA3LjR2MS4wYzAgMC4yLTAuMSAwLjMtMC4zIDAuM2MtMC4yIDAtMC4zLTAuMS0wLjMtMC4zVjcuNCBjLTAuMi0wLjEtMC4zLTAuMy0wLjMtMC41YzAtMC4zIDAuMy0wLjYgMC42LTAuNmMwLjMgMCAwLjYgMC4zIDAuNiAwLjYgQzUuNiA3LjEgNS41IDcuMyA1LjMgNy40eiBNNi4yIDQuNEgzLjdWMi41YzAtMC43IDAuNS0xLjIgMS4yLTEuMmMwLjcgMCAxLjIgMC42IDEuMiAxLjIgVjQuNHoiLz48L3N2Zz4=');
+}
+
+.ui-keyboard.ui-keyboard-disabled button:not(.ui-keyboard-toggle),
+.ui-keyboard.ui-keyboard-disabled input {
+    opacity: 0.5;
+}
+
+/*** Alt-Keys Popup extension ***/
+
+
+/* clickable overlay on top of keyboard to hide the popup */
+
+.ui-keyboard-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(238, 238, 238, 0.5);
+}
+
+/* the actual popup styling, class names from the css.container option are also added */
+
+.ui-keyboard-popup {
+    display: inline-block;
+    /* default buttons are 2em wide + .1em margin on either side (set in .ui-keyboard-button definition);
+	so use multiples of 2.2em	for a max-width if you don't want any extra white space on the sides,
+	e.g. 5 buttons * 2.2em = 11em, 6 buttons * 2.2em = 13.2em, etc */
+    max-width: 22em;
+    /* 10 buttons */
+}
+
+/*** Caret extension definition ***/
+
+
+/* margin-top => is added to the caret height (top & bottom) */
+
+.ui-keyboard-caret {
+    background: #c00;
+    width: 1px;
+    margin-top: 3px;
+}
+
+/*** Extender keyboard extension ***/
+
+div.ui-keyboard-extender {
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+button.ui-keyboard-extender span {
+    width: .9em;
+    height: .9em;
+    display: inline-block;
+    margin-bottom: 3px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    /* light theme extender icon - fill: #111 */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgc3R5bGU9ImZpbGw6IzExMSI+PGc+PHBhdGggc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzExMSIgZD0iTSAwLjUsNC41IDE1LjUsNC41IDE1LjUsMTUuNSAwLjUsMTUuNSBaIj48L3BhdGg+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgeD0iMiIgeT0iNiI+PC9yZWN0PjxyZWN0IHdpZHRoPSIyIiBoZWlnaHQ9IjIiIHg9IjUiIHk9IjYiPjwvcmVjdD48cmVjdCB3aWR0aD0iMiIgaGVpZ2h0PSIyIiB4PSI4IiB5PSI2Ij48L3JlY3Q+PHBhdGggZD0ibSAxMSw2IDMsMCAwLDUgLTIsMCAwLC0zIC0xLDAgeiI+PC9wYXRoPjxyZWN0IHdpZHRoPSIyIiBoZWlnaHQ9IjIiIHg9IjEyIiB5PSIxMiI+PC9yZWN0PjxyZWN0IHdpZHRoPSI2IiBoZWlnaHQ9IjIiIHg9IjUiIHk9IjEyIj48L3JlY3Q+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgeD0iOSIgeT0iOSI+PC9yZWN0PjxyZWN0IHdpZHRoPSIyIiBoZWlnaHQ9IjIiIHg9IjYiIHk9IjkiPjwvcmVjdD48cmVjdCB3aWR0aD0iMiIgaGVpZ2h0PSIyIiB4PSIyIiB5PSIxMiI+PC9yZWN0PjxyZWN0IHdpZHRoPSIzIiBoZWlnaHQ9IjIiIHg9IjIiIHk9IjkiPjwvcmVjdD48L2c+PC9zdmc+');
+}
+
+@media (max-width:767px) {
+    .ui-keyboard {
+        display: none !important;
+    }
+}
+
+#codigo_keyboard {
+    width: 240px;
+    /*margin-left: -120px;*/
+}
+
+.ui-keyboard {
+    -webkit-box-shadow: 0px 0px 18px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 18px -3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 18px -3px rgba(0, 0, 0, 0.75);
+}
+
+@media (max-width:992px) {
+    .ui-keyboard {
+        width: 510px;
+    }
+
+    .ui-keyboard-button {
+        min-width: 2em;
+        height: 2em;
+        line-height: 2em;
+    }
+
+    .ui-keyboard-actionkey:not(.ui-keyboard-dec):not(.ui-keyboard-combo) {
+        min-width: 5em;
+    }
+
+    .ui-keyboard-actionkey:not(.ui-keyboard-dec):not(.ui-keyboard-combo) span {
+        top: 0;
+        left: 0;
+    }
+
+    #codigo_keyboard {
+        width: 180px !important;
+    }
+}
+
+@media (max-width:767px) {
+    .ui-keyboard {
+        display: none !important;
+    }
+}
+
+.k-list>.k-state-focused.k-state-selected,
+.k-listview>.k-state-focused.k-state-selected,
+.k-state-focused.k-state-selected,
+td.k-state-focused.k-state-selected {
+    box-shadow: inset 0 0 10px 3px @link-color;
+}

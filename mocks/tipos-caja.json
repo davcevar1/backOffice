@@ -1,0 +1,8 @@
+[
+    {"name":"A - AUXILIAR", "role":3, "created":"19/04/2017", "user":"ADMUSER"},
+    {"name":"B - BODEGA", "role":3, "created":"19/04/2017", "user":"ADMUSER"},
+    {"name":"D - DIFERIDO", "role":3, "created":"19/04/2017", "user":"ADMUSER"},
+    {"name":"L - BLINDADO", "role":3, "created":"19/04/2017", "user":"ADMUSER"},
+    {"name":"N - NORMAL", "role":3, "created":"19/04/2017", "user":"ADMUSER"},
+    {"name":"O - OPERACIONES", "role":3, "created":"19/04/2017", "user":"ADMUSER"}
+]

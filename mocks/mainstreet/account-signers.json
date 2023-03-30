@@ -1,0 +1,45 @@
+[{
+    "lastName": "Thompson",
+    "firstName": "Jeniffer",
+    "middleName": "C",
+    "dob": "05/13/1979",
+    "ssn": "12-456231",
+    "type": "Shareholder",
+    "phone": "(908) 207 8822",
+    "address": "234 Main St., NJ 20435, United States",
+    "ownership": "50%"
+  },
+  {
+    "lastName": "Morris",
+    "firstName": "Frank",
+    "middleName": "A",
+    "dob": "06/15/1979",
+    "ssn": "78-546555",
+    "type": "Shareholder",
+    "phone": "(908) 546 2342",
+    "address": "987 Main St., NJ 20435, United States",
+    "ownership": "50%"
+  },
+  {
+    "lastName": "Johnson",
+    "firstName": "John",
+    "middleName": "F",
+    "dob": "01/15/1979",
+    "ssn": "78-546555",
+    "type": "Shareholder",
+    "phone": "(908) 546 2342",
+    "address": "987 Main St., NJ 20435, United States",
+    "ownership": "50%"
+  },
+  {
+    "lastName": "Monroe",
+    "firstName": "Julian",
+    "middleName": "C",
+    "dob": "02/11/1978",
+    "ssn": "12-456231",
+    "type": "Shareholder",
+    "phone": "(908) 207 8822",
+    "address": "234 Main St., NJ 20435, United States",
+    "ownership": "50%"
+  }
+]

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-breadcrumb">
+			<ul class="breadcrumb">
+				<li>Inicio</li>
+				<li><a href="#">Cash Management</a></li>
+                <li>Carga de archivo</li>
+			</ul>
+		</div>
+		<div class="cb-view-container-root cb-group-layout container" style="max-width: 500px;">
+            <ul class="cb-steps">
+                <li class="active">Ingreso</li>
+                <li>Verificación</li>
+                <li>Confirmación</li>
+            </ul>
+            
+            <div class="cb-group cb-group-simple">
+				<div>
+                    <div class="alert alert-danger" ng-if="hasErrors" style="max-height: 150px; overflow:auto;">
+                        <p>El archivo no pudo ser procesado, favor verifique los siguientes errores:</p>
+                            <ul>
+                                <li>Línea 1, Columna 3 - Formato incorrecto de fecha</li>
+                                <li>Línea 2, Columna 5 - Solo permite números</li>
+                                <li>Línea 3, Columna 5 - Solo permite números</li>
+                                <li>Línea 4, Columna 5 - Solo permite números</li>
+                            </ul>
+                            <p style="font-weight:bold;">...</p>
+                            <button class="btn btn-danger btn-sm" style="margin-top:15px;">
+                            Ver detalle
+                        </button>
+                        
+                    </div>
+                    <div class="alert alert-info" ng-if="allowConfirm">
+                        El archivo ha sido validado, Si esta seguro de cargar el archivo presione el botón <strong>"Confirmar"</strong>
+                    </div>
+                    <div class="alert alert-success" ng-if="processed">
+                        <p><strong>Lote #15</strong></p> 
+                        <p>El archivo ha sido cargado exitosamente, sera procesado en unos minutos.</p>
+                    </div>
+                    <div class="alert alert-success" ng-if="processed">
+                        <p><strong>Autorización #23132154</strong></p>
+                        <p>El archivo está pendiente de autorización.</p>
+                        <p>Autorizadores:</p>
+                        <ul>
+                            <li>Juan Perez</li>
+                            <li>Carlos Verdesoto</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cb-group cb-group-simple cb-group-list" ng-if="allowConfirm || processed">
+                <div>
+                    <kendo-grid options="detalleCarga"></kendo-grid>
+                </div>
+            </div>
+            
+            <div class="panel panel-default cb-group cb-group-simple cb-group-flex" ng-if="allowConfirm || processed">
+                <div class="panel-body">
+                    <div class="form-vertical">
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<div class="control-label">Código de verificación</div>
+									<div class="cb-control">
+										<input type="text" class="form-control" />
+									</div>
+								</div>
+							</div>
+                            <div class="col-xs-12">
+								<div class="form-group">
+									<div class="cb-control">
+										Ingrese el código que se le ha enviado por mensaje SMS
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+            
+			<div class="cb-group cb-group-simple cb-group-list" ng-if="!allowConfirm && !processed">
+				<div>
+                    <div class="form-vertical">
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group cb-required">
+									<div class="control-label">Servicio</div>
+									<div class="cb-control">
+										<select class="form-control">
+											<option></option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12">
+								<div class="form-group cb-required">
+									<div class="control-label">Archivo</div>
+									<div class="cb-control">
+										<input type="file" class="form-control" />
+									</div>
+								</div>
+							</div>
+                            <div class="col-xs-12">
+								<div class="form-group">
+									<div class="control-label">Fecha de procesamiento</div>
+									<div class="cb-control">
+										<input type="data" kendo-datepicker />
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12">
+								<div class="form-group">
+									<div class="control-label">Concepto</div>
+									<div class="cb-control">
+										<input type="text" class="form-control" />
+									</div>
+								</div>
+							</div>
+                        </div>
+					</div>
+				</div>    
+			</div>
+        </div>
+        <div class="cb-navbar cb-navbar-bottom">
+            <nav class="navbar navbar-default navbar-fixed-bottom">
+                <button class="btn btn-default navbar-btn" ng-if="processed">Imprimir</button>
+                <button class="btn btn-primary navbar-btn" ng-if="processed" ng-click="back()">Procesar nuevo archivo</button>
+                <button class="btn btn-primary navbar-btn" ng-if="!allowConfirm && !processed" ng-click="process()">Procesar</button>
+                <button class="btn btn-default navbar-btn" ng-if="allowConfirm" ng-click="back()">Regresar</button>
+                <button class="btn btn-primary navbar-btn" ng-if="allowConfirm" ng-click="confirm()">Confirmar</button>
+            </nav>
+        </div>
+        <div class="cb-view-loading cb-hidden">
+            <div class="cb-view-loading-icon"></div>
+        </div>
+    </div>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="afiliaciones" src="../lib/require/require.js"></script>
+</body>
+
+</html>

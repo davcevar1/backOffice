@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+	<div class="cb-view">
+		<div class="cb-breadcrumb">
+			<ol class="breadcrumb">
+				<li>Grupos de transacciones</li>
+			</ol>
+		</div>
+		<div class="cb-view-container-root container">
+            <div class="cb-group cb-group-simple">
+				<div class="form-vertical">
+				    <div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<div class="control-label">Grupo</div>
+								<div class="cb-control">
+                                    <div class="cb-flex cb-gutters">
+                                        <div class="cb-grow">
+									       <select class="form-control">
+                                                <option>GRUPO CAJA</option>
+                                               <option>GRUPO CREDITO Y CARTERA</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-default" data-toggle="modal" data-target="#grupo" title="Editar"><span class="fa fa-pencil"></span></button>
+                                            <button class="btn btn-default" data-toggle="modal" data-target="#grupo">Agregar grupo</button>
+                                        </div>
+                                    </div>
+								</div>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+            <fieldset class="cb-group cb-group-simple">
+                <legend>Transacciones</legend>
+                <div>
+                    <kendo-grid options="transacciones"></kendo-grid>    
+                </div>
+            </fieldset>
+		</div>
+	</div>
+	
+	<div id="grupo" class="modal fade" tabindex="-1" role="dialog">
+	  <div class="modal-dialog modal-sm">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title">Grupo</h4>
+		  </div>
+		  <div class="modal-body">
+			<div class="cb-group cb-group-simple">
+				<div class="form-vertical">
+				    <div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<div class="control-label">Nombre</div>
+								<div class="cb-control">
+									<input type="text" class="form-control" /> 
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="control-label">Número</div>
+								<div class="cb-control">
+									<input type="text" class="form-control" /> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+				<nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+					<button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+					<button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+				</nav>
+			</div>
+		  </div>
+		</div>
+      </div>
+    </div>
+    
+    <div id="transaccion" class="modal fade" tabindex="-1" role="dialog">
+	  <div class="modal-dialog modal-sm">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title">Transacción</h4>
+		  </div>
+		  <div class="modal-body">
+			<div class="cb-group cb-group-simple">
+				<div class="form-vertical">
+				    <div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<div class="control-label">Nombre</div>
+								<div class="cb-control">
+                                    <select class="form-control">
+                                        <option>APERTURA DE CAJA</option>
+                                    </select> 
+								</div>
+							</div>
+						</div>
+                        <div class="col-sm-12">
+							<div class="form-group">
+								<div class="control-label">Afecta efectivo</div>
+								<div class="cb-control">
+                                    <select class="form-control">
+                                        <option>Si</option>
+                                        <option>No</option> 
+                                    </select> 
+								</div>
+							</div>
+						</div>
+                        <div class="col-sm-12">
+							<div class="form-group">
+								<div class="control-label">Signo</div>
+								<div class="cb-control">
+                                    <select class="form-control">
+                                        <option>+</option>
+                                        <option>-</option>    
+                                    </select> 
+								</div>
+							</div>
+						</div>
+                        <div class="col-sm-12">
+							<div class="form-group">
+								<div class="control-label">Catálogo</div>
+								<div class="cb-control">
+                                    <select class="form-control"></select> 
+								</div>
+							</div>
+						</div>
+                        <div class="col-sm-12">
+							<div class="form-group">
+								<div class="control-label">Detalle</div>
+								<div class="cb-control">
+                                    <select class="form-control"></select> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+				<nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+					<button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+					<button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+				</nav>
+			</div>
+		  </div>
+		</div>
+      </div>
+    </div>
+
+    <script>
+        var librariesUrl = '../../lib/';
+    </script>
+    <script src="../../lib/require.config.js"></script>
+    <script data-main="caja" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

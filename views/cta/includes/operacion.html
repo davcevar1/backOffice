@@ -1,0 +1,200 @@
+<fieldset class="cb-group cb-group-simple">
+  <div class="form-vertical">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="control-label">Producto</div>
+          <div class="cb-control">
+            <select class="form-control" ng-model="product">
+              <option>Regular</option>
+              <option>Ahorro capital</option>
+              <option>Maxiahorro</option>
+              <option value="schedule">Ahorro programado</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="control-label">Oficina</div>
+          <div class="cb-control">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly />
+              <span class="input-group-btn">
+                <button class="btn btn-default"><span class="fa fa-bars"></span></button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="control-label">Oficial</div>
+          <div class="input-group">
+            <input type="text" class="form-control" readonly />
+            <span class="input-group-btn">
+              <button class="btn btn-default"><span class="fa fa-bars"></span></button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="control-label">Categoría</div>
+          <div class="cb-control">
+            <select class="form-control">
+            <option></option>
+            <option>Nominativos</option>
+          </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="control-label">Número de libreta</div>
+          <div class="cb-control">
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="control-label">Origen cuenta</div>
+          <div class="cb-control">
+            <select class="form-control">
+              <option>Venta directa</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <hr />
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="control-label">Depósito inicial</div>
+          <div class="cb-control cb-flex cb-gutters">
+            <div class="cb-grow">
+              <input type="number" ng-model="amount" kendo-numeric-text-box k-spinners="false" k-format="c0" />
+            </div>
+            <div>
+              <select class="form-control" ng-model="currency">
+                <option>USD</option>
+                <option>EUR</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="form-group">
+          <div class="control-label">Estado de cuenta</div>
+          <div class="cb-control">
+            <div class="cb-flex cb-gutters">
+              <div>
+                <select class="form-control" ng-model="balance">
+                  <option>Agencia</option>
+                  <option>Casillero</option>
+                  <option>Casilla postal</option>
+                  <option>Dirección</option>
+                </select>
+              </div>
+              <div class="cb-grow">
+                <div class="input-group">
+                  <input type="text" class="form-control" readonly />
+                  <span class="input-group-btn">
+                    <button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</fieldset>
+<fieldset class="cb-group cb-group-simple">
+  <legend>Adicionales</legend>
+  <div class="form-vertical">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="control-label">Nombre de cuenta</div>
+          <div class="cb-control">
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" ng-show="product=='schedule'">
+        <div class="form-group">
+          <div class="control-label">Motivo del ahorro</div>
+          <div class="cb-control">
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" ng-show="product=='schedule'">
+        <div class="form-group">
+          <div class="control-label">Plazo</div>
+          <div class="cb-control">
+            <select class="form-control" ng-model="balance">
+              <option>30 días</option>
+              <option>60 días</option>
+              <option>90 días</option>
+              <option>120 días</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" ng-show="product=='schedule'">
+        <div class="form-group">
+          <div class="control-label">Monto</div>
+          <div class="cb-control">
+            <div class="input-group">
+              <input type="number" ng-model="amount" kendo-numeric-text-box k-spinners="false" k-format="c0" />
+              <span class="input-group-addon">{{ currency }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" ng-show="product=='schedule'">
+        <div class="form-group">
+          <div class="control-label">Renovación automática</div>
+          <div class="cb-control">
+            <select class="form-control">
+              <option>Sí</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" ng-show="product=='schedule'">
+        <div class="form-group">
+          <div class="control-label">Débito automático</div>
+          <div class="cb-control">
+            <select class="form-control" ng-model="debit">
+              <option>Sí</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" ng-show="debit=='Sí' && product=='schedule'">
+        <div class="form-group">
+          <div class="control-label">Día del débito</div>
+          <div class="cb-control">
+            <select class="form-control" ng-model="balance"></select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" ng-show="debit=='Sí' && product=='schedule'">
+        <div class="form-group">
+          <div class="control-label">Cuenta a debitar</div>
+          <div class="cb-control">
+            <select class="form-control" ng-model="balance"></select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>

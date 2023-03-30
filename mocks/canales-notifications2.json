@@ -1,0 +1,34 @@
+[
+  {
+    "type": "EMAIL",
+    "pending": 12,
+    "process": 2,
+    "finished": 123,
+    "canceled": 10,
+    "total": 147
+  },
+  {
+    "type": "SMS",
+    "pending": 1,
+    "process": 12,
+    "finished": 543,
+    "canceled": 0,
+    "total": 556
+  },
+  {
+    "type": "Push",
+    "pending": 55,
+    "process": 1,
+    "finished": 123,
+    "canceled": 1,
+    "total": 180
+  },
+  {
+    "type": "Total",
+    "pending": 68,
+    "process": 15,
+    "finished": 789,
+    "canceled": 11,
+    "total": ""
+  }
+]

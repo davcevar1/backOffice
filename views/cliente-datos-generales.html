@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Datos generales</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+    <style>
+		.input-group-btn .btn {
+			line-height: 20px;
+		}
+	</style>
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-view-container-root cb-view-container cb-group-layout">
+            <div class="cb-form-header">
+                <div class="pull-right">
+                    <button class="btn btn-default"><span class="fa fa-print"></span> Imprimir</button>
+                </div>
+                <div class="cb-group cb-group-simple">
+                    <div class="cb-text-xl">Aguas Munoz Betty Jeanneth</div> 
+                    <div>
+                        <span class="control-label">Trámite:</span> 02154000020
+                        <span class="control-label">Tipo producto:</span> Crédito automotriz
+                        <span class="control-label">Monto solicitado:</span> $20,000.00 USD
+                        <span class="control-label">Cuota solicitada:</span> 36 meses
+                    </div>
+                    <div>
+                        <span class="control-label">Oficina:</span> Sucursal Sucre
+                        <span class="control-label">Oficial:</span> Jose Martinez
+                        <span class="control-label">Fecha de inicio:</span> 12/12/2015
+                    </div>
+                </div>
+			</div>
+			<div class="cb-view-container cb-group-layout container">
+                <fieldset class="cb-group cb-group-tabbed-v">
+					<div class="row">
+						<div class="col-tab-items col-xs-2">
+							<ul class="nav nav-pills nav-stacked">
+								<li class="active"><a href="#info" data-toggle="tab">Información General</a></li>
+								<li><a href="#formacion" data-toggle="tab">Formación</a></li>
+								<li><a href="#sector" data-toggle="tab">Sector</a></li>
+                                <li><a href="#varios" data-toggle="tab">Varios</a></li>
+							</ul>
+						</div>
+						<div class="cb-tab-content col-xs-10 tab-content">
+							<div id="info" class="tab-pane active">
+								<div class="cb-group cb-group-simple cb-no-margin">
+									<div>
+										<div class="form-vertical">
+											<div class="row">
+												<div class="col-xs-4">
+													<div class="form-group cb-required">
+														<div class="control-label">Nombre completo</div>
+														<div class="cb-control">
+															<input type="text" class="form-control" />
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group cb-required">
+														<div class="control-label">Apellido paterno</div>
+														<div class="cb-control">
+															<input type="text" class="form-control" />
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group cb-required">
+														<div class="control-label">Apellido materno</div>
+														<div class="cb-control">
+															<input type="text" class="form-control" />
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group cb-required">
+														<div class="control-label">Cedula de identidad</div>
+														<div class="cb-control">
+															<input type="text" class="form-control" />
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group cb-required">
+														<div class="control-label">Pasaporte</div>
+														<div class="cb-control">
+															<input type="text" class="form-control" />
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group cb-required">
+														<div class="control-label">Email</div>
+														<div class="cb-control">
+															<input type="text" class="form-control" />
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Género</div>
+														<div class="cb-control">
+															<select class="form-control">
+																<option></option>
+																<option>Masculino</option>
+																<option>Femenino</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Fecha de nacimiento</div>
+														<div class="cb-control">
+															<input type="text" kendo-datepicker class="form-control" />
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Nacionalidad</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Años de residencia</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="number" class="form-control" />
+																<span class="input-group-addon">
+																	Años
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Estado civil</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group cb-required">
+														<div class="control-label"># de cargas familiares</div>
+														<div class="cb-control">
+															<input type="number" class="form-control" />
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Nivel de educación</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Tipo de persona</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Calificación de riesgo</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>    
+								</div>
+							</div>
+                            <div id="formacion" class="tab-pane">
+								<div class="cb-group cb-group-simple cb-no-margin">
+									<div>
+										<div class="form-vertical">
+											<div class="row">
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Profesión</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Actividad</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Ocupación</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-12">
+													<div class="form-group">
+														<div class="control-label">Comentarios</div>
+														<div class="cb-control">
+															<textarea class="form-control"></textarea>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>	
+                            </div>
+                            <div id="sector" class="tab-pane">
+								<div class="cb-group cb-group-simple cb-no-margin">
+									<div>
+										<div class="form-vertical">
+											<div class="row">
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Sector</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Subsector</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+                            </div>
+							<div id="varios" class="tab-pane">
+								<div class="cb-group cb-group-simple cb-no-margin">
+									<div>
+										<div class="form-vertical">
+											<div class="row">
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Sujeto de retención</div>
+														<div class="cb-control">
+															<select class="form-control">
+																<option></option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Utiliza internet</div>
+														<div class="cb-control">
+															<select class="form-control">
+																<option></option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Medio de información</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Relación funcionarios</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Grupo económico</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Provincia</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="form-group">
+														<div class="control-label">Ciudad</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="text" class="form-control" />
+																<span class="input-group-btn">
+																	<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+                            </div>
+						</div>
+					</div>
+				</fieldset>
+            </div>    
+		</div>
+        <div class="cb-wizard">
+            <div class="cb-wizard-content">
+                <div class="container-fluid">
+                    <div class="cb-wizard-row">
+						<div ng-show="wizardScrollLeft">
+                            <a href="#" class="btn btn-link" data-slide="prev"><span class="fa fa-angle-left"></span></a>
+                        </div>
+						<div class="cb-steps" style="overflow:hidden;">
+							<div class="cb-step"><a href="solicitud-credito-1-2.html" class="btn btn-default btn-block">Ingreso</a></div>
+							<div class="cb-step"><a href="solicitud-credito-2-2.html" class="btn btn-default btn-block">Negociación</a></div>
+							<div class="cb-step"><a href="solicitud-credito-3-2.html" class="btn btn-default btn-block">Garantías</a></div>
+							<div class="cb-step"><a href="solicitud-credito-4-2.html" class="btn btn-default btn-block">Instrucciones desembolso</a></div>
+                            <div class="cb-step cb-active"><button class="btn btn-default btn-block">Informacion cliente</button></div>
+							<div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Direcciones y teléfonos</button></div>
+							<div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Estado financiero</button></div>
+						</div>
+						<div ng-show="wizardScrollRight">
+                            <a href="#" class="btn btn-link" data-slide="next"><span class="fa fa-angle-right"></span></a>
+                        </div>
+						<div class="cb-actions">
+                            <div class="btn-group btn-block dropup">
+							  <a href="cliente-direcciones.html" class="btn btn-primary">Continuar</a>
+							  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu dropdown-menu-right">
+								<li><a href="#">Guardar temporalmente</a></li>
+								<li><a href="#">Imprimir</a></li>
+							  </ul>
+							</div>
+                        </div>
+                    </div>    
+                </div>    
+            </div>	
+        </div>
+        <div class="cb-view-loading cb-hidden"> 
+            <div class="cb-view-loading-icon"></div> 
+        </div>
+    </div>
+	
+	<script type="text/x-kendo-template" id="template">
+        <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button><button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Editar</button><button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+    </script>
+	
+	<script type="text/x-kendo-template" id="amortizacion2">
+        <button class="btn btn-default"><span class="fa fa-calculator"></span> Calcular</button>
+    </script>
+	
+	<script type="text/x-kendo-template" id="polizaTools">
+        <button ng-click="addPoliza()" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button><button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Editar</button><button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+    </script>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="solicitud-credito" src="../lib/require/require.js"></script>
+</body>
+
+</html>

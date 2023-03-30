@@ -1,0 +1,42 @@
+[
+  {
+    "type": "Pago de préstamos",
+    "description": "Mantenimiento anual de casa",
+    "name": "José Martinez",
+    "origin": "1234567890",
+    "destination": "0987654321",
+    "status": "Activo"
+  },
+  {
+    "type": "Pago de préstamos",
+    "description": "Mantenimiento anual de casa",
+    "name": "José Martinez",
+    "origin": "1234567890",
+    "destination": "0987654321",
+    "status": "Activo"
+  },
+  {
+    "type": "Pago de préstamos",
+    "description": "Mantenimiento anual de casa",
+    "name": "José Martinez",
+    "origin": "1234567890",
+    "destination": "0987654321",
+    "status": "Activo"
+  },
+  {
+    "type": "Pago de préstamos",
+    "description": "Mantenimiento anual de casa",
+    "name": "José Martinez",
+    "origin": "1234567890",
+    "destination": "0987654321",
+    "status": "Activo"
+  },
+  {
+    "type": "Pago de préstamos",
+    "description": "Mantenimiento anual de casa",
+    "name": "José Martinez",
+    "origin": "1234567890",
+    "destination": "0987654321",
+    "status": "Activo"
+  }
+]

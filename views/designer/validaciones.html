@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-form-header cb-no-margin" ng-include="'../shared/header.html'"></div>
+    <div class="cb-view-container cb-group-layout container" style="padding-top: 30px;max-width: 500px;">
+      <div class="cb-group cb-group-simple">
+        <kendo-grid options="customers"></kendo-grid>
+      </div>
+
+      <form kendo-validator="validator" validate="validateHandler($event)" style="margin-top: 30px;" ng-submit="validate($event)" class="cb-group cb-group-simple">
+        <div class="form-horizontal">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Cuenta</div>
+                <div class="col-sm-8">
+                  <div class="cb-control">
+                    <input type="text" id="fullname" name="fullname" class="k-textbox" required validationMessage="Enter {0}" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Moneda</div>
+                <div class="col-sm-8">
+                  <div class="cb-flex cb-gutters cb-control">
+                    <div class="cb-grow">
+                      <select class="form-control" kendo-dropdownlist ng-model="saveDeposit.currency" style="min-width:120px;" required>
+                        <option></option>
+                        <option value="USD">DOLAR</option>
+                        <option value="BOL">BOLIVIANOS</option>
+                      </select>
+                    </div>
+                    <div class="cb-grow" ng-if="saveDeposit.currency=='USD'">
+                      <input type="text" class="form-control text-right" value="6,88" disabled />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Efectivo</div>
+                <div class="col-sm-8">
+                  <div class="cb-flex cb-gutters cb-control">
+                    <div class="cb-grow">
+                      <input type="text" class="text-right" kendo-numeric-text-box k-spinners="false" k-ng-model="saveDeposit.cash" k-format="c0" required />
+                    </div>
+                    <div class="cb-grow" ng-if="saveDeposit.currency=='USD'">
+                      <input type="text" class="form-control text-right" value="{{ saveDeposit.cash? saveDeposit.cash*6.88 : '' }}" disabled />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Cheques propios</div>
+                <div class="col-sm-8">
+                  <div class="cb-flex cb-gutters cb-control">
+                    <div class="cb-grow">
+                      <input type="text" class="text-right" kendo-numeric-text-box k-spinners="false" k-ng-model="saveDeposit.checkOwn" k-format="c0" required />
+                    </div>
+                    <div class="cb-grow" ng-if="saveDeposit.currency=='USD'">
+                      <input type="text" class="form-control text-right" value="{{ saveDeposit.checkOwn? saveDeposit.checkOwn*6.88 : '' }}" disabled />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Cheques locales</div>
+                <div class="col-sm-8">
+                  <div class="cb-flex cb-gutters cb-control">
+                    <div class="cb-grow">
+                      <input type="text" class="text-right" kendo-numeric-text-box k-spinners="false" k-ng-model="saveDeposit.checkOther" k-format="c0" required />
+                    </div>
+                    <div class="cb-grow" ng-if="saveDeposit.currency=='USD'">
+                      <input type="text" class="form-control text-right" value="{{ saveDeposit.checkOther? saveDeposit.checkOther*6.88 : '' }}" disabled />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Cheques exterior</div>
+                <div class="col-sm-8">
+                  <div class="cb-flex cb-gutters cb-control">
+                    <div class="cb-grow">
+                      <input type="text" class="text-right" kendo-numeric-text-box k-spinners="false" k-ng-model="saveDeposit.transfer" k-format="c0" required />
+                    </div>
+                    <div class="cb-grow" ng-if="saveDeposit.currency=='USD'">
+                      <input type="text" class="form-control text-right" value="{{ saveDeposit.transfer? saveDeposit.transfer*6.88 : '' }}" disabled />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Referencia</div>
+                <div class="col-sm-8">
+                  <div class="cb-control">
+                    <input type="text" class="form-control" ng-model="saveDeposit.number" required />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="cb-navbar cb-navbar-bottom">
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <button type="button" class="btn btn-primary navbar-btn" ng-click="submitSaveDeposit()">Guardar</button>
+      </nav>
+    </div>
+  </div>
+
+  <script id="tooltip-template" type="text/x-kendo-template">
+    <span class = "k-widget k-tooltip k-tooltip-validation k-invalid-msg" >aa <span class = "k-icon k-warning" > </span>#=message#</span>
+  </script>
+
+  <script>
+    var librariesUrl = '../../lib/',
+      savingAccount = true;
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+[
+    {"codgrupo":"1", "grupo":"Monetario", "code": "452452444", "date": "2020-12-12 10:25", "numero":1, "transaccion":"APERTURA DE CAJA", "valor":50000},
+    {"codgrupo":"3", "grupo":"Monetario", "code": "746847654", "date": "2020-12-12 10:25", "numero":2, "transaccion":"PAGO DE CHEQUE POR VENTANILLA", "valor":15000},
+	{"codgrupo":"3", "grupo":"Monetario", "code": "456565555", "date": "2020-12-12 10:25", "numero":1, "transaccion":"PAGO DE CHEQUE CERTIFICADO POR VENTANILLA", "valor":1532.00},
+	{"codgrupo":"3", "grupo":"Monetario", "code": "896879678", "date": "2020-12-12 10:25", "numero":1, "transaccion":"PAGO DE CHEQUE DE GERENCIA POR VENTANILLA", "valor":1538.95},
+    {"codgrupo":"4", "grupo":"Monetario", "code": "414244456", "date": "2020-12-12 10:25", "numero":2, "transaccion":"OTROS EGRESOS", "valor":1453.23},
+    {"codgrupo":"5", "grupo":"Monetario", "code": "000674666", "date": "2020-12-12 10:25", "numero":1, "transaccion":"INGRESOS CAJERO INTERNO", "valor":1000.00}
+]

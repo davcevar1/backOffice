@@ -1,0 +1,12 @@
+/**********************************************************************/
+/* ICONS
+/**********************************************************************/
+.icon-redmine-matriz { 
+    background-image: url(../images/mat1.png);
+}
+
+#admin-menu a.redmine-matriz {
+    background-image: url(../images/mat1.png);
+}
+
+#admin-menu a.matriz { background-image: url(../images/mat1.png);}

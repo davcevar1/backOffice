@@ -1,0 +1,152 @@
+[
+  {
+    "applicationID": "1234567890",
+    "date": "12-12-2018",
+    "days": 5,
+    "applicantName": "John Thompson",
+    "loanType": "Term loan",
+    "loanNumber": "0987654321",
+    "officer": "Claudia Romero",
+    "reasonForDenial": "Insufficient Income/Asset Documentation",
+    "amount": 50000,
+    "completed": true
+  },
+  {
+    "applicationID": "1234567890",
+    "date": "12-12-2018",
+    "days": 5,
+    "applicantName": "Mark Jackson",
+    "loanNumber": "0987654325",
+    "loanType": "Term loan",
+    "officer": "Claudia Romero",
+    "reasonForDenial": "Insufficient Income/Asset Documentation",
+    "amount": 50000,
+    "completed": true
+  },
+  {
+    "applicationID": "1234567890",
+    "date": "12-12-2018",
+    "days": 5,
+    "applicantName": "Carrol Fernandez",
+    "loanNumber": "0987654329",
+    "loanType": "Term loan",
+    "officer": "Claudia Romero",
+    "reasonForDenial": "Insufficient Income/Asset Documentation",
+    "amount": 50000
+  },
+  {
+    "applicationID": "1234567890",
+    "date": "12-12-2018",
+    "days": 5,
+    "applicantName": "Julian Clinton",
+    "loanNumber": "0987654331",
+    "loanType": "Term loan",
+    "officer": "Claudia Romero",
+    "reasonForDenial": "Inadequate Employment History",
+    "amount": 50000
+  },
+  {
+    "applicationID": "1234567890",
+    "date": "12-12-2018",
+    "days": 5,
+    "applicantName": "Michael Alvarez",
+    "loanNumber": "0987654334",
+    "loanType": "Term loan",
+    "officer": "Claudia Romero",
+    "reasonForDenial": "Insufficient Income/Asset Documentation",
+    "amount": 50000,
+    "completed": true
+  },
+  {
+    "applicationID": "1234567890",
+    "date": "12-12-2018",
+    "days": 5,
+    "applicantName": "David Johansen",
+    "loanNumber": "0987654345",
+    "loanType": "Term loan",
+    "officer": "Claudia Romero",
+    "reasonForDenial": "Insufficient Income/Asset Documentation",
+    "amount": 50000
+  },
+  {
+    "applicationID": "1234567890",
+    "date": "12-12-2018",
+    "days": 5,
+    "applicantName": "Patrick Balboa",
+    "loanNumber": "0987654367",
+    "loanType": "Term loan",
+    "officer": "Claudia Romero",
+    "reasonForDenial": "Insufficient Income/Asset Documentation",
+    "amount": 50000,
+    "completed": true
+  },
+  {
+    "applicationID": "1234567890",
+    "date": "12-12-2018",
+    "days": 5,
+    "applicantName": "William Sanchez",
+    "loanNumber": "0987654369",
+    "loanType": "Term loan",
+    "officer": "Claudia Romero",
+    "reasonForDenial": "Insufficient Income/Asset Documentation",
+    "amount": 50000,
+    "completed": true
+  },
+  {
+    "applicationID": "1234567890",
+    "date": "12-12-2018",
+    "days": 5,
+    "applicantName": "Carlos Castillo",
+    "loanNumber": "0987654376",
+    "loanType": "Term loan",
+    "officer": "Claudia Romero",
+    "reasonForDenial": "Down Payment is Too Small",
+    "amount": 50000
+  },
+  {
+    "applicationID": "1234567890",
+    "date": "12-12-2018",
+    "days": 5,
+    "applicantName": "Manuel Guevara",
+    "loanNumber": "0987654380",
+    "loanType": "Term loan",
+    "officer": "Claudia Romero",
+    "reasonForDenial": "Insufficient Income/Asset Documentation",
+    "amount": 50000
+  },
+  {
+    "applicationID": "1234567890",
+    "date": "12-12-2018",
+    "days": 5,
+    "applicantName": "John Johnson",
+    "loanNumber": "0987654321",
+    "loanType": "Term loan",
+    "officer": "Claudia Romero",
+    "reasonForDenial": "Poor Credit History",
+    "amount": 50000,
+    "completed": true
+  },
+  {
+    "applicationID": "1234567890",
+    "date": "12-12-2018",
+    "days": 5,
+    "applicantName": "Jack Jackson",
+    "loanNumber": "0987654391",
+    "loanType": "Term loan",
+    "officer": "Claudia Romero",
+    "reasonForDenial": "Problems With the Property",
+    "amount": 50000
+  },
+  {
+    "applicationID": "1234567890",
+    "date": "12-12-2018",
+    "days": 5,
+    "applicantName": "Thomas Thompson",
+    "loanNumber": "0987654395",
+    "loanType": "Term loan",
+    "officer": "Claudia Romero",
+    "reasonForDenial": "Insufficient Income/Asset Documentation",
+    "amount": 50000,
+    "completed": true
+  }
+]

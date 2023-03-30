@@ -1,0 +1,163 @@
+@import url(../../../stylesheets/application.css);
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap');
+body {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 16px;
+  color: #212529;
+}
+h1, h2, h3, h4 {
+  font-family: 'Didact Gothic', sans-serif;
+}
+a:hover, a:active {
+  color: #00a7cd;
+}
+#top-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #00274f;
+  color: #FFF;
+  padding: 0px 24px;
+  height: 32px;
+}
+#top-menu a {
+  color: #e0e0e0;
+}
+#header {
+  background: #003361;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#header h1 {
+  display: none;
+}
+#login-form {
+  border: 0;
+  background: transparent;
+}
+#content {
+  background-color: #f1f6fb;
+}
+#content > h2 {
+  margin-bottom: 8px;
+  margin-left: 10px;
+}
+#content .autoscroll {
+  margin-left: -11px;
+  margin-right: -10px;
+}
+#content table.list,
+#content .table-list {
+  border: 0;
+  border-top: 1px solid #e4e4e4;
+}
+#history {
+  margin-left: -10px;
+  margin-right: -10px;
+  padding: 10px 20px;
+}
+#footer {
+  display: none;
+}
+#project-jump.drdn {
+  position: absolute;
+  left: 24px;
+  top: 5px;
+  width: inherit;
+}
+#project-jump .drdn-trigger {
+  background: transparent;
+  border: 0;
+  color: #FFF;
+  font-size: 22px;
+  display: block;
+  height: initial;
+}
+#main-menu {
+  left: 24px;
+}
+#main-menu li a.selected, #main-menu li a.selected:hover {
+  background: #f1f6fb;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+#main-menu li a:hover {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background: rgba(255,255,255,.3);
+}
+#main-menu li a.new-object {
+  background-color: rgba(255, 255, 255, .4);
+  border-radius: 100vh;
+  padding: 11px 7px;
+  box-sizing: border-box;
+  line-height: 0;
+}
+#quick-search form {
+  position: absolute;
+  right: 24px;
+  top: 10px;
+  display: flex;
+  align-items: center;
+}
+#quick-search form label {
+  height: 24px;
+  background-color: rgba(255, 255, 255, .5);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+#quick-search form label a {
+  color: #FFF;
+  display: flex;
+  align-items: center;
+}
+#quick-search #q {
+  border: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 0 5px;
+}
+body.action-login #header>h1 {
+  display: block;
+  background: url(../images/logo-cobis-service-desk-w.svg);
+  font-size: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 23px;
+  width: 279px;
+  padding: 0;
+  margin: 0;
+}
+div.issue {
+  border: 0;
+  background-color: rgba(255,255,255,.7);
+  margin-left: -10px;
+  margin-right: -10px;
+  padding: 10px 20px;
+}
+input[type="submit"] {
+  border: 1px solid #00a7cd;
+  background: #00a7cd;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 12px;
+  border-radius: 4px;
+}
+input[type="text"],
+input[type="password"] {
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #00a7cd !important;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 167, 205, 0.25);
+}
+form label {
+  font-size: 14px;
+}

@@ -1,0 +1,21 @@
+[{
+  "currency": "USD",
+  "min": 500,
+  "max": 1000,
+  "status": "Activa",
+  "transaction": "TRANSFERECIA A OTRAS CUENTAS",
+  "product": "CUENTA CORRIENTE",
+  "account": "CUENTA / OPERACION",
+  "start": "12/12/2018",
+  "end": "04/01/2018"
+}, {
+  "currency": "USD",
+  "min": 1001,
+  "max": 10000,
+  "status": "Activa",
+  "transaction": "TODAS",
+  "product": "CUENTA CORRIENTE",
+  "account": "CUENTA / OPERACION",
+  "start": null,
+  "end": null
+}]

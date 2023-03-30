@@ -1,0 +1,9 @@
+[
+    {"id": "BBVA", "description": "BBVA"},
+    {"id": "BCOLOMBIA", "description": "Bancolombia"},
+    {"id": "BBOGOTA", "description": "Banco de Bogotá"},
+    {"id": "CHEGER", "description": "Cheque de gerencia"},
+    {"id": "CHEPRO", "description": "Cheque propio"},
+    {"id": "CHELOC", "description": "Cheque local"},
+    {"id": "CHEOTR", "description": "Cheque otros bancos"}
+]

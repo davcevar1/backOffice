@@ -1,0 +1,6 @@
+[
+  {"code": "1234567891", "name": "Nombre 1", "targets": "Corporativo", "products": "Producto Cobis 1, Producto Cobis 2"},
+  {"code": "1234567892", "name": "Nombre 2", "targets": "Personal", "products": "Producto Cobis 1, Producto Cobis 2"},
+  {"code": "1234567893", "name": "Nombre 3", "targets": "Personal", "products": "Producto Cobis 1, Producto Cobis 3"},
+  {"code": "1234567894", "name": "Npmbre 4", "targets": "Corporativo, Personal", "products": "Producto Cobis 1, Producto Cobis 2. Producto Cobis 3"}
+]

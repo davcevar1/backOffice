@@ -1,0 +1,61 @@
+@field-background: lighten(@primary-color, 10%);
+
+#page-login {
+    background-size: 60%;
+    background-position: right 50px bottom 50px;
+    background-repeat: no-repeat;
+    background-color: @primary-color;
+    @media (min-width: @screen-sm) {
+        background-image: url(images/glifos.svg);
+    }
+    #content {
+        #logo {
+            margin-bottom: 40px;
+            width: 214px;
+            height: 46px;
+            background: url(images/logo-tuiio.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        input[type="text"],
+        input[type="password"],
+        select.input-lg {
+            border-radius: 4px;
+            background: @field-background;
+            border-color: @field-background;
+            box-shadow: 0 0;
+            &:focus {
+                border-color: @field-background;
+                box-shadow: 0 0 1px darken(@primary-color, 20%);
+            }
+            .placeholder(rgba(255, 255, 255, 0.5));
+        }
+        .btn-primary {
+            .background-image(linear-gradient(to bottom, lighten(@primary-color, 5%) 0%, darken(@primary-color, 10%) 100%));
+            border-color: darken(@primary-color, 15%);
+            &:focus,
+            &:hover {
+                outline: none;
+                border-color: darken(@primary-color, 20%);
+                .background-image(linear-gradient(to bottom, lighten(@primary-color, 2%) 0%, darken(@primary-color, 15%) 100%));
+            }
+            &:active {
+                outline: none;
+                background: darken(@primary-color, 5%);
+                border-color: darken(@primary-color, 10%);
+            }
+        }
+        .k-dropdown-wrap {
+            border-color: @field-background;
+            &,
+            &.k-state-hover {
+                padding: 0;
+                background-color: @field-background;
+            }
+        }
+        .k-state-default > .k-select {
+            background-color: @field-background;
+            border-color: transparent;
+        }
+    }
+}

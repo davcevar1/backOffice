@@ -1,0 +1,4 @@
+[
+    {"id":1, "enabled":true, "name":"ADMINISTRADOR", "type": "Específico", "channel":"INTERNET", "status":"VIGENTE"},
+    {"id":2, "enabled":false, "name":"MENU POR PROCESOS", "type": "Específico", "channel":"INTERNET", "status":"VIGENTE"}
+]

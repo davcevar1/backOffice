@@ -1,0 +1,183 @@
+@pk-color: #00a7cd;
+@sk-color: #706f6f;
+@tk-color: #003361;
+@fk-color: #007dbd;
+@fvk-color: rgba(0,51,97,0);
+@sxk-color: rgba(0,167,205,1);
+@bgk-color: white;
+
+body,
+html {
+	height: 100%;
+}
+
+#page-login {
+	background: url("images/bg-3.jpg") no-repeat @secondary-color;
+    
+    //background-size: 617px;
+    background-size: cover;
+    //background-position: right -50px bottom -50px;
+    color: #FFF;
+    .transition(visibility 0s .4s, opacity .4s);
+    opacity: 1;
+    @media ( max-width : 675px) {
+        //background-position: right -20px top -20px;
+        //background-size: 217px;
+    }
+    #content {
+        padding: 75px 150px;
+        height: 100%;
+        background: linear-gradient(to top, @fvk-color 1%,@sxk-color 99%);
+        @media ( max-width : 675px) {
+            padding: 30px;
+        }
+        #logo {
+            margin-bottom: 20px;
+            width: 214px;
+			//height: 46px;
+			//background: url("images/logo.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+        }
+        #message {
+            margin-bottom: 40px;
+            font-size: 24px;
+            color: @bgk-color;
+            @media ( max-width : 675px) {
+                font-size: 18px;
+            }
+        }
+        #content-wrapper {
+            position: relative;
+        }
+        #loginForm {
+            width: 270px;
+            position: absolute;
+            top: 0;
+            .transition(left .4s, opacity .4s, visibility .4s);
+            @media ( max-width : 675px) {
+                width: 100%;
+            }
+            &.current {
+                left: 0;
+                opacity: 1;
+                visibility: visible;
+            }
+            &.next {
+                left: 290px;
+                opacity: 0;
+                visibility: hidden;
+            }
+            &.prev {
+                left: -290px;
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+		#officeForm {
+				width: 100%;
+				max-width: 360px;
+				position: absolute;
+				top: 0;
+				.transition(left .4s, opacity .4s, visibility .4s);
+				@media ( max-width : 675px) {
+					width: 100%;
+				}
+				&.current {
+					left: 0;
+					opacity: 1;
+					visibility: visible;
+				}
+				&.next {
+					left: 290px;
+					opacity: 0;
+					visibility: hidden;
+				}
+				&.prev {
+					left: -290px;
+					opacity: 0;
+					visibility: hidden;
+				}
+		}        
+        input[type="text"],
+        input[type="password"],
+        select.input-lg {
+            border-radius: 4px;
+            background: @bgk-color;
+            border-color: @pk-color;
+            color: @fk-color;
+            &:focus {
+                border-color: @fk-color;
+            }
+            &::placeholder {
+                color: @fk-color;
+                opacity: 1;
+            }
+        }
+        .btn-primary {
+            //.background-image(linear-gradient(to bottom, #262e3b 0%, #202631 100%));
+            background-image: none;
+            background-color: @pk-color;
+            border-color: @bgk-color;
+            border-radius: 4px;
+            color: @bgk-color;
+            &:hover {
+                border-color: @pk-color;
+            }
+        }
+        .k-dropdown-wrap {
+            background-image: none;
+            background-position: 0;
+            background: @bgk-color;
+            border-color: @pk-color;
+			padding: 5px 15px 5px 0px;
+            font-size: 18px;
+			height: inherit;
+
+            &.k-state-hover {
+                background-color: transparent;
+				//padding: 5px 15px;
+                font-size: 18px;
+            }
+            .k-input {
+                height: 2;
+				box-shadow: none;
+            }
+        }
+        .k-state-default > .k-select {
+            background-color: transparent;
+            border-color: transparent;
+            &:hover{
+                background-color: transparent;
+            }
+        }
+        .form-control.form-control-customize-to-kendo{
+			padding: 0;
+            border: none;
+            background-color: transparent;
+            box-shadow: none;
+        }
+        .form-control-customize-to-kendo .k-dropdown-wrap.k-state-active{
+            border-color: #00abf2;
+            background-color: #ffffff;
+            background-image: url("/CTSProxy/services/cobis/web/styles/themes/default/images/logo.png");
+        }
+        .k-combobox {
+            border-radius: 4px;
+        }
+    }
+}
+
+.k-loading,
+.k-state-hover .k-loading {
+    background-image: url(icons/loading.svg);
+    background-size: 100%;
+    background-position: 50% 50%;
+}
+
+
+#officeDefault, #roleDefault {
+    .k-combobox .k-dropdown-wrap {
+        height: 37px;
+    }
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-viewport cb-flex cb-column" style="background:transparent;">
+      <div class="cb-grow cb-scrollable">
+        <div class="container" style="padding:30px;">
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <div class="form-vertical">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div class="control-label">Proceso</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div class="control-label">Cuenta</div>
+                      <div class="cb-control">
+                        <input type="text" kendo-combo-box options="autocompleteCuentas" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div class="control-label">Oficina</div>
+                      <div class="cb-control">
+                        <select kendo-combo-box></select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div class="control-label">Area</div>
+                      <div class="cb-control">
+                        <select kendo-combo-box></select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="cb-group cb-group-simple">
+            <div>
+              <kendo-grid options="procesos"></kendo-grid>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="cb-navbar cb-navbar-bottom">
+        <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+          <button class="btn btn-primary navbar-btn" data-dismiss="modal">Buscar</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div id="add" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Asociación cuenta</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple">
+            <div>
+              <kendo-grid options="cuentasProcesos" style="margin:0;"></kendo-grid>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

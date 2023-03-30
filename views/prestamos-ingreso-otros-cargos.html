@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+		<div class="cb-viewport cb-flex cb-column">
+            <div class="cb-form-header">
+				<div class="cb-flex cb-middle">
+					<div class="cb-grow">
+						<div title="# de prestamo">#56465465465</div>
+						<div class="cb-text-xl">Aguas Munoz Betty Jeanneth - PAS 1803235637</div>
+						<div class="cb-flex cb-gutters">
+							<div>
+								<div>$20,000.00 USD</div>
+								<div class="small control-label">Crédito Automotriz</div>
+							</div>
+							<div>
+								<div>$700 USD</div>
+								<div class="small control-label">Valor exigible</div>
+							</div>
+							<div>
+								<div>SUCRE</div>
+								<div class="small control-label">Oficina</div>
+							</div>
+							<div>
+								<div>Vigente</div>
+								<div class="small control-label">Estado</div>
+							</div>
+						</div>
+					</div>
+					<div class="text-right">
+						<button id="more-info" class="btn btn-default"><span class="fa fa-info-circle"></span> Mas información</button>
+						<a href="prestamos-busqueda.html" class="btn btn-default"><span class="fa fa-search"></span> Buscar</a>
+					</div>
+				</div>
+			</div>
+            <div class="container">
+				<kendo-grid options="chargeOptions"></kendo-grid> 
+            </div>
+        </div>
+        <div class="cb-view-loading cb-hidden"> 
+            <div class="cb-view-loading-icon"></div> 
+        </div>
+    </div>
+
+    <div id="info" class="hidden">
+        <div style="margin-left: -15px; margin-right: -15px; margin-top: -10px; color:#333;">
+            <table class="table">
+                <tbody>
+                    <tr><th class="cb-no-wrap">Fecha de inicio</th><td>12/12/2016</td></tr>
+                    <tr><th class="cb-no-wrap">Fecha vencimiento</th><td>12/12/2016</td></tr>
+                    <tr><th class="cb-no-wrap">Oficina</th><td>Sucre</td></tr>
+                    <tr><th class="cb-no-wrap">Cédula #</th><td>180256324578</td></tr>
+                    <tr><th class="cb-no-wrap">Tasa efectiva anual</th><td>9%</td></tr>
+                </tbody>
+            </table>		
+        </div>    
+    </div>
+	
+	<div id="otros-cargos" class="modal fade" tabindex="-1" role="dialog">
+	  <div class="modal-dialog modal-sm">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title">Cargo</h4>
+		  </div>
+		  <div class="modal-body">
+			<fieldset>
+				<div class="form-group">
+					<div class="control-label">Forma de pago</div>
+					<div class="cb-control">
+						<select class="form-control" ng-model="paymentMethod">
+							<option></option>
+							<option value="debit">Nota de débito</option>
+							<option value="check">Cheque</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="control-label">Monto</div>
+					<div class="cb-control">
+						<div class="cb-flex cb-gutters">
+							<div class="cb-grow">
+								<input type="text" kendo-numeric-text-box k-min="1" k-ng-model="amount" />
+							</div>
+							<div>
+								<select class="form-control">
+									<option>USD</option>
+									<option>EUR</option>
+								</select>
+							</div>
+						</div>
+						<div class="text-muted small" style="margin-top:5px;">Conversión: $234.00 USD, Cotización: 1.34</div>
+					</div>
+				</div>
+				<div class="form-group" ng-show="paymentMethod=='check'">
+					<div class="control-label"># Cheque</div>
+					<div class="cb-control">
+						<input type="text" class="form-control" />
+					</div>
+				</div>
+				<div class="form-group" ng-show="paymentMethod=='check'">
+					<div class="control-label">Banco</div>
+					<div class="cb-control">
+						<input type="text" class="form-control" />
+					</div>
+				</div>
+				<div class="form-group" ng-show="paymentMethod=='check'">
+					<div class="control-label">Retención</div>
+					<div class="cb-control">
+						<input type="text" kendo-numeric-text-box />
+					</div>
+				</div>
+				<div class="form-group" ng-show="paymentMethod=='debit'">
+					<div class="control-label">Referencia</div>
+					<div class="cb-control">
+						<input type="text" class="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="control-label">Notas</div>
+					<div class="cb-control">
+						<input type="text" class="form-control" />
+					</div>
+				</div>
+			</fieldset>	
+			<div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+				<nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+					<button class="btn btn-primary navbar-btn">Aceptar</button>
+					<button class="btn btn-default navbar-btn">Cancelar</button>
+				</nav>
+			</div>
+		  </div>
+		</div>
+      </div>
+    </div>	  
+
+	<script type="text/x-kendo-template" id="template">
+        <button data-target="\\#otros-cargos" data-toggle="modal" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button><button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+    </script>
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="prestamos" src="../lib/require/require.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+@import (reference) "../lesshat.less";
+@import (reference) "../default/variables.less";
+@import (reference) "variables.less";
+
+.cb-view-container-root {
+  padding: 0;
+}
+/* Estilo para enlazar contenido de un iframe*/
+.cb-content-iframe {
+    div.cb-view-container-root{
+        &.cb-view-container{
+            &.cb-group-layout{
+                &.ng-scope{
+                    &.container,
+                    &.container-fluid {
+                        border: 1px solid @border-color;
+                        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.17);
+                        background-color: #FFF;
+                        position: relative;
+                        width: 100%;
+                        @media (min-width: @screen-sm) {
+                            padding-left: @mgr-left;
+                            padding-right: @mgr-right;
+                            padding-top: @mgr-top;
+                        }
+                        @media (max-width: (@screen-sm - 1)) {
+                            padding-left: (@mgr-left * 0.66);
+                            padding-right: (@mgr-right * 0.66);
+                            padding-top: (@mgr-top * 0.66);
+                        }
+                        @media (max-width: (@screen-xs - 1)) {
+                            padding-left: (@mgr-left * 0.33);
+                            padding-right: (@mgr-right * 0.33);
+                            padding-top: (@mgr-top * 0.33);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.cb-group-box() {
+    border: 1px solid @border-color;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.17);
+    background-color: #FFF;
+  position: relative;
+  > div > legend {
+    color: #EC6225;
+    position: absolute;
+    border: 0;
+  }
+}
+.cb-group {
+  > div > .k-panelbar {
+    margin-left: -@page-margin;
+    margin-top: -@page-margin;
+    margin-right: -@page-margin;
+    border: 0;
+    box-shadow: 0 0;
+  }
+	//TODO: Deprecated
+	&.cb-group-ib-page-deprecated {
+    .cb-group-box();
+    //margin-top: 40px;
+    padding: 30px;
+    > div > legend {
+      font-size: 24px;
+      font-weight: 300;
+      margin-top: -40px;
+      margin-bottom: 0;
+      line-height: 40px;
+      left: 0;
+      @media (max-width: (@screen-xs - 1)) {
+        margin-top: -56px;
+        margin-left: 15px;
+      }
+    }
+    &.cb-group-content {
+      > legend {
+        margin-top: -(40+@page-margin);
+      }
+    }
+    > .k-panelbar {
+      margin-bottom: -1px;
+      > .k-item > .k-header {
+        &,
+        &.k-state-focused,
+        &.k-state-selected {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      }
+    }
+    @media (max-width: (@screen-xs - 1)) {
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 0;
+      padding: @page-margin/2;
+      > div > legend {
+        margin-top: -(40+(@page-margin/2));
+      }
+    }
+  }
+  &.cb-group-ib-panel,
+  &.cb-group-ib-panel-left {
+    .cb-group-box();
+    padding: @page-margin/2;
+    padding-top: (@page-margin/2)+30;
+    margin-bottom: 20px;
+    > div > legend {
+      font-weight: 300;
+      font-size: 20px;
+      margin-top: -((@page-margin/2)+30);
+      line-height: (@page-margin/2)+30;
+      width: inherit;
+    }
+  }
+  div#G_FOREIGNACE_170451_VAL {
+    margin-left: 3px;
+    margin-right: 5px;
+    margin-top: 2px;
+  }
+}
+
+.cb-group-ib-panel-left .table-ib {
+  padding: 0px 0px 0px 0px;
+}
+
+.cb-grid-no-header {
+  table {
+    tbody td {
+      & > table.table-ib {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 0px;
+          box-sizing: border-box;
+        span {
+          font-family: @font_text_regular;
+          > i {
+            font-family: @font_text_light;
+            font-weight: 300;
+            color: @color-text;
+          }
+          &.cb-flag-money {
+            padding-left: 36px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cb-navbar-placeholder > .navbar.navbar-fixed-top,
+.cb-navbar > .navbar.navbar-fixed-top,
+.cb-navbar-placeholder > .navbar.navbar-fixed-bottom,
+.cb-navbar > .navbar.navbar-fixed-bottom {
+  margin: 0;
+  z-index: 1;
+}
+main{
+.ci-content{
+  width:55%;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+  .ci-block{
+    margin-bottom: 100px;
+    .ci-title{
+      background-color: #00468e;
+      color: #fff;
+      padding: 5px;
+      background: linear-gradient(-90deg, #0c61b7 0, #0092d4 100%);
+    }
+    div{
+      .ci-label{
+        margin-top: 15px;
+        color: #7d7d7d;
+        font-size: initial;
+      }
+      .ci-img{
+        margin-top: 20px;
+      }
+    }
+  }
+}
+}
+
+
+
+
+

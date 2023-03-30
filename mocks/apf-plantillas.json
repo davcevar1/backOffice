@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "template": "ReportCastigo",
+    "nemonico": "Castigo",
+    "currency": "Bolivianos",
+    "description": "Reporte de castigos"
+  },
+  {
+    "id": 2,
+    "template": "ReportCastigo2",
+    "nemonico": "Castigo2",
+    "currency": "Bolivianos",
+    "description": "Reporte de castigos"
+  }
+]

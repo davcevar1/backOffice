@@ -1,0 +1,12 @@
+/**********************************************************************/
+/* ICONS
+/**********************************************************************/
+.icon-redmine-feriado { 
+    background-image: url(../images/mat1.png);
+}
+
+#admin-menu a.redmine-feriado {
+    background-image: url(../images/mat1.png);
+}
+
+#admin-menu a.feriado { background-image: url(../images/mat1.png);}

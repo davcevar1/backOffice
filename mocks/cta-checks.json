@@ -1,0 +1,7 @@
+[
+  {"number": 12345, "amount": 500, "date":"12/12/2018", "hour":"03:45", "status": "DEFECTO FORMA", "cause":""},
+  {"number": 12345, "amount": 500, "date":"12/12/2018", "hour":"03:45", "status": "PAGADO", "cause":""},
+  {"number": 12345, "amount": 500, "date":"12/12/2018", "hour":"03:45", "status": "PAGADO", "cause":""},
+  {"number": 12345, "amount": 500, "date":"12/12/2018", "hour":"03:45", "status": "ANULADO", "cause":""},
+  {"number": 12345, "amount": 500, "date":"12/12/2018", "hour":"03:45", "status": "PROTESTO", "cause":"GIRO SOBRE FONDOS NO DISPONIBLES"}
+]

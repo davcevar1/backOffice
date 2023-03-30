@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "userName": "ncastaneda",
+    "channel": "Banca Movil",
+    "documentNumber": "1234567890",
+    "name": "NINCO CASTANEDA CESAR ERNESTO",
+    "type": "Persona natural",
+    "authorized": true,
+    "status": "Activo"
+  },
+  {
+    "id": 2,
+    "userName": "jcarpio",
+    "channel": "Banca Movil",
+    "documentNumber": "1234567890",
+    "name": "NINCO CASTANEDA CESAR ERNESTO",
+    "type": "Persona natural",
+    "authorized": true,
+    "status": "Activo"
+  },
+  {
+    "id": 3,
+    "userName": "cmartinez",
+    "channel": "Banca Movil",
+    "documentNumber": "1234567890",
+    "name": "NINCO CASTANEDA CESAR ERNESTO",
+    "type": "Persona natural",
+    "authorized": true,
+    "status": "Activo"
+  },
+  {
+    "id": 4,
+    "userName": "ssanchez",
+    "channel": "Banca Movil",
+    "documentNumber": "1234567890",
+    "name": "NINCO CASTANEDA CESAR ERNESTO",
+    "type": "Persona natural",
+    "authorized": true,
+    "status": "Activo"
+  },
+  {
+    "id": 5,
+    "userName": "dtamayo",
+    "channel": "Banca Movil",
+    "documentNumber": "1234567890",
+    "name": "NINCO CASTANEDA CESAR ERNESTO",
+    "type": "Persona natural",
+    "authorized": true,
+    "status": "Activo"
+  },
+  {
+    "id": 6,
+    "userName": "ealbornoz",
+    "channel": "Banca Movil",
+    "documentNumber": "1234567890",
+    "name": "NINCO CASTANEDA CESAR ERNESTO",
+    "type": "Persona natural",
+    "authorized": true,
+    "status": "Activo"
+  },
+  {
+    "id": 7,
+    "userName": "ccatota",
+    "channel": "Banca Movil",
+    "documentNumber": "1234567890",
+    "name": "NINCO CASTANEDA CESAR ERNESTO",
+    "type": "Persona natural",
+    "authorized": true,
+    "status": "Activo"
+  },
+  {
+    "id": 8,
+    "userName": "fmata",
+    "channel": "Banca Movil",
+    "documentNumber": "1234567890",
+    "name": "NINCO CASTANEDA CESAR ERNESTO",
+    "type": "Persona natural",
+    "authorized": true,
+    "status": "Activo"
+  },
+  {
+    "id": 9,
+    "userName": "mpadron",
+    "channel": "Banca Movil",
+    "documentNumber": "1234567890",
+    "name": "NINCO CASTANEDA CESAR ERNESTO",
+    "type": "Persona natural",
+    "authorized": true,
+    "status": "Activo"
+  },
+  {
+    "id": 10,
+    "userName": "jsilva",
+    "channel": "Banca Movil",
+    "documentNumber": "1234567890",
+    "name": "NINCO CASTANEDA CESAR ERNESTO",
+    "type": "Persona natural",
+    "authorized": true,
+    "status": "Activo"
+  }
+]

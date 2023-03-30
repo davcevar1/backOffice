@@ -1,0 +1,6 @@
+[
+    {"paymentMethod": "Transferencia Banco Central", "amount": 30000, "currency": "USD", "bank": "Banco Central", "account": "00343243", "code": "00654784"},
+    {"paymentMethod": "Transferencia Banco Central", "amount": 30000, "currency": "USD", "bank": "Banco Central", "account": "00343243", "code": "00112454"},
+    {"paymentMethod": "Transferencia Banco Central", "amount": 30000, "currency": "USD", "bank": "Banco Central", "account": "00343243", "code": "00987654"},
+    {"paymentMethod": "Transferencia Banco Central", "amount": 30000, "currency": "USD", "bank": "Banco Central", "account": "00343243", "code": "00103948"}
+]

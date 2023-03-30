@@ -1,0 +1,5 @@
+[
+  {"type":"Efectivo", "date":"2018-01-05", "amount":10000},
+  {"type":"Cheque", "date":"2018-01-05", "bank":"Banco del Pacífico", "account":"23126000032", "amount":5000},
+  {"type":"Cheque", "date":"2018-01-05", "bank":"Banco del Pacífico", "account":"23126000048", "amount":5000}
+]

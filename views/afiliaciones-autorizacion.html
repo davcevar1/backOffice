@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-breadcrumb">
+			<ul class="breadcrumb">
+				<li>Inicio</li>
+				<li><a href="#">Cash Management</a></li>
+                <li>Autorización</li>
+			</ul>
+		</div>
+		<div class="cb-view-container-root cb-group-layout container">
+			<kendo-grid options="userTypes" k-scrollable="false"></kendo-grid>
+        </div>
+        <div class="cb-navbar cb-navbar-bottom">
+            <nav class="navbar navbar-default navbar-fixed-bottom">
+                <button class="btn btn-primary navbar-btn">Guardar</button>
+            </nav>
+        </div>
+        <div class="cb-view-loading cb-hidden">
+            <div class="cb-view-loading-icon"></div>
+        </div>
+    </div>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="afiliaciones" src="../lib/require/require.js"></script>
+</body>
+
+</html>

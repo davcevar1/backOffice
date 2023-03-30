@@ -1,0 +1,5 @@
+[
+	{"lastName":"Aguirre", "firstName":"Frank", "middleName":"Junior", "type": "Titular", "scn":"12-456231", "ownership":"50%"},
+	{"lastName":"Torres", "firstName":"Juan", "middleName":"Alberto", "type": "Cotitular", "scn":"78-546555", "ownership":"50%"},
+	{"lastName":"Garces", "firstName":"José", "middleName":"Alberto", "type": "Representante legal", "scn":"78-546555", "ownership":"50%"}
+]

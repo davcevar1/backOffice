@@ -1,0 +1,6 @@
+[
+	{"description": "Capital", "value":20000},
+	{"description": "Interés", "value":2000},
+	{"description": "Otros", "value":100},
+	{"description": "Total", "value":22100}
+]

@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Cobiscorp</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="styles/themes/ib.css">
+  <style class="ng-scope">
+    .fa-star-o {
+        display: none;
+    }
+
+    .list-group-item:hover > div > .fa-star-o {
+        display: block;
+    }
+	.cb-menu .list-group-item.active,
+	.cb-menu .list-group-item.active:hover,
+	.cb-menu .list-group-item.active:focus {
+		color: #333;
+	}
+	.label_package {
+    font-size:18px;
+    font-family: 'Roboto', sans-serif;
+	padding-left: 0px !important;
+	z-index: 3;
+	color: #607287 !important;
+	font-family: 'Roboto', sans-serif;
+    }
+	.new_base{
+	position: relative;
+	z-index: 3;
+	background-color: #319ddc;
+	display: inline;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 0;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+	}
+	.new1 {
+    left: 3px;
+    }
+	.new2 {
+    left: 42px;
+    }
+
+	.new3 {
+    left: 50px;
+    }
+	.icon_menu{
+	width: 24px;
+	height: 24px;
+	}
+  </style>
+<style class="ng-scope">
+  /* ELiminar solo es para el prototipo */
+  .list-group-item > div > a:nth-child(2) {
+    display: none;
+  }
+</style>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="cb-header">
+    <div class="container">
+      <div class="cb-header__row1">
+        <div class="cb-header__menu">
+          <button type="button">
+            <div class="fa fa-bars"></div>
+          </button>
+        </div>
+        <div class="cb-header__logo"></div>
+        <div class="cb-header__actions">
+          <button type="button" class="cb-notifications cb-item cb-item--column">
+            <div class="cb-item__icon">
+              <div class="fa fa-bell"></div>
+            </div>
+            <div class="cb-item__label">Alertas</div>
+            <div class="cb-item__counter">11</div>
+          </button>
+          <button type="button" class="cb-account cb-item cb-item--column">
+            <div class="cb-item__icon">
+              <div class="fa fa-user"></div>
+            </div>
+            <div class="cb-item__label">Mi Cuenta</div>
+          </button>
+          <button type="button" class="cb-language cb-item cb-item--reverse">
+            <div class="cb-item__icon">
+              <div class="fa fa-angle-down"></div>
+            </div>
+            <div class="cb-item__label">Español</div>
+          </button>
+          <button type="button" class="cb-signout cb-item cb-item--reverse">
+            <div class="cb-item__icon">
+              <div class="fa fa-sign-out"></div>
+            </div>
+            <div class="cb-item__label">Salir</div>
+          </button>
+        </div>
+      </div>
+      <div class="cb-header__row2">
+        <div class="cb-header__profile cb-item">
+          <div class="cb-avatar cb-item__icon">
+            <div>AM</div>
+          </div>
+          <div class="cb-item__label">
+            <div>ALCIVAR MARIA</div>
+            <div class="small text-muted">Ultimo acceso: 12-12-2019</div>
+          </div>
+        </div>
+        <div class="cb-header__bookmarks">
+          <button type="button" class="cb-item cb-item--column">
+            <div class="cb-icon cb-item__icon">
+              <svg>
+                <use xlink:href="assets/icons.svg#transfer-own" ng-href="assets/icons.svg#transfer-own"></use>
+              </svg>
+            </div>
+            <div class="cb-item__label">Transferencias a mis cuentas</div>
+          </button>
+          <button type="button" class="cb-item cb-item--column">
+            <div class="cb-icon cb-item__icon">
+              <svg>
+                <use xlink:href="assets/icons.svg#transfer-own" ng-href="assets/icons.svg#transfer-own"></use>
+              </svg>
+            </div>
+            <div class="cb-item__label">Transferencias a mis cuentas</div>
+          </button>
+          <button type="button" class="cb-item cb-item--column">
+            <div class="cb-icon cb-item__icon">
+              <svg>
+                <use xlink:href="assets/icons.svg#transfer-own" ng-href="assets/icons.svg#transfer-own"></use>
+              </svg>
+            </div>
+            <div class="cb-item__label">Transferencias a terceros</div>
+          </button>
+          <button type="button" class="cb-item cb-item--column">
+            <div class="cb-icon cb-item__icon">
+              <svg>
+                <use xlink:href="assets/icons.svg#transfer-own" ng-href="assets/icons.svg#transfer-own"></use>
+              </svg>
+            </div>
+            <div class="cb-item__label">Saldos</div>
+          </button>
+          <button type="button" class="cb-item cb-item--column">
+            <div class="cb-icon cb-item__icon">
+              <svg>
+                <use xlink:href="assets/icons.svg#transfer-own" ng-href="assets/icons.svg#transfer-own"></use>
+              </svg>
+            </div>
+            <div class="cb-item__label">Pago de servicios</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cb-bookmark-toggle">
+    <button type="button"><span class="fa fa-angle-up"></span></button>
+  </div>
+  <div class="cb-main-layout container">
+    <div class="row">
+      <div class="cb-sidebar col-sm-4">
+        <div class="cb-menu-backdrop">
+          <div class="cb-button"><span class="fa fa-times"></span></div>
+        </div>
+        <div class="cb-menu">
+				<div class="list-group">
+					<!-- ngRepeat: menuItem in collectionMenus[1].children --><!-- ngIf: menuItem.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItem.mini=='N'" ng-repeat="menuItem in collectionMenus[1].children" ng-class="{active: menuItem==currentMenuItem}">
+						<div class="cb-flex cb-middle">
+							<a ng-show="!menuItem.children" href="javascript://" ng-click="setView(menuItem, menuItem.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding ng-hide">Transacciones</a>
+							<a ng-show="menuItem.children &amp;&amp; menuItem.children.length>0" href="javascript://" data-target="#header-menu-1" class="cb-grow cb-collapsible ng-binding">Transacciones</a>
+							<div ng-show="!menuItem.children" ng-click="setFavorite(menuItem, $event)" ng-class="{'fa-star':menuItem.favorite, 'fa-star-o':!menuItem.favorite}" class="fa ng-hide fa-star-o"></div>
+						</div>
+						<div class="collapse in" id="header-menu-1" aria-expanded="true" style="">
+							<div class="list-group" style="margin-bottom: -1px;">
+								<!-- ngRepeat: menuItemLevel2 in menuItem.children --><!-- ngIf: menuItemLevel2.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel2.mini=='N'" ng-repeat="menuItemLevel2 in menuItem.children" ng-class="{active: menuItemLevel2==currentMenuItem}">
+									<div class="cb-flex cb-middle">
+										<a ng-show="!menuItemLevel2.children" href="javascript://" ng-click="setView(menuItemLevel2, menuItemLevel2.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Posición Consolidada</a>
+										<a ng-show="menuItemLevel2.children &amp;&amp; menuItemLevel2.children.length>0" href="javascript://" data-target="#header-menu-3" class="cb-grow cb-collapsible collapsed ng-binding ng-hide">Posición Consolidada</a>
+										<div ng-show="!menuItemLevel2.children" ng-click="setFavorite(menuItemLevel2, $event)" ng-class="{'fa-star':menuItemLevel2.favorite, 'fa-star-o':!menuItemLevel2.favorite}" class="fa fa-star-o"></div>
+									</div>
+									<div class="collapse" id="header-menu-3">
+										<div class="list-group" style="margin-bottom: -1px;">
+											<!-- ngRepeat: menuItemLevel3 in menuItemLevel2.children -->
+										</div>
+									</div>
+								</div><!-- end ngIf: menuItemLevel2.mini=='N' --><!-- end ngRepeat: menuItemLevel2 in menuItem.children --><!-- ngIf: menuItemLevel2.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel2.mini=='N'" ng-repeat="menuItemLevel2 in menuItem.children" ng-class="{active: menuItemLevel2==currentMenuItem}">
+									<div class="cb-flex cb-middle">
+										<a ng-show="!menuItemLevel2.children" href="javascript://" ng-click="setView(menuItemLevel2, menuItemLevel2.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding ng-hide">Consultas</a>
+										<a ng-show="menuItemLevel2.children &amp;&amp; menuItemLevel2.children.length>0" href="javascript://" data-target="#header-menu-4" class="cb-grow cb-collapsible collapsed ng-binding">Consultas</a>
+										<div ng-show="!menuItemLevel2.children" ng-click="setFavorite(menuItemLevel2, $event)" ng-class="{'fa-star':menuItemLevel2.favorite, 'fa-star-o':!menuItemLevel2.favorite}" class="fa ng-hide fa-star-o"></div>
+									</div>
+									<div class="collapse" id="header-menu-4">
+										<div class="list-group" style="margin-bottom: -1px;">
+											<!-- ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Saldos</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Últimos Movimientos</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Movimientos</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Chequeras</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Préstamos</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Depósitos a Plazo Fijo</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Estados de Cuenta</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Transferencias A Mis Cuentas</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Transferencias A Otras Cuentas</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Pagos</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Solicitudes</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Transferencias ACH</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children -->
+										</div>
+									</div>
+								</div><!-- end ngIf: menuItemLevel2.mini=='N' --><!-- end ngRepeat: menuItemLevel2 in menuItem.children --><!-- ngIf: menuItemLevel2.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel2.mini=='N'" ng-repeat="menuItemLevel2 in menuItem.children" ng-class="{active: menuItemLevel2==currentMenuItem}">
+									<div class="cb-flex cb-middle">
+										<a ng-show="!menuItemLevel2.children" href="javascript://" ng-click="setView(menuItemLevel2, menuItemLevel2.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding ng-hide">Transferencias</a>
+										<a ng-show="menuItemLevel2.children &amp;&amp; menuItemLevel2.children.length>0" href="javascript://" data-target="#header-menu-17" class="cb-grow cb-collapsible collapsed ng-binding">Transferencias</a>
+										<div ng-show="!menuItemLevel2.children" ng-click="setFavorite(menuItemLevel2, $event)" ng-class="{'fa-star':menuItemLevel2.favorite, 'fa-star-o':!menuItemLevel2.favorite}" class="fa ng-hide fa-star-o"></div>
+									</div>
+									<div class="collapse" id="header-menu-17">
+										<div class="list-group" style="margin-bottom: -1px;">
+											<!-- ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">A Otras Cuentas</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">A Mis Cuentas</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">A Otros Bancos (ACH)</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children -->
+										</div>
+									</div>
+								</div><!-- end ngIf: menuItemLevel2.mini=='N' --><!-- end ngRepeat: menuItemLevel2 in menuItem.children --><!-- ngIf: menuItemLevel2.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel2.mini=='N'" ng-repeat="menuItemLevel2 in menuItem.children" ng-class="{active: menuItemLevel2==currentMenuItem}">
+									<div class="cb-flex cb-middle">
+										<a ng-show="!menuItemLevel2.children" href="javascript://" ng-click="setView(menuItemLevel2, menuItemLevel2.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding ng-hide">Pagos</a>
+										<a ng-show="menuItemLevel2.children &amp;&amp; menuItemLevel2.children.length>0" href="javascript://" data-target="#header-menu-24" class="cb-grow cb-collapsible collapsed ng-binding">Pagos</a>
+										<div ng-show="!menuItemLevel2.children" ng-click="setFavorite(menuItemLevel2, $event)" ng-class="{'fa-star':menuItemLevel2.favorite, 'fa-star-o':!menuItemLevel2.favorite}" class="fa ng-hide fa-star-o"></div>
+									</div>
+									<div class="collapse" id="header-menu-24">
+										<div class="list-group" style="margin-bottom: -1px;">
+											<!-- ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Préstamos</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Programados</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Servicios</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children -->
+										</div>
+									</div>
+								</div><!-- end ngIf: menuItemLevel2.mini=='N' --><!-- end ngRepeat: menuItemLevel2 in menuItem.children --><!-- ngIf: menuItemLevel2.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel2.mini=='N'" ng-repeat="menuItemLevel2 in menuItem.children" ng-class="{active: menuItemLevel2==currentMenuItem}">
+									<div class="cb-flex cb-middle">
+										<a ng-show="!menuItemLevel2.children" href="javascript://" ng-click="setView(menuItemLevel2, menuItemLevel2.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding ng-hide">Servicios Bancarios</a>
+										<a ng-show="menuItemLevel2.children &amp;&amp; menuItemLevel2.children.length>0" href="javascript://" data-target="#header-menu-28" class="cb-grow cb-collapsible collapsed ng-binding">Servicios Bancarios</a>
+										<div ng-show="!menuItemLevel2.children" ng-click="setFavorite(menuItemLevel2, $event)" ng-class="{'fa-star':menuItemLevel2.favorite, 'fa-star-o':!menuItemLevel2.favorite}" class="fa ng-hide fa-star-o"></div>
+									</div>
+									<div class="collapse" id="header-menu-28">
+										<div class="list-group" style="margin-bottom: -1px;">
+											<!-- ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Apertura Depósitos a Plazo</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Tarifario</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Solicitud Boletas de Garantía</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Cheque de Gerencia</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Solicitud de Chequera</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Suspensión de Pago de Cheque</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Compra Venta de Divisas</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Desembolso de Líneas de Crédito</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children -->
+										</div>
+									</div>
+								</div><!-- end ngIf: menuItemLevel2.mini=='N' --><!-- end ngRepeat: menuItemLevel2 in menuItem.children --><!-- ngIf: menuItemLevel2.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel2.mini=='N'" ng-repeat="menuItemLevel2 in menuItem.children" ng-class="{active: menuItemLevel2==currentMenuItem}">
+									<div class="cb-flex cb-middle">
+										<a ng-show="!menuItemLevel2.children" href="javascript://" ng-click="setView(menuItemLevel2, menuItemLevel2.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding ng-hide">Simuladores</a>
+										<a ng-show="menuItemLevel2.children &amp;&amp; menuItemLevel2.children.length>0" href="javascript://" data-target="#header-menu-55" class="cb-grow cb-collapsible collapsed ng-binding">Simuladores</a>
+										<div ng-show="!menuItemLevel2.children" ng-click="setFavorite(menuItemLevel2, $event)" ng-class="{'fa-star':menuItemLevel2.favorite, 'fa-star-o':!menuItemLevel2.favorite}" class="fa ng-hide fa-star-o"></div>
+									</div>
+									<div class="collapse" id="header-menu-55">
+										<div class="list-group" style="margin-bottom: -1px;">
+											<!-- ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Préstamos</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Depósitos a Plazo Fijo</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children -->
+										</div>
+									</div>
+								</div><!-- end ngIf: menuItemLevel2.mini=='N' --><!-- end ngRepeat: menuItemLevel2 in menuItem.children -->
+							</div>
+						</div>
+					</div><!-- end ngIf: menuItem.mini=='N' --><!-- end ngRepeat: menuItem in collectionMenus[1].children --><!-- ngIf: menuItem.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItem.mini=='N'" ng-repeat="menuItem in collectionMenus[1].children" ng-class="{active: menuItem==currentMenuItem}">
+						<div class="cb-flex cb-middle">
+							<a ng-show="!menuItem.children" href="javascript://" ng-click="setView(menuItem, menuItem.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding ng-hide">Administración y Configuraciones</a>
+							<a ng-show="menuItem.children &amp;&amp; menuItem.children.length>0" href="javascript://" data-target="#header-menu-2" class="cb-grow cb-collapsible collapsed ng-binding">Administración y Configuraciones</a>
+							<div ng-show="!menuItem.children" ng-click="setFavorite(menuItem, $event)" ng-class="{'fa-star':menuItem.favorite, 'fa-star-o':!menuItem.favorite}" class="fa ng-hide fa-star-o"></div>
+						</div>
+						<div class="collapse" id="header-menu-2">
+							<div class="list-group" style="margin-bottom: -1px;">
+								<!-- ngRepeat: menuItemLevel2 in menuItem.children --><!-- ngIf: menuItemLevel2.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel2.mini=='N'" ng-repeat="menuItemLevel2 in menuItem.children" ng-class="{active: menuItemLevel2==currentMenuItem}">
+									<div class="cb-flex cb-middle">
+										<a ng-show="!menuItemLevel2.children" href="javascript://" ng-click="setView(menuItemLevel2, menuItemLevel2.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding ng-hide">Administrativo</a>
+										<a ng-show="menuItemLevel2.children &amp;&amp; menuItemLevel2.children.length>0" href="javascript://" data-target="#header-menu-37" class="cb-grow cb-collapsible collapsed ng-binding">Administrativo</a>
+										<div ng-show="!menuItemLevel2.children" ng-click="setFavorite(menuItemLevel2, $event)" ng-class="{'fa-star':menuItemLevel2.favorite, 'fa-star-o':!menuItemLevel2.favorite}" class="fa ng-hide fa-star-o"></div>
+									</div>
+									<div class="collapse" id="header-menu-37">
+										<div class="list-group" style="margin-bottom: -1px;">
+											<!-- ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Afiliar Terceros</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Cambio de Preguntas de Seguridad</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Cambio de Imagen de Seguridad</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Cuenta Principal</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Actualización de Datos</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Medios de Notificación</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Cambio de Contraseña</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Buzón de Notificaciones</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Administración de Notificaciones</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><div class="list-group-item ng-scope" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+												<div class="cb-flex cb-middle">
+													<a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" onclick="showResponsiveMenu()" class="cb-grow ng-binding">Desactivar Dispositivos</a>
+													<div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa fa-star-o"></div>
+												</div>
+											</div><!-- end ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children --><!-- ngIf: menuItemLevel3.mini=='N' --><!-- end ngRepeat: menuItemLevel3 in menuItemLevel2.children -->
+										</div>
+									</div>
+								</div><!-- end ngIf: menuItemLevel2.mini=='N' --><!-- end ngRepeat: menuItemLevel2 in menuItem.children -->
+							</div>
+						</div>
+					</div><!-- end ngIf: menuItem.mini=='N' --><!-- end ngRepeat: menuItem in collectionMenus[1].children -->
+				</div>
+			</div>
+        <!-- Widget -->
+        <div id="divCollectionMenuWidgets" class="cb-widgets cb-menu-left"></div>
+        <!-- Placeholder -->
+      </div>
+      <div class="cb-workarea col-sm-8" style="height: 100vh;">
+        <h1 id="pageTitle" class="cb-page-title">Posición Consolidada</h1>
+        <iframe class="embed-responsive-item cb-iframe" name="container-view" ng-src="{{shellTab.url}}" id="mainIframe" scrollable="false"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+</body>
+
+</html>

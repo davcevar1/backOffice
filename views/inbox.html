@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+  <meta charset="utf-8">
+  <title>Controles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="inboxController">
+  <div class="cb-view">
+    <div class="cb-view-container-root cb-view-container">
+      <div class="cb-form-header cb-summary">
+        <div class="cb-view-container cb-group-simple">
+          <ul class="nav nav-pills nav-justified cb-nav-count">
+            <li ng-repeat="item in summary.items" ng-class="{active:summary.currentItem==i tem.code}"><a href="#" ng-click="filterTasks(item.code)"><span class="badge">{{item.count}}</span> {{item.label}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="cb-view-container container">
+        <div class="btn-toolbar cb-gutter-v">
+          <div class="btn-group">
+            <button class="btn btn-default btn-sm " ng-click="filters.open().center()"><span class="glyphicon glyphicon-filter"></span> Filtrar</button>
+            <button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-refresh"></span> Refrescar</button>
+            <button class="btn btn-default btn-sm " ng-click="reassign.open().center() " ng-disabled="selectedTasks().length==0"><span class="glyphicon glyphicon-user"></span> Reasignación masiva</button>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-default btn-sm dropdown-toggle " data-toggle="dropdown"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Ordenadas por fecha <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li class="active"><a href="#">Por fecha</a>
+              </li>
+              <li><a href="#">Por tipo</a>
+              </li>
+              <li><a href="#">Por vencimiento</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <form name="tasksForm " class="cb-panel-list">
+          <div class="panel panel-default " id="task-{{task.code}} " ng-repeat="task in filteredTasks() " ng-click="toggleTaskDetails(task, $event)" ng-class="{active:task.selected}">
+            <div class="panel-body cb-flex">
+              <div style="position: relative;">
+                <div class="cb-icon" style="font-size:32px; margin-left: -3px; margin-right: 10px;">
+                  <svg><use ng-href="../images/factoricons-slim.svg#task" xlink:href=""></use></svg>
+                </div>
+                <div ng-if="$index == 1" class="cb-icon" style="font-size: 16px; margin-right: 10px; position: absolute; right: 0; top: 18px; background: #d1021b; border-radius: 100px; color: #FFF;">
+                  <svg><use ng-href="../images/factoricons-regular.svg#undo" xlink:href=""></use></svg>
+                </div>
+              </div>
+              <div class="cb-grow">
+                <div class="pull-right">
+                  <span ng-if="task.late " class="cb-text-red cb-text-sm">Atrasada</span>
+                </div>
+                <small class="text-muted">Cliente Felipe Borja - 1234567890</small>
+                <div>
+                  <!-- <input type="checkbox" name="task[]" ng-model="task.selected" /> -->
+                  <a ng-href="{{ task.url }}" ng-style="{ 'font-weight':!task.opened? 'bold' : '', color: '#333'} ">{{ task.code }} - {{ task.description }}</a>
+                </div>
+
+                <small class="text-muted">Enviado ayer a las 08:23, {{ assignedToString(task) }}</small>
+                <span class="cb-actions">
+                  - <span class="dropdown">
+                    <a class="cb-text-sm dropdown-toggle" data-toggle="dropdown" href="#">Acciones <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="# " ng-click="executeTaskAction( 'play', task, $event)">Reanudar</a>
+                      </li>
+                      <li><a href="# " ng-click="executeTaskAction( 'pause', task, $event)">Suspender</a>
+                      </li>
+                      <li><a href="# " ng-click="executeTaskAction( 'cancel', task, $event)">Cancelar</a>
+                      </li>
+                      <li><a href="# " ng-click="reassign.open().center()">Reasignar</a>
+                      </li>
+                    </ul>
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="panel-footer " style="display:none;">
+              <div class="btn-group">
+                <a class="dropdown-toggle " data-toggle="dropdown " href="#">{{task.currentPane.label}} <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li ng-class="{active:task.currentPane.id=='detail' }"><a href="# " ng-click="changeTaskPane( 'detail', task, $event)">Detalle</a>
+                  </li>
+                  <li ng-class="{active:task.currentPane.id=='history' }"><a href="# " ng-click="changeTaskPane( 'history', task, $event)">Histórico</a>
+                  </li>
+                  <li ng-class="{active:task.currentPane.id=='comments' }"><a href="# " ng-click="changeTaskPane( 'comments', task, $event)">Observaciones</a>
+                  </li>
+                  <li ng-class="{active:task.currentPane.id=='chart' }"><a href="# " ng-click="changeTaskPane( 'chart', task, $event)">Gráfico</a>
+                  </li>
+                  <li ng-class="{active:task.currentPane.id=='info' }"><a href="# " ng-click="changeTaskPane( 'info', task, $event)">Información adicional</a>
+                  </li>
+                  <li ng-class="{active:task.currentPane.id=='requirements' }"><a href="# " ng-click="changeTaskPane( 'requirements', task, $event)">Requisitos</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="tab-content cb-gutter-v">
+                <div class="tab-pane " ng-class="{active:task.currentPane.id=='detail' }">
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <label>Estado</label>
+                    </div>
+                    <div class="col-xs-3">Ejecutandose</div>
+                    <div class="col-xs-3">
+                      <label>Versión</label>
+                    </div>
+                    <div class="col-xs-3">3</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <label>Propietario</label>
+                    </div>
+                    <div class="col-xs-3">Juan Zabala</div>
+                    <div class="col-xs-3">
+                      <label>Duración</label>
+                    </div>
+                    <div class="col-xs-3">45m</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <label>Tiempo estandar</label>
+                    </div>
+                    <div class="col-xs-3">1h00m</div>
+                    <div class="col-xs-3">
+                      <label>Fecha de inicio</label>
+                    </div>
+                    <div class="col-xs-3">28/05/2014</div>
+                  </div>
+                </div>
+                <div class="tab-pane " ng-class="{active:task.currentPane.id=='history' }">
+                  <kendo-grid options="historyOptions"></kendo-grid>
+                </div>
+                <div class="tab-pane " ng-class="{active:task.currentPane.id=='comments' }">
+                  Contenido Observaciones
+                </div>
+                <div class="tab-pane " ng-class="{active:task.currentPane.id=='chart' }">
+                  Contenido Gráfico
+                </div>
+                <div class="tab-pane " ng-class="{active:task.currentPane.id=='info' }">
+                  Contenido Información adicional
+                </div>
+                <div class="tab-pane " ng-class="{active:task.currentPane.id=='requirements' }">
+                  <div class="pull-right " style="margin-top:-40px;">
+                    <button class="btn btn-default">Guardar</button>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6 col-md-4 " ng-repeat="requirement in requirements">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox">{{requirement}}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <form kendo-window="reassign " k-title=" 'Reasignar' " k-width="350 " k-visible="false " class="cb-has-controlbar">
+    <div class="form-group">
+      <label class="control-label">Nombre de usuario</label>
+      <input kendo-auto-complete k-data-source="users " />
+    </div>
+    <div class="cb-form-controlbar">
+      <button class="btn btn-default " ng-click="reassign.close()">Cancelar</button>
+      <button class="btn btn-primary">Aceptar</button>
+    </div>
+  </form>
+
+  <form kendo-window="message " k-title=" 'Observaciones' " k-visible="false " class="cb-has-controlbar">
+    <div class="form-group">
+      <select class="form-control " required>
+        <option>- Seleccione una categoría -</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <textarea class="form-control " rows="4"></textarea>
+    </div>
+    <div class="cb-form-controlbar">
+      <button class="btn btn-default " ng-click="message.close()">Cancelar</button>
+      <button class="btn btn-primary">Aceptar</button>
+    </div>
+  </form>
+
+  <form kendo-window="filters " k-title=" 'Filtros' " k-visible="false " class="form-horizontal">
+    <div class="cb-view-container-root cb-view-container">
+      <div class="cb-view-container cb-group-simple">
+        <div class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-sm-3">Usuario</label>
+            <div class="col-sm-9">
+              <input type="text " class="form-control " />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">Proceso</label>
+            <div class="col-sm-9">
+              <select class="form-control"></select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3">Tarea</label>
+            <div class="col-sm-9">
+              <select class="form-control"></select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cb-navbar-placeholder cb-navbar-bottom">
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <button class="btn btn-default navbar-btn " ng-click="filters.close()">Cancelar</button>
+        <button class="btn btn-primary navbar-btn">Aceptar</button>
+      </nav>
+    </div>
+  </form>
+
+  <div class="cb-view-loading cb-view-loading-preload " ng-class="{ 'hidden':initialized}">
+    <div class="cb-view-loading-icon"></div>
+  </div>
+
+  <script>
+    var librariesUrl = '../lib/';
+  </script>
+  <script src="../lib/require.config.js"></script>
+  <script data-main="inbox" src="../lib/require/require.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+[
+    {"id":1, "enabled":true, "name":"PERFIL JURIDICO", "type": "Específico", "channel":"INTERNET", "status":"VIGENTE"},
+    {"id":2, "enabled":false, "name":"PERFIL JURIDICO CONSULTA", "type": "Específico", "channel":"INTERNET", "status":"VIGENTE"},
+    {"id":3, "enabled":false, "name":"PERFIL JURIDICO OPERADOR", "type": "Específico", "channel":"INTERNET", "status":"VIGENTE"},
+    {"id":4, "enabled":false, "name":"PERFIL JURIDICO AUTORIZANTE", "type": "Específico", "channel":"INTERNET", "status":"VIGENTE"},
+    {"id":5, "enabled":false, "name":"PERFIL BASICO", "type": "Específico", "channel":"INTERNET", "status":"VIGENTE"}
+]

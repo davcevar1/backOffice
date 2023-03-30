@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+	<div class="cb-view">
+		<div class="cb-breadcrumb">
+			<ol class="breadcrumb">
+				<li>Validacion de montos</li>
+			</ol>
+		</div>
+		<div class="cb-view-container-root container">
+			<kendo-grid options="validacionMontos"></kendo-grid>
+		</div>
+	</div>
+	
+	<div id="ingreso" class="modal fade" tabindex="-1" role="dialog">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title">Rango de aprobación</h4>
+		  </div>
+		  <div class="modal-body">
+			<div class="cb-group cb-group-simple">
+				<div class="form-vertical">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<div class="control-label">Transacción</div>
+								<div class="cb-control">
+									<select kendo-combo-box>
+                                        <option>CUPOS DE AUTORIZACION</option>
+                                        <option>APERTURA CUENTAS CORRIENTES</option>
+                                        <option>ACTUALIZACION DE CUENTAS</option>
+                                        <option>EMISION DE CHEQUERA</option>
+                                        <option>ACTUALIZACION GENERAL DE CUENTAS</option>
+                                    </select>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<div class="control-label">Tipo</div>
+								<div class="cb-control">
+									<select kendo-combo-box>
+                                        <option>CL - CHEQUES LOCALES</option>
+                                        <option>CO - CHEQUES EXTERIOR</option>
+                                        <option>CP - CHEQUES PROPIOS</option>
+                                        <option>E - EFECTIVO</option>
+                                        <option>O - OTROS</option>
+                                        <option>T - TOTALES</option>
+                                    </select>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<div class="control-label">Moneda</div>
+								<div class="cb-control">
+									<select kendo-combo-box>
+                                        <option>BOLIVIANOS</option>
+                                        <option>DOLARES ESTADOUNIDENSES</option>
+                                    </select>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<div class="control-label">Valor</div>
+								<div class="cb-control">
+									<div class="cb-flex cb-gutters">
+										<div><input type="text" class="form-control" placeholder="Mínimo" /></div>
+										<div><input type="text" class="form-control" placeholder="Máximo" /></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<div class="control-label">Radicación de cuenta</div>
+								<div class="cb-control">
+									<select kendo-combo-box>
+                                        <option>SUCURSAL</option>
+                                        <option>OTRA SUCURSAL</option>
+                                        <option>INDISTINTA</option>
+                                    </select>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<div class="control-label">En línea</div>
+								<div class="cb-control">
+									<select kendo-combo-box>
+                                        <option>Si</option>
+                                        <option>No</option>
+                                    </select>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<div class="control-label">Ambito</div>
+								<div class="cb-control">
+									<select class="form-control" ng-model="ambito">
+										<option value="bank">Banco</option>
+										<option value="branch">Sucursal</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6" ng-if="ambito=='branch'">
+							<div class="form-group">
+								<div class="control-label">Sucursal</div>
+								<div class="cb-control">
+									<select class="form-control"></select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr />		
+			<div class="cb-group cb-group-simple">
+				<div class="form-vertical">
+					<div class="row">		
+						<div class="col-sm-6">
+							<div class="form-group">
+								<div class="control-label">Asignado a</div>
+								<div class="cb-control">
+									<select class="form-control" ng-model="asignado">
+										<option value="user">Usuario</option>
+										<option value="rol">Rol</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6" ng-if="asignado=='user'">
+							<div class="form-group">
+								<div class="control-label">Usuario</div>
+								<div class="cb-control">
+									<select class="form-control"></select>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6" ng-if="asignado=='rol'">
+							<div class="form-group">
+								<div class="control-label">Rol</div>
+								<div class="cb-control">
+									<select class="form-control"></select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+				<nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+					<button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+					<button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+				</nav>
+			</div>
+		  </div>
+		</div>
+      </div>
+    </div>
+
+    <script>
+        var librariesUrl = '../../lib/';
+    </script>
+    <script src="../../lib/require.config.js"></script>
+    <script data-main="caja" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

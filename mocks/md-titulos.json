@@ -1,0 +1,53 @@
+[
+  {
+    "code": "1234",
+    "description": "BSON1341324",
+    "coupon": "Sí",
+    "couponDate": "12/12/2017",
+    "period": "30 días",
+    "excuseCapital": "",
+    "nominalValue": 2345678,
+    "value": 2657890,
+    "status": "Activo",
+    "emisor": "International Global Solutions",
+    "time": "12:34",
+    "date": "04/12/2019",
+    "expire": "12/12/2022",
+    "amount": 234567,
+    "variation": 1234
+  },
+  {
+    "code": "1001",
+    "description": "BSON4545467",
+    "coupon": "",
+    "couponDate": "12/13/2017",
+    "period": "30 días",
+    "excuseCapital": "",
+    "nominalValue": 3434333,
+    "value": 3846789,
+    "status": "Activo",
+    "emisor": "International Global Solutions",
+    "time": "10:00",
+    "date": "04/12/2019",
+    "expire": "12/12/2022",
+    "amount": 8765434,
+    "variation": -2345
+  },
+  {
+    "code": "0012",
+    "description": "BSON7896786",
+    "coupon": "Sí",
+    "couponDate": "12/14/2017",
+    "period": "15 días",
+    "excuseCapital": "Sí",
+    "nominalValue": 7867877,
+    "value": 8279087,
+    "status": "Activo",
+    "emisor": "International Global Solutions",
+    "time": "14:23",
+    "date": "04/12/2019",
+    "expire": "12/12/2022",
+    "amount": 23987654,
+    "variation": 4567
+  }
+]

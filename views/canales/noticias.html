@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view" ng-init="editable=true; create=true;">
+    <div class="cb-viewport cb-flex cb-column" style="background:transparent;">
+      <div class="cb-scrollable cb-grow">
+        <div class="container" style="padding:30px;">
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <div class="form-vertical">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Canal</div>
+                      <div class="cb-control">
+                        <select class="form-control">
+                          <option>Banca Móvil</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Fecha desde</div>
+                      <div class="cb-control">
+                        <input type="text" kendo-datepicker />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Fecha hasta</div>
+                      <div class="cb-control">
+                        <input type="text" kendo-datepicker />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <kendo-grid class="cb-grid-no-header" options="noticias"></kendo-grid>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="news" class="modal fade">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Noticia</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <fieldset class="cb-group cb-group-simple">
+                <div>
+                  <div class="form-vertical">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <div class="control-label">Imagen</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" readonly />
+                              <span class="input-group-btn">
+                                <button class="btn btn-default"><span class="fa fa-paperclip"></span></button>
+                                <button class="btn btn-default"><span class="fa fa-times-circle-o"></span></button>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <div class="cb-control">
+                            <img src="http://www.riocentroshopping.com/assets/img/upload/big/308541cc1641488ae6e0b14c4135b1a8.jpg" class="img-responsive" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-sm-8">
+              <fieldset class="cb-group cb-group-simple cb-group-flex">
+                <div>
+                  <div class="form-vertical">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <div class="control-label">Nombre</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <div class="control-label">Canal</div>
+                          <div class="cb-control">
+                            <select class="form-control">
+                              <option>Banca Móvil</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <div class="control-label">Fecha expiración</div>
+                          <div class="cb-control">
+                            <input type="text" kendo-datepicker />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <div class="control-label">Descripción</div>
+                          <div class="cb-control">
+                            <textarea class="form-control"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <div class="control-label">Enlace</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/x-kendo-template" id="item">
+    <div class="cb-flex cb-gutters cb-middle">
+      <div style="border-radius:3px; background:url(#: data.image #) no-repeat; background-size:cover; width:120px; height:80px;"></div>
+      <div class="cb-grow">
+        <div><span title="Nombre">#: data.name #</span></div>
+        <div class="small text-muted"><span title="Canal">#: data.service #</span></div>
+      </div>
+      <div class="text-right">
+        <div title="Estado">#: data.status #</div>
+        <div class="small text-muted"><span title="Fecha">#: data.date #</span></div>
+      </div>
+    </div>
+  </script>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

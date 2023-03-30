@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view" ng-init="filters = regBLogFilters; setField(regBLogFilters.field[0])">
+    <div class="cb-view-container-root cb-view-container cb-group-layout container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="cb-flex cb-middle cb-center cb-gutters">
+              <buttton type="button" class="btn btn-default">
+                <span class="fa fa-arrow-left"></span>
+              </buttton>
+              <div class="text-center">
+                <div>Imagen frontal</div>
+                <div class="small text-muted">1 de 3</div>
+              </div>
+              <buttton type="button" class="btn btn-default">
+                <span class="fa fa-arrow-right"></span>
+              </buttton>
+            </div>
+            <img src="assets/credenciales-ine-142.jpeg" class="img-responsive"
+              style="margin-bottom: 16px; margin-top: 16px;" />
+            <div class="cb-flex cb-gutters-tiny">
+              <div class="cb-grow">
+                <input type="text" class="form-control" placeholder="Motivo de devolución" />
+              </div>
+              <button type="button" class="btn btn-default">Devolver</button>
+            </div>
+            <div class="small text-muted" style="margin-top: 8px;">En caso que la imagen no cumpla con lo requerido,
+              ingrese el motivo y presione devolver.<br />(El cliente verá este comentario)</div>
+            <fieldset class="cb-group cb-group-simple cb-group-flex">
+              <legend>Historial de comentarios</legend>
+              <div>
+                <kendo-grid class="cb-responsive" options="comments"></kendo-grid>
+              </div>
+            </fieldset>
+          </div>
+          <div class="col-sm-6">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="control-label">Tipo de documento</div>
+                <div class="cb-control">
+                  <select kendo-dropdownlist></select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="control-label">CURP</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="control-label">Nombre Completo</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="control-label">Nombres</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="control-label">Apellido paterno</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="control-label">Apellido materno</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="control-label">Género</div>
+                <div class="cb-control">
+                  <select kendo-dropdownlist></select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="control-label">Lugar de nacimiento</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="control-label">Fecha de nacimiento</div>
+                <div class="cb-control">
+                  <input type="text" kendo-datepicker />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="control-label">Nacionalidad</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="control-label">RFC</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cb-navbar cb-navbar-bottom">
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <button class="btn btn-primary navbar-btn">Guardar</button>
+      </nav>
+    </div>
+  </div>
+  <script type="text/x-kendo-template" id="detail-template">
+    <form>
+      <div class="form-group">
+        <div class="control-label">Reason of denial</div>
+        <div class="cb-control" ng-class="{'cb-flex-sm-up cb-gutters': reasonForDenial == 'other'}">
+          <div class="cb-grow">
+            <select kendo-drop-down-list ng-model="reasonForDenial">
+              <option>Insufficient Income/Asset Documentation</option>
+              <option>Inadequate Employment History</option>
+              <option>Down Payment is Too Small</option>
+              <option>Poor Credit History</option>
+              <option>Problems With the Property</option>
+              <option value="other">Other...</option>
+            </select>
+          </div>
+          <div class="cb-grow" ng-if="reasonForDenial == 'other'">
+            <input type="text" placeholder="Type the reason" class="form-control" />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label">Questsoft record</div>
+        <div class="cb-control">
+          <input type="text" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label">File received in loan operations departments</div>
+        <div class="cb-control">
+          <input type="text" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </script>
+  <script type="text/x-kendo-template" id="regblog-template">
+    <div style="padding: 10px;">
+      <div><strong>Application ID:</strong> #: data.applicationID #</div>
+      <div><strong>Adverse action notice date:</strong> #: data.date #</div>
+      <div><strong>Application date:</strong> #: data.date #</div>
+      <div><strong>\\# of days:</strong> #: data.days #</div>
+      <div><strong>Applicant name:</strong> #: data.applicantName #</div>
+      <div><strong>Loan Number:</strong> #: data.loanNumber #</div>
+      <div><strong>officer:</strong> #: data.officer #</div>
+      <div><strong>Reason for denial:</strong> #: data.reasonForDenial #</div>
+    </div>
+  </script>
+  <script type="text/x-kendo-template" id="request">
+    <div class="cb-flex">
+      <div class="cb-grow">
+        <div><span title="Application ID">#: data.applicationID #</span> - <span title="Name">#: data.name #</span></div>
+        <div class="small text-muted"><span title="Type">#: data.type #</span></div>
+      </div>
+      <div class="text-right">
+        <div title="Estado">#: data.status #</div>
+      </div>
+    </div>
+  </script>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

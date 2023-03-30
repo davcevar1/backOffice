@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-view-container-root cb-view-container cb-group-layout container-fluid">
+      <div class="container-fluid" style="max-width:600px;">
+        <div class="cb-flex cb-gutters">
+          <div>
+            <a href="user-form2.html" class="btn btn-default btn-lg" title="Nuevo usuario"><span class="fa fa-plus"></span></a>
+          </div>
+          <div class="cb-grow">
+            <div class="cb-flex cb-gutters">
+              <div class="cb-grow form-group" style="margin-bottom:0;">
+                <input type="text" class="form-control input-lg" placeholder="Ingrese {{ selectedField.label }}" />
+              </div>
+              <div ng-if="!isAdvanced">
+                <button class="btn btn-primary btn-lg" ng-click="find()" title="Buscar"><span class="fa fa-search"></span></button>
+              </div>
+            </div>
+            <div id="filters" class="cb-flex cb-gutters" ng-class="{'cb-gap-bottom':!isAdvanced}">
+              <div class="form-control-static">Buscar por:</div>
+              <div>
+                <div class="dropdown">
+                  <button class="btn btn-link" data-toggle="dropdown">
+                    {{ selectedField.label }} <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li ng-class="{'active':selectedField==item}" ng-repeat="item in filters.field"><a href="#" ng-click="setField(item)">{{ item.label }}</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="cb-grow text-right">
+                <button class="btn btn-link" ng-click="isAdvanced = !isAdvanced">{{ isAdvanced? 'Búsqueda básica' : 'Búsqueda avanzada' }}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-if="isAdvanced" style="margin-top: 15px; margin-left: -30px; margin-right: -30px; padding-left: 30px; padding-right: 30px; padding-top: 15px; border-top: 1px solid #ddd;">
+        <div class="container">
+          <div class="row cb-flex cb-wrap cb-gap-bottom">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Canal</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Internet Banking</option>
+                  <option>BANCAMOVIL</option>
+                  <option>Chatbot</option>
+                  <option>Cash Management</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Estado</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Activo</option>
+                  <option>Inactivo</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Fecha de creación</div>
+              <div class="cb-control">
+                <div class="cb-control cb-flex cb-gutters cb-middle">
+                  <div class="cb-grow"><input type="date" kendo-datepicker /></div>
+                  <div>/</div>
+                  <div class="cb-grow"><input type="date" kendo-datepicker /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Tipo de cliente</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Persona natural</option>
+                  <option>Persona jurídica</option>
+                  <option>Grupo económico</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Estado de autorización</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Autorizado</option>
+                  <option>No Autorizado</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Oficina de afiliación</div>
+              <div class="cb-control">
+                <div class="input-group">
+                  <input type="text" class="form-control" readonly />
+                  <span class="input-group-btn">
+    								<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="container">
+        <div ng-show="!showResults && isAdvanced">
+          <div class="cb-grid-no-header k-grid k-widget">
+            <div class="k-header k-grid-toolbar ng-scope">
+              <button class="btn btn-primary ng-scope" ng-click="showResults=true"><span class="fa fa-search"></span> Buscar</button>
+            </div>
+          </div>
+        </div>
+        <kendo-grid class="cb-grid-no-header" ng-show="showResults" options="customers4"></kendo-grid>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/x-kendo-template" id="customer">
+    <div class="cb-flex">
+      <div class="cb-grow">
+        <div><span title="Número">\\##: data.documentNumber # (Identificación)</span> - <span title="Nombre">#: data.name #</span></div>
+        <div class="small text-muted"><span title="Tipo">#: data.type #</span> - <span title="Oficina">#: data.office #</span></div>
+      </div>
+      <div class="text-right">
+        <div title="Estado">#: data.status #</div>
+        <div class="small text-muted">#: data.authorized? 'Autorizado' : '' #</div>
+      </div>
+    </div>
+  </script>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

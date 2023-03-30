@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+  <style>
+    .cb-icon-channel {
+      height: 48px;
+      width: 110px;
+    }
+
+    .k-tabstrip-items .cb-label {
+      margin-top: -10px;
+    }
+
+    .cb-status {
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view" ng-init="editable=true; create=true;">
+    <div class="cb-viewport cb-flex cb-column">
+      <div class="k-tabstrip-wrapper cb-flex cb-grow">
+        <div kendo-tab-strip="tabs" class="cb-flex cb-column cb-grow">
+          <ul class="cb-flex">
+            <li class="k-state-active">
+              <a href="#" class="text-center">
+                <div>
+                  <svg class="cb-icon-channel"><use xlink:href="../../images/factoricons-slim.svg#preferences"></use></svg>
+                </div>
+                <div class="cb-label">General</div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-center">
+                <div>
+                  <svg class="cb-icon-channel"><use xlink:href="../../images/factoricons-slim.svg#channel-web"></use></svg>
+                </div>
+                <div class="cb-label">Internet Banking</div>
+                <div class="cb-status" ng-click="toggleChannel(channel.ib, $event)"><span class="fa fa-check-circle text-success"></span></div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-center">
+                <div>
+                  <svg class="cb-icon-channel"><use xlink:href="../../images/factoricons-slim.svg#channel-mobile"></use></svg>
+                </div>
+                <div class="cb-label">Banca Móvil</div>
+                <div class="cb-status" ng-click="toggleChannel(channel.mobile, $event)"><span class="fa fa-check-circle text-success"></span></div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-center">
+                <div>
+                  <svg class="cb-icon-channel"><use xlink:href="../../images/factoricons-slim.svg#channel-chatbot"></use></svg>
+                </div>
+                <div class="cb-label">Chatbot</div>
+                <div class="cb-status" ng-click="toggleChannel(channel.chatbot, $event)"><span class="fa fa-circle-o text-muted"></span></div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-center">
+                <div>
+                  <svg class="cb-icon-channel"><use xlink:href="../../images/factoricons-slim.svg#money"></use></svg>
+                </div>
+                <div class="cb-label">Cash Management</div>
+                <div class="cb-status" ng-click="toggleChannel(channel.cash, $event)"><span class="fa fa-circle-o text-muted"></span></div>
+              </a>
+            </li>
+          </ul>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+              <fieldset class="cb-group cb-group-simple cb-group-flex">
+                <div>
+                  <div class="form-vertical">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Moneda dólares</div>
+                          <div class="cb-control">
+                            <select class="form-control"></select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Moneda local</div>
+                          <div class="cb-control">
+                            <select class="form-control"></select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Moneda por defecto transferencias internacionales</div>
+                          <div class="cb-control">
+                            <select class="form-control"></select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Código por defecto banco</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Oficina de procesamiento de canales</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" disabled="">
+                              <span class="input-group-btn">
+                              <button class="btn btn-default" disabled=""><span class="fa fa-bars"></span></button>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Sucursal por defecto</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" disabled="">
+                              <span class="input-group-btn">
+                              <button class="btn btn-default" disabled=""><span class="fa fa-bars"></span></button>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Logo banco para impresiones</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" readonly />
+                              <span class="input-group-btn">
+                              <button class="btn btn-default"><span class="fa fa-paperclip"></span></button>
+                              <button class="btn btn-default"><span class="fa fa-times-circle-o"></span></button>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="cb-group cb-group-simple cb-group-flex">
+                <legend>Comunicación</legend>
+                <div>
+                  <div class="form-vertical">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Correo soporte clientes</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Correo despacho notificaciones</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Correo envío claves temporales</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Teléfono soporte banco</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">URL Facebook</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">URL Twitter</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+
+              <fieldset class="cb-group cb-group-simple cb-group-flex">
+                <div>
+                  <div class="form-vertical">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Activar código captcha</div>
+                          <div class="cb-control">
+                            <select class="form-control" ng-model="request.captcha">
+                                      <option></option>
+                                      <option value="yes">Sí</option>
+                                      <option value="no">No</option>
+                                    </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4" ng-if="request.captcha=='yes'">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Idioma código captcha</div>
+                          <div class="cb-control">
+                            <select class="form-control">
+                                      <option></option>
+                                      <option value="yes">ES-EC</option>
+                                      <option value="no">EN-US</option>
+                                    </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Activar imagen antiphishing</div>
+                          <div class="cb-control">
+                            <select class="form-control">
+                                      <option></option>
+                                      <option value="yes">Sí</option>
+                                      <option value="no">No</option>
+                                    </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Longitud nombre de usuario</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Caracteres</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Longitud contraseña</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Caracteres</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Longitud OTP</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Caracteres</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Tipo fortaleza contraseña</div>
+                          <div class="cb-control">
+                            <select class="form-control">
+                                      <option></option>
+                                      <option value="yes">Fuerte</option>
+                                      <option value="no">Medio</option>
+                                      <option value="no">Débil</option>
+                                    </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Validar fortaleza contraseña</div>
+                          <div class="cb-control">
+                            <select class="form-control">
+                                      <option></option>
+                                      <option value="yes">Sí</option>
+                                      <option value="no">No</option>
+                                    </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Historial de contraseñas pasadas</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Contraseñas</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Frecuencia cambio contraseña</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Días</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Bloqueo contraseña</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Intentos</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Vigencia contraseña temporal</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Días</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Vigencia nombre de usuario</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Días</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Expiración sesión</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Minutos</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Límite inactividad contraseña</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Minutos</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Tiempo espera inicio sesión</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Minutos</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="cb-group cb-group-simple cb-group-flex">
+                <legend>Seguridad operativa</legend>
+                <div>
+                  <div class="form-vertical">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Activar doble autenticación</div>
+                          <div class="cb-control">
+                            <select class="form-control">
+                                      <option></option>
+                                      <option value="yes">Sí</option>
+                                      <option value="no">No</option>
+                                    </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Envío clave inicial por correo</div>
+                          <div class="cb-control">
+                            <select class="form-control">
+                                      <option></option>
+                                      <option value="yes">Sí</option>
+                                      <option value="no">No</option>
+                                    </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="cb-group cb-group-simple cb-group-flex">
+                <legend>Seguridad transaccional</legend>
+                <div>
+                  <div class="form-vertical">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Máscara cuentas corrientes</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" value="##-#-XXXXXXX-#" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Máscara cuentas ahorros</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" value="#X-#-#####XX-#" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Máscara préstamos</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" value="XX#-#####X-##" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Máscara depósitos a plazo</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" value="#XX-XX####-XX###" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Máscara tarjetas de crédito</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" value="5676-####-####-4141" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Máscara documento de identidad</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" value="##-####-#####" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Máscara RUC</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" value="###-###-###-###-#" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="cb-group cb-group-simple cb-group-flex">
+                <legend>Configuración transaccional</legend>
+                <div>
+                  <div class="form-vertical">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Monto máximo transacciones ACH</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Monto mínimo préstamos</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Monto máximo préstamos</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Plazo máximo préstamos</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Meses</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+
+              <fieldset class="cb-group cb-group-simple cb-group-flex">
+                <legend>Seguridad aplicación</legend>
+                <div>
+                  <div class="form-vertical">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Tiempo cierre de sesión</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Minutos</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Tipo fortaleza contraseña</div>
+                          <div class="cb-control">
+                            <select class="form-control">
+                                      <option></option>
+                                      <option value="yes">Fuerte</option>
+                                      <option value="no">Medio</option>
+                                      <option value="no">Débil</option>
+                                    </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="cb-group cb-group-simple cb-group-flex">
+                <legend>Configuración transaccional</legend>
+                <div>
+                  <div class="form-vertical">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Número movimientos consulta rápida</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Movimientos</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Número noticias desplegadas</div>
+                          <div class="cb-control">
+                            <div class="input-group">
+                              <input type="text" class="form-control" />
+                              <span class="input-group-addon">Noticias</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <div class="control-label">Fortaleza de contraseña</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="cb-group cb-group-simple cb-group-flex">
+                <legend>Configuración FTP</legend>
+                <div>
+                  <div class="form-vertical">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <div class="control-label">Dirección servidor</div>
+                          <div class="cb-control cb-flex cb-gutters">
+                            <div class="cb-grow"><input type="text" class="form-control" placeholder="Host" /></div>
+                            <div><input type="text" class="form-control" style="width:80px;" placeholder="Puerto" /></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <div class="control-label">Usuario</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <div class="control-label">Contraseña</div>
+                          <div class="cb-control">
+                            <input type="password" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <div class="control-label">Directorio</div>
+                          <div class="cb-control">
+                            <input type="text" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cb-navbar cb-navbar-bottom">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+          <button class="btn btn-primary navbar-btn">Guardar</button>
+          <a href="user-search.html" class="btn btn-default navbar-btn">Cancelar</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div ng-include="'includes/popups.html'"></div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

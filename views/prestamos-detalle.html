@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+    <!-- <link href="../styles/themes/default/wireframe.css" rel="stylesheet" /> -->
+    <style>
+        .popover-title {
+            color: #333;
+        }
+        .cb-loan-summary {
+            padding: 10px;
+            border-left: 1px solid #CCC;
+            width:300px;
+        }
+        .cb-loan-summary .list-group-item {
+            background: transparent;
+            border-left: 0;
+            border-right: 0;
+            border-radius: 0;
+        }
+        .cb-loan-summary .list-group-item:first-child {
+            border-top: 0;
+        }
+        .cb-loan-summary .list-group-item:last-child {
+            border-bottom: 0;
+        }
+    </style>
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-viewport cb-flex cb-column">
+
+            <div class="cb-form-header cb-no-margin" ng-include="'prestamos-cabecera.html'"></div>
+            
+            <div class="k-tabstrip-wrapper cb-flex cb-grow">
+                <div kendo-tab-strip class="cb-flex cb-column cb-grow">
+                    <ul>
+                        <li class="k-state-active">
+                            <a href="#">Resumen</a>
+                        </li>
+                        <li>
+                            <a href="#">Información</a>
+                        </li>
+                        <li>
+                            <a href="#">Garantías</a>
+                        </li>
+                        <li>
+                            <a href="#">Codeudores</a>
+                        </li>
+                        <li>
+                            <a href="#">Abonos</a>
+                        </li>
+                        <li>
+                            <a href="#">Rubros</a>
+                        </li>
+                    </ul>
+                    <div class="cb-grow cb-scrollable">
+                        <div class="container">
+                            <div class="cb-flex cb-gutters" style="border: 1px solid #ccc; border-bottom: 0; border-top-left-radius: 4px; border-top-right-radius: 4px; margin-bottom: -1px;">
+                                <div class="cb-grow" style="padding:15px;">
+                                    <div kendo-stock-chart style="height:200px;" k-options="amortizacionChart"></div>
+                                </div>
+                                <div class="cb-loan-summary">
+                                    <div class="list-group">
+                                        <div class="list-group-item">
+                                            <div class="cb-flex">
+                                                <div class="cb-grow">Vencidas</div>
+                                                <a href="#" data-title="Desglose" class="cb-value-summary">$0.00 USD</a>
+                                            </div>    
+                                        </div>
+                                        <div class="list-group-item">
+                                            <div class="cb-flex">
+                                                <div class="cb-grow">Por vencer</div>
+                                                <a href="#" data-title="Desglose" class="cb-value-summary">$17,023.00 USD</a>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item">
+                                            <div class="cb-flex">
+                                                <div class="cb-grow">Precancelar</div>
+                                                <a href="#" data-title="Desglose" class="cb-value-summary">$17,023.00 USD</a>
+                                            </div>    
+                                        </div>
+                                        <div class="list-group-item">
+                                            <div class="cb-flex">
+                                                <div class="cb-grow">Canceladas</div>
+                                                <a href="#" data-title="Desglose" class="cb-value-summary">$7,340.00 USD</a>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item">
+                                            <div class="cb-flex">
+                                                <div class="cb-grow">Monto original</div>
+                                                <a href="#" data-title="Desglose" class="cb-value-summary">$25,000.00 USD</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <kendo-grid k-options="tablaAmortizacion"></kendo-grid>
+                        </div>
+                    </div>
+                    <div class="cb-grow">
+                        <fieldset class="cb-group cb-group-tabbed-v container">
+                            <div class="row">
+                                <div class="col-tab-items col-sm-2">
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li class="active"><a href="#info-general" data-toggle="tab">General</a></li>
+                                        <li><a href="#info-condiciones" data-toggle="tab">Condiciones generales</a></li>
+                                        <li><a href="#info-pago" data-toggle="tab">Condiciones de pago</a></li>
+                                    </ul>
+                                </div>
+                                <div class="cb-tab-content col-sm-10 tab-content">
+                                    <div id="info-general" class="tab-pane active">
+                                        <table class="table">
+                                            <tr>
+                                                <th>Oficina</th>
+                                                <td>EL CERRITO</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Ciudad</th>
+                                                <td>EL CERRITO</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Clase de cartera</th>
+                                                <td>MICROCREDITO</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Naturaleza de la línea</th>
+                                                <td>ACTIVA</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Clase de línea</th>
+                                                <td>NORMAL</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Origen de recursos</th>
+                                                <td>AUTONOMO</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Entidad prestamista</th>
+                                                <td>BANCAMIA</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div id="info-condiciones" class="tab-pane">
+                                        <table class="table">
+                                            <tr>
+                                                <th>Forma de pago</th>
+                                                <td>NOTA DEBITO AHORROS</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Referencia</th>
+                                                <td>12345678900</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div id="info-pago" class="tab-pane">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="form-group">
+                                                    <div class="control-label">Tipo de pago</div>
+                                                    <div class="cb-control">
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="radio" name="tipo-pago" checked> Cuota
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="radio" name="tipo-pago"> Rubro
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="control-label">Tipo de interés</div>
+                                                    <div class="cb-control">
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="radio" name="tipo-interes" checked> Acumulado
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="radio" name="tipo-interes"> Proyectado
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="radio" name="tipo-interes"> Valor presente
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="form-group">
+                                                    <div class="cb-control">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" name="cuota-completa"> Cuota completa
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" name="cuota-adicional" ng-model="cuotaAdicional" checked> Permite pagos adicionales
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-if="cuotaAdicional">
+                                                    <div class="control-label">Pagos adicionales</div>
+                                                    <div class="cb-control">
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="radio" name="tipo-adicional" checked> Normal
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="radio" name="tipo-adicional"> Reducción de cuota
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="radio" name="tipo-adicional"> Reducción de tiempo
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="cb-grow">
+                        <kendo-grid options="tablaAmortizacion"></kendo-grid>
+                    </div>
+                    <div class="cb-grow">
+                        <kendo-grid options="tablaAmortizacion"></kendo-grid>
+                    </div>
+                    <div class="cb-grow">
+                        <kendo-grid options="tablaAmortizacion"></kendo-grid>
+                    </div>
+                    <div class="cb-grow">
+                        <kendo-grid options="tablaAmortizacion"></kendo-grid>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cb-view-loading cb-hidden">
+            <div class="cb-view-loading-icon"></div>
+        </div>
+    </div>
+    
+    <div id="value-summary" class="hidden">
+        <div style="margin-left: -15px; margin-right: -15px; margin-top: -10px; color:#333;">
+            <table class="table" style="margin:0; width:240px;">
+                <tbody>
+                    <tr>
+                        <th class="cb-no-wrap">Capital</th>
+                        <td class="text-right">$100.00 USD</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Interés/Mora</th>
+                        <td class="text-right">$10.00 USD</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Otros</th>
+                        <td class="text-right">$0.00 USD</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="prestamos" src="../lib/require/require.js"></script>
+</body>
+
+</html>

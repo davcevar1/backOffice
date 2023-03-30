@@ -1,0 +1,2482 @@
+<div id="beneficiary" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="$dismiss('close')"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Frank Junior Aguirre</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">First Name</div>
+              <div class="cb-control">
+                <input name="firstName" type="text" class="form-control" ng-model="owner.firstName" required />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Middle Name</div>
+              <div class="cb-control">
+                <input name="middleName" type="text" class="form-control" ng-model="owner.middleName" required />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Last Name</div>
+              <div class="cb-control">
+                <input name="lastName" type="text" class="form-control" ng-model="owner.lastName" required />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Social Security Number</div>
+              <div class="cb-control cb-flex cb-gutters-tiny">
+                <div style="width:33%;">
+                  <select class="form-control">
+                    <option></option>
+                    <option>Jan</option>
+                    <option>Feb</option>
+                    <option>Mar</option>
+                    <option>Apr</option>
+                    <option>May</option>
+                    <option>Jun</option>
+                    <option>Jul</option>
+                    <option>Aug</option>
+                    <option>Sep</option>
+                    <option>Oct</option>
+                    <option>Nov</option>
+                    <option>Dec</option>
+                  </select>
+                </div>
+                <div style="width:33%;">
+                  <select class="form-control">
+                    <option></option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                  </select>
+                </div>
+                <div style="width:34%;"><input type="text" class="form-control" kendo-masked-text-box k-mask="'9999'" /></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Relationship</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Spouse/Partner</option>
+                  <option>Child</option>
+                  <option>Parent</option>
+                  <option>Other Relative</option>
+                  <option>Friend</option>
+                  <option>Organization/Business</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <hr />
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">ID Type</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>State Driver´s License</option>
+                  <option>Passport</option>
+                  <option>National identification</option>
+                  <option>Military ID</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Number</div>
+              <div class="cb-control">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Expiration date</div>
+              <div class="cb-control">
+                <input type="text" kendo-datepicker />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="owner-terraworks" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="$dismiss('close')"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Frank Junior Aguirre</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group wf-required" ng-class="{'has-error':getOwnersPercentage()>100}">
+              <div class="control-label">Percentage of ownership</div>
+              <div class="wf-control">
+                <div class="input-group">
+                  <input name="percentage" type="number" kendo-numeric-text-box k-min="1" k-max="100" k-spinners="false" ng-model="owner.percentage" required />
+                  <span class="input-group-addon">%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-8" ng-if="owners.length>1">
+            <div class="form-group">
+              <div class="control-label">&nbsp;</div>
+              <div class="form-control-static" ng-if="getOwnersPercentage()<=100"><strong>{{ getOwnersPercentage() }}%</strong> total ownership percentage entered in {{ owners.length }} owners</div>
+              <div class="form-control-static text-danger" ng-if="getOwnersPercentage()>100"><strong>{{ getOwnersPercentage() }}%</strong> total ownership percentage is not valid</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group wf-required">
+              <div class="control-label">First Name</div>
+              <div class="wf-control">
+                <input name="firstName" type="text" class="form-control" ng-model="owner.firstName" required />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group wf-required">
+              <div class="control-label">Middle Name</div>
+              <div class="wf-control">
+                <input name="middleName" type="text" class="form-control" ng-model="owner.middleName" required />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group wf-required">
+              <div class="control-label">Last Name</div>
+              <div class="wf-control">
+                <input name="lastName" type="text" class="form-control" ng-model="owner.lastName" required />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row"><div class="col-sm-6"><div class="form-group wf-required"><div class="control-label">Email Address</div><div class="wf-control"><input class="form-control" maxlength="100" id="ownerEmailAddress" type="email"></div></div></div><div class="col-sm-6"><div class="form-group wf-required"><div class="control-label">Confirm Email Address</div><div class="wf-control"><input class="form-control" id="ownerConfirmEmailAddress" type="email"></div></div></div></div>
+        <div class="row" ng-show="owner.percentage>=10">
+          <div class="col-sm-4">
+            <div class="form-group wf-required">
+              <div class="control-label">Social Security #</div>
+              <div class="wf-control">
+                <input type="text" class="form-control" kendo-masked-text-box k-mask="'999-99-9999'" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Date of Birth</div>
+              <div class="wf-control">
+                <input type="date" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group wf-required">
+              <div class="control-label">Phone Number</div>
+              <div class="wf-control">
+                <input type="text" class="form-control" kendo-masked-text-box k-mask="'(999) 999-9999'" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group wf-required" ng-show="owner.percentage>=10">
+          <div class="control-label">Residential Street Address</div>
+          <div class="wf-control">
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="row" ng-show="owner.percentage>=10">
+          <div class="col-sm-4">
+            <div class="form-group wf-required">
+              <div class="control-label">City</div>
+              <div class="wf-control">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group wf-required">
+              <div class="control-label">State</div>
+              <div class="wf-control">
+                <select class="form-control" name="state" required>
+                  <option></option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="DC">District Of Columbia</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group wf-required">
+              <div class="control-label">Zip Code</div>
+              <div class="wf-control">
+                <input type="text" class="form-control" kendo-masked-text-box k-mask="'99999'" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group wf-required">
+              <div class="control-label">Years of Experience in the Same Industry</div>
+              <div class="wf-control">
+                <input type="number" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="owner" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="$dismiss('close')"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">{{ owner.firstName }} {{ owner.middleName }} {{ owner.lastName }}</h4>
+      </div>
+      <div class="modal-body">
+        <fieldset class="cb-group cb-group-simple">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group cb-required">
+                <div class="control-label">Is a US Citizen or US Resident Alien?</div>
+                <div class="cb-control form-inline">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="resident" value="yes" ng-model="owner.resident" /> Yes
+                    </label>
+                  </div>
+                  <div class="radio" style="margin-left:20px;">
+                    <label>
+                      <input type="radio" name="resident" value="no" ng-model="owner.resident" /> No
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4" ng-show="owner.relationship=='Business'">
+              <div class="form-group">
+                <div class="control-label">Percentage of ownership</div>
+                <div class="cb-control">
+                  <div class="input-group">
+                    <input type="text" class="form-control" ng-model="owner.ownershipPercentage" />
+                    <span class="input-group-addon">%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4" ng-show="owner.relationship=='Business' && owner.ownershipPercentage>10">
+              <div class="form-group">
+                <div class="control-label">Will this Shareholder be signing on the account?</div>
+                <div class="cb-control">
+                  <select class="form-control">
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4" ng-show="owner.relationship=='Business' && owner.ownershipPercentage>10">
+              <div class="form-group">
+                <div class="control-label">Is this a Shareholder for the Business?</div>
+                <div class="cb-control">
+                  <select class="form-control">
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12"></div>
+            <div class="col-sm-4">
+              <div class="form-group wf-required" ng-class="{'has-error':getOwnersPercentage()>100}">
+                <div class="control-label">Percentage of ownership</div>
+                <div class="wf-control">
+                  <div class="input-group">
+                    <input name="percentage" type="number" kendo-numeric-text-box k-min="1" k-max="100" k-spinners="false" ng-model="owner.percentage" required />
+                    <span class="input-group-addon">%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12"></div>
+            <div class="col-sm-4">
+              <div class="form-group cb-required">
+                <div class="control-label">First Name</div>
+                <div class="cb-control">
+                  <input name="firstName" type="text" class="form-control" ng-model="owner.firstName" required />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="control-label">Middle Name</div>
+                <div class="cb-control">
+                  <input name="middleName" type="text" class="form-control" ng-model="owner.middleName" required />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group cb-required">
+                <div class="control-label">Last Name</div>
+                <div class="cb-control">
+                  <input name="lastName" type="text" class="form-control" ng-model="owner.lastName" required />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4" ng-show="owner.relationship!='Business' || owner.ownershipPercentage>10">
+              <div class="form-group">
+                <div class="control-label">{{ owner.resident=='yes'? 'Social Security #' : 'Foreign Tax ID' }} </div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" kendo-masked-text-box k-mask="'999-99-9999'" ng-model="owner.ssn" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4" ng-if="owner.relationship!='Business' || owner.ownershipPercentage>10">
+              <div class="form-group cb-required">
+                <div class="control-label">Date of Birth</div>
+                <div class="cb-control">
+                  <input type="date" name="dob" k-options="{dateInput: true}" k-mask="'99/99/999'" kendo-datepicker required />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4" ng-show="owner.relationship!='Business' || owner.ownershipPercentage>10">
+              <div class="form-group cb-required">
+                <div class="control-label">Phone Number</div>
+                <div class="cb-control" ng-repeat="phone in owner.phones" style="position:relative; margin-bottom:8px;">
+                  <div class="cb-flex cb-gutters-tiny">
+                    <div>
+                      <select class="form-control" ng-model="phone.type">
+                        <option>Home</option>
+                        <option>Mobile</option>
+                        <option>Work</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                    <div class="cb-grow">
+                      <input type="text" class="form-control" kendo-masked-text-box k-mask="'(999) 999-9999'" ng-show="owner.resident=='yes'" ng-model="phone.number" />
+                      <input type="text" class="form-control" ng-model="phone.number" ng-show="owner.resident!='yes'" />
+                    </div>
+                    <div ng-if="$index==0">
+                      <button class="btn btn-default" title="Add phone" ng-click="addPhone(owner.phones)"><span class="fa fa-plus"></span></button>
+                    </div>
+                  </div>
+                  <button ng-if="$index>0" type="button" ng-click="removeItem(owner.phones, phone)" style="border:0; background:transparent; position: absolute; top: 0; right: 0; padding: 7px;"><span class="fa fa-times"></span></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6" ng-if="owner.relationship!='Business' || owner.ownershipPercentage>10">
+              <div class="form-group cb-required">
+                <div class="control-label">Primary Email</div>
+                <div class="cb-control">
+                  <input type="email" class="form-control" ng-model="owner.email" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6" ng-if="owner.relationship!='Business' || owner.ownershipPercentage>10">
+              <div class="form-group">
+                <div class="control-label">Secondary Email</div>
+                <div class="cb-control">
+                  <input type="email" class="form-control" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="cb-group cb-group-simple" ng-show="owner.relationship!='Business' || owner.ownershipPercentage>10">
+          <legend>Home address</legend>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="control-label">Residential Street Address</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" ng-model="owner.street" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <div class="control-label">City</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" ng-model="owner.city" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" ng-show="owner.resident=='yes'">
+              <div class="form-group">
+                <div class="control-label">State</div>
+                <div class="cb-control">
+                  <select class="form-control" name="state" required ng-model="owner.state">
+                    <option></option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" ng-if="owner.state=='other'">
+              <div class="form-group">
+                <div class="control-label">Other state</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" ng-model="owner.stateName" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" ng-show="owner.resident=='yes'">
+              <div class="form-group">
+                <div class="control-label">Zip Code</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" kendo-masked-text-box k-mask="'99999'" ng-model="owner.zip" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <div class="control-label">Country</div>
+                <div class="cb-control">
+                  <select class="form-control" name="country" required ng-model="owner.country">
+                    <option></option>
+                    <option value="{{ country.code }}" ng-repeat="country in countries">{{ country.name }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" ng-if="owner.relationship!='Business' || owner.ownershipPercentage>10">
+              <div class="form-group cb-required">
+                <div class="control-label">Country of residence</div>
+                <div class="cb-control">
+                  <select class="form-control" ng-model="owner.residenceCountry">
+                    <option></option>
+                    <option value="{{ country.code }}" ng-repeat="country in countries">{{ country.name }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" ng-if="owner.resident=='no'">
+              <div class="form-group cb-required">
+                <div class="control-label">Country of citizenship</div>
+                <div class="cb-control">
+                  <select class="form-control" ng-model="owner.residenceCountry">
+                    <option></option>
+                    <option value="{{ country.code }}" ng-repeat="country in countries">{{ country.name }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" ng-if="owner.resident=='no'">
+              <div class="form-group cb-required">
+                <div class="control-label">Politically Exposed Person</div>
+                <div class="cb-control">
+                  <select class="form-control" ng-model="owner.pep">
+                    <option></option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-9" ng-if="owner.resident=='no' && owner.pep=='yes'">
+              <div class="form-group cb-required">
+                <div class="control-label">PEP Description</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-model="owner.notShowMailAddress" /> Mail address is the same as Home Address
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="cb-group cb-group-simple" ng-show="!owner.notShowMailAddress">
+          <legend>Mailing address</legend>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="control-label">Street Address or Post Office Box</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <div class="control-label">City</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <div class="control-label">State</div>
+                <div class="cb-control">
+                  <select class="form-control" name="state" required ng-model="owner.state">
+                    <option></option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3" ng-if="owner.state=='other'">
+              <div class="form-group">
+                <div class="control-label">Other state</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" ng-model="owner.stateName" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <div class="control-label">Zip Code</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" kendo-masked-text-box k-mask="'99999'" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <div class="control-label">Country</div>
+                <div class="cb-control">
+                  <select class="form-control" name="country" required>
+                    <option></option>
+                    <option value="{{ country.code }}" ng-repeat="country in countries">{{ country.name }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="cb-group cb-group-simple" ng-if="owner.relationship!='Business' || owner.ownershipPercentage>10">
+          <legend>Primary ID</legend>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group cb-required">
+                <div class="control-label">ID Type</div>
+                <div class="cb-control">
+                  <select class="form-control">
+                    <option></option>
+                    <option>State Driver´s License</option>
+                    <option>Passport</option>
+                    <option>National identification</option>
+                    <option>Military ID</option>
+                    <option>Government issued ID</option>
+                    <option>Student ID</option>
+                    <option>Voter's Registration</option>
+                    <option>Concealed weapons license</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group cb-required">
+                <div class="control-label">Number</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="control-label">Expiration date</div>
+                <div class="cb-control">
+                  <input type="text" kendo-datepicker />
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="cb-group cb-group-simple" ng-if="owner.relationship!='Business' || owner.ownershipPercentage>10">
+          <legend>Secondary ID</legend>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group cb-required">
+                <div class="control-label">ID Type</div>
+                <div class="cb-control">
+                  <select class="form-control">
+                    <option></option>
+                    <option>State Driver´s License</option>
+                    <option>Passport</option>
+                    <option>National identification</option>
+                    <option>Military ID</option>
+                    <option>Government issued ID</option>
+                    <option>Student ID</option>
+                    <option>Voter's Registration</option>
+                    <option>Concealed weapons license</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group cb-required">
+                <div class="control-label">Number</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="control-label">Expiration date</div>
+                <div class="cb-control">
+                  <input type="text" kendo-datepicker />
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="cb-group cb-group-simple" ng-if="owner.ownershipPercentage>10">
+          <legend>Employment information</legend>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group cb-required">
+                <label class="control-label">Type of Employment</label>
+                <div class="small text-muted">Check all that apply</div>
+                <div class="cb-control">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="employed" ng-check="request.employmentType" /> Employed
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="self-employed" ng-check="request.employmentType" /> Self-employed
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="retired" ng-check="request.employmentType" /> Retired
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="student" ng-check="request.employmentType" /> Student
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="home-maker" ng-check="request.employmentType" /> Home-maker
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="unemployed-no-income" ng-check="request.employmentType" /> Unemployed - No income
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="unemployed-with-income" ng-check="request.employmentType" /> Unemployed - With income
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group cb-required">
+                <label class="control-label">Estimated Annual Income</label>
+                <div class="small text-muted">Select the option which describes your annual income</div>
+                <div class="cb-control">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="account-type" value="self-employed" ng-model="request.income" /> USD$0-50,000
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="account-type" value="retired" ng-model="request.income" /> USD$50,001-100,000
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="account-type" value="student" ng-model="request.income" /> USD$100,001-150,000
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="account-type" value="home-maker" ng-model="request.income" /> USD$150,001-200,000
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="account-type" value="unemployed-no-income" ng-model="request.income" /> USD$200,001-250,000
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="account-type" value="unemployed-with-income" ng-model="request.income" /> USD$250,001-300,000
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="account-type" value="unemployed-with-income" ng-model="request.income" /> USD$300,001 or more
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group cb-required">
+                <div class="control-label">Name of Employer / Business</div>
+                <div class="small text-muted" style="margin-bottom:10px;">Provide the name of your current employer or source of income</div>
+                <div class="cb-control" style="margin-bottom:8px; position:relative;" ng-repeat="businessName in owner.businessNames">
+                  <div class="cb-flex cb-gutters">
+                    <div class="cb-grow">
+                      <div class="form-group">
+                        <div class="control-label">Name</div>
+                        <div class="cb-control"><input type="text" class="form-control" /></div>
+                      </div>
+                    </div>
+                    <div class="cb-grow">
+                      <div class="form-group">
+                        <div class="control-label">Position or title</div>
+                        <div class="cb-control"><input type="text" class="form-control" /></div>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" ng-show="owner.businessNames.length>1" ng-click="removeItem(owner.businessNames, businessName)" style="border:0; background:transparent; position: absolute; top: 16px; right: 0; padding: 7px;"><span class="fa fa-times"></span></button>
+                </div>
+              </div>
+              <button type="button" class="btn btn-default" ng-if="!owner.businessNames || owner.businessNames.length<3" ng-click="addBusinessName(owner)"><span class="fa fa-plus"></span> Add additional</button>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="cb-group cb-group-simple" ng-if="owner.ownershipPercentage>10">
+          <hr />
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group cb-required">
+                <label class="control-label">Source of income</label>
+                <div class="small text-muted">Check all that apply</div>
+                <div class="cb-control">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="employed" ng-check="owner.employmentType" /> Salary/Employed
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="self-employed" ng-check="owner.employmentType" /> Self-employed
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="retired" ng-check="owner.employmentType" /> Retirement Income
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="student" ng-check="owner.employmentType" /> Allowance
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="home-maker" ng-check="owner.employmentType" /> Child Support
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="unemployed-no-income" ng-check="owner.employmentType" /> Alimony
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="unemployed-with-income" ng-check="owner.employmentType" /> Commissions/Bonuses
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="unemployed-with-income" ng-check="owner.employmentType" /> Dividends
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="unemployed-with-income" ng-check="owner.employmentType" /> Inheritance
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="other" ng-model="owner.otherIncomeSource" /> Other
+                    </label>
+                  </div>
+                  <div ng-if="owner.otherIncomeSource">
+                    <input type="text" class="form-control" />
+                    <div class="small text-muted">Please let us know more detail of your source of income</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group cb-required">
+                <label class="control-label">Estimated Net Worth</label>
+                <div class="small text-muted">Mark the range you are</div>
+                <div class="cb-control">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="account-type" value="self-employed" ng-model="owner.income" /> USD$0-200,000
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="account-type" value="retired" ng-model="owner.income" /> USD$200,001-400,000
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="account-type" value="student" ng-model="owner.income" /> USD$400,001-600,000
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="account-type" value="home-maker" ng-model="owner.income" /> USD$600,001-800,000
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="account-type" value="unemployed-no-income" ng-model="owner.income" /> USD$800,001-1,000,000
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="account-type" value="unemployed-with-income" ng-model="owner.income" /> USD$1,000,001 or more
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group cb-required">
+                <div class="control-label">Source of Wealth</div>
+                <div class="small text-muted">Check all that apply</div>
+                <div class="cb-control">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="unemployed-with-income" ng-check="owner.employmentType" /> Employment Income
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="unemployed-with-income" ng-check="owner.employmentType" /> Inheritance or Trust
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="unemployed-with-income" ng-check="owner.employmentType" /> Investment Income
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="unemployed-with-income" ng-check="owner.employmentType" /> Retirement Income
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" value="unemployed-with-income" ng-check="owner.employmentType" /> Household Income
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="account-type" ng-model="owner.otherSourceWealth" /> Other
+                    </label>
+                  </div>
+                  <div ng-if="owner.otherSourceWealth">
+                    <input type="text" class="form-control" />
+                    <div class="small text-muted">Please let us know more detail of your source of wealth</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="cb-group cb-group-simple" ng-if="owner.ownershipPercentage>10">
+          <legend>Security Questions</legend>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group cb-required">
+                <div class="control-label">Question 1</div>
+                <div class="cb-control">
+                  <select class="form-control">
+                    <option></option>
+                    <option>What is your mother's birth year?</option>
+                    <option>What was the make of your first car?</option>
+                    <option>In what city do you meet your spouse/significant other?</option>
+                    <option>What school did you attend in the 6th grade?</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group cb-required">
+                <div class="control-label">Answer 1</div>
+                <div class="cb-control"><input class="form-control" /></div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group cb-required">
+                <div class="control-label">Question 2</div>
+                <div class="cb-control">
+                  <select class="form-control">
+                    <option></option>
+                    <option>What is your mother's birth year?</option>
+                    <option>What was the make of your first car?</option>
+                    <option>In what city do you meet your spouse/significant other?</option>
+                    <option>What school did you attend in the 6th grade?</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group cb-required">
+                <div class="control-label">Answer 2</div>
+                <div class="cb-control"><input class="form-control" /></div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group cb-required">
+                <div class="control-label">Question 3</div>
+                <div class="cb-control">
+                  <input class="form-control" />
+                  <div class="text-muted small">Type your own question and answer it</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group cb-required">
+                <div class="control-label">Answer 3</div>
+                <div class="cb-control"><input class="form-control" /></div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <hr />
+        <div class="form-group">
+          <div class="control-label">Additional information</div>
+          <div class="cb-control">
+            <textarea class="form-control"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="viewer" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">{{ docModal.title }}</h4>
+      </div>
+      <div class="modal-body dropzone dz-clickable" ng-show="docModal.upload && filesUpload.step==1">
+        <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+      </div>
+      <div id="uploading" ng-if="docModal.upload && filesUpload.step==2">
+        <ul class="list-group">
+          <li class="list-group-item cb-flex cb-middle cb-gutters" ng-class="{'cb-error':file.processed && file.error, 'cb-finished':file.processed && !file.error}" ng-repeat="file in filesUpload.files">
+            <div class="text-muted">
+              <span class="cb-icon fa fa-file-text-o fa-2x"></span>
+            </div>
+            <div class="cb-grow">
+              <div style="font-weight:bold;">{{ file.name }}</div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" style="width: {{ file.progress }}%;"></div>
+              </div>
+              <div class="cb-file-size text-muted small">{{ humanFileSize(file.size) }}</div>
+              <div class="cb-error-label text-danger small">An unexpected error has occurred, the file did not reach the server</div>
+            </div>
+            <div class="cb-status">
+              <span class="text-success fa fa-check-circle fa-2x" ng-if="!file.error"></span>
+              <span class="text-danger fa fa-times-circle fa-2x" ng-if="file.error"></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="cb-view-files modal-body" style="padding:0;" ng-show="!docModal.upload">
+        <style>
+          .cb-view-files .cb-form .panel-group>h4 {
+            padding-left: 15px;
+          }
+
+          .cb-view-files .cb-form .panel {
+            border-left: 0;
+            border-right: 0;
+          }
+
+          .cb-view-files .cb-form .panel,
+          .cb-view-files .cb-form .panel-heading {
+            border-radius: 0;
+          }
+
+          .cb-view-files .cb-parts-nav {
+            padding: 5px;
+          }
+
+          .cb-view-files .panel-group .panel+.panel {
+            margin-top: -1px;
+          }
+
+          .cb-view-files.modal-footer .btn+.btn {
+            margin-left: 0;
+          }
+
+          @media (min-width: 768px) {
+            .ms-modal-popup .modal-dialog {
+              width: calc(100vw - 60px);
+            }
+            .cb-view-files .cb-form {
+              max-width: 300px;
+              height: 470px;
+            }
+            .cb-view-files .cb-editor.tab-content>.tab-pane {
+              display: block;
+              visibility: visible;
+            }
+          }
+        </style>
+        <ul class="cb-parts-nav nav nav-pills visible-xs" ng-if="!vm.viewOnly">
+          <li class="active"><a href="#document" data-toggle="tab">Document</a></li>
+          <li><a href="#fields" data-toggle="tab">Fields</a></li>
+        </ul>
+        <div class="cb-editor tab-content cb-flex">
+          <div id="document" class="tab-pane active cb-grow" style="height:470px;">
+            <iframe src="libraries/pdfjs/web/viewer.html?file=../../../assets/Borrower_Paycheck_Protection_Program_App._3.31.2020.pdf" style="width:100%; height:100%; border:0;"></iframe>
+          </div>
+          <div id="fields" class="tab-pane cb-form cb-scrollable cb-grow" ng-if="docModal.creditReport">
+            <div class="panel-group" id="accordionFormType">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordionFormType" href="#collapse0">W-2 Income</a>
+                  </h4>
+                </div>
+                <div id="collapse0" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <div class="form-group">
+                      <div class="control-label">Total open payments</div>
+                      <div class="cb-control">
+                        <input type="number" kendo-numerictextbox />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="fields" class="tab-pane cb-form cb-scrollable cb-grow" ng-if="!docModal.creditReport">
+            <div class="panel panel-default" style="margin-bottom: -1px;">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordionFormType" href="#personalTax1">
+                    <div>Business</div>
+                  </a>
+                </h4>
+              </div>
+              <div id="personalTax1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <div class="form-group cb-required">
+                    <div style="font-size: 12px" class="control-label">Business Legal Name</div>
+                    <div class="wf-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group cb-required">
+                    <div style="font-size: 12px" class="control-label">Business TIN (EIN,SSN)</div>
+                    <div class="wf-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group cb-required">
+                    <div style="font-size: 12px" class="control-label">Average Monthly Payroll</div>
+                    <div class="wf-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group cb-required">
+                    <div style="font-size: 12px" class="control-label">X 2.5 equals Loan Amount</div>
+                    <div class="wf-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--
+            <div class="panel panel-default" style="margin-bottom: -1px;">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordionFormType" href="#personalTax2">
+                    <div>Year {{ request.year2 ? request.year2 : 2 }}</div>
+                    <div class="small text-muted" style="margin-top:5px;">1040 Personal Tax Return - Income</div>
+                  </a>
+                </h4>
+              </div>
+              <div id="personalTax2" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <div class="form-group cb-required">
+                    <div style="font-size: 12px" class="control-label">Tax year</div>
+                    <div class="wf-control">
+                      <select kendo-dropdownlist ng-model="request.year2">
+                        <option value=""></option>
+                        <option>2018</option>
+                        <option>2017</option>
+                        <option>2016</option>
+                        <option>2015</option>
+                        <option>2014</option>
+                        <option>2013</option>
+                        <option>2012</option>
+                        <option>2011</option>
+                        <option>2010</option>
+                        <option>2009</option>
+                        <option>2008</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div ng-if="request.year2 == ''" class="text-info small" style="font-weight:bold;">
+                    <span class="fa fa-info-circle"></span> Select tax year to populate the fields.
+                  </div>
+                  <div ng-if="request.year2 != ''" style="border-top: 1px dotted rgba(0,0,0,.2); padding-top: 15px; margin-top: 15px;">
+                    <div class="form-group cb-required">
+                      <div style="font-size: 12px" class="control-label">Capital gain or (loss). Attached Scehdule D if required (Line 13)</div>
+                      <div class="wf-control">
+                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                      </div>
+                    </div>
+                    <div class="form-group cb-required">
+                      <div style="font-size: 12px" class="control-label">Capital gain or (loss). Attached Scehdule D if required (Line 13)</div>
+                      <div class="wf-control">
+                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                      </div>
+                    </div>
+                    <div class="form-group cb-required">
+                      <div style="font-size: 12px" class="control-label">Other gains or (losses) Attached Form 4797 (Line 14)</div>
+                      <div class="wf-control">
+                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                      </div>
+                    </div>
+                    <div class="form-group cb-required">
+                      <div style="font-size: 12px" class="control-label">Rental Real Estate, Royalties, Partnerships, S coporations, trusts, etc. Attached Schedule E
+                        (Line 17)</div>
+                      <div class="wf-control">
+                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                      </div>
+                    </div>
+                    <div class="form-group cb-required">
+                      <div style="font-size: 12px" class="control-label">Adjusted Gross Income (Line 37)</div>
+                      <div class="wf-control">
+                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                      </div>
+                    </div>
+                    <div class="form-group cb-required">
+                      <div style="font-size: 12px" class="control-label">Total Tax (1040 Line 63)</div>
+                      <div class="wf-control">
+                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                      </div>
+                    </div>
+                    <div class="form-group cb-required">
+                      <div style="font-size: 12px" class="control-label">Schedule C Part II: Depletion (Line 12)</div>
+                      <div class="wf-control">
+                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                      </div>
+                    </div>
+                    <div class="form-group cb-required">
+                      <div style="font-size: 12px" class="control-label">Schedule C Part II: Depreciation and section 179 expenses (Line 13)</div>
+                      <div class="wf-control">
+                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                      </div>
+                    </div>
+                    <div class="form-group cb-required">
+                      <div style="font-size: 12px" class="control-label">Schedule E Part I: Depreciation expense or depletion (Line 18)</div>
+                      <div class="wf-control">
+                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                      </div>
+                    </div>
+                    <div class="form-group cb-required">
+                      <div style="font-size: 12px" class="control-label">Schedule E Part I: Total Rental Real Estate and Royalty Income (Loss) (Line 26)</div>
+                      <div class="wf-control">
+                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                      </div>
+                    </div>
+                    <div class="form-group cb-required">
+                      <div style="font-size: 12px" class="control-label">Other Non-Cash Deductions</div>
+                      <div class="wf-control">
+                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                      </div>
+                    </div>
+                    <div class="form-group cb-required">
+                      <div style="font-size: 12px">Owner's Annual Income</div>
+                      <div class="wf-control">
+                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            -->
+            <div ng-if="docModal.value==2" style="padding: 15px;">
+              <div class="form-group">
+                <div class="control-label">Average balance statement 1</div>
+                <div class="cb-control">
+                  <input type="number" kendo-numerictextbox />
+                  <div class="form-control cb-no-border" ng-show="step>=11">$67,055</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="control-label">Average balance statement 2</div>
+                <div class="cb-control">
+                  <input type="number" kendo-numerictextbox />
+                  <div class="form-control cb-no-border" ng-show="step>=11">$89,567</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="control-label">Average balance statement 3</div>
+                <div class="cb-control">
+                  <input type="number" kendo-numerictextbox />
+                  <div class="form-control cb-no-border" ng-show="step>=11">$90,000</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="control-label"># of overdrafts statement 1</div>
+                <div class="cb-control">
+                  <input type="number" kendo-numerictextbox />
+                  <div class="form-control cb-no-border" ng-show="step>=11">1</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="control-label"># of overdrafts statement 2</div>
+                <div class="cb-control">
+                  <input type="number" kendo-numerictextbox />
+                  <div class="form-control cb-no-border" ng-show="step>=11">0</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="control-label"># of overdrafts statement 3</div>
+                <div class="cb-control">
+                  <input type="number" kendo-numerictextbox />
+                  <div class="form-control cb-no-border" ng-show="step>=11">0</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="control-label">Average balance</div>
+                <div class="cb-control">
+                  <input type="number" kendo-numerictextbox />
+                  <div class="form-control cb-no-border" ng-show="step>=11">$87,678</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cb-view-files modal-footer">
+        <div class="cb-flex-md-up">
+          <div class="cb-grow">
+            <div class="cb-flex cb-gutters-tiny cb-middle" ng-show="!docModal.upload">
+              <button class="btn btn-default" style="min-width: initial;" ng-click="vm.previusDocument()" title="Previous"><span class="fa fa-arrow-left"></span></button>
+              <span class="hidden-xs">1 <span>of</span> 2</span>
+              <button class="btn btn-default" style="min-width: initial;" ng-click="vm.nextDocument()" title="Next"><span class="fa fa-arrow-right"></span></button>
+              <button style="min-width: initial;" class="btn btn-default" ng-click="docModal.upload=true" title="Upload more files">
+                <div class="hidden-sm hidden-md hidden-lg"><span class="fa fa-upload"></span></div>
+                <div class="hidden-xs">Upload more files</div>
+              </button>
+              <div class="dropup" style="position: relative;">
+                <button class="btn btn-default" style="min-width: initial;" data-toggle="dropdown" title="Current file information"><span class="fa fa-info-circle"></span></button>
+                <ul class="dropdown-menu" style="color:#333; max-height:400px; overflow: auto;">
+                  <li>
+                    <div ng-repeat="field in header.fields | filter:{opened:false}" class="cb-flex cb-gutters" style="padding: 5px 0px; margin: 0px 10px; border-bottom: 1px solid rgb(221, 221, 221);" ng-style="{'border-bottom': !$last? '1px solid #ddd' : ''}">
+                      <strong class="cb-grow cb-no-wrap ng-binding">Creado por:</strong>
+                      <div class="cb-no-wrap ng-binding">rromero</div>
+                    </div>
+                    <div ng-repeat="field in header.fields | filter:{opened:false}" class="cb-flex cb-gutters" style="padding: 5px 0px; margin: 0px 10px; border-bottom: 1px solid rgb(221, 221, 221);" ng-style="{'border-bottom': !$last? '1px solid #ddd' : ''}">
+                      <strong class="cb-grow cb-no-wrap ng-binding">Fecha de creación:</strong>
+                      <div class="cb-no-wrap ng-binding">12/12/2018</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="cb-flex cb-gutters-tiny cb-middle" ng-if="!docModal.upload">
+            <button type="button" class="btn btn-primary">Save</button>
+            <button class="btn btn-default">Reject</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+          <div class="cb-flex cb-gutters-tiny cb-middle" ng-if="docModal.upload">
+            <button type="button" class="btn btn-primary" ng-click="uploadFiles()">Upload</button>
+            <button type="button" class="btn btn-default" ng-click="docModal.upload=null" ng-if="!docModal.disallowCancel">Cancel</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="reports" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Paydex Information</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6" style="margin-bottom:30px;">
+            <div class="small">DUNS #{{ paydex.OrderProductResponse.OrderProductResponseDetail.Product.Organization.SubjectHeader.DUNSNumber }}</div>
+            <div style="font-weight:bold;">{{ paydex.OrderProductResponse.OrderProductResponseDetail.Product.Organization.OrganizationName.OrganizationPrimaryName[0].OrganizationName.$ }}</div>
+            <div class="small text-muted">
+              {{ paydex.OrderProductResponse.OrderProductResponseDetail.Product.Organization.Location.PrimaryAddress.StreetAddressLine[0].LineText }}<br /> {{ paydex.OrderProductResponse.OrderProductResponseDetail.Product.Organization.Location.PrimaryAddress.PrimaryTownName
+              }},
+              {{ paydex.OrderProductResponse.OrderProductResponseDetail.Product.Organization.Location.PrimaryAddress.TerritoryAbbreviatedName }} {{ paydex.OrderProductResponse.OrderProductResponseDetail.Product.Location.PrimaryAddress.PostalCode
+              }}
+              <br /> {{ paydex.OrderProductResponse.OrderProductResponseDetail.Product.Organization.Telecommunication.TelephoneNumber.TelecommunicationNumber }}<br />
+            </div>
+          </div>
+          <div class="col-sm-6" style="margin-bottom:30px;">
+            <div style="margin-right:30px; height:122px;">
+              <div class="cb-flex">
+                <div class="cb-grow">
+                  <div class="text-center">Up to 3 month Paydex</div>
+                  <div class="cb-indicator-value" style="padding:10px;" title="{{ paydex.OrderProductResponse.OrderProductResponseDetail.Product.Organization.BusinessTrading.Purchaser.CurrentPaydexScore.ThreeMonthsPaydex.PaydexDate.$ }}">{{ paydex.OrderProductResponse.OrderProductResponseDetail.Product.Organization.BusinessTrading.Purchaser.CurrentPaydexScore.ThreeMonthsPaydex.PaydexScore }}
+                  </div>
+                </div>
+                <div class="cb-grow">
+                  <div class="text-center">Up to 24 month Paydex</div>
+                  <div class="cb-indicator-value" style="padding:10px;" title="{{ paydex.OrderProductResponse.OrderProductResponseDetail.Product.Organization.BusinessTrading.Purchaser.CurrentPaydexScore.TwelveMonthsPaydex.PaydexDate.$ }}">
+                    {{ paydex.OrderProductResponse.OrderProductResponseDetail.Product.Organization.BusinessTrading.Purchaser.CurrentPaydexScore.TwelveMonthsPaydex.PaydexScore }}
+                  </div>
+                </div>
+              </div>
+              <div style="background: linear-gradient(to right, #dc3912 0%,#ef9c00 50%,#ef9c00 80%,#009f3c 100%); height:10px; margin-left:40px;"></div>
+              <div style="position:relative; margin-left:40px;">
+                <div style="width:1px; height:10px; background:#000; position:absolute; left:0; top:-10px;"></div>
+                <div style="width:1px; height:10px; background:#000; position:absolute; left:50%; top:-10px;"></div>
+                <div style="width:1px; height:10px; background:#000; position:absolute; left:80%; top:-10px;"></div>
+                <div style="width:1px;height: 24px; background:#000; position:absolute; left:100%; top:-10px; margin-left:-1px;"></div>
+                <div style="font-size:11px; position:absolute; width:80px; left:-40px; text-align:center;">
+                  <div style="font-weight:bold;">1</div>Greater than 120 days slow
+                </div>
+                <div style="font-size:11px; position:absolute; left:50%; margin-left:-32px; text-align:center;">
+                  <div style="font-weight:bold;">50</div>30 days slow
+                </div>
+                <div style="position:absolute; font-size:11px; left:80%; margin-left:-18px; text-align:center;">
+                  <div style="font-weight:bold;">80</div>Prompt
+                </div>
+                <div style="position:absolute; font-size:11px; top:15px; left:100%; margin-left:-27px; text-align:center;">
+                  <div style="font-weight:bold;">100</div>Anticipates
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th class="text-center">Suppliers</th>
+              <th class="text-center">Accounts</th>
+              <th class="text-center">Current Accounts</th>
+              <th class="text-right">Owed total</th>
+              <th class="text-right">Past due total</th>
+              <th class="text-right">Current total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in paydex.OrderProductResponse.OrderProductResponseDetail.Product.Organization.BusinessTrading.Purchaser.PurchaserDerivedData" ng-if="item.OneMonthDataCoveragePayments">
+              <td data-label="Date">{{ item.TradeDataYearMonth.$ }}</td>
+              <td data-label="Suppliers" class="text-center">{{ item.OneMonthDataCoveragePayments.SuppliersCount }}</td>
+              <td data-label="Accounts" class="text-center">{{ item.OneMonthDataCoveragePayments.AccountsCount }}</td>
+              <td data-label="Current accounts" class="text-center">{{ item.OneMonthDataCoveragePayments.CurrentAccountsCount }}</td>
+              <td data-label="Owed total" class="text-right">
+                {{ item.OneMonthDataCoveragePayments.OwedTotalAmount.$ | currency }}
+                <div class="text-muted small">max: {{ item.OneMonthDataCoveragePayments.OwedTotalMaximumAmount.$ | currency }}</div>
+              </td>
+              <td data-label="Past due total" class="text-right">
+                <div class="cb-flex cb-gutters">
+                  <div class="cb-grow">
+                    {{ item.OneMonthDataCoveragePayments.TotalPastDueTotalAmount.$ | currency }}
+                    <div class="text-muted small">max: {{ item.OneMonthDataCoveragePayments.PastDueTotalMaximumAmount.$ | currency }}</div>
+                  </div>
+                  <div class="dropdown">
+                    <button class="btn btn-default btn-sm" data-toggle="dropdown"><span class="fa fa-info"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right" style="padding:0;">
+                      <li>
+                        <table class="table" style="margin:0;">
+                          <thead>
+                            <tr>
+                              <th class="text-right" style="white-space:nowrap;">Past Due</th>
+                              <th class="text-right">Experiences</th>
+                              <th class="text-right">Amount</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="pastDueItem in item.OneMonthDataCoveragePayments.SummarizedPastDue">
+                              <td class="text-right" style="white-space:nowrap;">{{ pastDueItem.DaysLowQuantity }}-{{ pastDueItem.DaysHighQuantity }} days</td>
+                              <td class="text-right">{{ pastDueItem.ExperiencesCount }}</td>
+                              <td class="text-right">{{ pastDueItem.TotalAmount.$ | currency }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </td>
+              <td data-label="Current total" class="text-right">{{ item.OneMonthDataCoveragePayments.CurrentTotalAmount.$ | currency }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="panel panel-default" style="margin:0;">
+          <div class="panel-heading">
+            <a role="button" data-toggle="collapse" data-parent="#ofac-accordion" href="#paydex-raw">Raw data</a>
+          </div>
+          <div id="paydex-raw" class="panel-collapse collapse">
+            <div class="panel-body">
+              <json-formatter json="paydex" open="8"></json-formatter>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="report-ofac" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">OFAC</h4>
+      </div>
+      <div class="modal-body">
+        <div class="panel-group" id="ofac-accordion" style="margin:0;">
+          <div class="panel panel-default" ng-repeat="record in ofac">
+            <div class="panel-heading">
+              <a role="button" data-toggle="collapse" data-parent="#ofac-accordion" href="#record-{{ record.RecNum }}">Matching score: {{ record.Score }}</a>
+            </div>
+            <div id="record-{{ record.RecNum }}" class="panel-collapse collapse">
+              <div class="panel-body" ng-bind-html="record.MatchDetails | nl2br"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="report-bankruptcy" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Bankruptcy</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th scope="col">Filing date</th>
+              <th scope="col">Case #</th>
+              <th scope="col">Disposition</th>
+              <th scope="col">Court</th>
+              <th scope="col">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat-start="data in backruptcy">
+              <td data-label="Filing date">{{ format.date(data.Bankruptcy.FilingDate) }}</td>
+              <td data-label="Case #">{{ data.Bankruptcy.CaseNumber }}</td>
+              <td data-label="Disposition">{{ data.Bankruptcy.Disposition || '&nbsp;' }}</td>
+              <td data-label="Court">{{ data.Bankruptcy.CourtName }}</td>
+              <td class="cb-view-more" ng-class="{open:data.open}"><button ng-click="toggleDetail('bankruptcy', data)">{{ data.open? 'Show less' : 'Show more' }} <span class="fa fa-angle-right"></span></button></td>
+            </tr>
+            <tr class="cb-detail" ng-repeat-end ng-if="data.open">
+              <td colspan="5" ng-bind-html="data.detail"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="report-liens" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Liens</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th scope="col" class="text-nowrap">Filing date</th>
+              <th scope="col">Filing #</th>
+              <th scope="col">Type</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Agency</th>
+              <th scope="col">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat-start="data in lien">
+              <td data-label="Filing date">{{ format.date(data.OriginFilingDate) }}</td>
+              <td data-label="Filing #">{{ data.Filings.Filing.Number || '&nbsp;' }}</td>
+              <td data-label="Type">{{ data.Filings.Filing.Type || '&nbsp;' }}</td>
+              <td data-label="Amount">{{ data.Amount || '&nbsp;' }}</td>
+              <td data-label="Agency">{{ data.Filings.Filing.Agency || '&nbsp;' }}</td>
+              <td class="cb-view-more" ng-class="{open:data.open}"><button ng-click="toggleDetail('lien', data)">{{ data.open? 'Show less' : 'Show more' }} <span class="fa fa-angle-right"></span></button></td>
+            </tr>
+            <tr class="cb-detail" ng-repeat-end ng-if="data.open">
+              <td colspan="5" ng-bind-html="data.detail"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="report-criminal" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Criminal</h4>
+      </div>
+      <div class="modal-body">
+        <!--
+        <div class="table-responsive">
+          <kendo-grid options="criminal"></kendo-grid>
+        </div>
+                  -->
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th scope="col" class="text-nowrap">Filing date</th>
+              <th scope="col" class="text-nowrap">Case #</th>
+              <th scope="col" class="text-nowrap">Last seen</th>
+              <th scope="col" class="text-nowrap">Data source</th>
+              <th scope="col">Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat-start="data in criminal">
+              <td data-label="Filing date">{{ format.date(data.CaseFilingDate) }}</td>
+              <td data-label="Case #">{{ data.CaseNumber || '&nbsp;' }}</td>
+              <td data-label="Lasr seen">{{ format.date(data.DateLastSeen) || '&nbsp;' }}</td>
+              <td data-label="Data source">{{ data.Amount || '&nbsp;' }}</td>
+              <td data-label="Name">{{ format.name(data.Name) || '&nbsp;' }}</td>
+              <td data-label="Address">{{ format.address(data.Address) || '&nbsp;' }}</td>
+              <td class="cb-view-more" ng-class="{open:data.open}"><button ng-click="toggleDetail('criminal', data)">{{ data.open? 'Show less' : 'Show more' }} <span class="fa fa-angle-right"></span></button></td>
+            </tr>
+            <tr class="cb-detail" ng-repeat-end ng-if="data.open">
+              <td colspan="5" ng-bind-html="data.detail"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="report-foreclosure" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Foreclosure</h4>
+      </div>
+      <div class="modal-body">
+        <!--
+        <div class="table-responsive">
+          <kendo-grid options="foreclosure"></kendo-grid>
+        </div>
+                  -->
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th scope="col" class="text-nowrap">Date</th>
+              <th scope="col" class="text-nowrap">Foreclosure ID</th>
+              <th scope="col" class="text-nowrap">Document type</th>
+              <th scope="col" class="text-nowrap">Defendant</th>
+              <th scope="col" class="text-nowrap">Site address</th>
+              <th scope="col">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat-start="data in foreclosure">
+              <td data-label="Date">{{ format.date(data.RecordingDate) }}</td>
+              <td data-label="Foreclosure ID">{{ data.ForeclosureId || '&nbsp;' }}</td>
+              <td data-label="Document type">{{ data.DocumentType || '&nbsp;' }}</td>
+              <td data-label="Defendant">{{ data.Defendant || '&nbsp;' }}</td>
+              <td data-label="Site address">{{ format.address(data.SiteAddress) || '&nbsp;' }}</td>
+              <td class="cb-view-more" ng-class="{open:data.open}"><button ng-click="toggleDetail('foreclosure', data)">{{ data.open? 'Show less' : 'Show more' }} <span class="fa fa-angle-right"></span></button></td>
+            </tr>
+            <tr class="cb-detail" ng-repeat-end ng-if="data.open">
+              <td colspan="5" ng-bind-html="data.detail"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="report-ucc" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">UCC Filing</h4>
+      </div>
+      <div class="modal-body">
+        <!--
+        <div class="table-responsive">
+          <kendo-grid options="ucc"></kendo-grid>
+        </div>
+                  -->
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th scope="col" class="text-nowrap">Origin filing date</th>
+              <th scope="col" class="text-nowrap">Origin filing number</th>
+              <th scope="col" class="text-nowrap">Matched party</th>
+              <th scope="col">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat-start="data in ucc">
+              <td data-label="Origin filing date">{{ format.date(data.OriginFilingDate) }}</td>
+              <td data-label="Origin filing number">{{ data.OriginFilingNumber || '&nbsp;' }}</td>
+              <td data-label="Matched party">{{ data.MatchedParty.OriginName || '&nbsp;' }} {{ data.MatchedParty.PartyType || '&nbsp;' }}
+                <div>{{ format.address(data.MatchedParty.Address) || '&nbsp;' }}</div>
+              </td>
+              <td class="cb-view-more" ng-class="{open:data.open}"><button ng-click="toggleDetail('ucc', data)">{{ data.open? 'Show less' : 'Show more' }} <span class="fa fa-angle-right"></span></button></td>
+            </tr>
+            <tr class="cb-detail" ng-repeat-end ng-if="data.open">
+              <td colspan="5" ng-bind-html="data.detail"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="report-decision-logic" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Decision Logic</h4>
+      </div>
+      <div class="modal-body">
+        <div id="dl-accordion" class="panel-group" style="margin:0;">
+          <div class="panel panel-default" ng-repeat="data in decisionLogic">
+            <a href="#dl-{{ $index }}" data-toggle="collapse" ng-if="data.IsCompleted" data-parent="#dl-accordion" class="panel-heading" style="display:block;">
+              <div>
+                <div class="small"><span title="Account #">#{{ data.AccountNumberFound }}</span> - <span title="Institution name">{{ data.InstitutionName }}</span></div>
+                <div>
+                  <span title="Account name">{{ data.AccountName }}</span> <span class="small text-muted" title="Account type">({{ data.AccountType }})</span>
+                </div>
+              </div>
+              <hr style="margin-top: 5px; margin-bottom: 5px;" />
+              <div class="cb-flex-sm-up cb-gutters-2">
+                <div class="cb-grow" style="margin-bottom:0;">
+                  <table style="width:100%;">
+                    <tr>
+                      <td class="text-muted">Available balance:</td>
+                      <td class="text-right">{{ data.AvailableBalance | currency }}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted">Current balance:</td>
+                      <td class="text-right">{{ data.CurrentBalance | currency }}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted">Average balance:</td>
+                      <td class="text-right">{{ data.AverageBalance | currency }}</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="cb-grow" style="margin-bottom:0;">
+                  <table style="width:100%;">
+                    <tr>
+                      <td class="text-muted">Avg. bal. latest month:</td>
+                      <td class="text-right">{{ data.AverageBalanceRecent | currency }}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted">Deposits/Credits:</td>
+                      <td class="text-right">{{ data.TotalCredits | currency }}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted">Withdrawals/Debits:</td>
+                      <td class="text-right">{{ data.TotalDebits | currency }}</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="cb-grow" style="margin-bottom:0;">
+                  <table style="width:100%;">
+                    <tr>
+                      <td class="text-muted">As of date:</td>
+                      <td class="text-right">{{ data.AsOfDate | date }}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted">Activity start date:</td>
+                      <td class="text-right">{{ data.ActivityStartDate | date }}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted">Activity end date:</td>
+                      <td class="text-right">{{ data.ActivityEndDate | date }}</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </a>
+            <div id="dl-{{ $index }}" class="collapse" ng-if="data.IsCompleted">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h4 class="text-center">Summary</h4>
+                  <table class="table table-condensed">
+                    <thead>
+                      <tr>
+                        <th scope="col" rowspan="2" style="padding-left:15px;">Description</th>
+                        <th class="text-right" scope="col">Total</th>
+                        <th class="text-right" scope="col">Last month</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in data.TransactionAnalysisSummaries.TransactionAnalysisSummary4">
+                        <td style="padding-left:15px;">{{ item.TypeName }}</td>
+                        <td class="text-right"><span class="text-muted" title="# of transactions">({{ item.TotalCount }})</span> {{ item.TotalAmount | currency }}</td>
+                        <td class="text-right"><span class="text-muted" title="# of transactions">({{ item.RecentCount }})</span> {{ item.RecentAmount | currency }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col-sm-6">
+                  <h4 class="text-center">Expenses</h4>
+                  <table class="table table-condensed">
+                    <thead>
+                      <tr>
+                        <th scope="col">Category</th>
+                        <th class="text-right" scope="col">Amount</th>
+                        <th style="padding-right:15px;" class="text-right" scope="col">Percent</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in data.AccountExpenses.AccountExpense4 | limitTo:7">
+                        <td data-label="Category">{{ item.Category }}</td>
+                        <td class="text-right" data-label="Transactions">{{ item.Amount | currency }}</td>
+                        <td style="padding-right:15px;" class="text-right" data-label="Percent">{{ item.Percent | number:2 }}%</td>
+                      </tr>
+                      <tr ng-if="data.AccountExpenses.others.Amount>0">
+                        <td data-label="Category">Others</td>
+                        <td class="text-right" data-label="Transactions">{{ data.AccountExpenses.others.Amount | currency }}</td>
+                        <td style="padding-right:15px;" class="text-right" data-label="Percent">{{ data.AccountExpenses.others.Percent | number:2 }}%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="text-center" style="margin-bottom:20px;">
+                <a href="#transactions-{{ $index }}" data-toggle="collapse">View all transactions</a>
+              </div>
+              <div id="transactions-{{ $index }}" class="collapse">
+                <div class="table-responsive" style="padding: 15px;">
+                  <kendo-grid options="decisionLogicTransactions"></kendo-grid>
+                </div>
+              </div>
+            </div>
+            <div class="panel-heading" style="display:block;" ng-if="data.IsCompleted=='false'">
+              <div class="small cb-grow"><span title="Account #">#{{ data.AccountNumberEntered }}</span> - <span title="Institution name">{{ data.InstitutionName }}</span></div>
+              <div class="text-warning">
+                <span class="fa fa-warning"></span> Account information release not yet authorized
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="appointment" class="modal fade">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Closure Appointment</h4>
+      </div>
+      <div class="modal-body">
+        <fieldset class="cb-group cb-group-simple">
+          <div class="form-group cb-required" id="VA_DATERZTUUIGYVKU_617892_DIV">
+            <label for="VA_DATERZTUUIGYVKU_617892" title="Date" class="control-label">Date</label>
+            <div class="cb-control">
+              <input type="date" kendo-date-picker k-format="'MM/dd/yyyy'" />
+            </div>
+          </div>
+          <div class="form-group cb-required" id="VA_TIMEYWAWUVIONDN_494892_DIV">
+            <label for="VA_TIMEYWAWUVIONDN_494892" title="Time" class="control-label">Time</label>
+            <div class="cb-control">
+              <input type="date" kendo-time-picker />
+            </div>
+          </div>
+          <div class="form-group cb-required" id="VA_PLACEABMBYQRUCZ_456892_DIV">
+            <label for="VA_PLACEABMBYQRUCZ_456892" title="Place" class="control-label">Place</label>
+            <div class="cb-control">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+        </fieldset>
+        <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+          <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+            <button class="btn btn-primary navbar-btn" data-dismiss="modal">Save</button>
+            <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancel</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="booking" class="modal fade">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Booking</h4>
+      </div>
+      <div class="modal-body">
+        <fieldset class="cb-group cb-group-simple">
+          <div class="form-group cb-required" id="VA_DATERZTUUIGYVKU_617892_DIV">
+            <label for="VA_DATERZTUUIGYVKU_617892" title="Date" class="control-label">Id</label>
+            <div class="cb-control">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+        </fieldset>
+        <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+          <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+            <button class="btn btn-primary navbar-btn" data-dismiss="modal">Save</button>
+            <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancel</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="split" class="modal fade">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Split into different products</h4>
+      </div>
+      <div class="modal-body">
+        <fieldset class="cb-group cb-group-simple">
+          <legend>Credit line</legend>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group cb-required">
+                <label title="Date" class="control-label">Amount</label>
+                <div class="cb-control">
+                  <div class="input-group">
+                    <input type="text" class="form-control text-right" ng-model="request.amount" />
+                    <div class="input-group-addon">USD</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group cb-required">
+                <label title="Date" class="control-label">Amortization Period</label>
+                <div class="cb-control">
+                  <div class="input-group">
+                    <input type="text" class="form-control text-right" ng-model="request.term" />
+                    <div class="input-group-addon">Year/s</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group cb-required">
+                <label title="Date" class="control-label">Rate</label>
+                <div class="cb-control">
+                  <div class="input-group">
+                    <input type="text" class="form-control text-right" ng-model="request.rate" />
+                    <div class="input-group-addon">%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="cb-group cb-group-simple">
+          <legend>Other products</legend>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-model="request.agile"> Term loan
+            </label>
+          </div>
+          <div class="row" ng-show="request.agile">
+            <div class="col-sm-6">
+              <div class="form-group cb-required">
+                <label title="Date" class="control-label">Amount</label>
+                <div class="cb-control">
+                  <div class="input-group">
+                    <input type="text" class="form-control text-right" ng-model="request.amount2" />
+                    <div class="input-group-addon">USD</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group cb-required">
+                <label title="Date" class="control-label">Amortization Period</label>
+                <div class="cb-control">
+                  <div class="input-group">
+                    <input type="text" class="form-control text-right" ng-model="request.term" />
+                    <div class="input-group-addon">Year/s</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group cb-required">
+                <label title="Date" class="control-label">Rate</label>
+                <div class="cb-control">
+                  <div class="input-group">
+                    <input type="text" class="form-control text-right" ng-model="request.rate" />
+                    <div class="input-group-addon">%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+          <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+            <button class="btn btn-primary navbar-btn" ng-click="split();">Save</button>
+            <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancel</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="related-products" class="modal fade">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Related products</h4>
+      </div>
+      <div class="modal-body">
+        <fieldset class="cb-group cb-group-simple">
+          <kendo-grid options="relatedProducts"></kendo-grid>
+        </fieldset>
+        <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+          <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+            <button class="btn btn-default navbar-btn" data-dismiss="modal">Close</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="business" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Business</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row" style="display: flex; flex-wrap: wrap;">
+          <div class="col-sm-12">
+            <div class="form-group cb-required">
+              <div class="control-label">Business Name</div>
+              <div class="cb-control"><input class="form-control" type="text" ng-model="business.name" /></div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group ">
+              <div class="control-label">Doing Business As (DBA), if applicable</div>
+              <div class="cb-control"><input class="form-control" type="text" /></div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group cb-required">
+              <div class="control-label">Business Industry</div>
+              <div class="cb-control">
+                <select class="form-control" id="businessIndustry" data-original-title="" title="">
+                  <option class=""></option>
+                  <option class="" value="1">Agricultural/Forestry/Fishing</option>
+                  <option class="" value="1">Arts/Crafts Production</option>
+                  <option class="" value="2">Auto/Vehicle</option>
+                  <option class="" value="3">Beauty/Salon Services</option>
+                  <option class="" value="4">Cleaning Services</option>
+                  <option class="" value="5">Clothing/Material Production</option>
+                  <option class="" value="6">Construction/Repair</option>
+                  <option class="" value="7">Cosmetic Sales</option>
+                  <option class="" value="8">Day Care</option>
+                  <option class="" value="9">Education</option>
+                  <option class="" value="10">Electronics</option>
+                  <option class="" value="11">Entertainment</option>
+                  <option class="" value="12">Farming</option>
+                  <option class="" value="13">Food/Beverage</option>
+                  <option class="" value="14">Manufacturing</option>
+                  <option class="" value="15">Media</option>
+                  <option class="" value="16">Medical Services</option>
+                  <option class="" value="17">Performing Arts</option>
+                  <option class="" value="18">Professional/Office Services</option>
+                  <option class="" value="19">Retail Sales/Store</option>
+                  <option class="" value="20">Telecommunications</option>
+                  <option class="" value="21">Tourism</option>
+                  <option class="" value="22">Transportation</option>
+                  <option class="" value="23">Visual Arts</option>
+                  <option class="" value="24">Wholesale</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group cb-required">
+              <div class="control-label">Years in Business</div>
+              <div class="cb-control"><input class="" min="1" max="21" step="1" id="yearsInBusiness" type="range" ng-model="request.yearsInBusiness">
+                <div class="cb-flex cb-middle" sytle="[object Object]">
+                  <div class="cb-grow text-muted small">Less than 2 Years</div>
+                  <div style="position: absolute; right: 15px; top: 1px;">{{ formatYears(request.yearsInBusiness, 2, 20) }}</div>
+                  <div class="cb-grow text-muted text-right small">21 years or more</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group" ng-class="{'cb-required': request.resident=='yes'}">
+              <div class="control-label">{{ request.resident=='yes'? 'Tax ID' : 'Foreign Tax ID' }}</div>
+              <div class="cb-control" ng-if="request.resident=='yes'"><input class="form-control ein-validator" ng-focus="setType($event, 'text')" ng-blur="setType($event, 'password')" kendo-masked-text-box k-mask="'99-9999999'" type="text" /></div>
+              <div class="cb-control" ng-if="request.resident!='yes'"><input class="form-control" ng-focus="setType($event, 'text')" ng-blur="setType($event, 'password')" type="text" /></div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group cb-required">
+              <div class="control-label">Primary Phone Number</div>
+              <div class="cb-control">
+                <div class="cb-flex cb-gutters-tiny">
+                  <div>
+                    <select class="form-control">
+                      <option>Home</option>
+                      <option>Mobile</option>
+                      <option>Work</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div class="cb-grow">
+                    <input type="text" class="form-control" kendo-masked-text-box k-mask="'(999) 999-9999'" ng-show="request.resident=='yes'" />
+                    <input type="text" class="form-control" ng-show="request.resident!='yes'" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group ">
+              <div class="control-label">Website, if applicable</div>
+              <div class="cb-control"><input class="form-control" id="website" type="text"></div>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group cb-required">
+              <div class="control-label">Business Street Address</div>
+              <div class="cb-control">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group cb-required">
+              <div class="control-label">City</div>
+              <div class="cb-control">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3" ng-show="request.resident=='yes'">
+            <div class="form-group" ng-class="{'cb-required': request.resident=='yes'}">
+              <div class="control-label">{{ request.resident=='yes'? 'State' : 'State/Province' }}</div>
+              <div class="cb-control">
+                <select class="form-control" name="state" ng-show="request.resident=='yes'">
+                  <option></option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="DC">District Of Columbia</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                  <option value="other">Other</option>
+                </select>
+                <input type="text" class="form-control" ng-show="request.resident!='yes'" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3" ng-show="request.resident=='yes'">
+            <div class="form-group" ng-class="{'cb-required': request.resident=='yes'}">
+              <div class="control-label">{{ request.resident=='yes'? 'Zip Code' : 'Postal Code' }}</div>
+              <div class="cb-control">
+                <input type="text" class="form-control" kendo-masked-text-box k-mask="'99999'" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group cb-required">
+              <div class="control-label">Country</div>
+              <div class="cb-control">
+                <select class="form-control" name="country">
+                  <option></option>
+                  <option value="{{ country.code }}" ng-repeat="country in countries">{{ country.name }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <hr />
+          </div>
+          <div class="col-sm-6" ng-if="request.resident!='yes'">
+            <div class="form-group cb-required">
+              <div class="control-label">Country of incorporation</div>
+              <div class="cb-control">
+                <select class="form-control" name="country">
+                  <option></option>
+                  <option value="{{ country.code }}" ng-repeat="country in countries">{{ country.name }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6" ng-if="request.resident!='yes'">
+            <div class="form-group cb-required">
+              <div class="control-label">Country of operation</div>
+              <div class="cb-control">
+                <select class="form-control" name="country">
+                  <option></option>
+                  <option value="{{ country.code }}" ng-repeat="country in countries">{{ country.name }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <hr />
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group cb-required">
+              <div class="control-label">Business Annual Revenue<button class="btn btn-link btn-tooltip" tabindex="-1" type="button" style="padding: 0px 0px 0px 5px;" data-original-title="" title=""><span class="glyphicon glyphicon-question-sign"></span></button></div>
+              <div class="cb-control">
+                <div class="input-group">
+                  <input type="number" class="form-control" />
+                  <div class="input-group-addon">USD</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group cb-required">
+              <div class="control-label">Business Annual Expenses<button class="btn btn-link btn-tooltip" tabindex="-1" type="button" style="padding: 0px 0px 0px 5px;"><span class="glyphicon glyphicon-question-sign"></span></button></div>
+              <div class="cb-control">
+                <div class="input-group">
+                  <input type="number" class="form-control" />
+                  <div class="input-group-addon">USD</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+          <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+            <button class="btn btn-primary navbar-btn" data-dismiss="modal">Save</button>
+            <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancel</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="creditType" class="modal fade">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Credit type</h4>
+      </div>
+      <div class="modal-body">
+        <fieldset class="cb-group cb-group-simple">
+          <div class="radio">
+            <label>
+              <input type="radio" name="resident" value="yes" /> Term loan
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="resident" value="no" checked /> Credit line
+            </label>
+          </div>
+        </fieldset>
+        <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+          <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+            <button class="btn btn-primary navbar-btn" data-dismiss="modal">Save</button>
+            <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancel</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

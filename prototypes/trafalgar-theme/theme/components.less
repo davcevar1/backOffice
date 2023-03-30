@@ -1,0 +1,268 @@
+.cb-logo {
+    margin: auto;
+    background-image: url(images/logo-trafalgar.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    #page-splash & {
+        width: 244px;
+        height: 244px;
+    }
+
+    #page-login & {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.cb-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+
+    &--size-1 {
+        font-size: 1rem;
+    }
+
+    &--size-2 {
+        font-size: 1.5rem;
+    }
+
+    &--size-3 {
+        font-size: 2rem;
+    }
+
+    &--size-4 {
+        font-size: 3rem;
+    }
+
+    &--size-5 {
+        font-size: 4.5rem;
+    }
+
+    &--toggle {
+        transform: rotate(90deg);
+    }
+}
+
+.cb-page-header {
+    background-color: #ff7827;
+    color: #FFF;
+    text-align: center;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-top: -1rem;
+    border-bottom-right-radius: 100vh;
+
+    .cb-label {
+        text-transform: uppercase;
+        font-size: 0.75rem;
+    }
+}
+
+.cb-list {
+    &__item {
+        padding: 1rem;
+        &:not(:last-child) {
+            border-bottom: 1px solid @body-bg;
+        }
+    }
+}
+
+.cb-card {
+    border-radius: .5rem;
+    background-color: #FFF;
+    overflow: hidden;
+
+    &.cb-open {
+        .cb-card__list {
+            display: block;
+        }
+    }
+
+    &,
+    &__link {
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: none !important;
+            border-color: @brand-2;
+        }
+    }
+
+    a& {
+        padding: 1rem;
+    }
+
+    &__link {
+        border: 0;
+        background-color: transparent;
+        width: 100%;
+        padding: 1rem;
+        border-radius: .5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: left;
+        color: @brand-2;
+
+        .cb-icon--toggle {
+            transition: transform .2s;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+            background-color: rgba(0, 0, 0, .02);
+        }
+    }
+
+    &__actions {
+        display: flex;
+        border-top: 1px solid #F6F1EB;
+
+        a,
+        button {
+            flex-grow: 1;
+            text-transform: uppercase;
+            border: 0;
+            background-color: transparent;
+            font-size: 0.75rem;
+            color: @brand-3;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+
+            &:active,
+            &:focus {
+                outline: none;
+                background-color: rgba(0, 0, 0, .02);
+            }
+
+            &:not(:last-child) {
+                border-right: 1px solid #F6F1EB;
+            }
+        }
+    }
+
+
+    &__list {
+        &.cb-collapsible {
+            display: none;
+        }
+
+        >a {
+            padding: 1rem;
+
+            &:first-child {
+                border-top: 2px solid @body-bg;
+            }
+
+            &:not(:last-child) {
+                border-bottom: 2px solid @body-bg;
+            }
+        }
+    }
+
+    &--ticket {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        width: 100%;
+        max-width: 80vw;
+        position: relative;
+        overflow: visible;
+
+        &::after {
+            background: linear-gradient(-20deg, transparent 10px, #ffffff 0), linear-gradient(20deg, transparent 10px, #ffffff 0);
+            background-repeat: repeat-x;
+            background-position: left bottom;
+            background-size: 26px 20px;
+            content: "";
+            display: block;
+            width: 100%;
+            height: 13px;
+            position: absolute;
+            bottom: -13px;
+            left: 0px
+        }
+    }
+}
+
+.cb-nav {
+    display: flex;
+    background-color: #FFF;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+
+    >a {
+        flex-grow: 1;
+        font-size: 0.6875rem;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &.active {
+            color: @brand-3;
+        }
+
+        >div {
+            align-items: center;
+            height: 72px;
+            justify-content: center;
+        }
+
+        .cb-icon {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.cb-backdrop {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: saturate(50%) blur(2px);
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.cb-navbar-top {
+    .ui-navbar ul {
+        display: flex;
+
+        li {
+            flex-grow: 1;
+
+            .ui-btn {
+                border-radius: 0;
+                border: 0;
+                background-color: transparent;
+                transition: box-shadow .2s;
+                text-shadow: 0 0 0;
+                color: @brand-1;
+
+                &.ui-btn-active {
+                    box-shadow: inset 0 -3px 0 0 @brand-2;
+                    color: @brand-2;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+.cb-login {
+    width: 100%;
+    max-width: 300px;
+}

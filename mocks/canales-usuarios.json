@@ -1,0 +1,11 @@
+[
+    {"id":1, "office": "Oficina Virtual", "documentNumber":"1234567890", "alias": "ncastaneda", "name":"NINCO CASTANEDA CESAR ERNESTO", "type": "Persona natural", "authorized": true, "status":"Activo"},
+    {"id":2, "office": "Oficina Virtual", "documentNumber":"0987654321", "alias": "dcifuentes", "name":"DEICI LORENA CIFUENTES HERMOSA", "type": "Persona natural", "authorized": false, "status":"Activo"},
+    {"id":3, "office": "Oficina Virtual", "documentNumber":"4567890123", "alias": "rtorres", "name":"RINCON TORRES ROLANDO ALBEIRO", "type": "Persona natural", "authorized": false, "status":"Activo"},
+    {"id":4, "office": "Oficina Virtual", "documentNumber":"7890123456", "alias": "cmedina", "name":"CAMACHO MEDINA JOHNATTAN", "type": "Persona natural", "authorized": false, "status":"Activo"},
+    {"id":5, "office": "Oficina Virtual", "documentNumber":"4567890123", "alias": "gpareja", "name":"GALEANO PAREJA SEBASTIAN", "type": "Persona natural", "authorized": true, "status":"Activo"},
+    {"id":6, "office": "Oficina Virtual", "documentNumber":"2345678901", "alias": "jmancilla", "name":"MANCILLA OSORIO JORGE ESNEIDER", "type": "Persona natural", "authorized": false, "status":"Activo"},
+    {"id":7, "office": "Oficina Virtual", "documentNumber":"3456789012", "alias": "ssuarez", "name":"SUAREZ THERAN SERGIO GABRIEL", "type": "Persona natural", "authorized": false, "status":"Activo"},
+    {"id":8, "office": "Oficina Virtual", "documentNumber":"5678901234", "alias": "jduque", "name":"DUQUE GRACIANO JAIRO NEL", "type": "Persona natural", "authorized": false, "status":"Activo"},
+    {"id":9, "office": "Oficina Virtual", "documentNumber":"8901234567", "alias": "spineros", "name":"PINEROS BARRETO SANDRA MILENA", "type": "Persona natural", "authorized": true, "status":"Activo"}
+]

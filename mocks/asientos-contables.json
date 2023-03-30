@@ -1,0 +1,10 @@
+[{
+  "number": "0245000345",
+  "type": "Contabilidad",
+  "description": "CD 1938 - Depósito de cheque",
+  "credits": 20000,
+  "debits": 20000,
+  "status": "Ingresado",
+  "startDate": "11/11/2017",
+  "transactionDate": "12/11/2017"
+}]

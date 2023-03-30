@@ -1,0 +1,5 @@
+[
+  {"role":"Principal", "name":"José Morales", "identifier":"1745432345", "identifierType":"Cédula", "type":"Funcionario"},
+  {"role":"Alterno", "name":"Martín Morales", "identifier":"1743768976", "identifierType":"Cédula", "type":null},
+  {"role":"Alterno", "name":"Marta Villavicencio", "identifier":"1734562348", "identifierType":"Cédula", "type": "Menor de edad"}
+]

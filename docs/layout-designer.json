@@ -1,0 +1,114 @@
+{
+    "components": [
+        {
+            "nameClass": "cb-editor-group",
+            "optionalClass": [
+                "cb-selected",
+                "cb-preview"
+            ],
+            "children": [
+                {
+                    "class": "cb-editor-group-toolbar",
+                    "optionalClass": [
+                        "btn-group",
+                        "btn-group-xs"
+                    ],
+                    "required": true,
+                    "children": [
+                        {
+                            "tagName": "a",
+                            "class": "btn btn-default",
+                            "optionalClass": [
+                                {
+                                    "class":"cb-sortable",
+                                    "comment":"Aplica al primer elemento para el ordenado"
+                                }
+                            ]
+                        },
+                        {
+                            "tagName": "span"
+                        }
+                    ]
+                },
+                {
+                    "class": "cb-editor-group-top",
+                    "required": true
+                },
+                {
+                    "class": "cb-editor-group-bottom",
+                    "required": true
+                },
+                {
+                    "class": "cb-editor-group-left",
+                    "required": true
+                },
+                {
+                    "class": "cb-editor-group-right",
+                    "required": true
+                },
+                {
+                    "class": "row",
+                    "required": false,
+                    "children": [
+                        {
+                            "class": "col-*",
+                            "attribute": "ng-repeat",
+                            "children": [
+                                {
+                                    "attribute": "ng-include",
+                                    "children": [
+                                        {
+                                            "componentClass": "cb-editor-group"
+                                        },
+										{
+											"componentClass": "cb-visual-attribute",
+											"required": false
+										}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "componentClass": "cb-group",
+            "typeClass": "cb-group-simple",
+            "children": [
+                {
+                    "tagName": "div",
+                    "attribute": "kendo-validator",
+                    "children": [
+                        {
+                            "tagName": "div",
+                            "optionalClass": [
+                                "form-horizontal",
+                                "form-vertical"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "componentClass": "cb-group",
+            "typeClass": "cb-group-layout",
+            "children": [
+                {
+                    "class":"row",
+                    "children": [
+                        {
+                            "class":"col-*",
+                            "children": [
+                                {
+                                    "componentClass": "cb-group"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

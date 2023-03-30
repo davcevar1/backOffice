@@ -1,0 +1,15 @@
+[
+	{
+		"auth": "65465456",
+        "reference": "321304565",
+		"transaction": "Pago de nómina",
+		"status": "Pendiente",
+		"account": "464564554",
+		"dateStart": "12/12/2016",
+		"dateEnd": "12/12/2016",
+        "amount": 1000,
+        "records": 456,
+        "user": "Juan Morales",
+        "file": "nomina_12122016.txt"
+	}
+]

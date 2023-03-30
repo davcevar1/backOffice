@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "currency": 0,
+        "transactionNumber": "25067",
+        "transactionDescription": "PAGO PARA SERVICIOS BANCARIOS",
+        "type": "EFECTIVO",
+        "min": 0,
+        "max": 9999
+    },
+    {
+        "id": 1,
+        "currency": 0,
+        "transactionNumber": "32145",
+        "transactionDescription": "EGRESO DE CAJA",
+        "type": "TOTALES",
+        "min": 0,
+        "max": 9999
+    },
+    {
+        "id": 1,
+        "currency": 0,
+        "transactionNumber": "25067",
+        "transactionDescription": "APERTURA DEPOSITOS A PLAZO FIJO",
+        "type": "CHEQUES LOCALES",
+        "min": 0,
+        "max": 9999
+    },
+    {
+        "id": 1,
+        "currency": 0,
+        "transactionNumber": "25067",
+        "transactionDescription": "APERTURA DEPOSITOS A PLAZO FIJO",
+        "type": "EFECTIVO",
+        "min": 0,
+        "max": 9999
+    },
+    {
+        "id": 1,
+        "currency": 0,
+        "transactionNumber": "25067",
+        "transactionDescription": "PAGO DE PRESTAMO - NEGOCIACION",
+        "type": "CHEQUES LOCALES",
+        "min": 0,
+        "max": 9999
+    }
+]

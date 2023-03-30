@@ -1,0 +1,22 @@
+{
+  "success": true,
+  "data": {
+    "label": "Opciones",
+    "root": true,
+    "children": [
+      {
+        "label": "Depósito plazo fijo",
+        "children": [
+          {
+            "label": "Apertura de cuenta",
+            "url": "dpf-tecreemos/busqueda-cuentas.html"
+          },
+          {
+            "label": "Depósitos",
+            "url": "dpf-tecreemos/busqueda-depositos.html"
+          }
+        ]
+      }
+    ]
+  }
+}

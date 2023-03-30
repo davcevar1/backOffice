@@ -1,0 +1,224 @@
+.k-dropdown {
+  .background-image(linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.06) 100%));
+  .box-shadow(0 1px 1px 0 rgba(0, 0, 0, 0.17));
+}
+
+.k-picker-wrap {
+  &,
+  &:hover {
+    background-color: #FFF;
+    .box-shadow(inset 0 1px 1px rgba(0,0,0,0.075));
+  }
+
+  > .k-input {
+    background: transparent;
+    .box-shadow(0 0);
+  }
+
+  > .k-select {
+    border: 0;
+    background: transparent;
+  }
+}
+
+.k-panelbar {
+  .k-item {
+    .k-content {
+      .cb-heading {
+        padding: 0 20px 20px;
+
+        .lead {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.k-grid {
+  border: 0;
+
+  .k-grid-header {
+    .k-header,
+    .k-header .k-link {
+      background-color: @color_header_grid;
+      border-radius: 0;
+      text-transform: inherit;
+      color: #f5f5f5;
+      font-size: 13px;
+      white-space: pre-line;
+      text-align: center;
+    }
+  }
+
+  tbody {
+    .k-master-row {
+      > td {
+        border-left: 0;
+        font-size: 13px;
+      }
+    }
+  }
+
+  .k-detail-row {
+    td {
+      &.k-detail-cell {
+        padding: 10px;
+
+        .field-1 {
+          font-size: 12px;
+          color: #777;
+        }
+      }
+
+      &.k-hierarchy-cell {
+        border-left: 0;
+      }
+    }
+  }
+
+  &.cb-grid-ib-panels {
+    background: transparent;
+
+    > table > tbody {
+      background: transparent;
+
+      > tr {
+        display: block;
+        box-sizing: border-box;
+        border: 1px solid #B9BBBF;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.17);
+        background-color: #fff;
+        position: relative;
+        margin-bottom: 15px; 
+
+        > td {
+          min-height: 45px;
+
+          &:not(.k-hierarchy-cell) {
+            display: block;
+            background-color: #fff;
+          }
+
+          > .six-fields-2-4 {
+            font-size: 16px;
+          }
+
+          .field-1 {
+            font-weight: 400;
+            color: #005094;
+          }
+        }
+      }
+    }
+
+    .k-detail-row {
+      margin-top: -16px;
+      border-top: 0;
+
+      .k-detail-cell+.k-hierarchy-cell {
+        display: none;
+      }
+    }
+  }
+
+  &.cb-grid-detail-arrow-bottom {
+    > table > tbody > .k-master-row {
+      display: block;
+      box-sizing: border-box;
+      position: relative;
+
+      > td {
+        &:not(.k-hierarchy-cell) {
+          display: block;
+        }
+
+        &.k-hierarchy-cell {
+          position: absolute;
+          background-color: transparent;
+          top: 26px;
+          right: 10px;
+
+          a {
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cb-grid-no-column-padding {
+  table {
+    td {
+      padding: 0;
+    }
+  }
+}
+
+.cb-grid-ib-verification {
+  > table > tbody > tr {
+    background-color: #fff;
+
+    > td {
+      background-color: #fff;
+
+      .summary-two-fields-vertical {
+        div:first-child {
+          background-color: #fff;
+          margin-bottom: 5px;
+        }
+
+        div:last-child {
+          padding: 15px 20px;
+          background-color: #f5f5f5;
+        }
+      }
+    }
+  }
+}
+
+.cb-grid-ib-confirmation {
+  .cb-grid-ib-verification;
+  border: 6px solid #B9BBBF !important;
+  padding: 20px 35px;
+  margin: 40px;
+}
+
+.cb-grid-ib-parent {
+  .six-fields-2-4 {
+    .field-1,
+    .field-2 {
+      font-size: 16px;
+    }
+  }
+}
+/*Kendo Notifications*/
+html .k-warning-colored {
+  color: #fff!important;
+  border-color: #5e540e;
+  background-color: #dd9226;
+  z-index: 99999;
+}
+
+html .k-error-colored {
+  color: #fff!important;
+  border-color: #874600;
+  background-color: #ec6225;
+  z-index: 99999;
+}
+
+html .k-info-colored {
+  color: #fff!important;
+  border-color: #173a42;
+  background-color: #007dbd;
+  z-index: 99999;
+}
+
+html .k-success-colored {
+  color: #fff!important;
+  border-color: #1a6f89;
+  background-color: #37aedd;
+  z-index: 99999;
+}

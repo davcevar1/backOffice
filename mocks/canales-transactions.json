@@ -1,0 +1,11 @@
+[
+  {"code":35, "name":"CONSULTA TIPOS DE CHEQUERAS"},
+  {"code":73, "name":"CONSULTA DE CHEQUERAS"},
+  {"code":1445, "name":"HELP TIPO IDENTIFICACION"},
+  {"code":1555, "name":"SEARCH DE MONEDA"},
+  {"code":1556, "name":"HELP DE MONEDA"},
+  {"code":7056, "name":"IMPRESION DE LA TABLA DE AMORTIZACION"},
+  {"code":7172, "name":"CONSULTA SALDOS DE CARTERA"},
+  {"code":7802, "name":"CONSULTA DATOS PARA ESTADO DE CUENTA"},
+  {"code":9108, "name":"REIMPRESION DE PAGO DE SERVICIOS"}
+]

@@ -1,0 +1,4 @@
+[
+    {"name":"DEPOSITO DE AHORROS", "hour":"12:45:00", "status":"E", "reverse":"N", "return":"1", "active":true},
+    {"name":"COBROS PARA SERVICIOS BANCARIOS", "hour":"12:45:00", "status":"E", "reverse":"N", "return":"1", "active":false}
+]

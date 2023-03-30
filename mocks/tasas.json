@@ -1,0 +1,5 @@
+[
+    {"cartera": "CARTERA 1", "valor": "5.0", "valorReferencial":"4.5", "valorDefector": "5.0", "valorMinimo": "4.6", "valorMaximo": "5.5"},
+    {"cartera": "CARTERA 2", "valor": "5.0", "valorReferencial":"4.5", "valorDefector": "5.0", "valorMinimo": "4.6", "valorMaximo": "5.5"},
+    {"cartera": "CARTERA 3", "valor": "5.0", "valorReferencial":"4.5", "valorDefecto": "5.0", "valorMinimo": "4.6", "valorMaximo": "5.5"}
+]

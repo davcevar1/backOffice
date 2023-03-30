@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Cobis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body id="container" ng-class="{'cb-nav-panel-opened':tools.currentItem}" ng-controller="ContainerController">
+  <div id="nav-panels">
+    <div id="panel-menu" class="cb-nav-panel" ng-class="{'opened':tools.currentItem.id=='menu'}">
+      <div id="panel-menu-search">
+        <!--               <input type="search" placeholder="Buscar opción" ng-focus="navigation.isSearching(true)" ng-blur="navigation.isSearching(false)" ng-keyup="navigation.search($event.target.value)" /> -->
+        <input kendo-auto-complete />
+        <span class="glyphicon glyphicon-search"></span>
+      </div>
+      <div class="cb-panel-heading cb-parent-level" ng-if="navigation.currentGroup.parent==null">{{navigation.currentGroup.label}}</div>
+      <a class="cb-panel-heading cb-parent-level" href="#" ng-if="navigation.currentGroup.parent!=null" ng-click="navigation.setCurrentItem(navigation.currentGroup.parent)">
+          <span class="cb-icon-arrow-left"></span> {{navigation.currentGroup.label}}
+      </a>
+      <div class="list-group cb-list-menu">
+        <div class="list-group-item" ng-class="{'cb-group':!menuItem.url, 'cb-readonly':menuItem.url=='#'}" ng-repeat="menuItem in navigation.currentGroup.children">
+          <div class="cb-list-menu-item-actions" ng-if="menuItem.url && menuItem.url!='#'">
+            <div class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-ellipsis-v"></span></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="#" ng-click="navigation.setCurrentItem(menuItem, true)"><span class="glyphicon glyphicon-plus-sign"></span> Abrir en nueva pestaña</a>
+                </li>
+                <li><a href="#"><span class="fa fa-home"></span> Marcar como inicio</a>
+                </li>
+                <li ng-if="!menuItem.favorite"><a href="#" ng-click="navigation.toggleFavorite(menuItem)"><span class="glyphicon glyphicon-star-empty"></span> Agregar a favoritos</a>
+                </li>
+                <li ng-if="menuItem.favorite"><a href="#" ng-click="navigation.toggleFavorite(menuItem)"><span class="glyphicon glyphicon-star"></span> Eliminar de favoritos</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <a href="#" ng-click="navigation.setCurrentItem(menuItem)" ng-show="menuItem.url!='#'"><div class="fa fa-chevron-right pull-right" ng-if="menuItem.children.length>0"></div><div class="cb-label">{{menuItem.label}}</div></a>
+          <div class="text-muted" ng-show="menuItem.url=='#'">{{menuItem.label}}</div>
+        </div>
+      </div>
+    </div>
+    <div id="panel-favorites" class="cb-nav-panel" ng-class="{'opened':tools.currentItem.id=='favorites'}">
+      <div class="cb-panel-heading cb-parent-level" ng-if="favorites.menu.currentGroup.parent==null">
+        <div class="cb-flex">
+          <div class="cb-grow">{{favorites.menu.currentGroup.label}}</div>
+          <div class="cb-actions">
+            <div class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-ellipsis-v"></span></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="#" ng-click="favorites.addFolder()">Agregar nueva carpeta</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cb-panel-heading cb-parent-level" ng-if="favorites.menu.currentGroup.parent!=null">
+        <div class="cb-flex">
+          <a href="#" class="cb-grow" ng-click="favorites.menu.setCurrentItem(favorites.menu.currentGroup.parent)">
+                        <span class="cb-icon-arrow-left"></span> {{favorites.menu.currentGroup.label}}
+                    </a>
+          <div class="cb-actions">
+            <div class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-ellipsis-v"></span></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="#" ng-click="favorites.removeFolder(favorites.menu.currentGroup)">Eliminar carpeta</a>
+                </li>
+                <li><a href="#" ng-click="tools.setCurrent(tools.items)">Anclar en navegación</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="list-group cb-list-menu">
+        <div class="list-group-item" ng-class="{'cb-group':!menuItem.url}" ng-repeat="menuItem in favorites.menu.currentGroup.children">
+          <div class="cb-list-menu-item-actions" ng-if="!menuItem.children">
+            <div class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-ellipsis-v"></span></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="#" ng-click="navigation.setCurrentItem(menuItem, true)">Abrir en nueva pestaña</a>
+                </li>
+                <li><a href="#">Marcar como inicio</a>
+                </li>
+                <li><a href="#">Eliminar de favoritos</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <a href="#" data-id="{{menuItem.id}}" ng-if="!menuItem.children" kendo-draggable k-hint="favorites.draggableHint" ng-click="favorites.menu.setCurrentItem(menuItem)">{{menuItem.label}}</a>
+          <a href="#" data-id="{{menuItem.id}}" ng-if="menuItem.children" kendo-droptarget k-drop="favorites.onDrop" ng-click="favorites.menu.setCurrentItem(menuItem)"><div class="fa fa-chevron-right pull-right" ng-if="menuItem.children.length>0"></div><div class="cb-label">{{menuItem.label}}</div></a>
+        </div>
+      </div>
+      <div class="hidden">
+        <div id="panel-favorites-draggable" class="cb-list-group-draggable"></div>
+      </div>
+    </div>
+    <div id="panel-settings" class="cb-nav-panel" ng-class="{'opened':tools.currentItem.id=='settings'}">
+      <div class="cb-panel-heading">Configuración</div>
+      <form>
+        <div class="list-group cb-list-menu">
+          <div class="list-group-item cb-readonly">
+            <h4 class="list-group-item-heading">Usuario</h4>
+            <p class="list-group-item-text">José Martinez</p>
+          </div>
+          <div class="list-group-item cb-readonly">
+            <h4 class="list-group-item-heading">Oficina</h4>
+            <p class="list-group-item-text">Eloy Alfaro</p>
+          </div>
+          <a href="#" class="list-group-item" ng-click="changePassword.center().open()">
+            <h4 class="list-group-item-heading">Contraseña</h4>
+            <p class="list-group-item-text">Cambiar</p>
+          </a>
+          <a href="#" class="list-group-item" ng-click="language.center().open()">
+            <h4 class="list-group-item-heading">Idioma</h4>
+            <p class="list-group-item-text">Español - Cambiar</p>
+          </a>
+          <a href="#" class="list-group-item" ng-click="info.center().open()">
+            <h4 class="list-group-item-heading">Información del sistema</h4>
+            <p class="list-group-item-text">Versión 5.0.0</p>
+          </a>
+        </div>
+      </form>
+    </div>
+    <div id="panel-casher" class="cb-nav-panel" style="width:300px;" ng-class="{'opened':tools.currentItem.id=='casher'}">
+      <style>
+        /* Using box shadows to create 3D effects */
+
+        #calculator {
+          width: 299px;
+          height: auto;
+          padding: 20px 20px 0;
+        }
+
+        /* Top portion */
+
+        .top button.clear {
+          float: left;
+        }
+
+        /* Inset shadow on the screen to create indent */
+
+        .top .screen {
+          height: 36px;
+          width: 193px;
+          float: left;
+          padding: 0 10px;
+          background: rgba(0, 0, 0, 0.2);
+          border-radius: 3px;
+          /* Typography */
+          font-size: 17px;
+          line-height: 36px;
+          color: white;
+          text-align: right;
+          letter-spacing: 1px;
+        }
+
+        /* Clear floats */
+
+        .keys,
+        .top {
+          overflow: hidden;
+        }
+
+        /* Applying same to the keys */
+
+        .keys button,
+        .top button.clear {
+          float: left;
+          position: relative;
+          top: 0;
+          cursor: pointer;
+          width: 61px;
+          height: 36px;
+          margin: 0 5px 5px 0;
+          /* prevent selection of text inside keys */
+          user-select: none;
+          /* Smoothing out hover and active states using css3 transitions */
+          transition: all 0.2s ease;
+        }
+
+        /* Remove right margins from operator keys */
+
+        /* style different type of keys (operators/evaluate/clear) differently */
+
+        .keys button.operator {
+          margin-right: 0;
+        }
+      </style>
+      <div id="calculator">
+        <!-- Screen and clear key -->
+        <div class="top">
+          <button class="btn btn-danger clear">C</button>
+          <div class="screen"></div>
+        </div>
+
+        <div class="keys">
+          <!-- operators and other keys -->
+          <button class="btn btn-default">7</button>
+          <button class="btn btn-default">8</button>
+          <button class="btn btn-default">9</button>
+          <button class="btn btn-info operator">+</button>
+          <button class="btn btn-default">4</button>
+          <button class="btn btn-default">5</button>
+          <button class="btn btn-default">6</button>
+          <button class="btn btn-info operator">-</button>
+          <button class="btn btn-default">1</button>
+          <button class="btn btn-default">2</button>
+          <button class="btn btn-default">3</button>
+          <button class="btn btn-info operator">÷</button>
+          <button class="btn btn-default">0</button>
+          <button class="btn btn-default">.</button>
+          <button class="btn btn-primary">=</button>
+          <button class="btn btn-info operator">x</button>
+        </div>
+      </div>
+      <hr />
+      <div style="padding:20px; padding-top:0;">
+        <div class="form-group">
+          <div class="control-label"># Caja</div>
+          <div class="cb-control"><input type="number" class="form-control" value="9" /></div>
+        </div>
+        <div class="form-group">
+          <div class="control-label">Moneda</div>
+          <div class="cb-control">
+            <select class="form-control">
+                            <option>BOLIVIANOS</option>
+                            <option>DOLARES</option>
+                        </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav" class="cb-flex cb-column-sm-up">
+    <div id="nav-logo"></div>
+    <div id="nav-tools" class="cb-flex-sm-down cb-grow">
+      <a href="#" class="btn" data-toggle="tooltip" data-placement="right" title="Menu" ng-click="tools.toggleCurrentItem(tools.menu, $event)"><span class="fa fa-bars"></span></a>
+      <a href="#" class="cb-toggle" ng-if="tools.current!=tools.mainItems" ng-click="tools.setCurrent(tools.mainItems)"></a>
+      <a href="#" class="btn" data-toggle="tooltip" data-placement="right" title="{{toolItem.label}}" ng-repeat="toolItem in tools.current" ng-class="{active:toolItem==tools.currentItem}" ng-click="toolItem.url? tabs.setCurrentItem(toolItem, false) : tools.toggleCurrentItem(toolItem, $event)"><span class="{{toolItem.iconClass}}"></span><span class="badge" ng-if="toolItem.counter.length>0">{{toolItem.counter}}</span></a>
+    </div>
+    <div id="nav-logout">
+      <div class="btn-group dropup">
+        <a href="#" class="btn dropdown-toggle" data-toggle="dropdown" title="Cerrar sesi"><span class="fa fa-power-off"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#" ng-click="lockScreen.isVisible(true)">Bloquear pantalla</a>
+          </li>
+          <li><a href="login.html">Cerrar sesión</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="pages-tabs" class="cb-flex cb-bottom">
+    <ul class="nav nav-tabs cb-flex cb-grow">
+      <li ng-class="{active:tabs.currentItem==tabItem}" ng-repeat="tabItem in tabs.items">
+        <a href="#" ng-click="tabs.setCurrentItem($index)">
+				 <label title="{{tabItem.label}}">{{tabItem.label}}</label>
+         <span class="fa fa-times cb-icon-close" ng-click="tabs.remove($index)" ng-class="{loading:tabItem.loading}" title="Cerrar"></span>
+        </a>
+      </li>
+    </ul>
+    <div ng-if="scrollLeft">
+      <a href="#" class="btn btn-link" data-slide="prev"><span class="fa fa-angle-left"></span></a>
+    </div>
+    <div ng-if="scrollRight">
+      <a href="#" class="btn btn-link" data-slide="next"><span class="fa fa-angle-right"></span></a>
+    </div>
+  </div>
+
+  <div id="pages-dropdown" class="dropdown">
+    <a class="btn" data-toggle="dropdown" href="#" ng-if="tabs.currentItem">{{ tabs.currentItem.label }} <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li ng-class="{active:tabs.currentItem==tabItem}" ng-repeat="tabItem in tabs.items">
+        <a href="#" ng-click="tabs.setCurrentItem($index)">{{tabItem.label}}</a>
+      </li>
+    </ul>
+  </div>
+  <div id="workarea" style="overflow: auto; -webkit-overflow-scrolling:touch;">
+    <div class="cb-external-container" ng-repeat="tabItem in tabs.items" ng-class="{'hidden':tabItem!=tabs.currentItem}">
+      <iframe class="cb-external" name="tabItem{{tabItem.id}}" ng-load="tabs.stopLoading(tabItem)" ng-src="{{tabItem.url}}"></iframe>
+      <span ng-class="{loading:tabItem.loading}"></span>
+    </div>
+  </div>
+
+  <div kendo-window="changePassword" k-title="'Cambio de contraseña'" k-width="400" k-height="250" k-visible="false" k-content="{ url: 'change-password.html' }"></div>
+
+  <div kendo-window="language" k-title="'Lenguaje'" k-width="300" k-height="144" k-visible="false">
+    <div>
+      <select class="form-control">
+                <option>Español</option>
+                <option>English</option>
+            </select>
+    </div>
+    <div class="cb-form-controlbar">
+      <button class="btn btn-default" ng-click="language.close()">Cancelar</button>
+      <button class="btn btn-primary" ng-click="language.close()">Aceptar</button>
+    </div>
+  </div>
+
+  <div kendo-window="info" k-title="'Información del sistema'" k-on-open="addClass('info-window', kendoEvent)" k-width="600" k-height="350" k-visible="false">
+    <div>
+      <div id="logo-info"></div>
+      <div class="cb-text-sm" style="opacity:.7;">
+        Versión: 5.0.0
+        <br /> Caduca: 12-Feb-2016
+        <br /> Proceso: 12-Dic-2014
+        <br /> Formato de fecha: yyyy-mm-dd
+        <br /> Símbolo de Moneda: $
+        <br /> Cifras decimales de moneda: 2
+        <br /> Separador de grupo de moneda: USD
+        <br /> Separador de decimales de moneda: .
+        <br />
+        <p>Copyright &copy; 2014 <a href="http://www.cobiscorp.com" target="_blank">Cobiscorp</a>, Todos los Derechos Reservados</p>
+      </div>
+    </div>
+    <div class="cb-form-controlbar">
+      <button class="btn btn-primary" ng-click="info.close()">Cerrar</button>
+    </div>
+  </div>
+
+  <div id="auth-block"></div>
+  <div id="splash" ng-class="{'cb-splash-hidden':!splashVisible}">
+    <div id="splash-loading"></div>
+  </div>
+  <div id="lockscreen" class="cb-lockscreen-hidden" ng-class="{'cb-lockscreen-hidden':!lockScreen.visible}">
+    <form ng-submit="lockScreen.unlock()" style="width: 250px; height:200px; position: absolute; top: 50%; left: 50%; margin-left: -125px; margin-top: -100px;">
+      <div class="form-group">
+        <div style="font-size:22px;">{{user.data.name}}</div>
+        <div class="text-muted">Oficina: {{user.data.officeName}}</div>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Contraseña" />
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary btn-block" value="Desbloquear" />
+      </div>
+      <div class="form-group"><a href="login.html">Ingresar con otro usuario</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    var librariesUrl = '../lib/';
+  </script>
+  <script src="../lib/require.config.js"></script>
+  <script data-main="container" src="../lib/require/require.js"></script>
+</body>
+
+</html>

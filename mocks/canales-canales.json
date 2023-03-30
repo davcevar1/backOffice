@@ -1,0 +1,6 @@
+[
+  {"icon":"channel-web", "name":"INTERNET BANKING", "description":"", "available":"HABILITADO", "status":"VIGENTE"},
+  {"icon":"channel-mobile", "name":"BANCAMOVIL", "description":"", "available":"HABILITADO", "status":"VIGENTE"},
+  {"icon":"channel-chatbot", "name":"CHATBOT", "description":"", "available":"HABILITADO", "status":"VIGENTE"},
+  {"icon":"channel-cash", "name":"CASH MANAGEMENT", "description":"", "available":"HABILITADO", "status":"VIGENTE"}
+]

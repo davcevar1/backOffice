@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-view-container-root cb-view-container cb-group-layout container-fluid">
+      <div class="container-fluid" style="max-width:600px;">
+        <div class="cb-flex cb-gutters">
+          <div class="cb-grow form-group" style="margin-bottom:0;">
+            <input type="text" class="form-control input-lg" placeholder="Ingrese {{ selectedField.label }}" />
+          </div>
+          <div ng-if="!isAdvanced">
+            <button class="btn btn-primary btn-lg" ng-click="find()"><span class="fa fa-search"></span></button>
+          </div>
+        </div>
+        <div id="filters" class="cb-flex cb-gutters" ng-class="{'cb-gap-bottom':!isAdvanced}">
+          <div class="form-control-static">Buscar por:</div>
+          <div>
+            <div class="dropdown">
+              <button class="btn btn-link" data-toggle="dropdown">
+                {{ selectedField.label }} <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li ng-class="{'active':selectedField==item}" ng-repeat="item in filters.field"><a href="#" ng-click="setField(item)">{{ item.label }}</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="cb-grow text-right">
+            <button class="btn btn-link" ng-click="isAdvanced = !isAdvanced">{{ isAdvanced? 'Búsqueda básica' : 'Búsqueda avanzada' }}</button>
+          </div>
+        </div>
+      </div>
+      <div ng-if="isAdvanced" class="container-fluid" style="margin-top: 15px; margin-left: -30px; margin-right: -30px; padding-left: 30px; padding-right: 30px; padding-top: 15px; border-top: 1px solid #ddd;">
+        <div class="row cb-flex cb-wrap cb-gap-bottom">
+          <div class="col-sm-4" ng-if="!dailyBook">
+            <div class="form-group">
+              <div class="control-label">Operador</div>
+              <div class="cb-control">
+                <div class="input-group">
+                  <input type="text" class="form-control" readonly="">
+                  <span class="input-group-btn">
+    								<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" ng-if="!dailyBook">
+            <div class="form-group">
+              <div class="control-label">Oficina Origen</div>
+              <div class="cb-control">
+                <div class="input-group">
+                  <input type="text" class="form-control" readonly="">
+                  <span class="input-group-btn">
+    								<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" ng-if="!dailyBook">
+            <div class="form-group">
+              <div class="control-label">Area Origen</div>
+              <div class="cb-control">
+                <div class="input-group">
+                  <input type="text" class="form-control" readonly="">
+                  <span class="input-group-btn">
+    								<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" ng-if="!dailyBook">
+            <div class="form-group">
+              <div class="control-label">Area Operativa</div>
+              <div class="cb-control">
+                <div class="input-group">
+                  <input type="text" class="form-control" readonly="">
+                  <span class="input-group-btn">
+    								<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" ng-if="!dailyBook">
+            <div class="form-group">
+              <div class="control-label">Saldos</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Movimiento</option>
+                  <option>Consolidado</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" ng-if="!dailyBook">
+            <div class="form-group">
+              <div class="control-label">
+                Asiento diario
+              </div>
+              <div class="cb-control cb-flex cb-gutters cb-middle">
+                <div class="cb-grow"><input type="number" kendo-numeric-text-box /></div>
+                <div>/</div>
+                <div class="cb-grow"><input type="number" kendo-numeric-text-box /></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Libro diario</div>
+              <div class="cb-control">
+                <select class="form-control" ng-model="dailyBook">
+                  <option></option>
+                  <option value="1">Sí</option>
+                  <option value="">No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" ng-if="dailyBook">
+            <div class="form-group">
+              <div class="control-label">Asiento manual</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Sí</option>
+                  <option>No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" ng-if="!dailyBook">
+            <div class="form-group">
+              <div class="control-label">Fecha valor</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Sí</option>
+                  <option>No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" ng-if="!dailyBook">
+            <div class="form-group">
+              <div class="control-label">Asiento de ajuste</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Sí</option>
+                  <option>No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" ng-if="!dailyBook">
+            <div class="form-group">
+              <div class="control-label">Tipo</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Asiento contable</option>
+                  <option>Asiento contable tipo</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" ng-if="!dailyBook">
+            <div class="form-group">
+              <div class="control-label">Estado</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Ingresada</option>
+                  <option>Autorizada</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4" ng-if="!dailyBook">
+            <div class="form-group">
+              <div class="control-label">
+                Fecha
+              </div>
+              <div class="cb-control cb-flex cb-gutters cb-middle">
+                <div class="cb-grow"><input type="date" kendo-datepicker /></div>
+                <div>/</div>
+                <div class="cb-grow"><input type="date" kendo-datepicker /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div ng-show="showResults">
+          <div class="list-group">
+            <a href="asiento-contable.html?edit" class="list-group-item" ng-repeat="result in results">
+              <div class="cb-flex">
+                <div class="cb-grow">
+                  <div><span title="Número">#{{ result.number }}</span> - <span title="Tipo">{{ result.type }}</span></div>
+                  <div class="small text-muted"><span title="Descripción">{{ result.description }}  - <span title="Fecha ingreso">{{ result.startDate }}</span> - <span title="Fecha transacción">{{ result.transactionDate }}</span></span></div>
+                </div>
+                <div class="text-right">
+                  <div><span title="Créditos">{{ result.credits|currency }} USD</span> / <span title="Débitos">{{ result.debits|currency }} USD</span></div>
+                  <div class="small text-muted" title="Estado">{{ result.status }}</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-show="showResults || isAdvanced" class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+      <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+        <button ng-show="showResults" class="btn btn-default navbar-btn">Imprimir</button>
+        <button ng-show="showResults" class="btn btn-default navbar-btn">Exportar</button>
+        <button ng-show="isAdvanced" class="btn btn-primary navbar-btn" ng-click="find()">Buscar</button>
+      </nav>
+    </div>
+    <div class="cb-view-loading cb-hidden">
+      <div class="cb-view-loading-icon"></div>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Trafalgar</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="themes/trafalgar.css">
+
+</head>
+
+<body>
+  <div class="cb-container">
+    <nav class="cb-nav">
+      <div class="cb-logo"></div>
+      <a href="home.html" class="cb-nav__item active" target="workarea">
+        <svg class="cb-icon">
+          <use href="theme/images/factoricons-regular.svg#home"></use>
+        </svg>
+        <div>Inicio</div>
+      </a>
+      <a href="transfers.html" class="cb-nav__item" target="workarea">
+        <svg class="cb-icon">
+          <use href="theme/images/factoricons-regular.svg#toggle"></use>
+        </svg>
+        <div>Transferencias</div>
+      </a>
+      <a href="#" class="cb-nav__item">
+        <svg class="cb-icon">
+          <use href="theme/images/factoricons-regular.svg#money"></use>
+        </svg>
+        <div>Pagos</div>
+      </a>
+      <a href="#" class="cb-nav__item">
+        <svg class="cb-icon">
+          <use href="theme/images/factoricons-regular.svg#ellipsis-horizontal"></use>
+        </svg>
+        <div>Más</div>
+      </a>
+    </nav>
+    <main>
+      <header class="cb-app-options">
+        <div>
+          <div class="container d-flex">
+            <div class="flex-grow-1">
+              <div class="dropdown">
+                <button type="button" class="cb-btn dropdown-toggle" data-toggle="dropdown">
+                  <div class="cb-avatar__item d-flex align-items-center gap-2">
+                    <div class="cb-avatar">
+                      <div>JC</div>
+                    </div>
+                    <svg class="cb-icon cb-icon--size-1 cb-toggle">
+                      <use href="theme/images/factoricons-regular.svg#angle-down"></use>
+                    </svg>
+                    <div class="text-left">
+                      <div class="cb-label">Maria Rivas</div>
+                      <div class="small text-muted">Último acceso hace 2 días </div>
+                    </div>
+                  </div>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#" class="d-flex align-items-center">
+                      <svg class="cb-icon cb-icon--size-2">
+                        <use href="theme/images/factoricons-regular.svg#user-profile"></use>
+                      </svg>
+                      <div class="ml-2">Actualizar datos</div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="d-flex align-items-center">
+                      <svg class="cb-icon cb-icon--size-2">
+                        <use href="theme/images/factoricons-regular.svg#password-edit"></use>
+                      </svg>
+                      <div class="ml-2">Cambiar contraseña</div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="d-flex align-items-center">
+                      <svg class="cb-icon cb-icon--size-2">
+                        <use href="theme/images/factoricons-regular.svg#media-image"></use>
+                      </svg>
+                      <div class="ml-2">Cambiar imagen de seguridad</div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="d-flex align-items-center">
+                      <svg class="cb-icon cb-icon--size-2">
+                        <use href="theme/images/factoricons-regular.svg#mobile--disabled"></use>
+                      </svg>
+                      <div class="ml-2">Desactivar dispositivos</div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-flex">
+              <button type="button" class="cb-btn cb-btn--icon">
+                <div class="cb-wrapper">
+                  <svg class="cb-icon cb-icon--size-2">
+                    <use href="theme/images/factoricons-regular.svg#bell"></use>
+                  </svg>
+                </div>
+                <!--<div class="cb-counter">5</div>-->
+                <div class="cb-label">Notificaciones</div>
+              </button>
+              <div class="dropdown">
+                <button type="button" class="cb-btn cb-btn--icon dropdown-toggle" data-toggle="dropdown">
+                  <div class="cb-wrapper">
+                    <svg class="cb-icon cb-icon--size-2">
+                      <use href="theme/images/factoricons-regular.svg#globe"></use>
+                    </svg>
+                  </div>
+                  <svg class="cb-icon cb-icon--size-1 cb-toggle">
+                    <use href="theme/images/factoricons-regular.svg#angle-down"></use>
+                  </svg>
+                  <div class="cb-label">Idioma</div>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li>
+                    <a href="#" class="d-flex align-items-center">
+                      <svg class="cb-icon cb-icon--size-2">
+                        <use href="theme/images/factoricons-regular.svg#spacer"></use>
+                      </svg>
+                      <div class="ml-2">English</div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="d-flex align-items-center cb-disabled">
+                      <svg class="cb-icon cb-icon--size-2">
+                        <use href="theme/images/factoricons-regular.svg#check"></use>
+                      </svg>
+                      <div class="ml-2">Español</div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <button type="button" class="cb-btn cb-btn--icon">
+                <div class="cb-wrapper">
+                  <svg class="cb-icon cb-icon--size-2">
+                    <use href="theme/images/factoricons-regular.svg#sign-out"></use>
+                  </svg>
+                </div>
+                <div class="cb-label">Cerrar sesión</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="cb-content">
+        <iframe id="workarea" name="workarea" src="home.html"></iframe>
+      </div>
+    </main>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+    crossorigin="anonymous"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+    crossorigin="anonymous"></script>
+  <script>
+    var myConfObj = {
+      iframeMouseOver: false
+    }
+    window.addEventListener('blur', function () {
+      if (myConfObj.iframeMouseOver) {
+        document.body.click();
+      }
+    });
+
+    document.getElementById('workarea').addEventListener('mouseover', function () {
+      myConfObj.iframeMouseOver = true;
+    });
+    document.getElementById('workarea').addEventListener('mouseout', function () {
+      myConfObj.iframeMouseOver = false;
+    });
+
+    /*
+    document.getElementById('workarea').addEventListener('click', function () {
+      document.body.click();
+    });
+    document.getElementById('workarea').contents().click(function () {
+      document.body.click();
+    });
+    */
+
+  </script>
+</body>
+
+</html>

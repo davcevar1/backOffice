@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-view-container-root cb-view-container cb-group-layout container-fluid">
+      <div class="container-fluid" style="max-width:600px;">
+        <div class="cb-flex cb-gutters">
+          <div class="cb-grow form-group" style="margin-bottom:0;">
+            <input type="text" ng-show="selectedField.id>1" class="form-control input-lg" placeholder="Ingrese {{ selectedField.label }}" />
+            <div class="input-group" ng-show="selectedField.id==1">
+              <input type="text" class="form-control input-lg" readonly placeholder="Seleccione un cliente" />
+              <span class="input-group-btn">
+								<button class="btn btn-default btn-lg"><span class="fa fa-bars"></span></button>
+              </span>
+            </div>
+          </div>
+          <div ng-if="!isAdvanced">
+            <button class="btn btn-primary btn-lg" ng-click="find()"><span class="fa fa-search"></span></button>
+          </div>
+        </div>
+        <div id="filters" class="cb-flex cb-gutters" ng-class="{'cb-gap-bottom':!isAdvanced}">
+          <div class="form-control-static">Buscar por:</div>
+          <div>
+            <div class="dropdown">
+              <button class="btn btn-link" data-toggle="dropdown">
+                {{ selectedField.label }} <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li ng-class="{'active':selectedField==item}" ng-repeat="item in filters.field"><a href="#" ng-click="setField(item)">{{ item.label }}</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div ng-show="!showResults && isAdvanced">
+          <div class="cb-grid-no-header k-grid k-widget">
+            <div class="k-header k-grid-toolbar ng-scope">
+              <button class="btn btn-primary ng-scope" ng-click="showResults=true"><span class="fa fa-search"></span> Buscar</button>
+            </div>
+          </div>
+        </div>
+        <kendo-grid class="cb-grid-no-header" ng-show="showResults" options="accounts"></kendo-grid>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/x-kendo-template" id="account">
+    <div class="cb-flex">
+      <div class="cb-grow">
+        <div><span title="Número">\\##: data.number #</span> - <span title="Producto">#: data.product #</span></div>
+        <div class="small text-muted"><span title="Cliente">#: data.owner #</span></div>
+      </div>
+      <div class="text-right">
+        <div title="Saldo disponible">#: data.value # USD</div>
+        <div class="small text-muted" title="Estado">#: data.status #</div>
+      </div>
+    </div>
+  </script>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

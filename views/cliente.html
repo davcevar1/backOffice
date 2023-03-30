@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-breadcrumb">
+			<ul class="breadcrumb">
+				<li>Inicio</li>
+				<li>Creación de cliente</li>
+			</ul>
+		</div>
+        <div class="cb-view-container-root cb-view-container cb-group-layout container-fluid">
+            <div class="cb-view-container cb-group-simple container-fluid" style="max-width:600px;">
+                <fieldset class="cb-group cb-group-simple">
+                    <div>
+                        <div class="form-vertical">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Tipo</div>
+                                        <div class="cb-control">
+                                            <select class="form-control" ng-model="type">
+                                                <option value="person">Natural</option>
+                                                <option value="company">Jurídica</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="type=='person'">
+                                    <div class="col-xs-6">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Nombres</div>
+                                            <div class="cb-control">
+                                                <div class="cb-control cb-flex cb-gutters">
+                                                    <div class="cb-grow">
+                                                        <input type="text" class="form-control" placeholder="Primer Nombre" />
+                                                    </div>
+                                                    <div class="cb-grow">
+                                                        <input type="text" class="form-control" placeholder="Segundo Nombre" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Apellidos</div>
+                                            <div class="cb-control">
+                                                <div class="cb-control cb-flex cb-gutters">
+                                                    <div class="cb-grow">
+                                                        <input type="text" class="form-control" placeholder="Paterno" />
+                                                    </div>
+                                                    <div class="cb-grow">
+                                                        <input type="text" class="form-control" placeholder="Materno" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Identificación</div>
+                                            <div class="cb-control cb-flex cb-gutters">
+                                                <div class="cb-grow">
+                                                    <select class="form-control">
+                                                        <option>Cédula</option>
+                                                        <option>Pasaporte</option>
+                                                    </select>
+                                                </div>
+                                                <div class="cb-grow">
+                                                    <input type="text" class="form-control" placeholder="# Identificación" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Vencimiento identificación</div>
+                                            <div class="cb-control">
+                                                <input type="date" kendo-datepicker />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Email</div>
+                                            <div class="cb-control">
+                                                <input type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group">
+                                            <div class="control-label">Género</div>
+                                            <div class="cb-control">
+                                                <select class="form-control">
+                                                    <option></option>
+                                                    <option>Masculino</option>
+                                                    <option>Femenino</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Fecha de nacimiento</div>
+                                            <div class="cb-control">
+                                                <input type="date" kendo-datepicker />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group">
+                                            <div class="control-label">Estado civil</div>
+                                            <div class="cb-control">
+                                                <select class="form-control" ng-model="civilStatus">
+                                                    <option></option>
+                                                    <option value="single">Soltero(a)</option>
+                                                    <option value="married">Casado(a)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="type=='company'">
+                                    <div class="col-xs-6">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Razon social</div>
+                                            <div class="cb-control">
+                                                <input type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Nombre comercial</div>
+                                            <div class="cb-control">
+                                                <input type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Identificación</div>
+                                            <div class="cb-control cb-flex cb-gutters">
+                                                <div class="cb-grow">
+                                                    <select class="form-control">
+                                                        <option>Cédula</option>
+                                                        <option>Pasaporte</option>
+                                                    </select>
+                                                </div>
+                                                <div class="cb-grow">
+                                                    <input type="text" class="form-control" placeholder="# Identificación" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Vencimiento identificación</div>
+                                            <div class="cb-control">
+                                                <input type="date" kendo-datepicker />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Fecha de constitución</div>
+                                            <div class="cb-control">
+                                                <input type="date" kendo-datepicker />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="cb-group cb-group-simple" ng-show="civilStatus=='married'">
+                    <legend>Conyuge</legend>
+                    <div>
+                        <div class="form-vertical">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Nombres</div>
+                                        <div class="cb-control">
+                                            <div class="cb-control cb-flex cb-gutters">
+                                                <div class="cb-grow">
+                                                    <input type="text" class="form-control" placeholder="Primer Nombre" />
+                                                </div>
+                                                <div class="cb-grow">
+                                                    <input type="text" class="form-control" placeholder="Segundo Nombre" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Apellidos</div>
+                                        <div class="cb-control">
+                                            <div class="cb-control cb-flex cb-gutters">
+                                                <div class="cb-grow">
+                                                    <input type="text" class="form-control" placeholder="Paterno" />
+                                                </div>
+                                                <div class="cb-grow">
+                                                    <input type="text" class="form-control" placeholder="Materno" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Identificación</div>
+                                        <div class="cb-control cb-flex cb-gutters">
+                                            <div class="cb-grow">
+                                                <select class="form-control">
+                                                    <option>Cédula</option>
+                                                    <option>Pasaporte</option>
+                                                </select>
+                                            </div>
+                                            <div class="cb-grow">
+                                                <input type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Vencimiento identificación</div>
+                                        <div class="cb-control">
+                                            <input type="date" kendo-datepicker />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="cb-group cb-group-simple">
+                    <legend>Direcciones</legend>
+                    <div>
+                        <kendo-grid options="direcciones"></kendo-grid>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="cb-navbar cb-navbar-bottom">
+            <nav class="navbar navbar-default navbar-fixed-bottom">
+                <button type="button" class="btn btn-default navbar-btn">Cancelar</button>
+                <button type="button" class="btn btn-primary navbar-btn" ng-click="goto('cliente-detalle.html')">Aceptar</button>
+            </nav>
+        </div>
+        <div class="cb-view-loading cb-hidden">
+            <div class="cb-view-loading-icon"></div>
+        </div>
+    </div>
+
+    <div id="address-form" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Dirección</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset class="cb-group cb-group-simple cb-group-flex">
+                        <div class="form-vertical">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Tipo</div>
+                                        <div class="cb-control">
+                                            <select class="form-control">
+                                                <option>Domicilio</option>
+                                                <option>Trabajo</option>
+                                                <option>Otro</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Calles</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Referencia</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">País</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Provincia</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Ciudad</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Parroquia</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Barrio</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Ubicación</div>
+                                        <div class="cb-control cb-flex cb-gutters">
+                                            <div class="cb-grow">
+                                                <input type="text" class="form-control" value="-0.180653, -78.467834" readonly />
+                                            </div>
+                                            <div>
+                                                <button class="btn btn-default" title="Mapa"><span class="fa fa-location-arrow"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="cb-control">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" /> Direccion principal
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" /> Direccion correspondencia
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="cb-group cb-group-simple">
+                        <legend>Teléfonos</legend>
+                        <div>
+                            <kendo-grid options="telefonos"></kendo-grid>
+                         </div>
+                    </fieldset>
+                    <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+                        <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+                            <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="cliente" src="../lib/require/require.js"></script>
+</body>
+
+</html>

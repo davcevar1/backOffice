@@ -1,0 +1,9 @@
+[
+  {"id":1, "name":"Elemento", "length":1},
+  {"id":2, "name":"Grupo", "length":1},
+  {"id":3, "name":"Subgrupo", "length":2},
+  {"id":4, "name":"Cuenta", "length":2},
+  {"id":5, "name":"Subcuenta", "length":2},
+  {"id":6, "name":"Auxiliar", "length":2},
+  {"id":7, "name":"Subauxiliar", "length":2}
+]

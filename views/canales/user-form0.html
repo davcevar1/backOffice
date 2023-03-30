@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+  <style>
+    .k-grid .cb-actions {
+      text-align: right;
+    }
+    .cb-icon-channel {
+      height: 72px;
+      width: 100%;
+      display: block;
+    }
+    .cb-sidebar {
+      background-color: rgba(255,255,255,.5);
+      border-right: 1px solid rgba(0,0,0,.1);
+      padding: 30px;
+      transition: margin-top .3s;
+      overflow: auto;
+    }
+    .cb-sidebar.cb-has-header {
+      margin-top: 128px;
+    }
+    .cb-content {
+      padding: 30px;
+      transition: margin-top .3s;
+      overflow: auto;
+    }
+    .cb-content.cb-has-header {
+      margin-top: 128px;
+    }
+    .cb-wizard-item {
+      font-size: 18px;
+      opacity: .1;
+      transition: color .3s, opacity .3s;
+    }
+    .cb-wizard-item .cb-icon {
+      font-size: 24px;
+      border: 1px solid;
+      border-radius: 100vw;
+      padding: 5px;
+      margin-right: 10px;
+    }
+    .cb-wizard-item::before {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 30px;
+      background-color: #000;
+      margin-left: 18px;
+    }
+    .cb-wizard-item:first-child::before {
+      display: none;
+    }
+    .cb-wizard-item.active {
+      color: #428BCA;
+      opacity: 1;
+      cursor: pointer;
+    }
+    .cb-wizard-item.active.back {
+      opacity: .4;
+    }
+    .cb-wizard-item.active::before {
+      background-color: #428BCA;
+    }
+    .cb-client-header {
+      display: inline-block;
+      position: absolute;
+      transition: top .3s, left .3s, right .3s, color .3s, background-color .3s;
+      right: 270px;
+      left: 330px;
+      top: 30px;
+      cursor: pointer;
+    }
+    .cb-client-header .cb-edit {
+      transition: opacity .2s, visibility .2s;
+    }
+    .cb-client-header.active {
+      top: 0;
+      left: 0;
+      right: 0;
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+      border-top: 0;
+      background-color: #508ec5;
+      color: #FFF;
+      cursor: default;
+    }
+    .cb-client-header.active .cb-fields .text-muted {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .cb-client-header.active .cb-edit {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .cb-btn-checkbox {
+      padding: 0;
+      background-color: #FFF;
+      border-radius: 100vw;
+      border-color: #CCC;
+      border-width: 2px;
+      transition: background-color .2s, border-width .2s, transform .2s, visibility .2s, opacity .2s;
+    }
+    .cb-btn-checkbox .cb-icon {
+      display: block;
+      font-size: 24px;
+    }
+    .cb-toolbar {
+      margin-bottom:15px;
+      height: inherit;
+    }
+    .cb-toolbar .cb-icon {
+      font-size: 24px;
+      display: block;
+      margin-right: 3px;
+    }
+    .cb-toolbar .btn {
+      padding: 6px;
+      border: transparent;
+      background: transparent;
+      line-height: normal;
+      margin-top: 0;
+      margin-bottom: 0;
+      transition: background-color .2s;
+    }
+    .cb-toolbar .btn:first-child {
+      margin-left: 0;
+    }
+    .cb-toolbar .btn:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    .panel.cb-selectable {
+      transition: opacity .2s;
+      cursor: pointer;
+    }
+    .panel.cb-selectable .cb-actions {
+      position: absolute;
+      top: 0;
+      right: 0;
+      visibility: hidden;
+      transition: transform .2s, visibility .2s, opacity .2s;
+      transform: translateX(10px);
+      opacity: 0;
+    }
+    .panel.cb-selectable .cb-actions .btn:focus,
+    .panel.cb-selectable .cb-actions .btn:active {
+      outline: none;
+    }
+    .panel.cb-selectable .cb-btn-checkbox {
+      position: absolute;
+      left: 5px;
+      top: 5px;
+    }
+    .panel.cb-selectable:hover {
+      border-color: #428BCA;
+    }
+    .panel.cb-selectable.cb-selected:hover .cb-actions {
+      visibility: visible;
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .panel.cb-selectable.cb-selected {
+      border-color: #428BCA;
+      color: #428BCA;
+    }
+    .panel.cb-selectable.cb-selected .text-muted {
+      color: #428BCA80;
+    }
+    .panel:not(.cb-selected) .cb-btn-checkbox {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-10px);
+    }
+    .panel:not(.cb-selected) .cb-btn-checkbox .cb-icon {
+      visibility: hidden;
+    }
+    .panel.cb-selected .cb-btn-checkbox {
+      border: 1px solid #ef7926;
+      background-color: #ef7926;
+      color: #FFF;
+    }
+    .panel.cb-selected .cb-btn-checkbox .cb-icon {
+      visibility: visible;
+    }
+    .panel:hover:not(.cb-selected) .cb-btn-checkbox {
+      opacity: 1;
+      visibility: visible;
+      color: #CCC;
+      border: 1px solid #428BCA;
+      transform: translateX(0);
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group .control-label {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view" ng-init="editable=true; create=true; header=header1">
+    <div class="cb-viewport cb-flex cb-column" style="background:transparent;">
+      <div class="cb-scrollable cb-grow cb-flex">
+        <div class="cb-sidebar" ng-class="{'cb-has-header':wizardStep>0}">
+          <div class="cb-wizard-item" ng-class="{active:wizardItem.active, 'back':wizardStep<$index}" ng-repeat="wizardItem in wizardItems">
+            <div class="cb-flex cb-middle" ng-click="setWizardStep($index)">
+              <div class="cb-icon">
+                <svg>
+                  <use ng-href="../../images/factoricons-slim.svg#{{ wizardItem.icon }}" xlink:href="" />
+                </svg>
+              </div>
+              <div style="font-size: 18px; font-weight: 300; white-space:nowrap;">
+                {{ wizardItem.name }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cb-content cb-grow" ng-class="{'cb-has-header':wizardStep>0}">
+          <div class="cb-client-header panel panel-default" ng-click="selectCustomer()" ng-class="{active:wizardStep>0}" style="display:inline-block;">
+            <div class="panel-body" style="padding: 20px 30px; padding-right: 20px;">
+              <div class="cb-flex">
+                <div class="cb-grow" ng-if="selectedCustomer">
+                  <div class="cb-secondary-text" title="# de prestamo">#{{ selectedCustomer.documentNumber }} - {{ selectedCustomer.type }}</div>
+                  <div class="cb-primary-text cb-text-xl">{{ selectedCustomer.name }}</div>
+                  <div class="cb-fields cb-flex cb-gutters">
+                    <div>
+                      <div>Matriz</div>
+                      <div class="small text-muted">Oficina</div>
+                    </div>
+                    <div>
+                      <div>Maritza Martinez</div>
+                      <div class="small text-muted">Oficial</div>
+                    </div>
+                    <div>
+                      <div>Perfil Natural</div>
+                      <div class="small text-muted">Perfil</div>
+                    </div>
+                    <div>
+                      <div>12-12-2015</div>
+                      <div class="small text-muted">Creado</div>
+                    </div>
+                    <div>
+                      <div>Vigente</div>
+                      <div class="small text-muted">Estado</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cb-grow" ng-if="!selectedCustomer">
+                  Buscar un cliente
+                </div>
+                <div class="cb-edit cb-flex cb-middle" style="padding-left:20px; margin-left:20px; margin-top:-10px; margin-bottom: -10px;">
+                  <div class="cb-icon" style="font-size:24px;">
+                    <svg>
+                      <use ng-href="../../images/factoricons-regular.svg#search" xlink:href="" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="channels" ng-if="wizardStep==1">
+            <div class="cb-toolbar">
+              <button class="btn btn-default" ng-click="toggleAllSelection(channels)">
+                <div class="cb-flex cb-middle">
+                  <div class="cb-icon">
+                    <svg><use ng-href="../../images/factoricons-regular.svg#check-circle" xlink:href=""></use></svg>
+                  </div>
+                  <div>
+                    Marcar/Desmarcar todos
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div class="cb-grid-layout pg-options" style="grid-template-columns: repeat(3, 1fr);">
+              <div class="panel panel-default cb-selectable cb-flex cb-middle" ng-click="toggleSelection(channel)" ng-repeat="channel in channels" ng-class="{'cb-selected':channel.selected}" style="margin:0; position: relative;">
+                <div class="cb-btn-checkbox">
+                  <div class="cb-icon">
+                    <svg><use  ng-href="../../images/factoricons-regular.svg#check" xlink:href=""></use></svg>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="cb-flex cb-gutters-tiny cb-middle">
+                    <div class="cb-icon" style="font-size:48px;">
+                      <svg><use  ng-href="../../images/factoricons-slim.svg#{{ channel.icon }}" xlink:href=""></use></svg>
+                    </div>
+                    <div style="font-size: 18px; font-weight: 300;">{{ channel.name }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="settings" ng-if="wizardStep==2">
+            <div style="margin-bottom:20px;">
+              <div class="form-group">
+                <div class="control-label">Vigencia del login</div>
+                <div class="cb-grid-layout pg-options" style="grid-template-columns: repeat(3, 1fr);">
+                  <div class="panel panel-default cb-selectable cb-flex cb-middle" ng-click="setValidity(validity); toggleSelection(validity, validityList)" ng-repeat="validity in validityList" ng-class="{'cb-selected':validity.selected}" style="margin:0; position: relative;">
+                    <div class="cb-btn-checkbox">
+                      <div class="cb-icon">
+                        <svg><use  ng-href="../../images/factoricons-regular.svg#check" xlink:href=""></use></svg>
+                      </div>
+                    </div>
+                    <div class="panel-body">
+                      <div class="cb-flex cb-gutters-tiny cb-middle">
+                        <div class="cb-icon" style="font-size:48px;">
+                          <svg><use  ng-href="../../images/factoricons-slim.svg#clock" xlink:href=""></use></svg>
+                        </div>
+                        <div>
+                          <div style="font-size: 18px; font-weight: 300;">{{ validity.name }}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" ng-if="currentValidity.name=='General'">
+                <div class="control-label">Categoría</div>
+                <div class="cb-control">
+                  <select class="form-control" style="width: auto;">
+                    <option value="undefined">Días de vigencia (0 días)</option>
+                    <option value="undefined">Días de vigencia (30 días)</option>
+                    <option value="undefined">Días de vigencia (90 días)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group" ng-if="currentValidity.name=='Específico'">
+                <div class="control-label">Tiempo en días</div>
+                <div class="cb-control">
+                  <div class="input-group" style="width: 130px;">
+                    <input type="text" class="form-control" />
+                    <span class="input-group-addon">Días</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cb-flex cb-gutters" style="margin-bottom:20px;">
+              <div class="form-group">
+                <div class="control-label">Segundo factor de autenticación</div>
+                <div class="cb-grid-layout pg-options" style="grid-template-columns: repeat(3, 1fr);">
+                  <div class="panel panel-default cb-selectable cb-flex cb-middle" ng-click="toggleSelection(securityFactor, securityFactors)" ng-repeat="securityFactor in securityFactors" ng-class="{'cb-selected':securityFactor.selected}" style="margin:0; position: relative;">
+                    <div class="cb-btn-checkbox">
+                      <div class="cb-icon">
+                        <svg><use  ng-href="../../images/factoricons-regular.svg#check" xlink:href=""></use></svg>
+                      </div>
+                    </div>
+                    <div class="panel-body">
+                      <div class="cb-flex cb-gutters-tiny cb-middle">
+                        <div class="cb-icon" style="font-size:48px;">
+                          <svg><use  ng-href="../../images/factoricons-slim.svg#shield" xlink:href=""></use></svg>
+                        </div>
+                        <div>
+                          <div style="font-size: 18px; font-weight: 300;">{{ securityFactor.name }}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom:20px;">
+              <div class="control-label">Lenguaje por defecto</div>
+              <div class="cb-grid-layout pg-options" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="panel panel-default cb-selectable cb-flex cb-middle" ng-click="toggleSelection(language, languages)" ng-repeat="language in languages" ng-class="{'cb-selected':language.selected}" style="margin:0; position: relative;">
+                  <div class="cb-btn-checkbox">
+                    <div class="cb-icon">
+                      <svg><use  ng-href="../../images/factoricons-regular.svg#check" xlink:href=""></use></svg>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="cb-flex cb-gutters-tiny cb-middle">
+                      <div class="cb-icon" style="font-size:48px;">
+                        <svg><use  ng-href="../../images/factoricons-slim.svg#globe" xlink:href=""></use></svg>
+                      </div>
+                      <div>
+                        <div style="font-size: 18px; font-weight: 300;">{{ language.name }}</div>
+                        <div class="small text-muted">{{ language.code }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="products" ng-if="wizardStep==3">
+            <div class="cb-toolbar">
+              <button class="btn btn-default" ng-click="toggleAllSelection(accounts)">
+                <div class="cb-flex cb-middle">
+                  <div class="cb-icon">
+                    <svg><use ng-href="../../images/factoricons-regular.svg#check-circle" xlink:href=""></use></svg>
+                  </div>
+                  <div>
+                    Marcar/Desmarcar todos
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div class="cb-grid-layout" style="grid-template-columns: repeat(3, 1fr);">
+              <div class="cb-flex cb-column" ng-repeat="account in accounts">
+                <div class="panel panel-default cb-selectable cb-flex cb-middle cb-grow" ng-click="toggleSelection(account)" ng-class="{'cb-selected':account.selected}" style="margin:0; position: relative;">
+                  <div class="cb-btn-checkbox">
+                    <div class="cb-icon">
+                      <svg><use  ng-href="../../images/factoricons-regular.svg#check" xlink:href=""></use></svg>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="cb-flex cb-gutters-tiny cb-middle">
+                      <div class="cb-icon" style="font-size:48px;">
+                        <svg><use ng-href="../../images/icons-slim.svg#{{ account.icon }}" xlink:href=""></use></svg>
+                      </div>
+                      <div>
+                        <div class="small text-muted">#{{ account.code }} {{ account.alias? '- '+account.alias : '' }}</div>
+                        <div style="font-size: 18px; font-weight: 300;">{{ account.type }}</div>
+                        <div class="small cb-flex cb-middle" ng-if="account.toPay && account.selected" style="font-weight:bold; white-space:nowrap; overflow:hidden; text-overflow: ellipsis;">
+                          <div class="cb-icon" style="font-size: 17px; margin-right: 2px;"><svg><use ng-href="../../images/factoricons-regular.svg#money" xlink:href=""></use></svg></div>
+                          <div>Cobro de comisiones</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cb-actions">
+                    <button class="btn btn-link btn-sm" style="padding: 10px;" title="Editar" ng-click="showModal('product-commision')">
+                        <div class="cb-icon" style="font-size:16px;">
+                          <svg><use  ng-href="../../images/factoricons-regular.svg#pencil" xlink:href=""></use></svg>
+                        </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="communication" ng-if="wizardStep==4">
+            <div class="cb-toolbar">
+              <button class="btn btn-default" data-target="#deliveryType" data-toggle="modal">
+                <div class="cb-flex cb-middle">
+                  <div class="cb-icon">
+                    <svg><use ng-href="../../images/factoricons-regular.svg#plus" xlink:href=""></use></svg>
+                  </div>
+                  <div>
+                    Agregar
+                  </div>
+                </div>
+              </button>
+              <button class="btn btn-default" ng-click="toggleAllSelection(mediaList)">
+                <div class="cb-flex cb-middle">
+                  <div class="cb-icon">
+                    <svg><use ng-href="../../images/factoricons-regular.svg#check-circle" xlink:href=""></use></svg>
+                  </div>
+                  <div>
+                    Marcar/Desmarcar todos
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div class="cb-grid-layout" style="grid-template-columns: repeat(3, 1fr);">
+              <div class="panel panel-default cb-selectable cb-flex cb-middle" ng-click="toggleSelection(media)" ng-repeat="media in mediaList" ng-class="{'cb-selected':media.selected}" style="margin:0; position: relative;">
+                <div class="cb-btn-checkbox">
+                  <div class="cb-icon">
+                    <svg><use  ng-href="../../images/factoricons-regular.svg#check" xlink:href=""></use></svg>
+                  </div>
+                </div>
+                <div class="panel-body" style="padding-right: 30px;">
+                  <div class="cb-flex cb-gutters-tiny cb-middle">
+                    <div class="cb-icon" style="font-size:48px;">
+                      <svg><use  ng-href="../../images/factoricons-slim.svg#{{ getIconByType(media.type) }}" xlink:href=""></use></svg>
+                    </div>
+                    <div>
+                      <div class="small text-muted">{{ media.type }}</div>
+                      <div style="font-size: 18px; font-weight: 300;">{{ media.value }}</div>
+                      <div class="small text-muted">{{ media.default? 'Default' : '' }}</div>
+                    </div>
+                  </div>
+                  <div class="cb-actions">
+                    <button class="btn btn-link btn-sm" style="padding: 10px;" title="Editar" ng-click="editDeliveryType($event)">
+                        <div class="cb-icon" style="font-size:16px;">
+                          <svg><use  ng-href="../../images/factoricons-regular.svg#pencil" xlink:href=""></use></svg>
+                        </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="services" ng-if="wizardStep==5">
+            <kendo-grid options="massiveServices"></kendo-grid>
+            <!--
+            <div class="cb-flex cb-gutters">
+              <div style="width:200px; margin-right: 30px;">
+                <div class="form-group">
+                  <div class="control-label">Servicios</div>
+                  <div class="cb-control">
+                    <kendo-grid class="cb-grid-no-header" options="massiveServices2"></kendo-grid>
+                  </div>
+                </div>
+              </div>
+              <div class="cb-grow">
+                <fieldset class="cb-group cb-group-simple cb-group-flex">
+                  <div>
+                    <div class="form-vertical">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <div class="control-label">Estado</div>
+                            <div class="cb-control">
+                              <select kendo-drop-down-list class="form-control">
+                                <option>Vigente</option>
+                                <option>Bloqueado</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <div class="control-label">Bloqueo</div>
+                            <div class="cb-control">
+                              <select kendo-drop-down-list class="form-control">
+                                <option>Con bloqueo de fondos</option>
+                                <option>Sin bloqueo de fondos</option>
+                                <option>No aplica</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <div class="control-label">Afectación</div>
+                            <div class="cb-control">
+                              <select kendo-drop-down-list class="form-control">
+                                <option>Afectación línea a línea</option>
+                                <option>Afectación total</option>
+                                <option>No aplica</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <div class="control-label">Valida afiliación</div>
+                            <div class="cb-control">
+                              <select kendo-drop-down-list class="form-control">
+                                <option>Si</option>
+                                <option>No</option>
+                                <option>No aplica</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <div class="control-label">Autorización</div>
+                            <div class="cb-control">
+                              <select kendo-drop-down-list class="form-control">
+                                <option>Si</option>
+                                <option>No</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            -->
+          </div>
+          <div class="summary" ng-if="wizardStep==6">
+            <fieldset class="cb-group cb-group-simple">
+              <h4>Canales</h4>
+              <div class="cb-grid-layout pg-options" style="grid-template-columns: repeat(3, 1fr); grid-gap: 10px;">
+                <div class="panel panel-default cb-flex cb-middle" ng-repeat="channel in channels | filter: { selected: true }" style="margin:0; position: relative;">
+                  <div class="panel-body" style="padding: 5px 10px;">
+                    <div class="cb-flex cb-gutters-tiny cb-middle">
+                      <div class="cb-icon" style="font-size:32px;">
+                        <svg><use  ng-href="../../images/factoricons-slim.svg#{{ channel.icon }}" xlink:href=""></use></svg>
+                      </div>
+                      <div style="font-size: 14px;">{{ channel.name }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="cb-group cb-group-simple" style="margin-top:20px;">
+              <h4>Configuración</h4>
+              <div class="cb-grid-layout pg-options" style="grid-template-columns: repeat(3, 1fr); grid-gap: 10px;">
+                <div class="panel panel-default cb-flex cb-middle" style="margin:0; position: relative;">
+                  <div class="panel-body" style="padding: 10px;">
+                    <div class="cb-flex cb-gutters-tiny cb-middle">
+                      <div class="cb-icon" style="font-size:32px;">
+                        <svg><use  ng-href="../../images/factoricons-slim.svg#clock" xlink:href=""></use></svg>
+                      </div>
+                      <div>
+                        <div class="text-muted small">Vigencia de login</div>
+                        <div style="font-size: 14px;">30 días</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default cb-flex cb-middle" style="margin:0; position: relative;">
+                  <div class="panel-body" style="padding: 10px;">
+                    <div class="cb-flex cb-gutters-tiny cb-middle">
+                      <div class="cb-icon" style="font-size:32px;">
+                        <svg><use  ng-href="../../images/factoricons-slim.svg#shield" xlink:href=""></use></svg>
+                      </div>
+                      <div>
+                        <div class="text-muted small">Segundo factor de autenticación</div>
+                        <div style="font-size: 14px;">OTP</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default cb-flex cb-middle" style="margin:0; position: relative;">
+                  <div class="panel-body" style="padding: 10px;">
+                    <div class="cb-flex cb-gutters-tiny cb-middle">
+                      <div class="cb-icon" style="font-size:32px;">
+                        <svg><use  ng-href="../../images/factoricons-slim.svg#globe" xlink:href=""></use></svg>
+                      </div>
+                      <div>
+                        <div class="text-muted small">Lenguaje por defecto</div>
+                        <div style="font-size: 14px;">Español Ecuador</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="cb-group cb-group-simple" style="margin-top:20px;">
+              <h4>Productos</h4>
+              <div class="cb-grid-layout pg-options" style="grid-template-columns: repeat(3, 1fr); grid-gap: 10px;">
+                <div class="panel panel-default cb-flex cb-middle" ng-repeat="account in accounts | filter: { selected: true }" style="margin:0; position: relative;">
+                  <div class="panel-body" style="padding: 10px;">
+                    <div class="cb-flex cb-gutters-tiny cb-middle">
+                      <div class="cb-icon" style="font-size:32px;">
+                        <svg><use  ng-href="../../images/factoricons-slim.svg#bank-account" xlink:href=""></use></svg>
+                      </div>
+                      <div>
+                        <div class="small text-muted">#{{ account.code }} {{ account.alias? '- '+account.alias : '' }}</div>
+                        <div style="font-size: 14px;">{{ account.type }}</div>
+                        <div class="small cb-flex cb-middle" ng-if="account.toPay && account.selected" style="font-weight:bold; white-space:nowrap; overflow:hidden; text-overflow: ellipsis;">
+                          <div class="cb-icon" style="font-size: 17px; margin-right: 2px;"><svg><use ng-href="../../images/factoricons-regular.svg#money" xlink:href=""></use></svg></div>
+                          <div>Cobro de comisiones</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="cb-group cb-group-simple" style="margin-top:20px;">
+              <h4>Medios de envío</h4>
+              <div class="cb-grid-layout pg-options" style="grid-template-columns: repeat(3, 1fr); grid-gap: 10px;">
+                <div class="panel panel-default cb-flex cb-middle" ng-repeat="media in mediaList | filter: { selected: true }" style="margin:0; position: relative;">
+                  <div class="panel-body" style="padding: 10px;">
+                    <div class="cb-flex cb-gutters-tiny cb-middle">
+                      <div class="cb-icon" style="font-size:32px;">
+                        <svg><use  ng-href="../../images/factoricons-slim.svg#{{ getIconByType(media.type) }}" xlink:href=""></use></svg>
+                      </div>
+                      <div>
+                        <div class="small text-muted">{{ media.type }}</div>
+                        <div style="font-size: 14px;">{{ media.value }}</div>
+                        <div class="small text-muted">{{ media.default? 'Default' : '' }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="cb-group cb-group-simple" style="margin-top:20px;">
+              <h4>Servicios masivos</h4>
+              <div class="cb-grid-layout pg-options" style="grid-template-columns: repeat(3, 1fr); grid-gap: 10px;">
+                <div class="panel panel-default cb-flex cb-middle" ng-repeat="massiveService in massiveServicesData" style="margin:0; position: relative;">
+                  <div class="panel-body" style="padding: 10px;">
+                    <div class="cb-flex cb-gutters-tiny cb-middle">
+                      <div class="cb-icon" style="font-size:32px;">
+                        <svg><use  ng-href="../../images/icons-slim.svg#{{ massiveService.icon }}" xlink:href=""></use></svg>
+                      </div>
+                      <div>
+                        <div style="font-size: 14px;">{{ massiveService.name }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <div class="cb-navbar cb-navbar-bottom" ng-show="selectedCustomer">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+          <button class="btn btn-default navbar-btn" style="min-width: 150px;" ng-if="wizardStep==6">Imprimir contrato</button>
+          <button class="btn btn-primary navbar-btn" style="min-width: 150px;" ng-click="wizardNextStep()">{{ wizardStep==6? 'Finalizar' : 'Continuar' }}</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div ng-include="'includes/popups.html'"></div>
+
+  <div id="cliente" class="modal fade" ng-cloak>
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Búsqueda de clientes afiliados</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid" style="max-width:600px;">
+            <div class="cb-flex cb-gutters">
+              <div class="cb-grow">
+                <div class="cb-flex cb-gutters">
+                  <div class="cb-grow form-group" style="margin-bottom:0;">
+                    <input type="text" class="form-control input-lg" placeholder="Ingrese {{ selectedField.label }}" />
+                  </div>
+                  <div ng-if="!isAdvanced">
+                    <button class="btn btn-primary btn-lg" ng-click="find()" title="Buscar"><span class="fa fa-search"></span></button>
+                  </div>
+                </div>
+                <div id="filters" class="cb-flex cb-gutters" ng-class="{'cb-gap-bottom':!isAdvanced}">
+                  <div class="form-control-static">Buscar por:</div>
+                  <div>
+                    <div class="dropdown">
+                      <button class="btn btn-link" data-toggle="dropdown">
+                        {{ selectedField.label }} <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li ng-class="{'active':selectedField==item}" ng-repeat="item in filters.field"><a href="#" ng-click="setField(item)">{{ item.label }}</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div ng-show="!showResults && isAdvanced">
+              <div class="cb-grid-no-header k-grid k-widget">
+                <div class="k-header k-grid-toolbar ng-scope">
+                  <button class="btn btn-primary ng-scope" ng-click="showResults=true"><span class="fa fa-search"></span> Buscar</button>
+                </div>
+              </div>
+            </div>
+            <kendo-grid class="cb-grid-no-header" ng-show="showResults" options="customers2"></kendo-grid>
+          </div>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cerrar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/x-kendo-template" id="customer">
+    <div class="cb-flex">
+      <div class="cb-grow">
+        <div>\\#<span title="Identificación">#: data.documentNumber #</span> - <span title="Nombre">#: data.name # </span></div>
+        <div class="small text-muted">Persona natural - <span title="Código MIS">123</span> - <span title="Fecha de ingreso">12/12/2017</span></div>
+      </div>
+    </div>
+  </script>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

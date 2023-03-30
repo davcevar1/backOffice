@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Datos generales</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-viewport cb-flex cb-column">
+            <div class="cb-form-header cb-no-margin">
+                <div class="cb-flex cb-middle">
+                    <div class="cb-grow">
+                        <div title="# Garantía">01-7131-5838 - PERSONA FISICA NACIONAL</div>
+                        <div class="cb-text-xl">AGUAS MUNOZ BETTY JEANNETH</div>
+                        <div class="cb-flex cb-gutters">
+                            <div>
+                                <div>ADMUSER</div>
+                                <div class="small control-label">Ejecutivo de cuenta</div>
+                            </div>
+                            <div>
+                                <div>VIGENTE</div>
+                                <div class="small control-label">Estado</div>
+                            </div>
+                            <div>
+                                <div>10/24/2013</div>
+                                <div class="small control-label">Cliente desde</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cb-flex cb-gutters">
+                        <div class="input-group" style="width:200px;">
+                            <input type="text" class="form-control" />
+                            <span class="input-group-btn">
+                                <a href="#" class="btn btn-default" title="Buscar"><span class="fa fa-search"></span></a>
+                            </span>
+                        </div>
+                        <div class="btn-group">
+                            <button id="more-info" class="btn btn-default" title="Información"><span class="fa fa-info-circle"></span> <span class="hidden-xs">Información</span></button>
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="fa fa-angle-down"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="#status-form" data-toggle="modal">Búsqueda avanzada</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cb-view-container-root cb-view-container cb-group-layout">
+                <div class="cb-view-container cb-group-layout container">
+                    <fieldset class="cb-group cb-group-tabbed-v">
+                        <div class="row">
+                            <div class="col-tab-items col-xs-2">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li class="active"><a href="#tab0" data-toggle="tab">Información general</a></li>
+                                    <li><a href="#tab1" data-toggle="tab">Datos demográficos</a></li>
+                                    <li><a href="#tab2" data-toggle="tab">Datos económicos</a></li>
+                                    <li><a href="#tab3" data-toggle="tab">Actividades económicas</a></li>
+                                </ul>
+                            </div>
+                            <div class="cb-tab-content col-xs-10 tab-content">
+                                <div id="tab0" class="tab-pane active">
+                                    <fieldset class="cb-group cb-group-simple cb-group-flex">
+                                        <div>
+                                            <div class="form-vertical">
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Tipo</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control">
+                                                                    <option value="person">Natural</option>
+                                                                    <option value="company">Jurídica</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Estado</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Nombres</div>
+                                                            <div class="cb-control">
+                                                                <div class="cb-control cb-flex cb-gutters">
+                                                                    <div class="cb-grow">
+                                                                        <input type="text" class="form-control" placeholder="Primer Nombre" />
+                                                                    </div>
+                                                                    <div class="cb-grow">
+                                                                        <input type="text" class="form-control" placeholder="Segundo Nombre" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Apellidos</div>
+                                                            <div class="cb-control">
+                                                                <div class="cb-control cb-flex cb-gutters">
+                                                                    <div class="cb-grow">
+                                                                        <input type="text" class="form-control" placeholder="Paterno" />
+                                                                    </div>
+                                                                    <div class="cb-grow">
+                                                                        <input type="text" class="form-control" placeholder="Materno" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Conocido como</div>
+                                                            <div class="cb-control">
+                                                                <input type="text" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Identificación</div>
+                                                            <div class="cb-control cb-flex cb-gutters">
+                                                                <div class="cb-grow">
+                                                                    <select class="form-control">
+                                                                        <option>Cédula</option>
+                                                                        <option>Pasaporte</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="cb-grow">
+                                                                    <input type="text" class="form-control" placeholder="# Identificación" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Vencimiento identificación</div>
+                                                            <div class="cb-control">
+                                                                <input type="date" kendo-datepicker />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Email</div>
+                                                            <div class="cb-control">
+                                                                <input type="text" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group">
+                                                            <div class="control-label">Género</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control">
+                                                                    <option></option>
+                                                                    <option>Masculino</option>
+                                                                    <option>Femenino</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Fecha de nacimiento</div>
+                                                            <div class="cb-control">
+                                                                <input type="date" kendo-datepicker />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Nacionalidad</div>
+                                                            <div class="cb-control">
+                                                                <input type="text" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group">
+                                                            <div class="control-label">Estado civil</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control" ng-model="civilStatus">
+                                                                    <option></option>
+                                                                    <option value="single">Soltero(a)</option>
+                                                                    <option value="married">Casado(a)</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Sucursal de gestión</div>
+                                                            <div class="cb-control">
+                                                                <input type="text" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Oficial de Negocio</div>
+                                                            <div class="cb-control">
+                                                                <input type="text" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>    
+                                    </fieldset>
+                                </div>
+                                <div id="tab1" class="tab-pane">
+                                    <div class="cb-group cb-group-simple cb-group-flex">
+                                        <div>
+                                            <div class="form-vertical">
+                                                <div class="row">
+                                                    <div class="col-xs-4">
+                                                        <div class="form-group">
+                                                            <div class="control-label">País de residencia</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <div class="form-group">
+                                                            <div class="control-label">Nivel de estudios</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <div class="form-group">
+                                                            <div class="control-label">Profesión</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <div class="form-group">
+                                                            <div class="control-label">Tipo de vivienda</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <div class="form-group">
+                                                            <div class="control-label"># Cargas familiares</div>
+                                                            <div class="cb-control">
+                                                                <input type="number" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <div class="form-group">
+                                                            <div class="control-label">Tiene discapacidad</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control" ng-model="hasDisability">
+                                                                    <option></option>
+                                                                    <option value="1">Si</option>
+                                                                    <option value="0">No</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4" ng-show="hasDisability">
+                                                        <div class="form-group">
+                                                            <div class="control-label">Tipo de discapacidad</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <div class="form-group">
+                                                            <div class="control-label">Planilla</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control">
+                                                                    <option></option>
+                                                                    <option value="1">Si</option>
+                                                                    <option value="0">No</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab2" class="tab-pane">
+                                    <fieldset class="cb-group cb-group-simple cb-group-flex">
+                                        <div>
+                                            <div class="form-vertical">
+                                                <div class="row">
+                                                    <div class="col-xs-4">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Relación con la institución</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Ingresos mensuales</div>
+                                                            <div class="cb-control">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" />
+                                                                    <span class="input-group-addon">USD</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Nivel de egresos</div>
+                                                            <div class="cb-control">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" />
+                                                                    <span class="input-group-addon">USD</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Calificación interna</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Categoría ALM</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Tutor</div>
+                                                            <div class="cb-control">
+                                                                <input type="text" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Sujeto de retención</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control">
+                                                                    <option></option>
+                                                                    <option>Si</option>
+                                                                    <option>No</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>    
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>    
+            </div>
+
+            <div class="cb-view-loading cb-hidden"> 
+                <div class="cb-view-loading-icon"></div> 
+            </div>
+        </div>
+    </div>
+	
+	<script type="text/x-kendo-template" id="template">
+        <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button><button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Editar</button><button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+    </script>
+	
+	<script type="text/x-kendo-template" id="amortizacion2">
+        <button class="btn btn-default"><span class="fa fa-calculator"></span> Calcular</button>
+    </script>
+	
+	<script type="text/x-kendo-template" id="polizaTools">
+        <button ng-click="addPoliza()" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button><button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Editar</button><button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+    </script>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="solicitud-credito" src="../lib/require/require.js"></script>
+</body>
+
+</html>

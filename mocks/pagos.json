@@ -1,0 +1,8 @@
+[
+    {"account":"1234567890", "product":"CUENTA CORRIENTE", "amount":100000, "id":"1803256354", "concept":"NOMINA ENERO 2017", "reference":"465465"},
+    {"account":"1234567890", "product":"CUENTA AHORROS", "amount":100000, "id":"1803256354", "concept":"NOMINA ENERO 2017", "reference":"465465"},
+    {"account":"1234567890", "product":"CUENTA CORRIENTE", "amount":100000, "id":"1803256354", "concept":"NOMINA ENERO 2017", "reference":"465465"},
+    {"account":"1234567890", "product":"CUENTA CORRIENTE", "amount":100000, "id":"1803256354", "concept":"VIATICOS", "reference":"465465"},
+    {"account":"1234567890", "product":"CUENTA CORRIENTE", "amount":100000, "id":"1803256354", "concept":"NOMINA ENERO 2017", "reference":"465465"},
+    {"account":"1234567890", "product":"CUENTA CORRIENTE", "amount":100000, "id":"1803256354", "concept":"NOMINA ENERO 2017", "reference":"465465"}
+]

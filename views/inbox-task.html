@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Detalle de tarea</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../styles/theme.css" rel="stylesheet" />
+  <style>
+    #task-title {
+      cursor: default;
+    }
+
+    #task-title:hover {
+      overflow: visible;
+    }
+
+    #task-badge {
+      padding: 3px 6px;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-toolbar cb-toolbar-top">
+      <div class="cb-toolbar-content">
+        <div id="task-title" class="cb-grow cb-text-ellipsis">
+          <span id="task-badge" class="label label-default cb-text-sm">234523452444</span> Proceso / Tarea (Versión 4)
+        </div>
+        <div>
+          <div class="btn-group">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="fa fa-ellipsis-v"></span></button>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="#">Observaciones</a></li>
+              <li><a href="#">Requerimientos</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="btn-group">
+              <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <span class="fa fa-ellipsis-v"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li class="dropdown-header">More information</li>
+                <li><a href="#">Observations</a></li>
+                <li><a href="#">Requirements</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Actions</li>
+                <li><a href="#"> OK </a></li>
+                <li><a href="#"> Return </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cb-view-container-root">
+      test
+    </div>
+  </div>
+
+  <div class="cb-view-loading cb-view-loading-preload" ng-class="{'hidden':initialized}">
+    <div class="cb-view-loading-icon"></div>
+  </div>
+
+  <script>
+    var librariesUrl = '../lib/';
+  </script>
+  <script src="../lib/require.config.js"></script>
+  <script data-main="inbox-task" src="../lib/require/require.js"></script>
+</body>
+
+</html>

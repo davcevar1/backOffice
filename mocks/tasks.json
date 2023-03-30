@@ -1,0 +1,161 @@
+[{
+    "code": 1434,
+    "taskName": "Tarea",
+    "title": "Evaluación de préstamo",
+    "description": "CREACION DE DPF / AUTORIZACION SPREAD",
+    "url": "dpf/autorizacion.html?type=spread",
+    "opened": true,
+    "late": true,
+    "user": {
+      "login": "sgavilanes",
+      "name": "Santiago Gavilanes"
+    },
+    "userAssigned": {
+      "login": "ypacheco",
+      "name": "Yessenia Pacheco"
+    },
+    "comments": [{
+      "code": "1",
+      "description": "CREACION DE DPF / AUTORIZACION SPREAD",
+      "user": {
+        "login": "ypachec",
+        "name": "Yessenia Pacheco"
+      }
+    }],
+    "taskState": {
+      "code": "1",
+      "description": "Sin asignar"
+    }
+  },
+  {
+    "code": 2987,
+    "taskName": "Tarea1",
+    "title": "Evaluación de préstamo",
+    "description": "ADMINISTRACION DE DPF / CANCELACION ANTICIPADA",
+    "url": "dpf/autorizacion.html?type=anticipada",
+    "opened": true,
+    "user": {
+      "login": "sgavilanes",
+      "name": "Santiago Gavilanes"
+    },
+    "userAssigned": {
+      "login": "ypacheco",
+      "name": "Yessenia Pacheco"
+    },
+    "comments": [{
+      "code": "1",
+      "description": "Préstamo a falta de presentar una recomendación por parte del gerente",
+      "user": {
+        "login": "ypachec",
+        "name": "Yessenia Pacheco"
+      }
+    }],
+    "taskState": {
+      "code": "2",
+      "description": "Asignado"
+    }
+  }, {
+    "code": 3123,
+    "taskName": "Tarea2",
+    "title": "Evaluación de préstamo",
+    "description": "ADMINISTRACION DE DPF / TASA PRO DIAS VENCIDOS",
+    "url": "dpf/autorizacion.html?type=dias-vencidos",
+    "user": {
+      "login": "sgavilanes",
+      "name": "Santiago Gavilanes"
+    },
+    "userAssigned": {
+      "login": "ypacheco",
+      "name": "Yessenia Pacheco"
+    },
+    "comments": [{
+      "code": "1",
+      "description": "Préstamo a falta de presentar una recomendación por parte del gerente",
+      "user": {
+        "login": "ypachec",
+        "name": "Yessenia Pacheco"
+      }
+    }],
+    "taskState": {
+      "code": "1",
+      "description": "Sin asignar"
+    }
+  }, {
+    "code": 4432,
+    "taskName": "Tarea",
+    "title": "Evaluación de préstamo",
+    "description": "ADMINISTRACION DE DPF / FECHA VALOR",
+    "url": "dpf/autorizacion.html?type=fecha",
+    "late": true,
+    "user": {
+      "login": "sgavilanes",
+      "name": "Santiago Gavilanes"
+    },
+    "userAssigned": {
+      "login": "sgavilanes",
+      "name": "Santiago Gavilanes"
+    },
+    "comments": [{
+      "code": "1",
+      "description": "Préstamo a falta de presentar una recomendación por parte del gerente",
+      "user": {
+        "login": "ypachec",
+        "name": "Yessenia Pacheco"
+      }
+    }],
+    "taskState": {
+      "code": "2",
+      "description": "Asignado"
+    }
+  }, {
+    "code": 5987,
+    "taskName": "Tarea1",
+    "title": "Evaluación de préstamo",
+    "description": "Evalua préstamo persona de $5800 para Carlos Matallo",
+    "user": {
+      "login": "sgavilanes",
+      "name": "Santiago Gavilanes"
+    },
+    "userAssigned": {
+      "login": "ypacheco",
+      "name": "Yessenia Pacheco"
+    },
+    "comments": [{
+      "code": "1",
+      "description": "Préstamo a falta de presentar una recomendación por parte del gerente",
+      "user": {
+        "login": "ypachec",
+        "name": "Yessenia Pacheco"
+      }
+    }],
+    "taskState": {
+      "code": "2",
+      "description": "Asignado"
+    }
+  }, {
+    "code": 6239,
+    "taskName": "Tarea2",
+    "title": "Evaluación de préstamo",
+    "description": "Evalua préstamo persona de $5800 para María Fernando Pacheco",
+    "user": {
+      "login": "sgavilanes",
+      "name": "Santiago Gavilanes"
+    },
+    "userAssigned": {
+      "login": "ypacheco",
+      "name": "Yessenia Pacheco"
+    },
+    "comments": [{
+      "code": "1",
+      "description": "Préstamo a falta de presentar una recomendación por parte del gerente",
+      "user": {
+        "login": "ypachec",
+        "name": "Yessenia Pacheco"
+      }
+    }],
+    "taskState": {
+      "code": "1",
+      "description": "Sin asignar"
+    }
+  }
+]

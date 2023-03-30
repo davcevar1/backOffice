@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-viewport cb-flex cb-column">
+      <div class="cb-grow cb-scrollable">
+        <div class="container" style="padding:30px;">
+          <div class="form-group">
+            <div class="control-label">Cuenta contable</div>
+            <div class="cb-control">
+              <input type="text" kendo-combo-box options="autocompleteCuentas" />
+            </div>
+          </div>
+          <fieldset class="cb-group cb-group-simple">
+            <div>
+              <kendo-grid options="asociacionOficinasArea"></kendo-grid>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="cb-navbar cb-navbar-bottom">
+        <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+          <button class="btn btn-primary navbar-btn" data-dismiss="modal" ng-click="create=false;editable=false">Guardar</button>
+          <button class="btn btn-default navbar-btn" data-dismiss="modal" ng-click="create=false;editable=false">Cancelar</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

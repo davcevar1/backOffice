@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-viewport cb-flex cb-column">
+      <div class="cb-form-header cb-no-margin">
+        <div class="cb-flex">
+            <div class="cb-grow">
+                <div class="cb-text-xl">Tapia Andrade Viviana María (Titular)</div>
+            </div>
+        </div>
+      </div>
+      <div class="k-tabstrip-wrapper cb-flex cb-grow">
+        <div kendo-tab-strip class="cb-flex cb-column cb-grow">
+          <ul>
+            <li class="k-state-active">
+              <a href="#">
+                <span class="cb-title">Titulares</span>
+                <span class="cb-validation-success">0</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="cb-title">Operación</span>
+                <span class="cb-validation-fail">2</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="cb-title">Recepción de fondos</span>
+                <span class="cb-validation-success">0</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="cb-title">Forma de pago</span>
+                <span class="cb-validation-success">0</span>
+              </a>
+            </li>
+          </ul>
+          <div class="cb-grow cb-scrollable">
+            <fieldset class="cb-group cb-group-simple">
+              <div>
+                <kendo-grid options="owners"></kendo-grid>
+              </div>
+            </fieldset>
+            <fieldset class="cb-group cb-group-simple">
+              <legend>Condiciones de retiro</legend>
+              <div>
+                <kendo-grid options="conditions"></kendo-grid>
+              </div>
+            </fieldset>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+              <fieldset class="cb-group cb-group-simple">
+                <div class="form-vertical">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Producto</div>
+                        <div class="cb-control">
+                          <select class="form-control">
+                          <option></option>
+                          <option>Certificado al vencimiento</option>
+                          <option>Depósito a plazo fijo</option>
+                        </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Categoría</div>
+                        <div class="cb-control">
+                          <select class="form-control">
+                          <option></option>
+                          <option>Nominativos</option>
+                        </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Periodicidad</div>
+                        <div class="cb-control">
+                          <select class="form-control">
+                          <option>Ninguna</option>
+                        </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <hr />
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Monto</div>
+                        <div class="cb-control cb-flex cb-gutters">
+                          <div>
+                            <select class="form-control">
+                              <option>USD</option>
+                              <option>EUR</option>
+                            </select>
+                          </div>
+                          <div class="cb-grow">
+                            <input type="number" ng-model="amount" kendo-numeric-text-box k-spinners="false" k-format="c0" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Plazo</div>
+                        <div class="cb-control">
+                          <div class="input-group">
+                            <input type="text" ng-model="term" class="form-control" kendo-numeric-text-box k-spinners="false" k-format="c0" />
+                            <span class="input-group-addon">Días</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Tasa</div>
+                        <div class="cb-control">
+                          <div class="input-group">
+                            <input type="text" ng-model="rate" class="form-control" kendo-numeric-text-box k-spinners="false" k-format="c0" />
+                            <span class="input-group-addon">%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Fecha de ingreso</div>
+                        <div class="cb-control">
+                          <input type="date" kendo-datepicker />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Fecha de vencimiento</div>
+                        <div class="cb-control">
+                          <input type="date" kendo-datepicker />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">&nbsp;</div>
+                        <div class="cb-control">
+                          <button class="btn btn-default btn-block" ng-click="simulate()">Simular</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <fieldset class="cb-group cb-group-simple">
+              <div>
+                <kendo-grid options="reception"></kendo-grid>
+              </div>
+            </fieldset>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <fieldset class="cb-group cb-group-simple">
+              <legend>Instrucción de cancelación</legend>
+              <div>
+                <kendo-grid options="capitalPayment"></kendo-grid>
+              </div>
+            </fieldset>
+            <fieldset class="cb-group cb-group-simple">
+              <legend>Pago de interés</legend>
+              <div>
+                <kendo-grid options="interestPayment"></kendo-grid>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <div class="cb-wizard">
+        <div class="cb-wizard-content">
+          <div class="container-fluid">
+            <div class="cb-flex">
+              <div class="cb-wizard-dropdown btn-group dropup cb-grow hidden-sm hidden-md hidden-lg">
+                <button class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
+  								<span>Titulares</span> <span class="caret"></span>
+  							</button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Titulares</a></li>
+                  <li class="disabled"><a href="#">Operación</a></li>
+                  <li class="disabled"><a href="#">Recepción de fondos</a></li>
+                  <li class="disabled"><a href="#">Formas de pago</a></li>
+                  <li class="disabled"><a href="#">Adicionales</a></li>
+                </ul>
+              </div>
+              <div class="cb-wizard-nav cb-flex cb-bottom cb-grow hidden-xs">
+                <div ng-show="wizardScrollLeft">
+                  <a href="#" class="btn btn-link" data-slide="prev"><span class="fa fa-angle-left"></span></a>
+                </div>
+                <div class="cb-flex cb-grow cb-bottom cb-wizard-steps">
+                  <div class="cb-wizard-step"><button class="btn btn-default btn-block">Cliente</button></div>
+                  <div class="cb-wizard-step cb-active"><button class="btn btn-default btn-block">Apertura de depósito</button></div>
+                  <div class="cb-wizard-step"><button class="btn btn-default btn-block" disabled="true">Emisión de certificado</button></div>
+                  <div class="cb-wizard-step"><button class="btn btn-default btn-block" disabled="true">Emisión de certificado</button></div>
+                  <div class="cb-wizard-step"><button class="btn btn-default btn-block" disabled="true">Emisión de certificado</button></div>
+                  <div class="cb-wizard-step"><button class="btn btn-default btn-block" disabled="true">Emisión de certificado</button></div>
+                  <div class="cb-wizard-step"><button class="btn btn-default btn-block" disabled="true">Emisión de certificado</button></div>
+                  <div class="cb-wizard-step"><button class="btn btn-default btn-block" disabled="true">Emisión de certificado</button></div>
+                </div>
+  							<div ng-show="wizardScrollRight">
+  								<a href="#" class="btn btn-link" data-slide="next"><span class="fa fa-angle-right"></span></a>
+  							</div>
+  						</div>
+  						<div class="cb-actions cb-grow-sm-down">
+                <a href="#" style="min-width:200px;" class="btn btn-primary btn-block">Continuar</a>
+  						</div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div id="payment" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Recepción</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset>
+            <div class="form-group">
+              <div class="control-label">Forma de pago</div>
+              <div class="cb-control">
+                <select class="form-control" ng-model="paymentMethod">
+                    <option></option>
+                    <option value="cash">Efectivo</option>
+                    <option value="debit">Nota de débito</option>
+                    <option value="check">Cheque</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="control-label">Monto</div>
+              <div class="cb-control">
+                <div class="cb-flex cb-gutters">
+                  <div>
+                    <select class="form-control">
+                        <option>USD</option>
+                        <option>EUR</option>
+                    </select>
+                  </div>
+                  <div class="cb-grow">
+                    <input type="text" kendo-numeric-text-box k-spinners="false" k-format="c0" k-ng-model="amount" />
+                  </div>
+                </div>
+                <div class="text-muted small" style="margin-top:5px;">Conversión: $234.00 USD, Cotización: 1.34</div>
+              </div>
+            </div>
+            <div class="form-group" ng-show="paymentMethod=='check'">
+              <div class="control-label"># Cheque</div>
+              <div class="cb-control">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group" ng-show="paymentMethod=='check'">
+              <div class="control-label">Banco</div>
+              <div class="cb-control">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group" ng-show="paymentMethod=='check'">
+              <div class="control-label">Retención</div>
+              <div class="cb-control">
+                <input type="text" kendo-numeric-text-box />
+              </div>
+            </div>
+            <div class="form-group" ng-show="paymentMethod=='debit'">
+              <div class="control-label">Referencia</div>
+              <div class="cb-control">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="control-label">Notas</div>
+              <div class="cb-control">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="simulate" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Simulación</h4>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <tr>
+              <th>Total de interés a ganar</th>
+              <td class="text-right">8.73</td>
+            </tr>
+            <tr>
+              <th>Impuestos a retener</th>
+              <td class="text-right">0.17</td>
+            </tr>
+            <tr>
+              <th>Interés neto a pagar</th>
+              <td class="text-right">8.73</td>
+            </tr>
+          </table>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="conditions" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Condición de retiro</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset>
+            <div class="form-group">
+              <div class="control-label">Tipo</div>
+              <div class="cb-control">
+                <select class="form-control">
+                    <option></option>
+                    <option value="cash">Conjunta</option>
+                    <option value="debit">Solidaria</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="control-label">Beneficiarios</div>
+              <div class="cb-control">
+                <div class="checkbox">
+                  <label>
+                      <input type="checkbox" /> José Morales
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                      <input type="checkbox" /> Martín Morales
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="dpf" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

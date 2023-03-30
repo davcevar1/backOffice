@@ -1,0 +1,44 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    font-size: 0.875rem;
+    font-family: @font-family-base;
+    font-weight: @font-weight-base;
+    color: @body-color;
+    background-color: @body-bg;
+}
+a {
+    text-shadow: 0 0 0;
+    text-decoration: none;
+    color: @link-color;
+    font-weight: 500;
+
+    &:hover {
+        color: @link-hover-color;
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+        text-decoration: underline;
+    }
+}

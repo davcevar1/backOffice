@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+  <link href="../../lib/misc/dropzone.css" rel="stylesheet" />
+  <style>
+    body {
+      /*background: url(bg.png);*/
+      background-position: center;
+      background-size: cover;
+    }
+    .list-group > .list-group-item {
+      padding: 0;
+    }
+    .list-group > .list-group-item:hover {
+      background-color: transparent;
+    }
+    .list-group > .list-group-item .dropzone:hover {
+      background-color: #f5f5f5;
+    }
+    .dropzone {
+      min-height: inherit;
+      border: 0;
+      background: transparent;
+      margin-bottom: 0;
+      display: none;
+    }
+
+    .dropzone .dz-message {
+      display: none;
+    }
+
+    .dropzone .dz-preview .dz-details .dz-size span {
+      background: transparent;
+    }
+
+    .dropzone .dz-preview .dz-details .dz-filename span {
+      padding: 0;
+      background: transparent;
+    }
+
+    .dropzone .dz-preview:not(.dz-processing) .dz-progress {
+      display: none;
+    }
+
+    .dropzone .dz-preview .dz-remove {
+      bottom: 10px;
+      position: absolute;
+      z-index: 21;
+      text-align: center;
+      width: 100%;
+    }
+
+    .dropzone.dz-drag-hover {
+      border-color: #23527c;
+      z-index: 2;
+    }
+
+    .dropzone.dz-started .wf-note {
+      display: none;
+    }
+
+    .form-control[disabled],
+    fieldset[disabled] .form-control {
+      background: #f5f5f5;
+      border-color: #CCC;
+    }
+
+    fieldset[disabled] .control-label {
+      color: #CCC;
+    }
+
+    .modal .modal-content .modal-header,
+    .modal .modal-content .modal-footer {
+      border: 0;
+      background: transparent;
+    }
+    .modal-content .list-group {
+      padding-bottom: 5px;
+    }
+    .modal-content .list-group > .list-group-item {
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 0;
+    }
+    .wf-options {
+      margin-left: 5px;
+      margin-top: -15px;
+      border-top: 1px dashed rgba(0,0,0,0);
+      padding: 0;
+      transition: border-color 200ms, padding-top 150ms, margin-top 150ms;
+    }
+    .wf-options .checkbox {
+      margin: 0;
+    }
+    .wf-upload .dropzone {
+      display: block;
+    }
+    .wf-upload .wf-dropzone-placeholder {
+      display: none;
+    }
+    .wf-upload .wf-options {
+      border-color: rgba(0,0,0,.1);
+      padding-top: 10px;
+      margin-top: 0;
+    }
+    #uploading .list-group {
+      overflow: auto;
+      max-height: calc(100vh - 125px);
+      margin: 0;
+    }
+    #uploading .modal-footer {
+      display: none;
+    }
+    #uploading.wf-error .list-group {
+      max-height: calc(100vh - 190px);
+    }
+    #uploading.wf-error .modal-footer {
+      display: block;
+    }
+    #uploading .list-group-item {
+      overflow: hidden;
+      border: 0;
+    }
+    #uploading .list-group-item .progress {
+      transition: height .2s, margin .2s;
+      height: 4px;
+      margin-bottom: 4px;
+      opacity: 1;
+    }
+    #uploading .list-group-item .wf-status {
+      transition: all .1s ease-in;
+      margin-right: -30px;
+      opacity: 0;
+    }
+    #uploading .list-group-item.wf-error {
+      color: #a94442;
+      background-color: #f2dede;
+    }
+    #uploading .list-group-item.wf-error .wf-status .fa-check-circle,
+    #uploading .list-group-item.wf-finished .wf-status .fa-times-circle {
+      display: none;
+    }
+    #uploading .list-group-item.wf-error .wf-status,
+    #uploading .list-group-item.wf-finished .wf-status {
+      margin-right: 0;
+      opacity: 1;
+    }
+    #uploading .list-group-item.wf-error .progress,
+    #uploading .list-group-item.wf-finished .progress {
+      height: 0;
+      margin: 0;
+      opacity: 0;
+    }
+    #uploading .list-group-item.wf-error .wf-status .fa-times-circle,
+    #uploading .list-group-item.wf-finished .wf-status .fa-check-circle {
+      display: block;
+    }
+    .wf-error-label {
+      overflow: hidden;
+      transition: max-height .2s ease-in;
+      max-height: 0;
+    }
+    .wf-file-size {
+      overflow: hidden;
+      transition: max-height .2s ease-in;
+      max-height: 20px;
+    }
+    .wf-icon {
+      transition: color .3s;
+    }
+    #uploading .list-group-item.wf-error .wf-error-label {
+      max-height: 20px;
+    }
+    #uploading .list-group-item.wf-error .wf-file-size {
+      max-height: 0;
+    }
+    #uploading .list-group-item.wf-error .wf-icon {
+      color: #a94442;
+    }
+    .cb-steps {
+      margin-top: 20px;
+      max-width: 600px;
+      margin: auto;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-view-container-root cb-view-container cb-group-layout container-fluid">
+      <ul class="cb-steps" style="margin-top: 20px;">
+          <li class="active">Ingreso</li>
+          <li class="active">Oferta</li>
+          <li class="active">Solicitud</li>
+          <li class="active">Contrato</li>
+          <li class="active">Carga de documentos</li>
+      </ul>
+      <h2 style="font-size:22px; color: #666; font-weight: 700;">Carga de documentos</h2>
+      <p>Para completar la solicitud es necesario que suba los siguientes documentos:</p>
+      <div class="panel panel-default">
+        <div class="list-group">
+          <div class="list-group-item wf-upload wf-required">
+            <div class="dropzone dz-clickable">
+              <div class="cb-flex cb-gutters cb-middle cb-clickable" onclick="$(event.currentTarget).parent().click()">
+                <div>
+                  <span class="fa fa-file-text-o fa-2x"></span>
+                </div>
+                <div class="cb-grow">
+                  <div class="cb-label">Cédula de identidad</div>
+                  <div class="text-muted small">Cargar este archivo/s es obligatotio</div>
+                </div>
+                <div class="cb-note text-muted hidden-xs">Arrastre o presione aquí para cargar archivos</div>
+              </div>
+              <div class="dz-default dz-message"><span>Arrastre aquí para cargar archivos</span></div>
+            </div>
+          </div>
+          <div class="list-group-item wf-upload wf-required">
+            <div class="dropzone dz-clickable">
+              <div class="cb-flex cb-gutters cb-middle cb-clickable" onclick="$(event.currentTarget).parent().click()">
+                <div>
+                  <span class="fa fa-file-text-o fa-2x"></span>
+                </div>
+                <div class="cb-grow">
+                  <div class="cb-label">Papeleta de votación</div>
+                  <div class="text-muted small">Cargar este archivo/s es obligatotio</div>
+                </div>
+                <div class="cb-note text-muted hidden-xs">Arrastre o presione aquí para cargar archivos</div>
+              </div>
+              <div class="dz-default dz-message"><span>Arrastre aquí para cargar archivos</span></div>
+            </div>
+          </div>
+          <div class="list-group-item wf-upload wf-required">
+            <div class="dropzone dz-clickable">
+              <div class="cb-flex cb-gutters cb-middle cb-clickable" onclick="$(event.currentTarget).parent().click()">
+                <div>
+                  <span class="fa fa-file-text-o fa-2x"></span>
+                </div>
+                <div class="cb-grow">
+                  <div class="cb-label">RUC</div>
+                  <div class="text-muted small">Cargar este archivo/s es obligatotio</div>
+                </div>
+                <div class="cb-note text-muted hidden-xs">Arrastre o presione aquí para cargar archivos</div>
+              </div>
+              <div class="dz-default dz-message"><span>Arrastre aquí para cargar archivos</span></div>
+            </div>
+          </div>
+          <div class="list-group-item wf-upload wf-required">
+            <div class="dropzone dz-clickable">
+              <div class="cb-flex cb-gutters cb-middle cb-clickable" onclick="$(event.currentTarget).parent().click()">
+                <div>
+                  <span class="fa fa-file-text-o fa-2x"></span>
+                </div>
+                <div class="cb-grow">
+                  <div class="cb-label">Declaración de impuesto a la renta</div>
+                  <div class="text-muted small">Cargar este archivo/s es obligatotio</div>
+                </div>
+                <div class="cb-note text-muted hidden-xs">Arrastre o presione aquí para cargar archivos</div>
+              </div>
+              <div class="dz-default dz-message"><span>Arrastre aquí para cargar archivos</span></div>
+            </div>
+          </div>
+          <div class="list-group-item wf-upload wf-required">
+            <div class="dropzone dz-clickable">
+              <div class="cb-flex cb-gutters cb-middle cb-clickable" onclick="$(event.currentTarget).parent().click()">
+                <div>
+                  <span class="fa fa-file-text-o fa-2x"></span>
+                </div>
+                <div class="cb-grow">
+                  <div class="cb-label">Contrato de arriendo</div>
+                  <div class="text-muted small">Cargar este archivo/s es obligatotio</div>
+                </div>
+                <div class="cb-note text-muted hidden-xs">Arrastre o presione aquí para cargar archivos</div>
+              </div>
+              <div class="dz-default dz-message"><span>Arrastre aquí para cargar archivos</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+          <a href="flow-actualizacion.html" class="btn btn-default navbar-btn">Anterior</a>
+          <a href="flow-confirmacion.html" class="btn btn-primary navbar-btn">Siguiente</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+  <script src="../../lib/jquery/jquery-2.1.1.min.js"></script>
+  <script src="../../lib/misc/dropzone.js"></script>
+  <script>
+    $(function() {
+      Dropzone.autoDiscover = false;
+      $(".dropzone").dropzone({
+        url: "http://localhost",
+        uploadMultiple: true,
+        addRemoveLinks: true,
+        autoProcessQueue: false,
+        acceptedFiles: 'application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        init: function() {
+          this.on("error", function(file) {
+            if (!file.accepted) {
+              this.removeFile(file);
+              alert('Selected file has not a valid format.');
+            }
+          });
+        }
+      });
+    });
+
+    function upload(e) {
+      e.preventDefault();
+      var dropzones = $('.dropzone').map(function() {
+        return Dropzone.forElement(this);
+      }).toArray();
+      var processingList = $('#uploading .list-group'),
+          filesTotal = 0;
+      processingList.empty();
+      dropzones.forEach(function(dropzone, dropzoneIndex) {
+        filesTotal += dropzone.files.length;
+        dropzone.files.forEach(function(file, fileIndex) {
+          $('<li id="file-'+dropzoneIndex+'-'+fileIndex+'" data-progress="0" class="list-group-item wf-flex wf-middle wf-gutters"><div class="wf-icon text-muted"><span class="fa fa-file-text-o fa-2x"></span></div><div class="wf-grow"><div style="font-weight:bold;">'+file.name+'</div><div class="progress"><div class="progress-bar progress-bar-success" style="width: 0%;"></div></div><div class="wf-file-size text-muted small">'+humanFileSize(file.size)+'</div><div class="wf-error-label text-danger small">An unexpected error has occurred, the file did not reach the server</div></div><div class="wf-status"><span class="text-success fa fa-check-circle fa-2x"></span><span class="text-danger fa fa-times-circle fa-2x"></span></div></li>').appendTo(processingList);
+        });
+        dropzone.on('success', function() {
+          toComplete--;
+          if (toComplete === 0) {
+            uploadedDocuments = true;
+            completeUpload();
+          }
+          dropzone.off('success');
+        });
+        dropzone.processQueue();
+      });
+      $('#uploading').modal({backdrop:'static'});
+      $('#filesUpload').text(filesTotal);
+      simulateUpload(filesTotal);
+    };
+    function toggleUpload(e) {
+      var item = $(e.currentTarget).closest('.list-group-item');
+      if (e.currentTarget.checked) {
+        item.removeClass('wf-upload');
+      }else{
+        item.addClass('wf-upload');
+      }
+    }
+    function humanFileSize(size) {
+        var i = Math.floor( Math.log(size) / Math.log(1000) );
+        return ( size / Math.pow(1000, i) ).toFixed(2) * 1 + ' ' + ['B', 'kB', 'MB', 'GB', 'TB'][i];
+    };
+    function simulateUpload(filesTotal) {
+      var dropzones = $('.dropzone').map(function() {
+            return Dropzone.forElement(this);
+          }).toArray(),
+          processedFiles = 0;
+          successFiles = 0;
+      var interval = setInterval(function() {
+        dropzones.forEach(function(dropzone, dropzoneIndex) {
+          dropzone.files.forEach(function(file, fileIndex) {
+            var status = Math.floor(Math.random() * 6) + 1,
+                $file = $('#file-'+dropzoneIndex+'-'+fileIndex),
+                progress = (Math.floor(Math.random() * 6) + 1)+Number($file.data('progress'));
+            if (progress<100) {
+              $file.data('progress', progress);
+              $file.find('.progress-bar').css({width:progress+'%'});
+            }else if (!$file.data('processed')) {
+              processedFiles++;
+              $file.data('processed', true);
+              if (status>5) {
+                $file.addClass('wf-error');
+              }else{
+                $file.addClass('wf-finished');
+                successFiles++;
+                $('#filesUploaded').text(successFiles);
+              }
+            }
+          });
+        });
+        if (processedFiles>=filesTotal) {
+          clearInterval(interval);
+          if (processedFiles==successFiles) {
+            setTimeout(function() {
+              //location.href = 'loan-request-step7.html';
+            }, 1000);
+          }else{
+            $('#uploading').addClass('wf-error');
+          }
+        }
+      }, 200);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+[{
+    "name": "BANNER",
+    "description": "Banner 1",
+    "url":"http://firebasestorage.googleapis.com/v0/b/image-394785629847659238476.jpg",
+    "status": "Vigente"
+  },
+  {
+    "name": "BANNER",
+    "description": "Banner 2",
+    "url":"http://firebasestorage.googleapis.com/v0/b/image-9687963245234522435.jpg",
+    "status": "Vigente"
+  },
+  {
+    "name": "BANNER",
+    "description": "Banner 3",
+    "url":"http://firebasestorage.googleapis.com/v0/b/image-64574567467456.jpg",
+    "status": "Vigente"
+  }
+]

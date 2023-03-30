@@ -1,0 +1,21 @@
+[
+    {"code":"150", "user":"(null)", "categoryId":"P", "category":"PRINCIPAL", "status":"V", "id":1, "print":"N"},              
+    {"code":"50", "user":"cninocas", "name":"NINCO CASTANEDA CESAR ERNESTO", "categoryId":"P", "category":"PRINCIPAL", "status":"V", "id":4, "print":"N"},              
+    {"code":"70", "user":"nhrojas", "categoryId":"P", "category":"PRINCIPAL", "status":"V", "id":6, "print":"N"},              
+    {"code":"30", "user":"julian78", "categoryId":"S", "category":"SECUNDARIA", "status":"V", "id":7, "print":"S"},              
+    {"code":"4", "user":"(null)", "categoryId":"P", "category":"PRINCIPAL", "status":"V", "id":11, "print":"N"},              
+    {"code":"6", "user":"rmolina", "categoryId":"S", "category":"SECUNDARIA", "status":"V", "id":13, "print":"N"},              
+    {"code":"151", "user":"dgomez", "categoryId":"P", "category":"PRINCIPAL", "status":"V", "id":14, "print":"N"},              
+    {"code":"1", "user":"(null)", "categoryId":"S", "category":"SECUNDARIA", "status":"V", "id":22, "print":"S"},              
+    {"code":"2", "user":"jguerrer", "categoryId":"S", "category":"SECUNDARIA", "status":"V", "id":23, "print":"N"},              
+    {"code":"20", "user":"(null)", "categoryId":"S", "category":"SECUNDARIA", "status":"V", "id":34, "print":"N"},              
+    {"code":"10", "user":"rgarzonp", "categoryId":"P", "category":"PRINCIPAL", "status":"V", "id":41, "print":"N"},              
+    {"code":"40", "user":"cfrancor", "categoryId":"S", "category":"SECUNDARIA", "status":"V", "id":61, "print":"S"},              
+    {"code":"3", "user":"warenale", "categoryId":"S", "category":"SECUNDARIA", "status":"V", "id":68, "print":"N"},              
+    {"code":"22", "user":"(null)", "categoryId":"S", "category":"SECUNDARIA", "status":"V", "id":70, "print":"S"},              
+    {"code":"50", "user":"(null)", "categoryId":"S", "category":"SECUNDARIA", "status":"E", "id":71, "print":"N"},              
+    {"code":"80", "user":"cfrancor", "categoryId":"S", "category":"SECUNDARIA", "status":"E", "id":72, "print":"S"},              
+    {"code":"8", "user":"jbarrero", "categoryId":"S", "category":"SECUNDARIA", "status":"V", "id":75, "print":"S"},              
+    {"code":"81", "user":"(null)", "categoryId":"S", "category":"SECUNDARIA", "status":"V", "id":87, "print":"S"},              
+    {"code":"82", "user":"angangel", "categoryId":"P", "category":"PRINCIPAL", "status":"V", "id":105, "print":"N"}
+]

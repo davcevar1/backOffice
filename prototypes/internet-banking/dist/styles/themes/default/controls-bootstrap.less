@@ -1,0 +1,292 @@
+/* CONTROLS BOOTSTRAP */
+.alert {
+    > .glyphicon {
+        margin-right: 10px;
+    }
+    &.alert-success {
+      .alert-variant(@alert-success-bg; @alert-success-border; @alert-success-text);
+    }
+    &.alert-info {
+      .alert-variant(@alert-info-bg; @alert-info-border; @alert-info-text);
+    }
+    &.alert-warning {
+      .alert-variant(@alert-warning-bg; @alert-warning-border; @alert-warning-text);
+    }
+    &.alert-danger {
+      .alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-text);
+    }
+}
+.btn { 
+    border-radius: 2px;
+    overflow: hidden;
+    text-overflow: clip;
+    &.btn-default {
+        background-color: #FFF;
+        border-color: @link-color;
+        color: @link-color;
+        &:hover,
+        &:focus { 
+            background-color: darken(#FFF, 10%);
+            border-color: darken(#f8f8f8, 40%);
+        }
+    }
+    &.btn-primary {
+        background-color: @link-color;
+        border-color: darken(@link-color, 20%);
+        color: #FFF;
+        &:hover,
+        &:focus { 
+            background-color: darken(@link-color, 10%);
+            border-color: darken(@link-color, 40%);
+        }
+    }
+    &.btn-danger {
+        background: @danger-color;
+        border-color: darken(@danger-color, 20%);
+        &:hover,
+        &:focus {
+            background-color: darken(@danger-color, 10%);
+            border-color: darken(@danger-color, 40%);
+        }
+    }
+} 
+.btn-group {
+    &.btn-block {
+        .display(flex);
+        > .btn:first-child {
+            .flex(1);
+        }
+    }
+}
+.modal {
+    .modal-header {
+        min-height: 35px;
+        background: #f8f8f8;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        > .modal-title {
+            font-size: 18px;
+        }
+        > .close {
+            margin-top: 2px;
+        }
+    }
+    .modal-content {
+        border: 0;
+    }
+} 
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #D8D8D8;
+    /*background: @background-color;*/
+} 
+.form-control,
+.k-widget,
+.k-input,
+.k-textbox {
+    border-radius: 2px;
+    .k-dropdown-wrap.k-state-border-down {
+        border-radius: 2px 2px 0 0;
+    }
+    &[readonly] {
+        box-shadow: 0 0;
+        background-color: #EEE;
+    }
+    &.k-invalid,
+    &.k-invalid > .k-state-default {
+        border-color: @danger-color !important;
+        box-shadow: 0px 0px 0px #888888;
+        &:focus, &.k-state-focused {
+            border-color: #843534;
+            .box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px lighten(@danger-color, 10%));
+            .k-tooltip-validation, + .k-tooltip-validation {
+                display: block !important;
+            }
+        }
+        .k-tooltip-validation,
+        + .k-tooltip-validation {
+            display: none !important;
+            .k-icon {
+                display: none !important;
+            }
+        }
+    }
+}
+.form-control {
+    &[readonly] {
+        cursor: default;
+        a& {
+            color: @link-color;
+            cursor: pointer;
+        }
+    } 
+    &.cb-no-border {
+        border: none;
+        box-shadow: none;
+        padding: inherit;
+        color: inherit;
+        &,
+        &:hover {
+            background-color: transparent;
+        }
+    }
+    &:focus {
+        border-color: @focus-color;
+        .box-shadow(inset 0 1px 1px rgba(0,0,0,.075),0 0 8px fade(@focus-color, 60%));
+    }
+}
+.form-group {
+    position: relative;
+    margin-bottom: @form-group-vertical-margin;
+    &.cb-required {
+        .control-label:after {
+            content: '*';
+            color: @danger-color;
+            position: absolute;
+            padding-left: 5px;
+        }
+    }
+    &.has-success {
+        input[type="text"] {
+            background: #dff0d8;
+        }
+    }
+    &.has-error {
+        input[type="text"] {
+            background: #f2dede;
+        }
+    }
+    &:not(.cb-no-label) {
+        .control-label:empty:before {
+            content: '\a0';
+        }
+    }
+    > .control-label {
+        color: lighten(@text-color, 20%);
+        font-size: @font-size-base;
+        font-weight: normal;
+        line-height: 17px; //En ie por defecto sale 17.14px y desplaza los controles por eso se fuerza q 17px
+        .glyphicon {
+            vertical-align: middle;
+            margin-top: -3px;
+        }
+    }
+    .form-horizontal > .row > [class*="col-"] > & {
+         min-height: 34px;
+        .control-label {
+            padding-top: 10px;
+            margin-bottom: 0;
+        }
+    }
+    .form-vertical > .row > [class*="col-"] > & {
+         min-height: 57px;
+    }
+    .form-horizontal > .row > [class*="col-"] > & .control-label,
+    .form-vertical > .row > [class*="col-"] > & .control-label {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inherit;
+    }
+    .k-tooltip-validation { 
+        position: absolute;
+        box-sizing: border-box;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border: 0;
+        font-size: 11px;
+        color: #FFF;
+        background: @danger-color;
+        margin-top: -1px;
+        padding: 5px;
+        min-width: 150px;
+    }
+    /* Personalización para que los controles de kendoui tengan el mismo comportamiento de los controles de bootstrap */
+    .k-widget, 
+    .k-textbox {
+        width: 100%;
+    }
+    .k-textbox {
+        height: 34px;
+    }
+}
+.container {
+    .k-scrollable &,
+    .container {
+        width: 100%;
+    }
+}
+.container, 
+.container-fluid {
+    .container, 
+    .container-fluid {
+        padding: 0;
+    }
+} 
+.input-group-addon {
+    &:first-child {
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
+    &:last-child {
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+} 
+.input-group-btn {
+    z-index: 2;
+    .btn {
+        //line-height: 17px; //En ie por defecto sale 17.14px y desplaza los controles por eso se fuerza q 17px
+    }
+}
+.dropdown-menu {
+    border-radius: 2px;
+    font-size: 12px;
+    > li {
+        > a:hover, 
+        > a:focus {
+            background: lighten(@link-color, 50%);
+            color: @text-color;
+        } 
+        &.active > a,
+        &.active > a:hover,
+        &.active > a:focus {
+            background: @link-color;
+            color: #FFF;
+        }
+    }
+}
+.navbar {
+    &.navbar-default {
+        &.navbar-static-top {
+            box-shadow: 0 0 2px rgba(0,0,0,.2);
+            border-color: @br-navbar;
+            background: @background-color;
+        }
+    }
+}
+.nav-pills {
+    > li {
+        &.active {
+            > a {
+                &,
+                &:hover,
+                &:focus {
+                    background-color: @primary-color;
+                }
+            }
+        }
+        > a {
+            border-radius: 2px;
+        }
+    }
+}

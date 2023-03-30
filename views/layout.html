@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+    <!-- <link href="../styles/themes/default/wireframe.css" rel="stylesheet" /> -->
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+		<div class="cb-view-container-root cb-view-container cb-group-layout container-fluid">
+			<div class="cb-form-header">
+				<div class="cb-breadcrumb">
+					<ul class="breadcrumb">
+						<li>Inicio</li>
+						<li><a href="#">Formulario</a></li>
+					</ul>
+				</div>
+				<div class="cb-view-container cb-group-simple container-fluid">
+					<div class="cb-group cb-group-simple cb-no-margin">
+                        <div>
+                            <div class="form-vertical">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Nombre</div>
+                                            <div class="cb-control">
+                                                <input type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Apellidos</div>
+                                            <div class="cb-control" style="height:38px;">
+                                                <input type="number" class="form-control" max="9999" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="form-group">
+                                            <div class="control-label">Género</div>
+                                            <div class="cb-control">
+                                                <select class="form-control">
+                                                    <option></option>
+                                                    <option>Masculino</option>
+                                                    <option>Femenino</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="col-xs-4">
+                                        <div class="form-group">
+                                            <div class="control-label">Test 1</div>
+                                            <div class="cb-control">
+                                                <select kendo-combo-box>
+                                                    <option></option>
+                                                    <option>Masculino</option>
+                                                    <option>Femenino</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+									<div class="col-xs-4">
+                                        <div class="form-group">
+                                            <div class="control-label">Test 2</div>
+                                            <div class="cb-control">
+                                                <select kendo-drop-down-list class="form-control">
+                                                    <option></option>
+                                                    <option>Masculino</option>
+                                                    <option>Femenino</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+					</div>
+					<div class="cb-group cb-group-simple cb-no-margin">
+                        <div>
+                            <div class="form-vertical">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Nombre</div>
+                                            <div class="cb-control">
+                                                <input type="text" kendo-numeric-text-box />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="form-group cb-required">
+                                            <div class="control-label">Apellidos</div>
+                                            <div class="cb-control">
+                                                <input type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="form-group">
+                                            <div class="control-label">Género</div>
+                                            <div class="cb-control">
+                                                <select class="form-control">
+                                                    <option></option>
+                                                    <option>Masculino</option>
+                                                    <option>Femenino</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+					</div>
+				</div>
+			</div>
+            <div class="cb-view-container cb-group-layout container">
+                <div class="cb-group cb-group-simple cb-no-margin">
+                    <div>
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label col-xs-4">Nombre</div>
+                                        <div class="cb-control col-xs-8">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label col-xs-4">Apellidos</div>
+                                        <div class="cb-control col-xs-8">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <div class="control-label col-xs-2">Género</div>
+                                        <div class="cb-control col-xs-10">
+                                            <select kendo-combo-box>
+                                                <option></option>
+                                                <option>Masculino</option>
+                                                <option>Femenino</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+								<div class="col-xs-4">
+                                    <div class="form-group">
+                                        <div class="control-label col-xs-6">Género</div>
+                                        <div class="cb-control col-xs-6">
+                                            <select kendo-combo-box>
+                                                <option></option>
+                                                <option>Masculino</option>
+                                                <option>Femenino</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+								<div class="col-xs-4">
+                                    <div class="form-group">
+                                        <div class="control-label col-xs-6">Género</div>
+                                        <div class="cb-control col-xs-6">
+                                            <select kendo-combo-box>
+                                                <option></option>
+                                                <option>Masculino</option>
+                                                <option>Femenino</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+								<div class="col-xs-4">
+                                    <div class="form-group">
+                                        <div class="control-label col-xs-6">Género</div>
+                                        <div class="cb-control col-xs-6">
+                                            <select kendo-combo-box>
+                                                <option></option>
+                                                <option>Masculino</option>
+                                                <option>Femenino</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>    
+                </div>
+                <div class="cb-group cb-group-simple">
+                    <div>
+                        <div class="form-horizontal">
+                            <div class="form-group cb-required">
+                                <div class="control-label col-xs-4">Nombre</div>
+                                <div class="cb-control col-xs-8">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group cb-required">
+                                <div class="control-label col-xs-4">Apellidos</div>
+                                <div class="cb-control col-xs-8">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="control-label col-xs-4">Género</div>
+                                <div class="cb-control col-xs-8">
+                                    <select kendo-combo-box>
+                                        <option></option>
+                                        <option>Masculino</option>
+                                        <option>Femenino</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <fieldset class="cb-group cb-group-simple">
+                    <legend>Grid</legend>
+					<div>
+						<kendo-grid options="garantiasPersonalOptions"></kendo-grid>
+					</div>
+                </fieldset>
+            </div>
+            <fieldset class="cb-view-container cb-group-simple container">
+                <legend>
+                    <span class="cb-validation-none"></span>
+                    <span class="cb-title">Titulo de grupo</span>
+                </legend>
+                <div class="cb-group cb-group-simple">
+                    <div class="form-vertical">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <div class="form-group cb-required">
+                                    <div class="control-label">Nombre</div>
+                                    <div class="cb-control">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="form-group cb-required">
+                                    <div class="control-label">Apellidos</div>
+                                    <div class="cb-control">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="form-group">
+                                    <div class="control-label">Género</div>
+                                    <div class="cb-control">
+                                        <select kendo-combo-box>
+                                            <option></option>
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>    
+                            <div class="col-xs-3">
+                                <div class="form-group">
+                                    <div class="control-label">&nbsp;</div>
+                                    <div class="cb-control">
+                                        <button class="btn btn-default btn-block">Seleccione una opcion</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="cb-view-container cb-group-simple container">
+                <div class="row">
+					<div class="col-xs-6">
+						<div class="cb-view-container cb-group-simple">
+							<div class="cb-group cb-group-simple">
+								<div class="form-horizontal">
+									<div class="form-group cb-required">
+										<div class="control-label col-xs-4">Nombre</div>
+										<div class="cb-control col-xs-8">
+											<input type="text" class="form-control" />
+										</div>
+									</div>
+									<div class="form-group cb-required">
+										<div class="control-label col-xs-4">Apellidos</div>
+										<div class="cb-control col-xs-8">
+											<input type="text" kendo-numeric-text-box />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div class="cb-view-container cb-group-simple">
+							<div class="cb-group cb-group-simple">
+								<div class="form-horizontal">
+									<div class="form-group cb-required">
+										<div class="control-label col-xs-4">Nombre</div>
+										<div class="cb-control col-xs-8">
+											<input type="text" class="form-control" />
+										</div>
+									</div>
+									<div class="form-group cb-required">
+										<div class="control-label col-xs-4">Apellidos</div>
+										<div class="cb-control col-xs-8">
+											<input type="text" class="form-control" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div> 
+			
+			<table border="1"><tr><td>
+				<div style="width:100px;"></div>
+			</td><td>
+				<div class="cb-group cb-group-simple cb-no-margin">
+                    <div>
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label col-xs-4">Nombre</div>
+                                        <div class="cb-control col-xs-8">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label col-xs-4">Apellidos</div>
+                                        <div class="cb-control col-xs-8">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <div class="control-label col-xs-4">Género</div>
+                                        <div class="cb-control col-xs-8">
+                                            <select kendo-combo-box>
+                                                <option></option>
+                                                <option>Masculino</option>
+                                                <option>Femenino</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>    
+                        </div>
+                    </div>    
+                </div>
+			</td></tr></table>	
+			
+		</div>
+		<div class="cb-navbar cb-navbar-bottom">
+			<nav class="navbar navbar-default navbar-fixed-bottom">
+				<button class="btn btn-primary navbar-btn">Aceptar</button>
+				<button class="btn btn-default navbar-btn">Cancelar</button>
+			</nav>
+		</div>
+        <div class="cb-view-loading cb-hidden"> 
+            <div class="cb-view-loading-icon"></div> 
+        </div>
+    </div>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="layout" src="../lib/require/require.js"></script>
+</body>
+
+</html>

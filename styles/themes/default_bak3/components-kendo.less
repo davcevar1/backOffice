@@ -1,0 +1,1064 @@
+/* CONTROLS KENDO */
+.k-widget {
+  &[class*="col-"],
+  .form-control,
+  .form-group,
+  .well,
+  .row,
+  .btn {
+    .box-sizing(border-box);
+    text-overflow: clip;
+  }
+
+  &.input-lg {
+    padding: 0;
+    height: initial;
+  }
+  .input-group & {
+    width: 100%;
+  }
+}
+
+.form-control,
+.k-dropdown-wrap,
+.k-numeric-wrap,
+.k-picker-wrap,
+.k-textbox {
+  border-radius: @widget-border-radius;
+  box-sizing: border-box;
+  height: 2.4285714285714284em;
+
+  .k-input {
+    box-shadow: 0 0 !important;
+  }
+
+  &.k-state-focused {
+    border-color: @focus-color;
+    .box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px fade(@focus-color, 60%));
+
+    > .k-select {
+      border-color: @primary-color;
+    }
+  }
+
+  &.k-invalid {
+    border-color: @danger-color !important;
+  }
+
+  .k-tooltip-validation,
+  ~ .k-tooltip-validation {
+    display: none !important;
+  }
+
+  &.k-invalid.k-state-focused,
+  &.k-invalid:focus,
+  &.k-invalid:focus-within {
+    .k-tooltip-validation,
+    ~ .k-tooltip-validation {
+      display: block !important;
+    }
+  }
+}
+
+.k-button[disabled],
+.k-input[disabled] {
+  background-color: #EEE;
+}
+
+.k-draghandle.k-state-selected:hover,
+.k-ghost-splitbar-horizontal,
+.k-ghost-splitbar-vertical,
+.k-list > .k-state-highlight,
+.k-list > .k-state-selected,
+.k-marquee-color,
+.k-panel > .k-state-selected,
+.k-scheduler .k-scheduler-toolbar .k-state-selected,
+.k-scheduler .k-today.k-state-selected,
+.k-state-selected,
+.k-state-selected:link,
+.k-state-selected:visited {
+  background-color: darken(@primary-color, 10%);
+  border-color: darken(@primary-color, 10%);
+}
+
+.k-link:link,
+.k-link:visited,
+.k-nav-current.k-state-hover .k-link {
+  color: darken(@primary-color, 10%);
+}
+
+.k-autocomplete {
+  &.input-lg {
+    .k-input {
+      height: 44px;
+      padding: 10px 16px;
+      font-size: 18px;
+      line-height: 1.33;
+      box-sizing: border-box;
+      text-indent: 0;
+    }
+  }
+}
+
+.k-grid {
+  border-radius: 0;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+
+  table > tbody > tr:not(.k-detail-row) {
+    font-size: @font-size-grid;
+  }
+
+  [role="gridcell"] {
+    position: relative;
+  }
+
+  .k-detail-row {
+    &.k-alt .k-detail-cell,
+    .k-detail-cell {
+      padding: 10px;
+      border: 0;
+      border-top: 1px dashed #ccc;
+      background: #FFF;
+    }
+  }
+
+  .k-detail-cell .cb-group.cb-group-simple > div > & {
+    margin: 0;
+
+    .k-grid-header {
+      th {
+        background-color: #999;
+        border-color: #999;
+      }
+    }
+  }
+  // Dibuja el borde de la tabla con una sombra
+  /*
+  &::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+  }
+  */
+
+  &.cb-grid-no-border {
+    border: 0;
+    box-shadow: 0 0;
+
+    > table > tbody > tr > td {
+      border: 0;
+    }
+  }
+
+  &.cb-grid-no-header {
+    > .k-header > table > .k-grid-header,
+     > table > .k-grid-header,
+    > .k-grid-header {
+      display: none;
+    }
+  }
+
+  &[k-scrollable="true"] {
+    > .k-grid-header > .k-resize-handle {
+      margin-left: -27px;
+    }
+  }
+
+  .table-responsive & {
+    @media (max-width: (@screen-sm - 1)) {
+      border: 0;
+    }
+  }
+  /* Soluciona el problema de la variación de ancho en dropdownlist
+  > table {
+    table-layout:fixed;
+  }
+  */
+  > table,
+  > .k-grid-content > table {
+    > tbody {
+      @media (max-width: (@screen-sm - 1)) {
+        background-color: white;
+      }
+
+      > tr {
+        &.k-state-selected > td,
+        &.k-state-selected.k-alt > td {
+          background-color: @select-color;
+          border-color: @select-color;
+          color: #000000;
+        }
+
+        > td {
+          background: #FFF;
+          border-width: 0;
+
+          &.k-hierarchy-cell {
+            width: 1%;
+          }
+          &.btn-toolbar,//TODO: Deprecated reemplazar por cb-actions
+
+          &.cb-actions {
+            //display: flex;
+            white-space: nowrap;
+
+            .btn {
+              padding: 6px;
+              min-width: 27px;
+              border: transparent;
+              background: transparent;
+              line-height: normal;
+              margin-top: 0;
+              margin-bottom: 0;
+
+              &:hover {
+                background: rgba(0, 0, 0, 0.1);
+              }
+
+              &:first-child {
+                margin-left: 0;
+              }
+            }
+          }
+        }
+
+        &.k-alt > td {
+          background: #f5f5f5;
+        }
+      }
+    }
+
+    colgroup col.k-hierarchy-col {
+      width: 27px;
+    }
+
+    &.k-selectable {
+      > tbody {
+        > tr:not(.k-detail-row) {
+          cursor: pointer;
+
+          &:hover {
+            &.k-alt > td,
+            > td {
+              background-color: lighten(@selection-color, 5%);
+            }
+          }
+
+          &.k-state-selected > td,
+          &.k-state-selected.k-alt > td {
+            background-color: @selection-color;
+            border-color: @selection-color;
+            color: @text-color;
+          }
+        }
+      }
+    }
+  }
+
+  tr {
+    td {
+      border-width: 1px 0 0 0;
+
+      &.btn-toolbar {
+        white-space: nowrap;
+
+        .btn {
+          padding: 6px;
+          min-width: 27px;
+          border: transparent;
+          background: transparent;
+          line-height: normal;
+          margin-top: 0;
+          margin-bottom: 0;
+          float: unset;
+
+          &:hover {
+            background: rgba(0, 0, 0, 0.1);
+          }
+
+          &:first-child {
+            margin-left: 0;
+          }
+
+          &:not(.cb-row-image-button) > .fa,
+          &:not(.cb-row-image-button) > .glyphicon {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+    //TODO: Deprecated
+    &.k-state-selected {
+      .cb-commands .btn,
+      .cb-grid-cancel:before,
+      .cb-grid-update:before {
+        color: #428bca;
+      }
+    }
+  }
+
+  .k-grid-toolbar {
+    white-space: nowrap;
+    padding: 5px 4px 5px 5px;
+    display: flex;
+    align-items: center;
+
+    &:empty {
+      display: none;
+    }
+
+    .k-button:first-child {
+      margin-left: 0;
+    }
+
+    .btn-default {
+      border: none;
+      background: transparent;
+
+      &,
+      &:not(.cb-grid-image-button) > .fa,
+      &:not(.cb-grid-image-button) > .glyphicon {
+        margin-right: 5px;
+      }
+    }
+
+    .btn-primary {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    .cb-grid-export {
+      margin-left: auto;
+    }
+  }
+
+  .k-grid-header {
+    .k-header {
+      &:first-child,
+      &:last-child {
+        border-radius: 0;
+      }
+    }
+
+    .k-header,
+    .k-header .k-link {
+      background: @primary-color;
+      border-bottom-color: darken(@primary-color, 20%);
+      border-left: 0;
+      color: #FFF;
+      text-transform: uppercase;
+      padding: 5px;
+      font-size: @font-size-grid-header;
+    }
+
+    th {
+      &.text-right {
+        text-align: right;
+      }
+    }
+
+    .k-header .k-link:hover {
+      background: lighten(@text-color, 60%);
+    }
+
+    .k-grid-header-wrap {
+      border: 0;
+      background: lighten(@text-color, 70%);
+    }
+
+    > div > table > colgroup > col:not(.k-hierarchy-col) {
+      width: 70px;
+    }
+  }
+
+  .k-grid-content {
+    margin-top: -1px;
+    min-height: 70px;
+
+    > table > colgroup > col:not(.k-hierarchy-col) {
+      width: 70px;
+    }
+  }
+
+  .k-grid-edit-row {
+    td {
+      overflow: visible;
+      vertical-align: top;
+
+      > .k-widget {
+        display: block;
+      }
+
+      > .k-dropdown {
+        width: calc(~"100% - 1em") !important;
+        position: absolute;
+      }
+
+    }
+
+    .input-group {
+      input {
+        //height: 27px;
+        font-size: @font-size-grid;
+
+        &.k-textbox {
+          &.k-invalid {
+            ~ .input-group-btn {
+              vertical-align: top;
+            }
+          }
+        }
+      }
+    }
+
+    .input-group-btn {
+      > .btn,
+      > div > .btn {
+        height: 27px;
+      }
+    }
+
+    td > input + .k-widget.k-tooltip {
+      //max-width: 600px;
+
+      &-validation.k-tooltip {
+        width: calc(~"100% - 14px");
+      }
+    }
+
+    .k-widget.k-tooltip.k-tooltip-validation {
+      margin-top: 0;
+    }
+  }
+
+  .k-dirty-cell {
+    position: relative;
+
+    .k-dirty {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+    }
+  }
+
+  .k-edit-cell {
+    padding: 0;
+    position: relative;
+    overflow: visible;
+
+    .k-widget {
+      .k-dropdown-wrap,
+      .k-numeric-wrap {
+        border-color: @primary-color;
+        border-radius: 0;
+      }
+    }
+
+    .k-input,
+    .k-widget {
+      border-radius: 0;
+    }
+
+    > .k-input {
+      min-height: 34px;
+      border-color: @primary-color;
+
+      &.k-invalid {
+        border-color: @danger-color;
+      }
+    }
+  }
+  //TODO: Deprecated
+  .cb-grid-update:before {
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    content: "\e084";
+    font-family: "Glyphicons Halflings";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+  }
+  //TODO: Deprecated
+  .cb-grid-cancel:before {
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    content: "\e083";
+    font-family: "Glyphicons Halflings";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+  }
+}
+
+.k-numerictextbox {
+  > .k-numeric-wrap {
+    > .k-input {
+      text-align: right;
+      padding-right: 10px;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.k-maskedtextbox {
+  position: static;
+}
+
+.k-widget.k-tooltip {
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  background-color: #f4f6f8;
+  border-radius: 4px;
+
+  &.k-tooltip-validation {
+    background: @danger-color;
+    border: 0;
+    border-bottom-left-radius: @widget-border-radius;
+    border-bottom-right-radius: @widget-border-radius;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-sizing: border-box;
+    color: #FFF;
+    font-size: 11px;
+    margin: 0;
+    //min-width: 150px;
+    padding: 5px;
+    margin: -1px 0 0 !important;
+    position: absolute;
+    width: 100%;
+    max-width: unset;
+    white-space: initial;
+    *:not([role="gridcell"]) > & {
+      top: 100%;
+      left: 0;
+    }
+    //max-width: 100%;
+    .k-dropdown-wrap &,
+    .k-numeric-wrap &,
+    .k-picker-wrap & {
+      margin-left: -1px !important;
+      width: calc(~"100% + 2px");
+    }
+
+    .input-group > & {
+      top: 100%;
+      width: calc(~"100% - 1px");
+    }
+
+    .k-callout,
+    .k-icon {
+      display: none;
+    }
+  }
+
+  .k-i-close {
+    &::before {
+      color: @text-color;
+    }
+  }
+}
+// Hace que el tooltip ocupa el ancho del input-group y no del k-widget
+.input-group {
+  > .k-widget {
+    > .k-dropdown-wrap,
+    > .k-numeric-wrap,
+    > .k-picker-wrap,
+    & {
+      position: static;
+      .k-widget.k-tooltip.k-tooltip-validation {
+        width: calc(~"100% + -1px");
+        left: 1px;
+      }
+    }
+  }
+}
+
+.k-tabstrip {
+  .k-splitter > .k-scrollable > .k-tabstrip-wrapper > &,
+  .k-splitter > .k-scrollable > [designer-form-load] > [ng-include] > .cb-view-container-root > .cb-group-tabbed-h > .k-tabstrip-wrapper > &,
+  .k-splitter > .k-scrollable > [designer-form-load] > [ng-include] > .k-tabstrip-wrapper > & {
+    border: 0;
+  }
+
+  &.k-widget {
+    background: #FFF;
+    border: 1px solid lighten(@text-color, 50%);
+    border-radius: 0;
+  }
+
+  > .k-tabstrip-items {
+    margin-top: -1px;
+    margin-left: -1px;
+    margin-bottom: -1px;
+
+    .k-state-default .k-link {
+      color: @link-color;
+    }
+
+    .k-state-active {
+      border-radius: 0;
+      //border-color: @border-color;
+      padding: 0;
+      margin: 0;
+    }
+
+    .k-state-hover {
+      border: 1px solid darken(@border-color, 10%);
+      border-bottom: 0;
+    }
+
+    .k-item {
+      border-radius: 0;
+      /* Es para justificar los tabs, en caso de requerir en el estilo por defecto se decidio no justificarlos
+            display: table-cell;
+            width: 1%;
+            */
+      > .k-link {
+        display: block;
+        text-align: center;
+        padding: 10px 15px;
+        line-height: 1.42857143;
+
+        .fa,
+        .glyphicon {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .k-loading {
+      border-color: #428bca;
+
+      &.k-complete {
+        display: none;
+      }
+    }
+  }
+
+  &.cb-flex.cb-column.cb-grow.k-tabstrip-top {
+    border: 0;
+
+    & > .k-tabstrip-items {
+      .k-state-active,
+      .k-state-hover {
+        border-top-color: darken(@primary-color, 20%);
+      }
+    }
+  }
+
+  &.k-widget {
+    background: #FFF;
+    //border: 1px solid @border-color;
+    border-radius: 0;
+  }
+
+  > .k-content {
+    //border-top-color: @border-color;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    padding: @page-margin;
+
+    &.cb-scrollable {
+      height: 0;
+    }
+  }
+}
+
+.k-splitter {
+  border-radius: 0;
+  border: 0;
+  margin: 0;
+  height: 100%;
+  box-shadow: 0 0;
+
+  > .k-pane {
+    > .cb-view-container-root > .k-panelbar,
+     > .k-panelbar,
+     > div > div > .cb-view-container-root > .k-panelbar,
+    &.k-widget {
+      border: 0;
+    }
+
+    &[designer-form-load],
+    > div[designer-form-load] {
+      > div[ng-include],
+      & {
+        height: 100%;
+        left: inherit;
+      }
+
+      > div[ng-include] {
+        left: inherit;
+      }
+    }
+
+    > [ng-include] {
+      left: inherit;
+    }
+  }
+
+  .k-splitbar {
+    &,
+    &.k-splitbar:hover,
+    &.k-state-focused.k-splitbar:hover {
+      border-color: fade(@border-color, 50%);
+      background-color: @background-color;
+    }
+  }
+}
+
+.k-treeview {
+  .k-panelbar & {
+    overflow: hidden;
+  }
+
+  > .k-treeview-lines {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  .k-in.k-state-hover {
+    color: @primary-color;
+  }
+
+  .k-item {
+    color: @text-color;
+    position: relative;
+
+    &[data-expanded="true"] {
+      > div > .k-in > .k-sprite.fa-folder-o:before {
+        content: "\f115";
+      }
+    }
+
+    .cb-node-actions {
+      position: absolute;
+      right: 7px;
+      top: 7px;
+      display: none;
+
+      > .btn {
+        color: #FFF;
+        padding: 0 6px;
+        border: 0;
+        background: transparent;
+        line-height: normal;
+
+        > .glyphicon {
+          display: block;
+          top: 0;
+        }
+      }
+
+      > .dropdown-menu {
+        min-width: 0;
+      }
+    }
+
+    .k-in:hover .cb-node-actions {
+      display: block;
+    }
+
+    .k-sprite.fa {
+      margin-top: 0;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    div > .k-icon {
+      float: left;
+      margin-top: 8px;
+    }
+
+    .k-in {
+      margin: 0 2px 0 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: 0;
+
+      &.k-state-selected {
+        color: #FFF;
+        background: @link-color;
+      }
+
+      &.k-state-focused {
+        box-shadow: inset 0 0 0 1px @primary-color;
+      }
+
+      > .glyphicon,
+      > .fa {
+        margin-right: 5px;
+      }
+
+      > .btn {
+        padding: 0;
+        line-height: 14px;
+        min-width: 18px;
+      }
+    }
+  }
+}
+
+.k-panelbar {
+  .k-splitter > .k-scrollable > [designer-form-load] > [ng-include] > &, .k-splitter > .k-scrollable > [ng-include] > &,//TODO: Deprecated validar que ya no se use
+  .k-splitter > .k-scrollable > [ng-include] > [ng-controller] &//TODO: Deprecated validar que ya no se use
+  .k-splitter > .k-scrollable > ng-include > div[ng-controller] &,//TODO: Deprecated validar que ya no se use
+
+  .k-splitter > .k-scrollable > &,
+  .k-splitter > .k-scrollable > ng-include > & {
+    border: 0;
+  }
+
+  > .k-item {
+    &.k-state-default {
+      > .k-header {
+        &.k-state-selected {
+          //color: @text-color;
+          &.k-state-focused {
+            box-shadow: inset 0 0 0 1px @primary-color;
+          }
+        }
+
+        > span {
+          > .glyphicon,
+          > .fa {
+            min-width: 14px;
+            text-align: center;
+            margin-right: 5px;
+          }
+        }
+
+        > .k-icon.k-i-arrow-n {
+          color: #FFF;
+          background: transparent;
+          display: inline-block;
+          font: normal normal normal 14px/1 FontAwesome;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+
+          &.k-panelbar-expand {
+            &::before {
+              content: "\f107";
+            }
+          }
+
+          &.k-panelbar-collapse {
+            &::before {
+              content: "\f106";
+            }
+          }
+        }
+      }
+
+      > .k-content {
+        border: 0;
+      }
+    }
+
+    &.k-state-focused {
+      box-shadow: inset 0 0 0 1px @primary-color;
+    }
+  }
+}
+
+.k-list {
+  > .k-state-selected {
+    background: @link-color;
+    border-color: @link-color;
+    color: #FFF;
+  }
+}
+
+.k-listview {
+  .k-splitter > .k-scrollable > & {
+    border-radius: 0;
+    border: 0;
+  }
+
+  > .cb-listview-item {
+    padding: 10px;
+    cursor: pointer;
+
+    &.k-state-selected {
+      .label {
+        background: #FFF;
+        color: @text-color;
+      }
+
+      .glyphicon,
+      .text-muted {
+        color: #FFF;
+      }
+    }
+  }
+}
+
+.k-menu {
+  .k-link {
+    white-space: nowrap;
+  }
+}
+
+.k-window {
+  max-width: 90%;
+
+  > .k-window-titlebar {
+    border: 0;
+  }
+
+  div.k-window-content {
+    padding: @page-margin/2;
+    /* Da el espacio adicional al final de contenedor para que los botones no se monten */
+    &.cb-has-controlbar {
+      padding-bottom: 85px;
+    }
+  }
+
+  .navbar-fixed-bottom {
+    position: absolute;
+  }
+}
+
+.k-popup-edit-form {
+  .k-edit-form-container {
+    width: auto;
+    padding-left: @page-margin/2;
+    padding-right: @page-margin/2;
+  }
+
+  .k-edit-label {
+    padding: 0;
+    margin: 0;
+    padding-right: 10px;
+    box-sizing: border-box;
+    line-height: 25px;
+    width: 40%;
+
+    label {
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+  }
+  .cb-grid-read-detail,// TODO: deprecated, no es necesario usarlo se puede identificar por k-edit-field
+
+  .k-edit-field {
+    margin: 0;
+    padding: 0;
+    line-height: 25px;
+
+    .k-widget {
+      padding: 0;
+    }
+
+    > span.k-combobox,
+     > span.k-numerictextbox,
+     > span.k-timepicker,
+    > span.k-datepicker {
+      background: none;
+      width: 100%;
+    }
+
+    .k-dropdown-wrap,
+    .k-numeric-wrap,
+    .k-picker-wrap {
+      border: none;
+      background: none;
+
+      > .k-input {
+        text-overflow: ellipsis;
+        text-indent: 0;
+        color: black;
+        text-align: left;
+      }
+    }
+
+    .k-dropdown-wrap > .k-select,
+    .k-picker-wrap > .k-select {
+      display: none;
+    }
+
+    .k-button[disabled],
+    .k-input[disabled] {
+      background: none;
+    }
+
+    .k-state-disabled {
+      opacity: 0.9;
+    }
+  }
+}
+
+/* KENDO EXTENDED */
+kendo-ext-grid.k-grid {
+  .k-grid-footer,
+  .k-grid-header {
+    padding-right: 0 !important;
+  }
+
+  .k-grid-content {
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+}
+
+[kendo-ext-grid].cb-grid-no-header {
+  > .k-header > table > .k-grid-header {
+    display: none;
+  }
+}
+
+[kendo-ext-grid].cb-grid-no-border.k-grid table td {
+  border-width: 0;
+}
+/*Kendo Notifications*/
+html {
+  .k-warning-colored {
+    color: #f0ad4e!important;
+    border-color: #d0d9df;
+    background-color: #faebcc;
+    z-index: 99999;
+  }
+
+  .k-error-colored {
+    z-index: 99999;
+  }
+
+  .k-info-colored {
+    z-index: 99999;
+  }
+
+  .k-success-colored {
+    z-index: 99999;
+  }
+}
+/*Redmine #104226*/
+input.k-textbox {
+  width: 100%;
+}
+
+k-window-content {
+  > .cb-navbar {
+    > .navbar {
+      position: absolute;
+    }
+  }
+}

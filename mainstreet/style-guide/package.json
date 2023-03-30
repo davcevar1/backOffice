@@ -1,0 +1,22 @@
+{
+  "name": "style-guide",
+  "version": "1.0.0",
+  "description": "Mainstreet style guide",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "style",
+    "guide",
+    "ui",
+    "ux"
+  ],
+  "author": "Juan Carlos Altamirano",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.4",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.4.1"
+  }
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme-terrabank.css" rel="stylesheet" />
+  <style>
+    .k-dropdown-wrap .k-input {
+      font-size: 12px;
+    }
+    @media (min-width: 992px) {
+      .k-grid.cb-responsive > table > .k-grid-header > tr.k-master-row > th:nth-child(2),
+      .k-grid > table > tbody > tr.k-master-row > td:nth-child(2) {
+        display: none;
+      }
+    }
+    @media (max-width: 991px) {
+      .k-grid.cb-responsive > table > tbody > tr.k-master-row > td:nth-child(n+2),
+      .k-grid.cb-responsive > table > .k-grid-header {
+        display: none;
+      }
+      .k-grid.cb-responsive > table > tbody > tr.k-master-row > td:nth-child(2) {
+        display: table-cell !important;
+      }
+    }
+  </style>
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view" ng-init="filters = regBLogFilters; setField(regBLogFilters.field[0])">
+    <div class="cb-view-container-root cb-view-container cb-group-layout container-fluid">
+      <div class="container">
+        <fieldset class="cb-group cb-group-simple cb-group-flex">
+          <div>
+            <div class="form-vertical">
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Year</div>
+                    <div class="cb-control">
+                      <select class="form-control">
+                        <option>2019</option>
+                        <option>2018</option>
+                        <option>2017</option>
+                        <option>2016</option>
+                        <option>2015</option>
+                        <option>2014</option>
+                        <option>2013</option>
+                        <option>2012</option>
+                        <option>2011</option>
+                        <option>2010</option>
+                        <option>2009</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="cb-group cb-group-simple cb-group-flex">
+          <div>
+            <kendo-grid class="cb-responsive" options="regblog"></kendo-grid>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+  <script type="text/x-kendo-template" id="detail-template">
+    <form>
+      <div class="form-group">
+        <div class="control-label">Reason of denial</div>
+        <div class="cb-control" ng-class="{'cb-flex-sm-up cb-gutters': reasonForDenial == 'other'}">
+          <div class="cb-grow">
+            <select kendo-drop-down-list ng-model="reasonForDenial">
+              <option>Insufficient Income/Asset Documentation</option>
+              <option>Inadequate Employment History</option>
+              <option>Down Payment is Too Small</option>
+              <option>Poor Credit History</option>
+              <option>Problems With the Property</option>
+              <option value="other">Other...</option>
+            </select>
+          </div>
+          <div class="cb-grow" ng-if="reasonForDenial == 'other'">
+            <input type="text" placeholder="Type the reason" class="form-control" />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label">Questsoft record</div>
+        <div class="cb-control">
+          <input type="text" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label">File received in loan operations departments</div>
+        <div class="cb-control">
+          <input type="text" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </script>
+  <script type="text/x-kendo-template" id="regblog-template">
+    <div style="padding: 10px;">
+      <div><strong>Application ID:</strong> #: data.applicationID #</div>
+      <div><strong>Adverse action notice date:</strong> #: data.date #</div>
+      <div><strong>Application date:</strong> #: data.date #</div>
+      <div><strong>\\# of days:</strong> #: data.days #</div>
+      <div><strong>Applicant name:</strong> #: data.applicantName #</div>
+      <div><strong>Loan Number:</strong> #: data.loanNumber #</div>
+      <div><strong>officer:</strong> #: data.officer #</div>
+      <div><strong>Reason for denial:</strong> #: data.reasonForDenial #</div>
+    </div>
+  </script>
+  <script type="text/x-kendo-template" id="request">
+    <div class="cb-flex">
+      <div class="cb-grow">
+        <div><span title="Application ID">#: data.applicationID #</span> - <span title="Name">#: data.name #</span></div>
+        <div class="small text-muted"><span title="Type">#: data.type #</span></div>
+      </div>
+      <div class="text-right">
+        <div title="Estado">#: data.status #</div>
+      </div>
+    </div>
+  </script>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+[{
+    "channel": "Internet Banking",
+    "online": 200,
+    "offline": 120
+  },
+  {
+    "channel": "Banca Móvil",
+    "online": 34,
+    "offline": 234
+  },
+  {
+    "channel": "Cash",
+    "online": 25,
+    "offline": 200
+  },
+  {
+    "channel": "Chatbot",
+    "online": 12,
+    "offline": 45
+  }
+]

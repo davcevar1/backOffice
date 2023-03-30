@@ -1,0 +1,9 @@
+[
+  {"id":"6001", "name":"PLAN GENERAL DE CUENTAS"},
+  {"id":"6002", "name":"PLAN GENERAL DE CUENTAS POR OFICINA"},
+  {"id":"6003", "name":"CATALOGO DE AREAS"},
+  {"id":"6004", "name":"CATALOGO DE OFICINAS"},
+  {"id":"6005", "name":"COPIA RELACION AREA-OFICINA A OTRA OFICINA"},
+  {"id":"6006", "name":"BALANCE GENERAL INTERNO"},
+  {"id":"6007", "name":"BALANCE GENERAL EXTERNO"}
+]

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+  <style>
+    .cb-indicator {
+      background: #FFF;
+      border: 1px solid #CCC;
+      border-radius: 4px;
+      min-height: 80px;
+    }
+
+    .cb-indicator .cb-column-2 {
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+
+    .cb-indicator-value {
+      font-size: 20px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .cb-indicator-text {
+      padding: 5px 10px;
+      text-align: center;
+    }
+
+    .cb-indicator-aside {
+      background: #e8e7e7;
+    }
+
+    .cb-indicator-aside .cb-active {
+      background: #FFF;
+    }
+
+    .cb-indicator-aside .cb-score {
+      width: 16px;
+      height: 16px;
+    }
+
+    .cb-indicator-aside>div {
+      padding: 0 5px;
+    }
+
+    .cb-indicator-aside>div:first-child {
+      border-top-right-radius: 4px;
+    }
+
+    .cb-indicator-aside>div:last-child {
+      border-bottom-right-radius: 4px;
+    }
+
+    .cb-indicator>.cb-rule-alert {
+      background-color: #CCC;
+      border: 0;
+      border-radius: 0;
+      position: relative;
+      margin-left: -1px;
+      margin-right: -1px;
+      height: 3px;
+      padding: 0;
+    }
+
+    .cb-indicator>.cb-rule-alert.cb-rule-alert-good {
+      background-color: #009f3c;
+    }
+
+    .cb-indicator>.cb-rule-alert.cb-rule-alert-fair {
+      background-color: #ef9c00;
+    }
+
+    .cb-indicator>.cb-rule-alert.cb-rule-alert-bad {
+      background-color: #dc3912;
+    }
+
+    .cb-indicator .cb-footer-label {
+      font-size: 12px;
+      text-align: center;
+      padding: 3px 15px;
+    }
+
+    .cb-indicator a,
+    .cb-indicator div {
+      box-sizing: border-box;
+    }
+
+    .cb-lexis-nexis .cb-indicator-text {
+      text-align: left;
+    }
+
+    .doc-review .cb-group.cb-group-collapsible>.k-panelbar .list-group.k-content {
+      padding: 0;
+      margin-top: -1px;
+    }
+
+    .doc-review .list-group .list-group-item {
+      border-radius: 0;
+    }
+
+    @media (min-width: 768px) {
+      .cb-lexis-nexis {
+        max-width: 225px;
+      }
+    }
+
+    .cb-icon.cb-nodata {
+      width: 12px;
+      height: 12px;
+      background-image: url(images/icon-nodata.png);
+      display: inline-block;
+    }
+
+    svg text {
+      pointer-events: none;
+    }
+
+    .k-tabstrip>.k-content.k-state-active {
+      display: flex !important;
+      flex-grow: 1;
+      overflow: auto;
+      height: 1px !important;
+    }
+    .form-horizontal > .row > [class*="col-"] > .form-group .control-label, 
+    .form-vertical > .row > [class*="col-"] > .form-group .control-label {
+      white-space: normal;
+    }
+  </style>
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-viewport cb-flex cb-column">
+      <div class="cb-form-header cb-no-margin" ng-include="'../shared/header.html'"></div>
+      <div class="k-tabstrip-wrapper cb-flex cb-grow">
+        <div kendo-tab-strip="tabs" class="cb-flex cb-column cb-grow">
+          <ul class="cb-flex">
+            <li class="k-state-active">
+              <a href="#" class="text-center">
+                Cliente
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-center">
+                Documentos
+              </a>
+            </li>
+          </ul>
+          <div class="customer cb-view-container cb-group-layout container-fluid cb-grow cb-scrollable">
+            <fieldset class="cb-group cb-group-tabbed-v cb-grow">
+              <div class="cb-flex">
+                <div class="col-tab-items" style="width: 200px; min-width: 200px; margin-right: 30px;">
+                  <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a href="#titular" data-toggle="tab">Titular</a></li>
+                    <li ng-show="request.type === 'person'"><a href="#cotitular" data-toggle="tab">Cotitulares / Padre o tutor</a></li>
+                    <li ng-show="request.type === 'business'"><a href="#cotitular2" data-toggle="tab">Apoderados / Representantes legales</a></li>
+                    <li ng-show="request.type === 'business'"><a href="#shareholders" data-toggle="tab">Estructura</a></li>
+                    <li ng-show="request.type === 'person'"><a href="#beneficiarios" data-toggle="tab">Beneficiarios</a></li>
+                  </ul>
+                </div>
+                <div class="cb-tab-content tab-content cb-grow">
+                  <div id="titular" class="tab-pane active">
+                    <fieldset class="cb-group cb-group-simple">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group cb-required">
+                            <div class="control-label">Personalidad Juridica</div>
+                            <div class="cb-control">
+                              <select kendo-combo-box ng-model="request.type">
+                                <option></option>
+                                <option value="person">Persona física</option>
+                                <option value="business">Persona moral</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6" ng-if="request.type === 'person'">
+                          <div class="form-group cb-required">
+                            <div class="control-label">Ingreso</div>
+                            <div class="cb-control">
+                              <select kendo-combo-box>
+                                <option>Asalariado - Comprobable</option>
+                                <option>Independiente - No comprobable</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <div ng-include="'includes/customer.html'" ng-if="request.type === 'person'"></div>
+                    <div ng-include="'includes/business.html'" ng-if="request.type === 'business'"></div>
+                  </div>
+                  <div id="cotitular" class="tab-pane">
+                    <kendo-grid options="owners"></kendo-grid>
+                  </div>
+                  <div id="cotitular2" class="tab-pane">
+                    <kendo-grid options="representatives2"></kendo-grid>
+                  </div>
+                  <div id="beneficiarios" class="tab-pane">
+                    <kendo-grid options="beneficiaries"></kendo-grid>
+                  </div>
+                  <div id="shareholders" class="tab-pane">
+                    <fieldset class="cb-group cb-group-simple">
+                      <legend>Accionaria</legend>
+                      <div>
+                        <kendo-grid options="shareholders"></kendo-grid>
+                      </div>
+                    </fieldset>
+                    <fieldset class="cb-group cb-group-simple">
+                      <legend>Corporativa interna</legend>
+                      <div>
+                        <kendo-grid options="in"></kendo-grid>
+                      </div>
+                    </fieldset>
+                    <fieldset class="cb-group cb-group-simple">
+                      <legend>Consejo administrativo</legend>
+                      <div>
+                        <kendo-grid options="out"></kendo-grid>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="doc-review cb-grow cb-scrollable">
+            <div class="container">
+              <div class="alert alert-info" ng-if="step==10">Por favor chequee cada archivo e ingrese los campos
+                requeridos.</div>
+              <div class="cb-group cb-group-collapsible">
+                <ul kendo-panel-bar>
+                  <li class="k-state-active">
+                    Frank Aguirre
+                    <div class="list-group">
+                      <a ng-href="#viewer" data-toggle="modal"
+                        ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}"
+                        class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span class="fa fa-circle" title="Verified"
+                              ng-style="{'opacity' : !document.status ? 0.4 : 1}"
+                              ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
+                              style="opacity: 0.4;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Copia identificación</strong>
+                            <div class="small text-muted">1 archivo cargado</div>
+                          </div>
+                        </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal"
+                        ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}"
+                        class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span class="fa fa-circle" title="Verified"
+                              ng-style="{'opacity' : !document.status ? 0.4 : 1}"
+                              ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
+                              style="opacity: 0.4;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Firma digitalizada</strong>
+                            <div class="small text-muted">1 archivo cargado</div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="k-state-active">
+                    Frank Morris
+                    <div class="list-group">
+                      <a ng-href="#viewer" data-toggle="modal"
+                        ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}"
+                        class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span class="fa fa-circle" title="Verified"
+                              ng-style="{'opacity' : !document.status ? 0.4 : 1}"
+                              ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
+                              style="opacity: 0.4;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Copia identificación</strong>
+                            <div class="small text-muted">1 archivo cargado</div>
+                          </div>
+                        </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal"
+                        ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}"
+                        class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span class="fa fa-circle" title="Verified"
+                              ng-style="{'opacity' : !document.status ? 0.4 : 1}"
+                              ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
+                              style="opacity: 0.4;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Firma digitalizada</strong>
+                            <div class="small text-muted">1 archivo cargado</div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="k-state-active">
+                    John Johnson
+                    <div class="list-group">
+                      <a ng-href="#viewer" data-toggle="modal"
+                        ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}"
+                        class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span class="fa fa-circle" title="Verified"
+                              ng-style="{'opacity' : !document.status ? 0.4 : 1}"
+                              ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
+                              style="opacity: 0.4;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Copia identificación</strong>
+                            <div class="small text-muted">1 archivo cargado</div>
+                          </div>
+                        </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal"
+                        ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}"
+                        class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span class="fa fa-circle" title="Verified"
+                              ng-style="{'opacity' : !document.status ? 0.4 : 1}"
+                              ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
+                              style="opacity: 0.4;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Firma digitalizada</strong>
+                            <div class="small text-muted">1 archivo cargado</div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cb-navbar cb-navbar-bottom">
+        <nav class="navbar navbar-default">
+          <div>
+            <button class="btn btn-default navbar-btn" style="min-width:120px;">Cancelar</button>
+            <button class="btn btn-primary navbar-btn" style="min-width:120px;">Guardar</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div ng-include="'includes/popups.html'"></div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

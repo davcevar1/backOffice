@@ -1,0 +1,825 @@
+.cb-form-title {
+    /* Revisar aparentemnte no se usa, sino eliminar */
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.vertical-tabbed-layout {
+  padding-left: 0;
+}
+.modal-body {
+    .cb-control-bar {
+        padding: 10px 15px;
+    margin: 15px -15px -15px;
+        border-top: 1px solid #cdd5d9;
+        background-color: @background-color;
+        text-align: right;
+    }
+}
+.cb-collapsible {
+    &.k-panelbar {
+        background: transparent;
+        border: 0;
+        box-shadow: 0 0;
+        margin-bottom: 20px;
+
+    .k-panelbar-collapse,
+    .k-panelbar-expand {
+            position: relative;
+            top: 0;
+            margin-top: 0;
+        }
+        > .k-item {
+            > .k-header,
+            > .k-header.k-state-selected,
+            > .k-header.k-state-focused {
+                background: transparent;
+                color: @text-color;
+                padding-left: 0;
+                font-weight: bold;
+                box-shadow: 0 0;
+            }
+        }
+
+    .k-content,
+    .k-state-selected > .k-link {
+            border: 0;
+            background: transparent;
+            padding-top: 20px;
+            > .k-grid:first-child,
+      > div > .k-grid:first-child {
+                margin-top: -21px;
+            }
+        }
+        > li.k-item {
+            background: transparent;
+        }
+        >li>.k-state-selected,
+        >li.k-state-default>.k-link.k-state-selected {
+            color: @text-color;
+        }
+    }
+}
+.k-window-content .cb-form-controlbar {
+    /* Descontinuar cambiar por .cb-control-bar */
+    padding: 10px;
+    background: @bg-navbar;
+    /* border-top: 1px solid @br-navbar; */
+    border: 0;
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.navbar-fixed-top > .container {
+    padding: 0 30px;
+    > .btn-toolbar {
+        margin: 8px -5px;
+    }
+    > .navbar-left,
+    > .navbar-right {
+        margin: 8px 0;
+    }
+}
+/* Da el espacio adicional al final de contenedor para que los botones no se monten */
+
+.k-window-content.cb-has-controlbar {
+    padding-bottom: 85px;
+}
+
+/*Estilos agregados SCH*/
+/* BOOTSTRAP BREADCRUMB */
+.breadcrumb > li {
+    color: #777;
+}
+
+.cb-breadcrumb-fixed-top {
+    margin-top: 36px;
+    > .cb-form-header > .breadcrumb {
+        background: @primary-color;
+        border-color: lighten(@primary-color, 20%);
+        li {
+            color: #FFF;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+    > .breadcrumb {
+        background: @background-color;
+        border-color: darken(@background-color, 10%);
+    }
+    > .cb-form-header > .breadcrumb,
+    > .breadcrumb {
+        left: 0;
+        top: 0;
+        border-radius: 0;
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        border-bottom-width: 1px;
+        border-bottom-style: dotted;
+    }
+
+  .k-scrollable > .cb-container-header &,
+  .k-scrollable > div > div > .cb-container-header & {
+        margin-top: 0;
+        > .breadcrumb {
+            position: relative;
+            width: initial;
+            margin: 0;
+        }
+    }
+}
+.cb-view-container-root {
+    &.cb-version-19 {
+    .k-splitter > .k-scrollable > &,
+    .k-splitter > .k-scrollable > div > div > & {
+            padding-bottom: 59px;
+            height: 100%;
+            > .cb-view-container {
+                min-height: 100%;
+            }
+            > .cb-navbar-placeholder {
+                margin-left: -15px;
+                margin-right: -15px;
+                margin-top: 15px;
+            }
+        }
+
+    .k-splitter > .k-scrollable > .cb-container-header:not(.ng-hide) + &,
+    .k-splitter > .k-scrollable > div > div > .cb-container-header + & {
+            margin-top: -31px;
+            padding-top: 46px;
+        }
+    }
+}
+
+/*Fin estilos agregados SCH*/
+
+.non-readonly {
+    background-color: #ffffff !important;
+}
+
+.row .cobisspacer {
+    min-height: 58px;
+}
+
+.row .cobisspacer-h {
+    min-height: 45px;
+}
+
+body.designer-fixed-top {
+    padding-top: 45px;
+}
+
+.loading-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    background-color: #D8D8D8;
+  opacity: 0.8;
+    display: block;
+}
+
+.loading-section-div {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    background-color: #D8D8D8;
+  opacity: 0.8;
+    display: block;
+}
+
+.loading-i18n-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    background-color: #D8D8D8;
+    opacity: 1;
+    display: none;
+}
+
+.ajax-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -32px;
+    margin-top: -32px;
+    display: block;
+}
+
+.buttons-wrap {
+    border-top: 1px solid #e7e7e7;
+  padding-top: 0.5em;
+    text-align: right;
+}
+
+header #font-size-value,
+header .k-dropdown {
+    font-size: 18px;
+    line-height: 45px;
+    margin-bottom: 9px;
+}
+
+.grid tbody button.k-button {
+    min-width: 5px;
+}
+
+.textlink {
+    border: none;
+    background-color: #F9F9F9;
+}
+
+.d-align-left {
+    text-align: left;
+}
+
+.d-div {
+    background-color: #fff;
+}
+
+.d-save {
+    background-image: url("/CTSProxy/services/cobis/web/assets/commons/icons/save.ico");
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.d-save-grid {
+    background-image: url("/CTSProxy/services/cobis/web/assets/commons/icons/save.ico");
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.d-delete {
+    background-image: url("/CTSProxy/services/cobis/web/assets/commons/icons/delete.ico");
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.d-delete-grid {
+    background-image: url("/CTSProxy/services/cobis/web/assets/commons/icons/delete.ico");
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.d-update {
+    background-image: url("/CTSProxy/services/cobis/web/assets/commons/icons/update.ico");
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.d-update-grid {
+    background-image: url("/CTSProxy/services/cobis/web/assets/commons/icons/update.ico");
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.d-edit-grid {
+    background-image: url("/CTSProxy/services/cobis/web/assets/commons/icons/edit.ico");
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.d-cancel-grid {
+    background-image: url("/CTSProxy/services/cobis/web/assets/commons/icons/cancel.ico");
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.d-print {
+    background-image: url("/CTSProxy/services/cobis/web/assets/commons/icons/print.ico");
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.d-print-grid {
+    background-image: url("/CTSProxy/services/cobis/web/assets/commons/icons/print.ico");
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.d-import {
+    background-image: url("/CTSProxy/services/cobis/web/assets/commons/import.gif");
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.d-input-group-btn {
+    font-size: 11px;
+}
+
+.d-simple-label {
+    font-weight: normal;
+}
+/**Para la orientacion vertical del radiobuttonList**/
+
+.d-radio-block {
+    display: block;
+    min-height: 20px;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+    vertical-align: middle;
+    font-weight: normal;
+}
+/**Control espacio**/
+
+.d-spacer {
+    font-size: 0;
+    height: 20px;
+    line-height: 0;
+}
+
+.d-block-selected {
+    display: block;
+    line-height: 3em;
+    color: #fff;
+    background-color: #1984c8;
+    border-color: #1984c8;
+}
+
+.d-row-grid {
+  margin-bottom: 0;
+}
+
+.d-hr {
+  margin: 10px 5px;
+}
+
+.toolbar {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.toolbar > .row {
+  margin-bottom: 0;
+}
+
+.ra-well-title {
+    font-size: 1.2857em;
+    line-height: 1.2857em;
+    border-bottom: 1px solid #e7e7e7;
+    margin: -5px -19px 0.8333em;
+    padding: 0 19px 0.7222em;
+}
+/* Estilos para componentes */
+.contenedor_importante,
+.contenedor_vc_importante {
+    border: 1px #458dde solid !important;
+    background-color: #deebfa !important;
+}
+
+.control_obligatorio,
+.control_obligatorio > span > input {
+    border: 1px #458dde solid !important;
+    background-color: #deebfa !important;
+}
+
+.contenedor_valido,
+.contenedor_vc_valido,
+.control_valido,
+.control_valido > span > input {
+    border: 1px #7ed321 solid !important;
+    background-color: #effbe1 !important;
+}
+
+.contenedor_invalido,
+.contenedor_vc_invalido,
+.control_invalido,
+.control_invalido > span > input {
+    border: 1px #cc3f0b solid !important;
+    background-color: #fde1d7 !important;
+}
+
+.cobis-label {
+    font-weight: bold;
+    color: blue;
+}
+/* Estilos por compatibilidad hacia atras */
+
+.headerSection .form-group {
+    min-height: 58px;
+}
+
+.headerSection .form-group.form-group-horizontal {
+    min-height: 45px;
+}
+
+.ds-content {
+  padding: 0 13px;
+}
+
+/********************************************************************************************************************************/
+/*                                         Fin Estilos requeridos por Designer                                                 */
+/********************************************************************************************************************************/
+/* Resumen de sincronizacion 26-09-2014 */
+/* En algunos formularios no se ve bien los bordes de los controles*/
+
+
+/* DSNGR_modificado valor top de 35 a 40 : ver con ese titulo el cambio*/
+/* Dentro de la grilla fue necesario cambiar este valor */
+
+td > .form-group {
+  margin-top: 0;
+}
+/* DSGNR_cambio para incluir los msg en la grilla: ver con ese titulo el cambio */
+/* DSNGR_modificado estilo para que solo aplique a los titulos de la seccion: ver con ese titulo */
+/* DSNGR_modificado color de fondo a blanco sino nos sale celeste: ver con ese titulo */
+/* Toda la seccion Estilos requeridos por CobisWebContainer si es requerida */
+/* DSGNR_ agregado para los tabs verticales: ver con ese titulo el cambio*/
+/* Tabs Verticales*/
+
+.tabs-left {
+    border-bottom: none;
+    padding-top: 2px;
+}
+
+.tabs-left {
+    border-bottom: 1px #ddd solid !important;
+}
+
+.tabs-left>li {
+    float: none;
+  margin-bottom: 0;
+}
+
+.tabs-left>li {
+    margin-right: -1px;
+    color: #428bca !important;
+    border-top: 1px #ddd solid !important;
+    border-left: 1px #ddd solid !important;
+    border-right: 1px #ddd solid !important;
+}
+
+.tabs-left>li.active,
+.tabs-left>li.active>a,
+.tabs-left > li.active > a:focus,
+.tabs-left > li.active > a:hover {
+    z-index: 2;
+    color: #fff;
+    background-color: #428bca;
+    border-radius: 0;
+    border: 1px #428bca solid !important;
+}
+
+.tabs-left>li>a {
+    margin-right: 0;
+    display: block;
+}
+
+.nav.nav-tabs.tabs-left [class*="cb-validation"] {
+    line-height: 20px;
+    min-width: 20px;
+    display: inline-block;
+    float: right;
+    color: #FFF;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.nav.nav-tabs.tabs-left .cb-validation-fail {
+    background: #cc3f0b;
+}
+
+.nav.nav-tabs.tabs-left .cb-validation-success {
+    background: #7ed321;
+    position: relative;
+    display: inline-block;
+    font-size: 0;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.k-tooltip-content {
+    padding: 10px;
+    text-align: left;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.checkbox-inline label,
+.cobisspacer label,
+.cobisspacer-h label {
+    color: #666666;
+    font-size: 12px;
+    font-weight: normal;
+    display: block;
+  margin-bottom: 0;
+    margin-top: 4px;
+}
+
+.form-control.cb-without-border {
+    border: none;
+    box-shadow: none;
+    padding: inherit;
+    color: inherit;
+    background-color: inherit;
+}
+
+.k-hierarchy-cell > .k-plus {
+    background-position: 0 -32px;
+}
+
+.k-hierarchy-cell > .k-minus {
+    background-position: 0 0;
+}
+/* Estilos Base de Grillas */
+.cb-simple-grid > .k-grid > .k-grid-header,
+.cb-simple-grid > div > .k-grid > .k-grid-header,
+.cb-simple-grid > div > div > .k-grid > .k-grid-header,
+.cb-simple-list > .k-grid > .k-grid-header,
+.cb-simple-list > .k-grid > .k-grid-toolbar,
+.cb-simple-list > div > .k-grid > .k-grid-header,
+.cb-simple-list > div > .k-grid > .k-grid-toolbar,
+.cb-simple-list > div > div > .k-grid > .k-grid-header,
+.cb-simple-list > div > div > .k-grid > .k-grid-toolbar {
+    display: none;
+}
+
+.cb-simple-list > .k-grid,
+.cb-simple-list > .k-grid td,
+.cb-simple-list > div > .k-grid,
+.cb-simple-list > div > .k-grid td,
+.cb-simple-list > div > div > .k-grid,
+.cb-simple-list > div > div > .k-grid td {
+    border-width: 0;
+    box-shadow: none;
+}
+
+.cb-simple-list > .k-grid:first-child,
+.cb-simple-list > div > .k-grid:first-child,
+.cb-simple-list > div > div > .k-grid:first-child {
+  margin-top: 0;
+}
+
+//TODO: Deprecated usar .hidden de bootstrap
+.cb-hidden-control {
+    display: none;
+}
+
+/*Con los siguientes estilos la pantallas modales y popover funcionan correctamente*/
+.col-lg-1,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-sm-1,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-xs-1,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9,
+.container,
+.container-fluid,
+.form-control,
+.row {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-control.k-widget {
+    padding: 0;
+}
+
+.list-group.k-widget.k-listview {
+    border: 0;
+    background: transparent;
+}
+
+.k-state-selected .btn.btn-link {
+    color: #FFF;
+}
+
+.translate-cloak {
+  display: block !important;
+}
+/*Coloca la palabra opcional a cualquier campo*/
+
+.cb-optional::after {
+    content: 'opcional';
+    color: #CDC9C9;
+  right: 0;
+    position: absolute;
+}
+/*Solicitado por SGA:*/
+/* modificacion botonera */
+
+.btn-group-hor {
+  padding: 0 0 30px 0!important !important;
+}
+/* sumario de totalizador en tab */
+
+.k-tabstrip-items .k-item .cb-validation-total {
+    background: #428bca;
+    line-height: 20px;
+    min-width: 20px;
+    display: inline-block;
+    float: right;
+    color: #FFF;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.k-tabstrip-items .k-item .cb-iconography-tab {
+    background: transparent;
+}
+/* Dropdown submenu */
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropup .dropdown-submenu > .dropdown-menu {
+    top: auto;
+    bottom: 0;
+    margin-top: 0;
+    margin-bottom: -2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.dropdown-submenu > a:after {
+    float: right;
+    margin-top: 5px;
+    margin-right: -10px;
+    content: " ";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.dropdown-submenu.pull-down,
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left > .dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+
+.dropdown-submenu.pull-down > .dropdown-menu {
+  left: 0;
+    margin-top: 25px;
+    -webkit-border-radius: 2px 0 2px 2px;
+    -moz-border-radius: 2px 0 2px 2px;
+    border-radius: 2px 0 6px 2px;
+}
+/* modificacion botonera */
+
+.btn-group-hor {
+  padding: 0 0 30px 0!important !important;
+}
+/*Fin solicitado por SGA*/
+
+.gi-option-back {
+    font-size: 0.50em;
+    padding-right: 5px;
+    top: -1px;
+}
+/*mensajes con salto de linea solicitado por Banco General*/
+
+.kiui-notification-content>div {
+    word-wrap: break-word;
+}
+/*mensajes de errores por validaciones*/
+
+.k-tooltip-validation {
+    word-wrap: break-word;
+    white-space: normal;
+}
+/*para que no exporte el toolbar de la grilla*/
+
+.k-pdf-export .k-grid-toolbar,
+.k-pdf-export .k-pager-wrap {
+    display: none;
+}
+
+.k-grid {
+    .cb-commands {
+        padding: 0;
+    }
+}
+
+.table.cb-leftside-headers > tbody > tr > td {
+    border-top: 0;
+}

@@ -1,0 +1,6 @@
+[
+  {"number":"0545000987", "status":"Vigente", "product": "Depósito al vencimiento", "identifier":"1798765456", "identifierType":"Cédula", "owner":"Tapia Andrade Viviana María", "value":"30000", "startDate":"12/12/2017", "endDate":"12/12/2020", "rate":11},
+  {"number":"0456880001", "status":"No Vigente", "product": "Depósito al vencimiento", "identifier":"1798765456", "identifierType":"Cédula", "owner":"Tapia Andrade Viviana María", "value":"34500", "startDate":"11/06/2014", "endDate":"11/08/2021", "rate":11.5},
+  {"number":"0463456566", "status":"No Vigente", "product": "Depósito al vencimiento", "identifier":"1798765456", "identifierType":"Cédula", "owner":"Tapia Andrade Viviana María", "value":"23000", "startDate":"04/05/2016", "endDate":"12/11/2023", "rate":11},
+  {"number":"0565543635", "status":"Vigente", "product": "Depósito periódico", "identifier":"1798765456", "identifierType":"Cédula", "owner":"Tapia Andrade Viviana María", "value":"78900", "startDate":"12/01/2016", "endDate":"06/12/2022", "rate":11}
+]

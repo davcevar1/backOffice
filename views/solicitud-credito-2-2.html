@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Negociación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+    <style>
+		.input-group-btn .btn {
+			line-height: 20px;
+		}
+	</style>
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-toolbar cb-toolbar-top">
+            <div class="cb-toolbar-content">
+                <div id="task-title" class="cb-grow cb-text-ellipsis">
+                    <span id="task-badge" class="label label-default cb-text-sm">234523452444</span> Proceso / Tarea (Versión 4)
+                </div>
+                <div>
+                    <button class="btn btn-default">Observaciones</button>
+                    <button class="btn btn-default">Requerimientos</button>
+                    <div class="btn-group">
+                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Acciones <span class="caret"></span></button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#">Opcion 1</a></li>
+                            <li><a href="#">Opcion 2</a></li>
+                            <li><a href="#">Opcion 3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+        </div>
+		<div class="cb-view-container-root cb-view-container cb-group-layout">
+            <div class="cb-form-header">
+                <div class="pull-right">
+                    <button class="btn btn-default"><span class="fa fa-print"></span> Imprimir</button>
+                </div>
+                <div class="cb-group cb-group-simple">
+                    <div class="cb-text-xl">Aguas Munoz Betty Jeanneth</div> 
+                    <div>
+                        <span class="control-label">Trámite:</span> 02154000020
+                        <span class="control-label">Tipo producto:</span> Crédito automotriz
+                        <span class="control-label">Monto solicitado:</span> $20,000.00 USD
+                        <span class="control-label">Cuota solicitada:</span> 36 meses
+                    </div>
+                    <div>
+                        <span class="control-label">Oficina:</span> Sucursal Sucre
+                        <span class="control-label">Oficial:</span> Jose Martinez
+                        <span class="control-label">Fecha de inicio:</span> 12/12/2015
+                    </div>
+                </div>
+			</div>
+			<div class="cb-view-container cb-group-layout">
+				<fieldset class="cb-group cb-group-tabbed-v">
+					<div class="row">
+						<div class="col-tab-items col-sm-2">
+							<ul class="nav nav-pills nav-stacked">
+								<li class="active"><a href="#cuota" data-toggle="tab">Cuotas</a></li>
+								<li><a href="#rubros" data-toggle="tab">Rubros</a></li>
+								<li><a href="#condiciones" data-toggle="tab">Condiciones de pago</a></li>
+							</ul>
+						</div>
+						<div class="cb-tab-content col-sm-10 tab-content">
+							<div id="cuota" class="tab-pane active">
+								<fieldset class="cb-group cb-group-layout">
+									<div class="row">
+										<div class="col-sm-6 col-md-4">
+											<div class="form-group cb-required">
+												<div class="control-label">Monto de desembolso</div>
+												<div class="cb-control">
+													<div class="input-group">
+														<input type="number" class="form-control text-right" value="1000" />
+														<span class="input-group-addon">USD</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-4">
+											<div class="form-group cb-required">
+												<div class="control-label">Fecha valor inicio</div>
+												<div class="cb-control">
+													<input type="date" class="form-control" />
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-4">
+											<div class="form-group cb-required">
+												<div class="control-label">Fecha vencimiento 1ra. cuota</div>
+												<div class="cb-control">
+													<input type="date" class="form-control" />
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-4">
+											<div class="form-group cb-required">
+												<div class="control-label">Tasa</div>
+												<div class="cb-control">
+													<div class="input-group">
+														<input type="number" readonly class="form-control text-right" value="10" />
+														<span class="input-group-addon">%</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-4">
+											<div class="form-group cb-required">
+												<div class="control-label"><abbr title="Tasa efectiva anual">TEA</abbr></div>
+												<div class="cb-control">
+													<div class="input-group">
+														<input type="number" class="form-control text-right" readonly value="10.25" />
+														<span class="input-group-addon">%</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-4">
+											<div class="form-group cb-required">
+												<div class="control-label">Cuota</div>
+												<div class="cb-control">
+													<div class="input-group">
+														<input type="number" readonly class="form-control text-right" />
+														<span class="input-group-addon">USD</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-4">
+											<div class="form-group cb-required">
+												<div class="control-label">Débito a cuenta</div>
+												<div class="cb-control">
+													<select class="form-control">
+														<option></option>
+														<option>Si</option>
+														<option>No</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-4">
+											<div class="form-group cb-required">
+												<div class="control-label">Tipo de cuota</div>
+												<div class="cb-control">
+													<select class="form-control">
+														<option></option>
+														<option>Fija (francesa)</option>
+														<option>Variable (Alemana)</option>
+														<option>Manual</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-4">
+											<div class="form-group cb-required">
+												<div class="control-label">Plazo</div>
+												<div class="cb-control">
+													<div class="input-group">
+														<input type="number" class="form-control" />
+														<div class="input-group-btn" title="Frecuencia de pago">
+															<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Meses <span class="caret"></span></button>
+															<ul class="dropdown-menu dropdown-menu-right">
+															  <li><a href="#">Días</a></li>
+															  <li><a href="#">Meses</a></li>
+															  <li><a href="#">Trimestres</a></li>
+															  <li><a href="#">Semestres</a></li>
+															  <li><a href="#">Años</a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset class="cb-group cb-group-simple">
+									<div>
+										<div class="form-vertical">
+											<div class="row">
+												<div class="col-sm-12">
+													<hr />
+												</div>
+												<div class="col-sm-6 col-md-4">
+													<div class="form-group cb-required">
+														<div class="control-label">Fecha de pago fija</div>
+														<div class="cb-control">
+															<select class="form-control"></select>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6 col-md-4">
+													<div class="form-group cb-required">
+														<div class="control-label">Día de pago</div>
+														<div class="cb-control">
+															<input type="number" class="form-control" />
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6 col-md-4">
+													<div class="form-group cb-required">
+														<div class="control-label">Mes de pago</div>
+														<div class="cb-control">
+															<input type="number" class="form-control" />
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-12">
+													<hr />
+												</div>
+												<div class="col-sm-6 col-md-4">
+													<div class="form-group cb-required">
+														<div class="control-label">Período capital</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="number" class="form-control" />
+																<span class="input-group-addon">Días</span>
+															</div>
+														</div>
+													</div>
+													<div class="form-group cb-required">
+														<div class="control-label">Período de gracia capital</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="number" class="form-control" />
+																<span class="input-group-addon">Días</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6 col-md-4">
+													<div class="form-group cb-required">
+														<div class="control-label">Período interés</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="number" class="form-control" />
+																<span class="input-group-addon">Días</span>
+															</div>
+														</div>
+													</div>
+													<div class="form-group cb-required">
+														<div class="control-label">Período de gracia interés</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="number" class="form-control" />
+																<span class="input-group-addon">Días</span>
+															</div>
+															<div class="radio">
+															  <label>
+																<input type="radio" name="en-cuota" checked> En primera cuota
+															  </label>
+															</div>
+															<div class="radio">
+															  <label>
+																<input type="radio" name="en-cuota"> En cuotas restantes
+															  </label>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6 col-md-4">
+													<div class="form-group cb-required">
+														<div class="control-label">Días de gracia de mora</div>
+														<div class="cb-control">
+															<div class="input-group">
+																<input type="number" class="form-control" />
+																<span class="input-group-addon">Días</span>
+															</div>
+														</div>
+													</div>
+													<div class="form-group cb-required">
+														<div class="control-label">Evitar feriados</div>
+														<div class="cb-control">
+															<select class="form-control">
+																<option></option>
+																<option>Si</option>
+																<option>No</option>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>    
+										</div>
+									</div>
+								</fieldset>
+								<kendo-grid options="amortizacionOptions"></kendo-grid>
+							</div>
+							<div id="condiciones" class="tab-pane">
+								<fieldset class="cb-group cb-group-simple">
+									<div>
+										<div class="form-vertical">
+											<div class="row">
+												<div class="col-sm-4">
+													<fieldset class="cb-group cb-group-simple">
+														<div>
+															<div class="form-vertical">
+																<div class="row">
+																	<div class="col-sm-12">
+																		<div class="form-group">
+																			<div class="control-label">Tipo de pago</div>
+																			<div class="cb-control">
+																				<div class="radio">
+																				  <label>
+																					<input type="radio" name="tipo-pago"> Cuota
+																				  </label>
+																				</div>
+																				<div class="radio">
+																				  <label>
+																					<input type="radio" name="tipo-pago"> Rubro
+																				  </label>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-sm-12">
+																		<div class="form-group">
+																			<div class="control-label">Tipo de pago interés</div>
+																			<div class="cb-control">
+																				<div class="radio">
+																				  <label>
+																					<input type="radio"> Acumulado
+																				  </label>
+																				</div>
+																				<div class="radio">
+																				  <label>
+																					<input type="radio"> Proyectado
+																				  </label>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-sm-12">
+																		<div class="form-group">
+																			<div class="control-label">Tipo de abono (cuota actual)</div>
+																			<div class="cb-control">
+																				<div class="radio">
+																				  <label>
+																					<input type="radio"> Disminuye
+																				  </label>
+																				</div>
+																				<div class="radio">
+																				  <label>
+																					<input type="radio"> Mantiene
+																				  </label>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>    
+															</div>
+														</div>
+													</fieldset>
+												</div>
+												<div class="col-sm-4">
+													<div class="form-group">
+														<div class="control-label">Crédito</div>
+														<div class="cb-control">
+															<div class="checkbox">
+															  <label>
+																<input type="checkbox"> Permite renovación
+															  </label>
+															</div>
+															<div class="checkbox">
+															  <label>
+																<input type="checkbox"> Permite precancelar
+															  </label>
+															</div>
+															<div class="checkbox">
+															  <label>
+																<input type="checkbox" ng-model="transaction.additional"> Permite pagos adicionales
+															  </label>
+															</div>
+															<div class="checkbox">
+															  <label>
+																<input type="checkbox"> Permite solo pagos de cuota completa
+															  </label>
+															</div>
+														</div>
+													</div>
+													<div class="form-group" ng-show="transaction.additional">
+														<div class="control-label">Pagos adicionales</div>
+														<div class="cb-control">
+															<div class="checkbox">
+															  <label>
+																<input type="checkbox" checked> Aplica solo al capital
+															  </label>
+															</div>
+															<div class="radio">
+															  <label>
+																<input type="radio" name="adicional" ng-model="transaction.capital" value="normal"> Pago normal/adelantado
+															  </label>
+															</div>
+															<div class="radio">
+															  <label>
+																<input type="radio" name="adicional" ng-model="transaction.capital" value="extraordinary"> Pago extraordinario
+															  </label>
+															</div>
+														</div>
+													</div>
+													<div class="form-group" ng-show="transaction.additional && transaction.capital == 'extraordinary'">
+														<div class="control-label">Pagos extraordinarios</div>
+														<div class="cb-control">
+															<div class="radio">
+															  <label>
+																<input type="radio" name="extraordinarios"> Reducción de cuota
+															  </label>
+															</div>
+															<div class="radio">
+															  <label>
+																<input type="radio" name="extraordinarios"> Reducción de tiempo
+															  </label>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-4">
+													<fieldset class="cb-group cb-group-simple">
+														<div>
+															<div class="form-vertical">
+																<div class="row">
+																	<div class="col-sm-12">
+																		<div class="form-group">
+																			<div class="control-label">Cambio de tasa</div>
+																			<div class="cb-control">
+																				<div class="radio">
+																				  <label>
+																					<input type="radio" name="exchange" ng-model="transaction.exchange" value="0"> Flotante
+																				  </label>
+																				</div>
+																				<div class="radio">
+																				  <label>
+																					<input type="radio" name="exchange" ng-model="transaction.exchange" value="1"> No reajustable
+																				  </label>
+																				</div>
+																				<div class="radio">
+																				  <label>
+																					<input type="radio" name="exchange" ng-model="transaction.exchange" value="2"> Períodico
+																				  </label>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-sm-12" ng-show="transaction.exchange == 2">
+																		<div class="form-group">
+																			<div class="control-label">Periodicidad</div>
+																			<div class="cb-control">
+																				<div class="input-group">
+																					<input type="number" class="form-control" />
+																					<span class="input-group-addon">Días</span>
+																				</div>
+																				<div class="radio">
+																				  <label>
+																					<input type="radio" name="periodic"> Mantener cuota
+																				  </label>
+																				</div>
+																				<div class="radio">
+																				  <label>
+																					<input type="radio" name="periodic"> Mantener plazo
+																				  </label>
+																				</div>
+																				<div class="radio">
+																				  <label>
+																					<input type="radio" name="periodic"> Cuota final
+																				  </label>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</fieldset>
+												</div>
+											</div>    
+										</div>
+									</div>
+								</fieldset>
+							</div>
+							<div id="rubros" class="tab-pane">
+								<kendo-grid options="rubrosOptions"></kendo-grid> 
+							</div>
+						</div>
+					</div>
+				</fieldset>
+            </div>    
+		</div>
+        <div class="cb-wizard">
+            <div class="cb-wizard-content">
+                <div class="container-fluid">
+                    <div class="cb-wizard-row">
+						<div ng-show="wizardScrollLeft">
+                            <a href="#" class="btn btn-link" data-slide="prev"><span class="fa fa-angle-left"></span></a>
+                        </div>
+						<div class="cb-steps" style="overflow:hidden;">
+							<div class="cb-step"><a href="solicitud-credito-1-2.html" class="btn btn-default btn-block">Ingreso</a></div>
+							<div class="cb-step cb-active"><button class="btn btn-default btn-block">Negociación</button></div>
+							<div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Garantías</button></div>
+							<div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Instrucciones desembolso</button></div>
+                            <div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Informacion cliente</button></div>
+							<div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Direcciones y teléfonos</a></div>
+							<div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Estado financiero</a></div>
+						</div>
+						<div ng-show="wizardScrollRight">
+                            <a href="#" class="btn btn-link" data-slide="next"><span class="fa fa-angle-right"></span></a>
+                        </div>
+						<div class="cb-actions">
+                            <div class="btn-group btn-block dropup">
+							  <a href="solicitud-credito-3-2.html" class="btn btn-primary">Continuar</a>
+							  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu dropdown-menu-right">
+								<li><a href="#">Guardar temporalmente</a></li>
+								<li><a href="#">Imprimir</a></li>
+							  </ul>
+							</div>
+                        </div>
+                    </div>    
+                </div>    
+            </div>	
+        </div>
+        <div class="cb-view-loading cb-hidden"> 
+            <div class="cb-view-loading-icon"></div> 
+        </div>
+    </div>
+	
+	<script type="text/x-kendo-template" id="template">
+        <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button><button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Editar</button><button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+    </script>
+	
+	<script type="text/x-kendo-template" id="amortizacion2">
+		<button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button>
+        <button class="btn btn-default"><span class="fa fa-calculator"></span> Calcular</button>
+    </script>
+	
+	<script type="text/x-kendo-template" id="polizaTools">
+        <button ng-click="addPoliza()" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button><button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Editar</button><button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+    </script>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="solicitud-credito" src="../lib/require/require.js"></script>
+</body>
+
+</html>

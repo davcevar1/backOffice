@@ -1,0 +1,22 @@
+[
+    { "status": "Realizadas", "code": 102, "currency": "PEN", "office": "SUL Sullana CF TT", "amount": 67, "count": 1 },
+    { "status": "Realizadas", "code": 102, "currency": "PEN", "office": "AQP Porongoche CF", "amount": 67, "count": 1 },
+    { "status": "Anuladas", "code": 102, "currency": "PEN", "office": "AQP Porongoche CF SF", "amount": 65, "count": 1 },
+    { "status": "Realizadas", "code": 106, "currency": "PEN", "office": "AQP Cayma CF SF", "amount": 24, "count": 4 },
+    { "status": "Realizadas", "code": 106, "currency": "PEN", "office": "SJL Tusilagos CF SF", "amount": 12, "count": 6 },
+    { "status": "Realizadas", "code": 456, "currency": "PEN", "office": "SM San Miguel CF SF", "amount": 5, "count": 1 },
+    { "status": "Realizadas", "code": 456, "currency": "PEN", "office": "PIU Saga Falabella CF", "amount": 56, "count": 2 },
+    { "status": "Anuladas", "code": 456, "currency": "PEN", "office": "PIU Irazola", "amount": 25, "count": 6 },
+    { "status": "Anuladas", "code": 241, "currency": "PEN", "office": "ICA Quinde", "amount": 15, "count": 6 },
+    { "status": "Anuladas", "code": 241, "currency": "PEN", "office": "CHI Real Plaza", "amount": 18, "count": 1 },
+    { "status": "Anuladas", "code": 102, "currency": "USD", "office": "SUL Sullana CF TT", "amount": 67, "count": 3 },
+    { "status": "Realizadas", "code": 102, "currency": "USD", "office": "AQP Porongoche CF", "amount": 67, "count": 2 },
+    { "status": "Realizadas", "code": 102, "currency": "USD", "office": "AQP Porongoche CF SF", "amount": 65, "count": 5 },
+    { "status": "Anuladas", "code": 106, "currency": "USD", "office": "AQP Cayma CF SF", "amount": 24, "count": 1 },
+    { "status": "Anuladas", "code": 106, "currency": "USD", "office": "SJL Tusilagos CF SF", "amount": 12, "count": 2 },
+    { "status": "Realizadas", "code": 456, "currency": "USD", "office": "SM San Miguel CF SF", "amount": 5, "count": 2 },
+    { "status": "Realizadas", "code": 456, "currency": "USD", "office": "PIU Saga Falabella CF", "amount": 56, "count": 1 },
+    { "status": "Realizadas", "code": 456, "currency": "USD", "office": "PIU Irazola", "amount": 25, "count": 2 },
+    { "status": "Anuladas", "code": 241, "currency": "USD", "office": "ICA Quinde", "amount": 15, "count": 4 },
+    { "status": "Realizadas", "code": 241, "currency": "USD", "office": "CHI Real Plaza", "amount": 18, "count": 1 }
+  ]

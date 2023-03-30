@@ -1,0 +1,688 @@
+/* CONTROLS KENDO */
+
+/* KENDO OVERRIDES */  
+/* Hay una incompatibilidad con la propiedad box-sizing entre kendoui y bootstrap esto lo corrije */
+.k-window-content .form-horizontal,
+.k-window-content .row, 
+.container .form-horizontal,
+.container .row {
+    [class*="col-"], [class*="col-"]:before, [class*="col-"]:after {
+        .box-sizing(border-box);
+    }
+}
+.k-widget {
+    &[class*="col-"], 
+    .form-control, 
+    .form-group, 
+    .well,  
+    .row, 
+    .btn {
+        .box-sizing(border-box);
+		text-overflow:clip
+    }
+    &.input-lg {
+        padding: 0;
+        height: initial;
+    }
+}
+.k-block,
+.k-button,
+.k-textbox,
+.k-drag-clue,
+.k-touch-scrollbar,
+.k-window,
+.k-window-titleless .k-window-content,
+.k-window-action,
+.k-inline-block,
+.k-grid .k-filter-options,
+.k-grouping-header .k-group-indicator,
+.k-autocomplete,
+.k-multiselect,
+.k-combobox,
+.k-dropdown,
+.k-dropdown-wrap,
+.k-datepicker,
+.k-timepicker,
+.k-colorpicker,
+.k-datetimepicker,
+.k-notification,
+.k-numerictextbox,
+.k-picker-wrap,
+.k-numeric-wrap,
+.k-colorpicker,
+.k-list-container,
+.k-calendar-container,
+.k-calendar td,
+.k-calendar .k-link,
+.k-treeview .k-in,
+.k-editor-inline,
+.k-tooltip,
+.k-tile,
+.k-slider-track,
+.k-slider-selection,
+.k-upload {
+    border-radius: 2px;
+}
+.k-input[disabled],
+.k-button[disabled] {
+    background-color: #EEE; 
+} 
+.k-dropdown-wrap.k-state-default.k-state-focused + .ng-invalid + .k-tooltip-validation {
+    display: block !important; 
+} 
+ 
+.k-state-selected, 
+.k-state-selected:link, 
+.k-state-selected:visited, 
+.k-list>.k-state-selected, 
+.k-list>.k-state-highlight, 
+.k-panel>.k-state-selected, 
+.k-ghost-splitbar-vertical, 
+.k-ghost-splitbar-horizontal, 
+.k-draghandle.k-state-selected:hover, 
+.k-scheduler .k-scheduler-toolbar .k-state-selected, 
+.k-scheduler .k-today.k-state-selected, 
+.k-marquee-color {
+    background-color: darken(@primary-color, 10%);
+    border-color: darken(@primary-color, 10%);
+}
+.k-link:link, .k-link:visited, .k-nav-current.k-state-hover .k-link {
+    color: darken(@primary-color, 10%);
+}
+
+/* KENDO CONTROLS */
+td.k-state-focused,
+td.k-state-selected.k-state-focused {
+    box-shadow: inset 0 0 0 1px @primary-color;
+}
+.k-dropdown-wrap,
+.k-numeric-wrap {
+    &.k-state-focused {
+        border-color: @focus-color;
+        .box-shadow(inset 0 1px 1px rgba(0,0,0,.075),0 0 8px fade(@focus-color, 60%));
+    }
+}
+.k-numeric-wrap {
+    height: 32px;
+}
+.k-grid {
+    border-radius: 0;
+    &.cb-grid-no-border {
+        border: 0;
+        box-shadow: 0 0;
+        > table > tbody > tr > td {
+            border: 0;
+        }
+    }
+    &.cb-grid-no-header {
+        border-top: 0;
+        .k-grid-header {
+            display: none;
+        }
+    }
+    &[k-scrollable="true"] {
+        > .k-grid-header > .k-resize-handle {
+            margin-left:-27px;
+        }
+    } 
+    table > tbody > tr {
+        &.k-state-selected > td,
+        &.k-state-selected.k-alt > td {
+            background-color: darken(@primary-color, 10%);
+            border-color: darken(@primary-color, 10%);
+        }
+        > td {
+            background: #f5f5f5;
+        }
+        &.k-alt > td {
+            background: #FFF;
+        }
+    } 
+    tr {
+        td.btn-toolbar {
+            white-space: nowrap;
+            .btn {
+                line-height: normal;
+                margin-top: 0;
+                margin-bottom: 0;
+                &:first-child {
+                    margin-left: 0;
+                }
+                &:not(.cb-row-image-button) > .glyphicon,
+                &:not(.cb-row-image-button) > .fa {
+                    margin-right: 5px;
+                }
+            }
+        }
+        //TODO: Deprecated
+        &.k-state-selected {
+            .cb-commands .btn,
+            .cb-grid-update:before,
+            .cb-grid-cancel:before {
+                color: #428bca;
+            }
+        }
+    }
+    .k-grid-toolbar {
+		white-space: nowrap;
+        padding: 5px;
+		padding-right: 4px;
+        &:empty {
+            display: none;
+        }  
+        .k-button:first-child {
+            margin-left: 0;
+        }
+        .btn {
+            &,
+            &:not(.cb-grid-image-button) > .glyphicon,
+            &:not(.cb-grid-image-button) > .fa {
+                margin-right: 5px;
+            }
+        }
+    }
+    .k-grid-header {
+        .k-header, 
+        .k-header .k-link {
+            background: lighten(@text-color, 70%);
+            border: 0;
+            color: lighten(@text-color, 20%);
+            text-transform: uppercase;
+            padding: 5px;
+            font-size: 11px;
+        }
+        .k-header .k-link:hover {
+            background: lighten(@text-color, 60%);
+        }
+        .k-grid-header-wrap {
+            border: 0;
+            background: lighten(@text-color, 70%);
+        }
+        > div > table > colgroup > col:not(.k-hierarchy-col) {
+            width: 70px;
+        }
+    }
+    .k-grid-content { 
+        margin-top: -1px;
+        > table > colgroup > col:not(.k-hierarchy-col) {
+            width: 70px;
+        }
+    }  
+    .k-grid-edit-row {
+        td {
+            overflow: visible;
+        }
+        .k-tooltip-validation {
+            color: #FFF;
+            background: @danger-color;
+            border: 0;
+            font-size: 11px;
+            .k-callout-n {
+                border-bottom-color: @danger-color;
+                top: -12px;
+            }
+        }
+    }
+    .k-dirty-cell {
+        position: relative;
+        .k-dirty {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0;
+        }
+    }
+    .k-edit-cell {
+        padding: 0;
+        position: relative;
+        overflow: visible;
+        .k-widget {
+            .k-dropdown-wrap, .k-numeric-wrap {
+                border-color: @primary-color;
+                border-radius: 0;
+            }
+        }
+        .k-widget,
+        .k-input {
+            border-radius: 0;
+        }
+        > .k-input {
+            min-height: 34px;
+            border-color: @primary-color;
+            &.k-invalid {
+                border-color: @danger-color;
+            }
+        }
+        .k-tooltip-validation {
+            color: #FFF;
+            background: @danger-color;
+            margin: 0 !important;
+            width: 100%;
+            border: 0;
+            font-size: 11px;
+            min-width: 150px;
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+            .k-icon, .k-callout {
+                display: none;
+            }
+        }
+    }
+    .cb-grid-update:before {
+      position: relative;
+      display: inline-block;
+      line-height: 1;
+      content: "\e084";
+      font-family: "Glyphicons Halflings";
+      font-style: normal;
+      font-weight: 400;
+      font-size:13px;
+      line-height: 18px;
+    }
+    .cb-grid-cancel:before {
+      position: relative;
+      display: inline-block;
+      line-height: 1;
+      content: "\e083";
+      font-family: "Glyphicons Halflings";
+      font-style: normal;
+      font-weight: 400;
+      font-size:13px;
+      line-height: 18px;
+    }
+}
+.k-numerictextbox {
+    > .k-numeric-wrap {
+        > .k-input {
+            text-align: right;
+            padding-right: 10px;
+            box-sizing: border-box;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            line-height: 32px;
+            height: 32px;
+        }
+    }
+}
+.k-tooltip {
+    .btn-default {
+        background: transparent;
+        border-color: #FFF;
+        color: #FFF;
+    }
+    .k-i-close {
+        background-color: #FFF;
+    }
+}
+.k-tabstrip {
+    .k-splitter > .k-scrollable > [designer-form-load] > [ng-include] > .cb-view-container-root > .cb-group-tabbed-h > .k-tabstrip-wrapper > &,
+    .k-splitter > .k-scrollable > [designer-form-load] > [ng-include] > .k-tabstrip-wrapper > &,
+    .k-splitter > .k-scrollable > .k-tabstrip-wrapper > & {
+        border: 0;
+    }
+    &.k-widget {
+        background: #FFF;
+        border: 1px solid lighten(@text-color, 50%);
+        border-radius: 0;
+    }
+    > .k-tabstrip-items {
+        margin-top: -1px;
+        margin-left: -1px;
+        margin-bottom: -1px;
+        .k-state-default .k-link {
+            color: @link-color;
+        }
+        .k-state-active {
+            border-radius: 0;
+            border-color: #b3b3b3;
+            padding: 0;
+            margin: 0;
+        }
+        .k-state-hover {
+            border: 1px solid #b3b3b3;
+            border-bottom: 0;
+        }
+        .k-item {
+            border-radius: 0;
+            /* Es para justificar los tabs, en caso de requerir en el estilo por defecto se decidio no justificarlos
+            display: table-cell;
+            width: 1%;
+            */
+            > .k-link {
+                display: block;
+                text-align: center;
+                padding: 10px 15px;
+                line-height: 1.42857143;
+                .glyphicon,
+                .fa {
+                    margin-right: 5px;
+                }
+            }
+        } 
+        .k-loading {
+            border-color: #428bca;
+            &.k-complete {
+                display: none;
+            }
+        }
+    }
+    > .k-content {
+        border-top-color: lighten(@text-color, 50%);
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+        padding: @page-margin;
+    }
+}
+.k-splitter {  
+    border-radius: 0;
+    border: 0;  
+    margin: 0;
+    height: 100%;
+    box-shadow: 0 0;
+    > .k-pane {
+        &.k-widget,
+        > .k-panelbar,
+        > .cb-view-container-root > .k-panelbar,
+        > div > div > .cb-view-container-root > .k-panelbar {
+            border:0;
+        }
+        > div[designer-form-load],
+        &[designer-form-load] {
+            &,
+            > div[ng-include] {
+                height: 100%;
+                left: inherit;
+            } 
+            > div[ng-include] {
+                left: inherit;
+            }
+        }
+        > [ng-include] {
+            left: inherit;
+        }
+    } 
+    .k-splitbar { 
+        &,
+        &.k-state-focused.k-splitbar:hover,
+        &.k-splitbar:hover {
+            border-color: #e5e5e5;
+            background-color: @bg-navbar;
+        } 
+    }
+}
+.k-treeview {
+    .k-panelbar & {
+        overflow: hidden;
+    }
+    > .k-treeview-lines {
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    .k-in.k-state-hover {
+        color: @primary-color;
+    }
+    .k-item {
+        color: @text-color;
+        position: relative;
+        &[data-expanded="true"] {
+            > div > .k-in > .k-sprite.fa-folder-o:before {
+                content: "\f115";
+            }
+        }
+        .cb-node-actions {
+            position: absolute;
+            right: 7px;
+            top: 7px;
+            display: none;
+            > .btn {
+                color: #FFF;
+                padding: 0 6px;
+                border: 0;
+                background: transparent;
+                line-height: normal;
+                > .glyphicon {
+                    display: block;
+                    top: 0;
+                }
+            }
+            > .dropdown-menu {
+                min-width: 0;
+            }
+        }
+        .k-in:hover .cb-node-actions {
+            display: block;
+        }
+        .k-sprite.fa {
+            margin-top: 0;
+            font-size: inherit;
+            line-height: inherit;
+        }
+        div > .k-icon { 
+            float: left;
+            margin-top: 8px;
+        }
+        .k-in {
+            margin: 0;
+            margin-right: 2px;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 0;
+            &.k-state-selected {
+                color: #FFF;
+                background: @link-color;
+            }
+            &.k-state-focused {
+                box-shadow: inset 0 0 0 1px @primary-color;
+            } 
+            > .glyphicon,
+            > .fa {
+                margin-right: 5px;
+            }
+            > .btn {
+                padding: 0;
+                line-height: 14px;
+                min-width: 18px;
+            }
+        }
+    }
+}
+.k-panelbar { 
+    .k-splitter > .k-scrollable > [designer-form-load] > [ng-include] > &,
+    .k-splitter > .k-scrollable > [ng-include] > &, //TODO: Deprecated validar que ya no se use
+    .k-splitter > .k-scrollable > [ng-include] > [ng-controller] & //TODO: Deprecated validar que ya no se use
+    .k-splitter > .k-scrollable > ng-include > div[ng-controller] &, //TODO: Deprecated validar que ya no se use
+    .k-splitter > .k-scrollable > &,
+    .k-splitter > .k-scrollable > ng-include > & {
+        border: 0;
+    }
+    > .k-item {
+        &.k-state-default {
+            > .k-header {  
+                &.k-state-selected {
+                    //color: @text-color;
+                    &.k-state-focused {
+                        box-shadow: inset 0 0 0 1px @primary-color;
+                    }
+                }
+                > span { 
+                    > .glyphicon,
+                    > .fa {
+                        min-width: 14px;
+                        text-align: center;
+                        margin-right: 5px;
+                    }
+                }
+                > .k-icon.k-i-arrow-n {
+                    color: #FFF;
+                    background: transparent;
+                    display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome;
+                    text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale; 
+                    &.k-panelbar-collapse {
+                        &::before {
+                            content: "\f107";
+                        }
+                    }
+                    &.k-panelbar-expand {
+                        &::before {
+                            content: "\f106";
+                        }
+                    }
+                }
+            }
+            > .k-content {
+                border: 0;
+            }
+        }
+    }
+    .k-state-focused {
+        box-shadow: inset 0 0 0 1px @primary-color;
+    }
+}
+.k-list {
+    > .k-state-selected {
+        background: @link-color;
+        border-color: @link-color;
+        color: #FFF;
+    }
+}
+.k-listview { 
+    .k-splitter > .k-scrollable > & {
+        border-radius: 0;
+        border: 0;
+    }
+    > .cb-listview-item {
+        padding: 10px;
+        cursor: pointer;
+        &.k-state-selected {
+            .label {
+                background: #FFF;
+                color: @text-color;
+            }
+            .text-muted,
+            .glyphicon {
+                color: #FFF;
+            }
+        }
+    }
+}
+.k-menu {
+    .k-link {
+        white-space: nowrap;
+    }
+}  
+.k-window {
+    max-width: 90%;
+    > .k-window-titlebar {
+        border: 0;
+    }
+    div.k-window-content {
+        padding: @page-margin/2;
+        /* Da el espacio adicional al final de contenedor para que los botones no se monten */
+        &.cb-has-controlbar {
+            padding-bottom: 85px;
+        }
+    }
+}
+.k-popup-edit-form {
+    .k-edit-form-container {
+        width: auto;
+        padding-left: @page-margin/2;
+        padding-rigt: @page-margin/2;    
+    }
+    .k-edit-label {
+        padding: 0;
+        margin: 0;
+        padding-right: 10px;
+        box-sizing: border-box;
+        line-height: 25px;
+        width: 40%;
+        label {
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+        }
+    }
+    .cb-grid-read-detail, // TODO: deprecated, no es necesario usarlo se puede identificar por k-edit-field
+    .k-edit-field {
+        margin: 0;
+        padding: 0;
+        line-height: 25px;
+        .k-widget {
+            padding: 0;
+        }
+        > span.k-combobox,
+        > span.numerictextbox,
+        > span.k-timepicker,
+        > span.k-datepicker {
+          background: none;
+          width: 100%;
+        }
+        .k-dropdown-wrap,
+        .k-numeric-wrap,
+        .k-picker-wrap {
+          border: none;
+          background: none;
+          > .k-input {
+              text-overflow: ellipsis;
+              text-indent: 0px;
+              color: black;
+              text-align: left;
+          }
+        } 
+        .k-dropdown-wrap > .k-select,
+        .k-picker-wrap > .k-select {
+          display: none; 
+        }
+        .k-input[disabled],
+        .k-button[disabled] {
+          background: none;
+        }
+        .k-state-disabled {
+          opacity: .9;
+        }
+    }
+}
+
+/* KENDO EXTENDED */
+kendo-ext-grid.k-grid {
+    .k-grid-header,
+    .k-grid-footer {
+        padding-right: 0px !important;
+    }
+    .k-grid-content { 
+        overflow-y: hidden;
+        overflow-x: auto;
+    }
+}
+
+[kendo-ext-grid].cb-grid-no-header .k-grid-header{
+	display: none;
+}
+
+[kendo-ext-grid].cb-grid-no-border.k-grid table td{
+    border-width: 0px;
+}
+
+/*Kendo Notifications*/  
+html .k-warning-colored{
+    color: #f0ad4e!important;
+    border-color: #d0d9df;
+    background-color: #faebcc;
+    z-index:99999; 
+}
+html .k-error-colored {
+  z-index:99999; 
+}         
+html .k-info-colored {
+  z-index:99999; 
+}   
+html .k-success-colored {
+  z-index:99999; 
+}      

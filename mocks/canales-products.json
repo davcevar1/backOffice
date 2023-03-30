@@ -1,0 +1,46 @@
+[{
+    "commissions": true,
+    "currency": "USD",
+    "status": "ACTIVO",
+    "alias": "Ahorros casa",
+    "type": "CUENTA AHORROS",
+    "code": "02300004567",
+    "enabled": true,
+    "selected": true,
+    "icon": "bank-saving-account"
+  },
+  {
+    "commissions": true,
+    "toPay": true,
+    "currency": "USD",
+    "status": "ACTIVO",
+    "alias": "Gastos casa",
+    "type": "CUENTA CORRIENTE",
+    "code": "02300002356",
+    "enabled": true,
+    "selected": true,
+    "icon": "bank-checks"
+  },
+  {
+    "commissions": false,
+    "currency": "USD",
+    "status": "ACTIVO",
+    "alias": "",
+    "type": "PRESTAMO",
+    "code": "02300001234",
+    "enabled": true,
+    "selected": true,
+    "icon": "loan"
+  },
+  {
+    "commissions": false,
+    "currency": "USD",
+    "status": "ACTIVO",
+    "alias": "",
+    "type": "PLAZO FIJO",
+    "code": "02300001234",
+    "enabled": true,
+    "selected": true,
+    "icon": "investment"
+  }
+]

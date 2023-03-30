@@ -1,0 +1,427 @@
+/* Variables */
+@import "../default/variables.less";
+@import "../lesshat.less";
+@background-selected: #beebf0;
+@background-hover: #dbf4f7;
+@background-toolbar: #f2f5f7;
+@border-color: #5a7682;
+@font-size-base: 12px;
+@vertical-margin: 20px;
+@form-group-vertical-margin: 5px;
+
+/* Cobis */
+[class*="cb-validation"] {
+    min-width: 17px !important;
+    &:before {
+        line-height: 17px !important;
+    }
+}
+.cb-validation-fail {
+    line-height: 17px !important;
+}
+.cb-group {
+    &.cb-group-simple {
+        > div > .form-vertical,
+        > div > .form-horizontal {
+            margin-bottom: @vertical-margin - @form-group-vertical-margin;
+        }
+        > div > .k-grid {
+            margin-bottom: @vertical-margin;
+        }
+    }
+}
+.cb-view-container-root {
+    .k-splitter > .k-scrollable > &,
+    .k-splitter > .k-scrollable > div > div > & {
+        margin-bottom: -44px;
+        padding-bottom: 73px;
+    }
+}
+.cb-navbar-placeholder,
+.cb-navbar {
+    //&.cb-navbar-top,
+    &.cb-navbar-bottom {
+        &,
+        .k-scrollable & {
+            height: 44px;
+        }
+        .modal-body & {
+            margin-left: -15px;
+            margin-right: -15px;
+            margin-bottom: -15px;
+            margin-top: 15px;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 0;
+            border-radius: 0;
+            .navbar {
+                margin: 0;
+            }
+        }
+        /*.modal-body &,
+        .k-scrollable & {
+            height: initial;
+        }*/
+    }
+}
+.cb-breadcrumb {
+    body > .cb-view > & {
+        height: 34px;
+    }
+    body > .cb-view > .cb-navbar-placeholder + & > .breadcrumb {
+        top: 44px;
+    }
+}
+
+/* Bootstrap */
+.modal-dialog > .modal-content {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background: #f7fbfb;
+    border: 1px solid #5a7683;
+    .modal-header {
+        .background-image(linear-gradient(to bottom, #57a1d3 0%, #2275b2 100%));
+        border-top: 1px solid #7CBBDB;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        color: #FFF;
+        padding: 8px 15px;
+        .modal-title {
+            font-size: @font-size-base;
+            font-weight: bold;
+        }
+        .close {
+            color: #FFF;
+            opacity: 1;
+        }
+    }
+    .modal-body {
+        .container-fluid {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .cb-control-bar {
+            padding: 10px 15px;
+            margin: -15px;
+            margin-top: 0;
+            border-top: 1px solid #cdd5d9;
+            background-color: @background-toolbar;
+            text-align: right;
+            .row {
+                margin: 0;
+                [class*="col-"] {
+                    float: none;
+                    width: initial;
+                    display: inline-block;
+                    padding: 0;
+                    .btn-block {
+                        display: inline-block;
+                    }
+                    .form-group {
+                        min-height: inherit;
+                        display: inline-block;
+                        margin: 0;
+                    }
+                    .control-label {
+                        display: none;
+                    }
+                }
+                &:before,
+                &:after {
+                    clear: none;
+                }
+            }
+        }
+    }
+}
+.form-group {
+    margin: 0;
+    margin-bottom: @form-group-vertical-margin;
+    .control-label {
+        text-align: left;
+    }
+    .form-horizontal > .row > [class*="col-"] > & {
+        min-height: 27px;
+        .control-label {
+            padding-top: 5px;
+        }
+    }
+    .form-vertical > .row > [class*="col-"] > & {
+         min-height: 49px;
+         .control-label {
+            margin-bottom: 2px;
+        }
+    }
+}
+.navbar-text {
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+/* Kendo */
+/*
+.k-webkit {
+    .k-combobox .k-dropdown-wrap:before, 
+    .k-picker-wrap:before, 
+    .k-numeric-wrap:before {
+        height: 21px;
+    }
+}
+*/
+
+.form-control,
+.k-block,
+.k-button,
+.k-textbox,
+.k-drag-clue,
+.k-touch-scrollbar,
+.k-window,
+.k-window-titleless .k-window-content,
+.k-window-action,
+.k-inline-block,
+.k-grid .k-filter-options,
+.k-grouping-header .k-group-indicator,
+.k-autocomplete,
+.k-multiselect,
+.k-combobox,
+.k-dropdown,
+.k-dropdown-wrap,
+.k-datepicker,
+.k-timepicker,
+.k-colorpicker,
+.k-datetimepicker,
+.k-notification,
+.k-numerictextbox,
+.k-picker-wrap,
+.k-numeric-wrap,
+.k-colorpicker,
+.k-list-container,
+.k-calendar-container,
+.k-calendar td,
+.k-calendar .k-link,
+.k-treeview .k-in,
+.k-editor-inline,
+.k-tooltip,
+.k-tile,
+.k-slider-track,
+.k-slider-selection,
+.k-upload {
+    border-radius: 0;
+}
+
+/* States */
+input[type="text"].form-control,
+select.form-control,
+.k-numerictextbox > .k-state-default,
+.k-timepicker > .k-state-default,
+.k-datepicker > .k-state-default,
+.k-combobox > .k-state-default {
+    border-color: #42576C #809DB9 #809DB9 #809DB9;
+    border-radius: 0;
+    > .k-select {
+        border-color: #FFF;
+    }
+}
+.k-state-selected, 
+.k-state-selected:link, 
+.k-state-selected:visited, 
+.k-list>.k-state-selected, 
+.k-list>.k-state-highlight, 
+.k-panel>.k-state-selected, 
+.k-ghost-splitbar-vertical, 
+.k-ghost-splitbar-horizontal, 
+.k-draghandle.k-state-selected:hover, 
+.k-scheduler .k-scheduler-toolbar .k-state-selected, 
+.k-scheduler .k-today.k-state-selected, 
+.k-marquee-color {
+    background-color: @background-selected;
+    color: @text-color;
+}
+.k-textbox > input, 
+.k-autocomplete .k-input, 
+.k-picker-wrap .k-input, 
+.k-numeric-wrap .k-input, 
+.k-dropdown-wrap .k-input, 
+.k-selectbox .k-input {
+    padding: 1px 0;
+    line-height: 23px;
+    height: 23px;
+}
+.k-webkit .k-combobox .k-dropdown-wrap:before, 
+.k-webkit .k-picker-wrap:before, 
+.k-webkit .k-numeric-wrap:before {
+    padding-bottom: 0;
+}
+.k-numerictextbox {
+    > .k-numeric-wrap {
+        > .k-input {
+            text-align: right;
+            padding-right: 10px;
+            box-sizing: border-box;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            line-height: 25px;
+            height: 25px;
+        }
+    }
+}
+.k-grid {
+    border: 0;
+    border-bottom: 1px solid @border-color;
+    .k-grid-toolbar {
+        border: 1px solid #cdd5d9;
+        border-bottom: 0;
+        border-radius: 0;
+        background-color: @background-toolbar;
+        > .btn,
+        > .btn-group {
+            margin-right: 5px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+    .k-grid-header {
+        border-top: 1px solid @border-color;
+        border-right: 1px solid @border-color;
+        .background-image(linear-gradient(to bottom, #57a1d3 0%, #2275b2 100%));
+        border-radius: 0;
+        box-shadow: inset 0 1px 0 #9cc8e6;
+        > .k-grid-header-wrap {
+            border: 1px solid @border-color;
+            border-bottom: 0;
+            margin-top: -1px;
+        }
+        .k-header {
+            border-right: 1px solid @border-color;
+            border-top: 1px solid #9cc8e6;
+            border-radius: 0 !important;
+            padding: 3px 0.6em;
+            .background-image(linear-gradient(to bottom, #57a1d3 0%, #2275b2 100%));
+            &:hover {
+                border-top-color: @background-hover; 
+                background: @background-hover;
+                &, .k-link {
+                    color: @text-color;
+                }
+            }
+            &:last-child {
+                border-right: 0;
+            }
+            .k-link {
+                background: transparent;
+                &:hover,
+                &:active {
+                    background: transparent;
+                    text-decoration: none;
+                }
+            }
+            &,
+            .k-link {
+                font-size: @font-size-base;
+                text-transform: inherit;
+                color: #FFF;
+            }
+            .k-icon {
+                background-image: url(images/sprite.png);
+            }
+        }
+        .k-hierarchy-cell {
+            width: 16px;
+            text-align: center;
+        }
+    }
+    > .k-grid-content,
+    > table {
+        border: 1px solid @border-color;
+        border-bottom: 0;
+        tr td {
+            border-color: @border-color;  
+            border-width: 0 1px 0 0;
+            &:last-child {
+                border-width: 0;
+            }
+            &.btn-toolbar {
+                padding-top: 5px; 
+                padding-right: 4px;
+                padding-bottom: 5px;
+                padding-left: 5px;
+                > a {
+                    padding: 4px;
+                    /*.glyphicon {
+                        font-size: 13px;
+                    }*/
+                }
+            }
+        }
+    }
+    .k-grid-pager {
+        border: 1px solid @border-color;
+        border-top: 1px solid #cdd5d9;
+        border-bottom: 0;
+        background-color: @background-toolbar;
+        border-radius: 0;
+        box-shadow: 0 0;
+    }
+    .k-pager-wrap .k-pager-nav.k-pager-last {
+        border-radius: 0 2px 2px 0;
+    }
+    .k-pager-nav.k-pager-first {
+        border-radius: 2px 0 0 2px;
+    }
+    .k-detail-row {
+        .k-detail-cell {
+            padding: 10px;
+            border-top-width: 1px;
+            border-bottom-width: 1px;
+        }
+        .cb-content {
+            padding: 0;
+        }
+    }
+    > .k-grid-content,
+    > .k-grid-header > .k-grid-header-wrap {
+        box-sizing: border-box;
+    }
+    /*> .k-grid-content {
+        [class*="ds-btn"] {
+            border-radius: 2px;
+            color: @link-color;
+            padding: 4px;
+            margin-right: 5px;
+            &:last-child {
+                margin: 0;
+            }
+            &:hover,
+            &:focus { 
+                background-color: darken(#FFF, 10%);
+                border-color: darken(#f8f8f8, 40%);
+            }
+        }
+    }*/
+    //tr.k-grid-edit-row,
+    tr.k-state-selected {
+        background-color: rgb(190, 235, 240);
+        color: @text-color;
+    } 
+    /*
+    .k-state-selected .glyphicon {
+        color: @primary-color;
+    }
+    */
+}
+.k-tabstrip-items {
+    .k-item {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+    }
+}
+.k-treeview {
+    .k-item {
+        div > .k-icon {
+            margin-top: 5px;
+        }
+    }
+}

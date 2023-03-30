@@ -1,0 +1,33 @@
+[{
+    "label": "Canal",
+    "value": "Internet Banking"
+  },
+  {
+    "label": "Producto",
+    "value": "Cuenta de Ahorros"
+  },
+  {
+    "label": "IP",
+    "value": "234.345.23.45"
+  },
+  {
+    "label": "Moneda",
+    "value": "USD"
+  },
+  {
+    "label": "Cuenta",
+    "value": "12309888798"
+  },
+  {
+    "label": "Comisión",
+    "value": "$0.35"
+  },
+  {
+    "label": "Institución Origen",
+    "value": "Banco Cobis"
+  },
+  {
+    "label": "Institución Destino",
+    "value": "Banco Externo"
+  }
+]

@@ -1,0 +1,14 @@
+[{
+  "transaction": "Proceso fin operación de apertura",
+  "type": "Efectivo",
+  "date": "2018-01-05",
+  "amount": 20000,
+  "balanceAvailable": 40000,
+  "balance": 60000,
+  "operation": "+",
+  "reference": "34232445",
+  "user": "juanpi",
+  "cause": "-",
+  "office": "Matriz",
+  "interest": "456"
+}]

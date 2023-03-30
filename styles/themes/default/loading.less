@@ -1,0 +1,37 @@
+/*
+* Loading para las pantallas designer
+*/
+
+.cb-view-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, .5);
+    z-index: 9000;
+    &.cb-view-loading-preload {
+        background: #FFF;
+    }
+    &.cb-hidden {
+        display: none;
+    }
+    .cb-view-loading-icon {
+        .animation(spin 1s linear infinite);
+        background: #FFF;
+        border-top: 2px solid lighten(@highlight, 30%);
+        border-right: 2px solid lighten(@highlight, 30%);
+        border-left: 2px solid @highlight;
+        border-bottom: 2px solid @highlight;
+        border-radius: 100%;
+        content: '';
+        display: block;
+        height: 48px;
+        left: 50%;
+        margin-left: -24px;
+        margin-top: -24px;
+        position: fixed;
+        top: 50%;
+        width: 48px;
+    }
+}

@@ -1,0 +1,20 @@
+[
+    {
+        "imageUrl": "../../images/tw-visa-classic-card-498x280.png",
+        "type": "Principal",
+        "transactionsDaily": 5,
+        "transactionsMonthly": 50,
+        "name": "Viviana Tapia Andrade",
+        "product": "Visa",
+        "number": "4567 XXXX XXXX 8888"
+    },
+    {
+        "imageUrl": "../../images/tw-visa-gold-card-498x280.png",
+        "type": "Adicional",
+        "transactionsDaily": 5,
+        "transactionsMonthly": 50,
+        "name": "Esteban Ruiz Tapia",
+        "product": "Visa",
+        "number": "7655 XXXX XXXX 4524"
+    }
+]

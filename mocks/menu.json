@@ -1,0 +1,1087 @@
+{
+  "success": true,
+  "data": {
+    "label": "Opciones",
+    "root": true,
+    "children": [{
+        "label": "Notificaciones",
+        "url": "inbox.html"
+      },
+      {
+        "label": "Administración de notificaciones",
+        "url": "notifications/index.html"
+      },
+      {
+        "label": "Administración",
+        "children": [
+          {
+            "label": "Funcionarios",
+            "url": "admin/user-search.html"
+          },
+          {
+            "label": "Oficiales y alternos",
+            "url": "admin/oficiales.html"
+          },
+          {
+            "label": "Operadores de batch",
+            "url": "admin/operadores-batch.html"
+          },
+          {
+            "label": "Roles",
+            "url": "admin/roles.html"
+          },
+          {
+            "label": "Permisos",
+            "url": "admin/permissions.html"
+          },
+          {
+            "label": "Horarios",
+            "url": "#"
+          },
+          {
+            "label": "Días feriados",
+            "url": "#"
+          },
+          {
+            "label": "Filiales",
+            "url": "#"
+          },
+          {
+            "label": "Oficinas",
+            "url": "#"
+          },
+          {
+            "label": "Servidores",
+            "url": "#"
+          },
+          {
+            "label": "Parámetros",
+            "url": "#"
+          },
+          {
+            "label": "Catálogos",
+            "url": "#"
+          },
+          {
+            "label": "Menús",
+            "url": "admin/menus.html"
+          }
+        ]
+      },
+      {
+        "label": "APF",
+        "children": [
+          {
+            "label": "Administrador de productos",
+            "url": "apf/administrador-productos.html"
+          },
+          {
+            "label": "Orden diccionarios de datos",
+            "url": "apf/orden-diccionarios.html"
+          },
+          {
+            "label": "Productos por oficina",
+            "url": "apf/productos-oficina.html"
+          }
+        ]
+      },
+      {
+        "label": "Caja",
+        "children": [
+          {
+            "label": "Tablero de reportes 1",
+            "url": "caja/dashboard.html"
+          },
+          {
+            "label": "Tablero de reportes 2",
+            "url": "caja/dashboard2.html"
+          },
+          {
+            "label": "Apertura",
+            "url": "caja/apertura.html"
+          },
+          {
+            "label": "Cajas por rol",
+            "url": "caja/cajas-rol.html"
+          },
+          {
+            "label": "Cierre sucursal",
+            "url": "caja/cierre-sucursal.html"
+          },
+          {
+            "label": "Cuadre",
+            "url": "caja/cuadre.html"
+          },
+          {
+            "label": "Depósito ahorros",
+            "url": "caja/deposito-ahorros.html"
+          },
+          {
+            "label": "Grupos de transacciones",
+            "url": "caja/grupos-transacciones.html"
+          },
+          {
+            "label": "Inicio de día",
+            "url": "caja/inicio.html"
+          },
+          {
+            "label": "Mantenimiento",
+            "url": "caja/mantenimiento.html"
+          },
+          {
+            "label": "Pago de cheques",
+            "url": "caja/pago-cheque.html"
+          },
+          {
+            "label": "Rangos",
+            "url": "caja/rangos.html"
+          },
+          {
+            "label": "Recaudación convenios",
+            "url": "caja/recaudacion-convenios.html"
+          },
+          {
+            "label": "Retiro corriente",
+            "url": "caja/retiro-corriente.html"
+          },
+          {
+            "label": "Reverso",
+            "url": "caja/reverso.html"
+          },
+          {
+            "label": "Selección",
+            "url": "caja/seleccion.html"
+          },
+          {
+            "label": "Supervisores",
+            "url": "caja/supervisores.html"
+          },
+          {
+            "label": "Transacciones monetarias",
+            "url": "caja/transacciones-monetarias.html"
+          },
+          {
+            "label": "Validación de montos",
+            "url": "caja/validacion-montos.html"
+          }
+        ]
+      },
+      {
+        "label": "Canales",
+        "children": [
+          {
+            "label": "Clientes afiliados",
+            "url": "canales/user-search.html"
+          },
+          {
+            "label": "Clientes afiliados 2",
+            "url": "canales/user-search2.html"
+          },
+          {
+            "label": "Compensaciones",
+            "url": "canales/compensaciones.html"
+          },
+          {
+            "label": "Cargas masivas",
+            "url": "canales/cargas-masivas.html"
+          },
+          {
+            "label": "Noticias",
+            "url": "canales/noticias.html"
+          },
+          {
+            "label": "Autoenrolamiento",
+            "url": "canales/autoenrolamiento.html"
+          },
+          {
+            "label": "Configuración",
+            "children": [{
+                "label": "Configuración",
+                "url": "canales/canales0.html"
+              },
+              {
+                "label": "Perfiles",
+                "url": "canales/perfiles.html"
+              },
+              {
+                "label": "Funcionalidades",
+                "url": "canales/funcionalidades.html"
+              },
+              {
+                "label": "Solicitudes activación tarjetas"
+              }
+            ]
+          },
+          {
+            "label": "Imágenes carrusel",
+            "url": "canales/imagenes-carrusel.html"
+          },
+          {
+            "label": "Menus",
+            "url": "canales/menus.html"
+          },
+          {
+            "label": "Mensajes masivos",
+            "url": "canales/mensajes-masivos.html"
+          },
+          {
+            "label": "Notificaciones",
+            "url": "canales/notificaciones.html"
+          },
+          {
+            "label": "Ubicaciones",
+            "url": "canales/ubicaciones0.html"
+          },
+          {
+            "label": "Transacciones doble autorización",
+            "url": "canales/doble-autorizacion.html"
+          },
+          {
+            "label": "Términos y condiciones",
+            "url": "canales/terminos-condiciones.html"
+          },
+          {
+            "label": "Instituciones financieras",
+            "url": "canales/instituciones-financieras.html"
+          },
+          {
+            "label": "Activación de tarjetas en el exterior",
+            "url": "canales/activacion-tarjetas.html"
+          },
+          {
+            "label": "Comportamiento canales",
+            "children": [{
+                "label": "Uso del canal",
+                "url": "canales/usuarios-canales.html"
+              },
+              {
+                "label": "Comportamiento transaccional",
+                "url": "canales/transacciones1.html"
+              },
+              {
+                "label": "Historial de transacciones",
+                "url": "canales/historial-transacciones.html"
+              },
+              {
+                "label": "Notificaciones",
+                "url": "canales/consulta-notificaciones.html"
+              }
+            ]
+          },
+          {
+            "label": "Otras",
+            "children": [{
+                "label": "Transacciones 2",
+                "url": "canales/transacciones0.html"
+              },
+              {
+                "label": "Transacciones 3",
+                "url": "canales/transacciones1.html"
+              },
+              {
+                "label": "Ubicaciones",
+                "url": "canales/ubicaciones.html"
+              },
+              {
+                "label": "Crear usuario",
+                "url": "canales/user-form.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Cartera",
+        "children": [
+          {
+            "label": "Préstamos",
+            "url": "prestamos/busqueda.html"
+          },
+          {
+            "label": "Fideicomisos",
+            "url": "prestamos/fideicomisos0.html"
+          },
+          {
+            "label": "Prospectos",
+            "url": "prestamos/prospectos.html"
+          },
+          {
+            "label": "Reajuste masivo",
+            "url": "#"
+          },
+          {
+            "label": "Descuentos directos",
+            "url": "#"
+          },
+          {
+            "label": "Demanda judicial",
+            "url": "#"
+          }, {
+            "label": "Cambio de oficina",
+            "url": "#"
+          },
+          {
+            "label": "Reasignación de oficial",
+            "url": "#"
+          },
+          {
+            "label": "Histórico",
+            "url": "#"
+          },
+          {
+            "label": "Transacciones",
+            "url": "#"
+          },
+          {
+            "label": "Proyección cuota a pagar (Grupo)",
+            "url": "#"
+          },
+          {
+            "label": "Reportes batch",
+            "url": "#"
+          },
+          {
+            "label": "Administración",
+            "children": [{
+                "label": "Catálogo",
+                "url": "#"
+              },
+              {
+                "label": "Parámetros generales",
+                "url": "#"
+              },
+              {
+                "label": "Valores de alicuotas",
+                "url": "#"
+              },
+              {
+                "label": "Tiempos de encajes",
+                "url": "#"
+              },
+              {
+                "label": "Control de montos y plazos",
+                "url": "#"
+              },
+              {
+                "label": "Tiempos de encaje por tipo",
+                "url": "#"
+              },
+              {
+                "label": "Limites individuales (Grupos)",
+                "url": "#"
+              },
+              {
+                "label": "Alicuotas miembros (Grupos)",
+                "url": "#"
+              },
+              {
+                "label": "Valores referenciales BCE",
+                "url": "#"
+              },
+              {
+                "label": "Estado contable sector",
+                "url": "#"
+              },
+              {
+                "label": "Tipo de cartera por producto",
+                "url": "#"
+              },
+              {
+                "label": "Perfiles contables por producto",
+                "url": "#"
+              },
+              {
+                "label": "Mantenimiento de formas de pago",
+                "url": "#"
+              },
+              {
+                "label": "Parametrización de segmentos",
+                "url": "p#"
+              }
+            ]
+          },
+          {
+            "label": "Otras",
+            "children": [{
+              "label": "Fideicomisos",
+              "url": "prestamos/fideicomisos.html"
+            }]
+          }
+        ]
+      },
+      {
+        "label": "Clientes",
+        "children": [
+          {
+          "label": "Posición consolidada",
+          "url": "clientes/detalle.html"
+        }]
+      },
+      {
+        "label": "Contabilidad",
+        "children": [
+          {
+            "label": "Asiento contable tipo",
+            "url": "contabilidad/asiento-tipo.html"
+          },
+          {
+            "label": "Asiento contable",
+            "url": "contabilidad/asiento-contable.html"
+          },
+          {
+            "label": "Carga de asientos contables",
+            "url": "contabilidad/asiento-carga.html"
+          },
+          {
+            "label": "Búsqueda de asientos contables",
+            "url": "contabilidad/busqueda-asientos.html"
+          },
+          {
+            "label": "Cotizaciones",
+            "url": "#"
+          },
+          {
+            "label": "Cuadre contable",
+            "children": [{
+                "label": "Log de errores",
+                "url": "#"
+              },
+              {
+                "label": "Trazabilidad",
+                "url": "#"
+              },
+              {
+                "label": "Balance operativo contable",
+                "url": "#"
+              }
+            ]
+          },
+          {
+            "label": "Reportes",
+            "children": [{
+                "label": "Saldos contables por período",
+                "url": "contabilidad/saldos-contables.html"
+              },
+              {
+                "label": "Balance general interno",
+                "url": "contabilidad/balance-general.html"
+              },
+              {
+                "label": "Balance de comprobación",
+                "url": "contabilidad/balance-comprobacion.html"
+              },
+              {
+                "label": "Balance de pérdidas y ganancias",
+                "url": "#"
+              },
+              {
+                "label": "Diario de movimientos",
+                "url": "#"
+              },
+              {
+                "label": "Estado de cuenta",
+                "url": "#"
+              },
+              {
+                "label": "Transferencias interdepartamentales",
+                "url": "#"
+              }
+            ]
+          },
+          {
+            "label": "Flujo de caja",
+            "children": [{
+                "label": "Obligaciones financieras",
+                "url": "#"
+              },
+              {
+                "label": "Proyección comercial",
+                "url": "#"
+              },
+              {
+                "label": "Datos de flujo de caja",
+                "url": "#"
+              },
+              {
+                "label": "Ingreso manual para la distribución",
+                "url": "#"
+              }
+            ]
+          },
+          {
+            "label": "Interfaz contable",
+            "children": [{
+                "label": "Parámetros perfil contable",
+                "url": "contabilidad/parametros-perfil-contable.html"
+              },
+              {
+                "label": "Perfiles contables",
+                "url": "#"
+              },
+              {
+                "label": "Contabilización productos",
+                "url": "#"
+              }
+            ]
+          },
+          {
+            "label": "Administración",
+            "children": [{
+                "label": "Oficinas de la empresa",
+                "url": "contabilidad/oficinas.html"
+              },
+              {
+                "label": "Areas de la empresa",
+                "url": "contabilidad/areas.html"
+              },
+              {
+                "label": "Períodos contables",
+                "url": "contabilidad/periodos-contables.html"
+              },
+              {
+                "label": "Niveles de cuentas",
+                "url": "contabilidad/niveles-cuentas.html"
+              },
+              {
+                "label": "Plan de cuentas",
+                "url": "contabilidad/busqueda-plan-cuentas.html"
+              },
+              {
+                "label": "Dinámica de cuentas",
+                "url": "#"
+              },
+              {
+                "label": "Asociación cuenta por oficina y area",
+                "url": "contabilidad/asociacion-cuenta-oficina.html"
+              },
+              {
+                "label": "Asociación cuentas a procesos",
+                "url": "contabilidad/asociacion-cuentas-procesos.html"
+              },
+              {
+                "label": "Seguridad de asientos diarios",
+                "url": "#"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Cuentas de ahorros",
+        "children": [
+          {
+            "label": "Apertura de cuenta",
+            "url": "cta/apertura.html"
+          },
+          {
+            "label": "Búsqueda de cuenta",
+            "url": "cta/busqueda.html"
+          },
+          {
+            "label": "Levantamiento de cheques",
+            "url": "#"
+          },
+          {
+            "label": "Saldo por grupo",
+            "url": "#"
+          },
+          {
+            "label": "Saldo para cierre",
+            "url": "#"
+          },
+          {
+            "label": "Transacciones",
+            "url": "#"
+          },
+          {
+            "label": "Notas de crédito y débito masivas",
+            "url": "#"
+          },
+          {
+            "label": "Remesas",
+            "children": [{
+                "label": "Confirmación de cheques del exterior",
+                "url": "#"
+              },
+              {
+                "label": "Cartas por banco corresponsal",
+                "url": "#"
+              },
+              {
+                "label": "Cheques por oficina/cuenta",
+                "url": "#"
+              },
+              {
+                "label": "Formularios de licitud pendientes",
+                "url": "#"
+              }
+            ]
+          },
+          {
+            "label": "Procesos",
+            "children": [{
+              "label": "Generación de estructuras",
+              "url": "#"
+            }]
+          },
+          {
+            "label": "Reportes regulatorios",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "label": "Cuentas de corrientes",
+        "children": [
+          {
+            "label": "Apertura de cuenta",
+            "url": "cta-corriente/apertura.html"
+          },
+          {
+            "label": "Apertura de cuenta de gerencia",
+            "url": "cta-corriente/apertura.html"
+          },
+          {
+            "label": "Búsqueda de cuenta",
+            "url": "cta-corriente/busqueda.html"
+          },
+          {
+            "label": "Recepción de chequeras de la imprenta",
+            "url": "cta-corriente/chequeras-imprenta.html"
+          },
+          {
+            "label": "Recepción de chequeras en la oficina",
+            "url": "cta-corriente/chequeras-oficina.html"
+          },
+          {
+            "label": "Cheques de gerencia",
+            "url": "#"
+          },
+          {
+            "label": "Reversar pago de cheque de cámara",
+            "url": "cta-corriente/reverse-camara.html"
+          },
+          {
+            "label": "Consulta de cierre de cuenta",
+            "url": "#"
+          },
+          {
+            "label": "Consulta de operaciones superiores a un monto",
+            "url": "#"
+          },
+          {
+            "label": "Consulta de cheques por operador",
+            "url": "#"
+          },
+          {
+            "label": "Consulta de historico de transacciones monetarias",
+            "url": "#"
+          },
+          {
+            "label": "Consulta de historico de transacciones de servicio",
+            "url": "#"
+          },
+          {
+            "label": "Consulta y cartas de clientes inhabilitados",
+            "url": "#"
+          },
+          {
+            "label": "Notas de debito/credito empresarial",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "label": "Originación de cuentas",
+        "children": [
+          {
+          "label": "Solicitudes",
+          "url": "originacion/search.html"
+        }]
+      },
+      {
+        "label": "Depósito plazo fijo",
+        "children": [
+          {
+            "label": "Apertura de depósito",
+            "url": "dpf/apertura.html"
+          }, {
+            "label": "Apertura de depósito 2",
+            "url": "dpf/apertura-flow.html"
+          },
+          {
+            "label": "Búsqueda de depósitos",
+            "url": "dpf/busqueda.html"
+          },
+          {
+            "label": "Orden de pago",
+            "url": "#"
+          },
+          {
+            "label": "Impresión de retenciones",
+            "url": "#"
+          },
+          {
+            "label": "Autorizaciones",
+            "url": "#"
+          },
+          {
+            "label": "Tipos de depósitos",
+            "url": "#"
+          },
+          {
+            "label": "Tasas vigentes",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "label": "Depósito plazo fijo TeCreemos",
+        "children": [
+          {
+            "label": "Apertura de cuenta",
+            "url": "dpf-tecreemos/busqueda-cuentas.html"
+          },
+          {
+            "label": "Depósitos",
+            "url": "dpf-tecreemos/busqueda-depositos.html"
+          }
+        ]
+      },
+      {
+        "label": "Garantías",
+        "children": [{
+            "label": "Creación de garantía",
+            "url": "garantias/creacion.html"
+          },
+          {
+            "label": "Búsqueda de garantías",
+            "url": "garantias/busqueda.html"
+          },
+          {
+            "label": "Transacciones por usuario",
+            "url": "#"
+          },
+          {
+            "label": "Totales por cliente",
+            "url": "#"
+          },
+          {
+            "label": "Transacciones contables",
+            "url": "#"
+          },
+          {
+            "label": "Reporte batch",
+            "url": "#"
+          },
+          {
+            "label": "Inspecciones",
+            "children": [{
+                "label": "Garantias por inspeccionar",
+                "url": "#"
+              },
+              {
+                "label": "Carta al inspector",
+                "url": "#"
+              },
+              {
+                "label": "Resultados de inspecciones",
+                "url": "#"
+              },
+              {
+                "label": "Consulta de control de inspecciones",
+                "url": "#"
+              }
+            ]
+          },
+          {
+            "label": "Administración",
+            "children": [{
+                "label": "Inspectores",
+                "url": "#"
+              },
+              {
+                "label": "Almaceneras",
+                "url": "#"
+              },
+              {
+                "label": "Migración",
+                "url": "#"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Mainstreet",
+        "children": [{
+          "label": "Agile Loans",
+          "url": "mainstreet/loan-search.html"
+        }, {
+          "label": "Reports",
+          "children": [{
+            "label": "Reg B Logs",
+            "url": "mainstreet/regb-logs.html"
+          }]
+        }]
+      },
+      {
+        "label": "Mesa de dinero",
+        "children": [{
+            "label": "Front-office",
+            "children": [{
+                "label": "Operaciones",
+                "url": "mesa-dinero/operaciones-busqueda.html"
+              },
+              {
+                "label": "Portfolios",
+                "url": "mesa-dinero/portafolios-busqueda.html"
+              },
+              {
+                "label": "Divisas",
+                "url": "#"
+              },
+              {
+                "label": "Forward de divisas",
+                "url": "#"
+              },
+              {
+                "label": "Swap de divisas",
+                "url": "#"
+              },
+              {
+                "label": "Interbancarios",
+                "url": "#"
+              },
+              {
+                "label": "Repos",
+                "url": "mesa-dinero/negociacion-repos.html"
+              },
+              {
+                "label": "Reverse repos",
+                "url": "mesa-dinero/negociacion-reverse-repos.html"
+              },
+              {
+                "label": "Emisiones",
+                "url": "#"
+              },
+              {
+                "label": "Captaciones",
+                "url": "#"
+              }
+            ]
+          },
+          {
+            "label": "Middle-office",
+            "children": [{
+                "label": "Transacciones pendientes",
+                "url": "mesa-dinero/pendientes-busqueda.html"
+              },
+              {
+                "label": "Liquidación de operaciones",
+                "url": "#"
+              },
+              {
+                "label": "Cuadre del día",
+                "url": "#"
+              },
+              {
+                "label": "Opciones CALL / PUT",
+                "url": "#"
+              },
+              {
+                "label": "Control físico de títulos",
+                "url": "#"
+              },
+              {
+                "label": "Parámetros contables",
+                "url": "#"
+              },
+              {
+                "label": "Custodia de valores",
+                "url": "#"
+              }
+            ]
+          },
+          {
+            "label": "Back-office",
+            "children": [{
+              "label": "Flujo de caja",
+              "children": [{
+                  "label": "Cuadre por moneda",
+                  "url": "mesa-dinero/cuadre-moneda.html"
+                },
+                {
+                  "label": "Detalle operación",
+                  "url": "mesa-dinero/detalle-operacion.html"
+                },
+                {
+                  "label": "Cupones",
+                  "url": "mesa-dinero/cupones.html"
+                }
+              ]
+            }]
+          },
+          {
+            "label": "Valoración consolidada de portafolio",
+            "url": "mesa-dinero/valoracion.html"
+          }
+        ]
+      },
+      {
+        "label": "Workflow",
+        "children": [{
+          "label": "Reporte de flujo",
+          "url": "procesos/loan-request-funnel.html"
+        }]
+      },
+      {
+        "label": "Personalización de costos",
+        "children": [{
+            "label": "Productos bancarios",
+            "url": "costos/definition.html"
+          },
+          {
+            "label": "Productos bancarios 2",
+            "url": "costos/definition2.html"
+          },
+          {
+            "label": "Productos bancarios 3",
+            "url": "costos/definition3.html"
+          },
+          {
+            "label": "Tipos de rangos",
+            "url": "costos/ranges.html"
+          }
+        ]
+      },
+      {
+        "label": "Patrones",
+        "children": [{
+          "label": "Validación edición en grid",
+          "url": "patrones/validacion-grid.html"
+        }]
+      },
+      {
+        "label": "Otras",
+        "children": [{
+            "label": "Flujo fideicomiso",
+            "url": "temp/flujo-fideicomiso.html"
+          },
+          {
+            "label": "Clientes",
+            "children": [{
+                "label": "Búsqueda de clientes",
+                "url": "cliente-busqueda.html"
+              },
+              {
+                "label": "Datos generales",
+                "url": "cliente-datos-generales.html"
+              },
+              {
+                "label": "Detalle",
+                "url": "cliente-detalle.html"
+              },
+              {
+                "label": "Direcciones",
+                "url": "cliente-direcciones.html"
+              },
+              {
+                "label": "Direcciones",
+                "url": "cliente-direcciones.html"
+              },
+              {
+                "label": "Persona natural",
+                "url": "cliente-natural.html"
+              },
+              {
+                "label": "Cliente",
+                "url": "cliente.html"
+              }
+            ]
+          },
+          {
+            "label": "Consulta de notificaciones",
+            "url": "inbox-consulta.html"
+          },
+          {
+            "label": "Tarea de inbox",
+            "url": "inbox-task.html"
+          },
+          {
+            "label": "Situación patrimonial",
+            "url": "situacion-patrimonial-economica.html"
+          },
+          {
+            "label": "Mantenimiento tasas",
+            "url": "mantenimiento-tasas.html"
+          },
+          {
+            "label": "Mantenimiento formas de pago",
+            "url": "mantenimiento-formas-pago.html"
+          },
+          {
+            "label": "Grupo busqueda",
+            "url": "grupo-busqueda.html"
+          },
+          {
+            "label": "Grupo detalle",
+            "url": "grupo-detalle.html"
+          },
+          {
+            "label": "Grupo",
+            "url": "grupo.html"
+          },
+          {
+            "label": "Garantías búsqueda",
+            "url": "garatias-busqueda.html"
+          },
+          {
+            "label": "Garantías modificación",
+            "url": "garantias-modificacion.html"
+          },
+          {
+            "label": "Cash condiciones jerarquia",
+            "url": "cash-management-condiciones-jerarquia.html"
+          },
+          {
+            "label": "Cash condiciones standard",
+            "url": "cash-management-condiciones-standard.html"
+          },
+          {
+            "label": "Afiliaciones",
+            "children": [{
+                "label": "Autorización",
+                "url": "afiliaciones-autorizacion.html"
+              },
+              {
+                "label": "Consulta autorizaciones",
+                "url": "afiliaciones-autorizaciones-consulta.html"
+              },
+              {
+                "label": "Búsqueda",
+                "url": "afiliaciones-busqueda.html"
+              },
+              {
+                "label": "Carga",
+                "url": "afiliaciones-carga.html"
+              },
+              {
+                "label": "Manual nómina",
+                "url": "afiliaciones-manual-nomina.html"
+              },
+              {
+                "label": "Pagos masivos",
+                "url": "afiliaciones-pagos-masivos.html"
+              },
+              {
+                "label": "Auto enrolamiento",
+                "url": "auto-enrolamiento.html"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+[
+  {"description": "1875901 - ValidateTokenUser", "status": "Error Normal", "amount": 0, "executeStatus": "En línea", "date": "20-09-2018", "time":"12:03:23", "user":"ncastaneda", "transaction_type":"Ingreso"},
+  {"description": "1875901 - ValidateTokenUser", "status": "Ejecutada", "amount": 0, "executeStatus": "En línea", "date": "20-09-2018", "time":"12:03:23", "user":"ncastaneda", "transaction_type":"Ingreso"},
+  {"description": "1875902 - Transferencias a otros bancos", "status": "Ejecutada", "amount": 230, "executeStatus": "En línea", "date": "21-09-2018", "time":"12:03:23", "user":"ncastaneda", "transaction_type":"Ingreso"},
+  {"description": "1875902 - Transferencias a otros bancos", "status": "Error Normal", "amount": 340, "executeStatus": "Fuera de línea", "date": "22-09-2018", "time":"12:03:23", "user":"ncastaneda", "transaction_type":"Ingreso"},
+  {"description": "1875901 - ValidateTokenUser", "status": "Ejecutada", "amount": 0, "executeStatus": "En línea", "date": "23-09-2018", "time":"12:03:23", "user":"ncastaneda", "transaction_type":"Ingreso"},
+  {"description": "1875902 - Transferencias a otros bancos", "status": "Ejecutada", "amount": 20, "executeStatus": "En línea", "date": "23-09-2018", "time":"12:03:23", "user":"ncastaneda", "transaction_type":"Ingreso"},
+  {"description": "1875902 - Transferencias a otros bancos", "status": "Ejecutada", "amount": 340, "executeStatus": "En línea", "date": "23-09-2018", "time":"12:03:23", "user":"ncastaneda", "transaction_type":"Ingreso"},
+  {"description": "1875901 - ValidateTokenUser", "status": "Ejecutada", "amount": 0, "executeStatus": "En línea", "date": "24-09-2018", "time":"12:03:23", "user":"ncastaneda", "transaction_type":"Ingreso"},
+  {"description": "1875902 - Transferencias a otros bancos", "status": "Ejecutada", "amount": 0, "executeStatus": "Fuera de línea", "date": "24-09-2018", "time":"12:03:23", "user":"ncastaneda", "transaction_type":"Ingreso"},
+  {"description": "1875902 - Transferencias a otros bancos", "status": "Error Normal", "amount": 230, "executeStatus": "En línea", "date": "24-09-2018", "time":"12:03:23", "user":"ncastaneda", "transaction_type":"Ingreso"},
+  {"description": "1875902 - Transferencias a otros bancos", "status": "Error Normal", "amount": 20, "executeStatus": "Fuera de línea", "date": "25-09-2018", "time":"12:03:23", "user":"ncastaneda", "transaction_type":"Ingreso"}
+]

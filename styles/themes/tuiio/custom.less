@@ -1,0 +1,76 @@
+#main-nav {
+    background: @primary-color;
+    > div {
+        .fa {
+            &:before {
+                content: '';
+            }
+        }
+        .btn {
+            border-radius: 4px;
+            margin-left: 12px;
+            margin-right: 12px;
+            .transition(background .3s);
+            > span {
+                background-color: white;
+            }
+        }
+    }
+    #nav-tools {
+        .fa-bars {
+            -webkit-mask-image: url(images/menu.svg);
+            mask-image: url(images/menu.svg);
+        }
+        .fa-star {
+            -webkit-mask-image: url(images/star.svg);
+            mask-image: url(images/star.svg);
+        }
+        .fa-user {
+            -webkit-mask-image: url(images/user.svg);
+            mask-image: url(images/user.svg);
+        }
+        .fa-info-circle {
+            -webkit-mask-image: url(images/information.svg);
+            mask-image: url(images/information.svg);
+        }
+        .fa-calculator {
+            -webkit-mask-image: url(images/calculator.svg);
+            mask-image: url(images/calculator.svg);
+        }
+    }
+    #nav-logout {
+        position: relative;
+        > .btn-group {
+            display: block;
+            @media (min-width: @screen-sm) {
+                margin-bottom: 10px;
+            }
+            > .btn {
+                float: initial;
+                margin-left: 12px;
+                margin-right: 12px;
+                padding: 8px 0;
+                .transition(background .3s);
+                &:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                }
+                > span {
+                    margin: auto;
+                }
+            }
+        }
+        .fa {
+            display: block;
+        }
+        .fa-power-off {
+            width: 24px;
+            height: 24px;
+            background-color: white;
+            -webkit-mask-image: url(images/power-off.svg);
+            mask-image: url(images/power-off.svg);
+        }
+    }
+}
+.cb-nav-panel {
+    border-color: #01837e;
+}

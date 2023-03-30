@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Trafalgar</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="node_modules/jquery-mobile/dist/jquery.mobile.min.css" />
+  <link rel="stylesheet" href="theme/base.css">
+
+</head>
+
+<body>
+  <div data-role="page" class="vh-100 vw-100 d-flex flex-column">
+    <div class="ui-header" data-position="fixed" data-tap-toggle="false">
+      <h1 class="ui-title">Pago de servicios</h1>
+    </div>
+    <div class="ui-content flex-grow-1">
+      <div class="ui-field-contain ui-field-contain--fill">
+        <input type="text" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+          placeholder=" " data-role="none" />
+        <label>Buscar servicio</label>
+      </div>
+
+      <div class="mt-4 d-flex flex-column gap-3">
+        <div class="cb-card">
+          <button type="button" class="cb-card__link d-flex align-items-center" data-role="none">
+            <div class="flex-grow-1">Acuario Inbursa CDMX</div>
+            <svg class="cb-icon cb-icon--size-2 cb-icon--toggle text-brand-3 ml-2">
+              <use href="theme/images/factoricons-regular.svg#angle-right"></use>
+            </svg>
+          </button>
+          <div class="cb-card__list cb-collapsible">
+            <a href="#" class="d-flex">
+              <div class="flex-grow-1">Item 1</div>
+              <strong>$244</strong>
+            </a>
+            <a href="#" class="d-flex">
+              <div class="flex-grow-1">Item 1</div>
+              <strong>$244</strong>
+            </a>
+            <a href="#" class="d-flex">
+              <div class="flex-grow-1">Item 1</div>
+              <strong>$244</strong>
+            </a>
+            <a href="#" class="d-flex">
+              <div class="flex-grow-1">Item 1</div>
+              <strong>$244</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cb-nav ui-footer">
+      <a href="#" class="active">
+        <div class="d-flex flex-column">
+          <svg class="cb-icon">
+            <use href="theme/images/icons.svg#home"></use>
+          </svg>
+          <div>Inicio</div>
+        </div>
+      </a>
+      <a href="#">
+        <div class="d-flex flex-column">
+          <svg class="cb-icon">
+            <use href="theme/images/icons.svg#transfers"></use>
+          </svg>
+          <div>Transferencias</div>
+        </div>
+      </a>
+      <a href="#">
+        <div class="d-flex flex-column">
+          <svg class="cb-icon">
+            <use href="theme/images/icons.svg#payments"></use>
+          </svg>
+          <div>Pagos</div>
+        </div>
+      </a>
+      <a href="#">
+        <div class="d-flex flex-column">
+          <svg class="cb-icon">
+            <use href="theme/images/icons.svg#ellipsis-horizontal"></use>
+          </svg>
+          <div>Más</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+    crossorigin="anonymous"></script>
+  <script src="node_modules/jquery-mobile/dist/jquery.mobile.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+	<div class="cb-viewport">
+        <div kendo-splitter k-panes="[{size:'350px', collapsible:true}, {}]">
+            <div>
+               <div style="padding:5px;">
+					<div class="input-group">
+						<input type="text" ng-model="keywords" class="form-control" />
+						<span class="input-group-btn">
+							<button title="Limpiar" class="btn btn-default" ng-show="keywords.length>0" ng-click="keywords=''"><span class="fa fa-times"></span></button>
+							<button title="Buscar" class="btn btn-default"><span class="fa fa-search"></span></button>
+						</span>
+					</div>
+				</div>
+				<kendo-grid id="sucursales" class="cb-grid-borderless" options="supervisoresData" ng-show="keywords.length>0"></kendo-grid>
+				<kendo-tree-view id="especifico" k-data-source="supervisores" ng-show="!keywords || keywords.length==0" /> 
+			</div>
+			<div class="cb-main-content" ng-show="view=='supervisor'">
+				<div class="cb-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li>Supervisor Superior: ALEXANDRA ABADIANO - Nivel 7</li>
+                    </ol>
+                </div>
+                <div class="cb-view-container-root container-fluid" style="max-width: 400px;">
+                    <div class="cb-group cb-group-simple">
+						<div class="form-vertical">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="form-group">
+										<div class="control-label">Código</div>
+										<div class="cb-control">
+											<input type="text" class="form-control" />
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-group">
+										<div class="control-label">Funcionario</div>
+										<div class="cb-control">
+											<select kendo-combo-box>
+												<option>lsoto - SOTO ARCANI</option>
+												<option>iespinoza - IVAN ESPINOZA</option>
+												<option>menriquez - ENRIQUEZ GONZALO</option>
+												<option>abenavides - ALDO BENAVIDES</option>
+												<option>pnavarro - ERQUICIA NAVARRO</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-group">
+										<div class="control-label">Nivel</div>
+										<div class="cb-control">
+											<select kendo-combo-box>
+												<option>NIVEL 1</option>
+												<option>NIVEL 2</option>
+												<option>NIVEL 3</option>
+												<option>NIVEL 4</option>
+												<option>NIVEL 5</option>
+												<option>NIVEL 6</option>
+												<option>NIVEL 7</option>
+												<option>NIVEL 8</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-group">
+										<div class="control-label">Cargo</div>
+										<div class="cb-control">
+											<select kendo-combo-box>
+												<option>ANALISTA COMERCIAL</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-group">
+										<div class="control-label">Actividad</div>
+										<div class="cb-control">
+											<select kendo-combo-box>
+												<option>BANCA MULTIPLE</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-group">
+										<div class="control-label">Alterno</div>
+										<div class="cb-control">
+											<div class="input-group">
+												<input type="text" class="form-control" />
+												<span class="input-group-btn">
+													<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-group">
+										<div class="control-label">Superior</div>
+										<div class="cb-control">
+											<div class="input-group">
+												<input type="text" class="form-control" />
+												<span class="input-group-btn">
+													<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> 
+                </div>
+				<div class="cb-navbar-placeholder cb-navbar-bottom">
+                    <nav class="navbar navbar-default navbar-fixed-bottom">
+                        <button class="btn btn-default navbar-btn">Cancelar</button>
+                        <button class="btn btn-primary navbar-btn">Aceptar</button>
+                    </nav>
+                </div>
+			</div>
+		</div>
+	</div>
+	
+	<ul kendo-context-menu k-filter="'#especifico > li > div'">
+        <li ng-click="view='supervisor'">Agregar nuevo</li>
+    </ul>
+	
+	<ul kendo-context-menu k-filter="'#especifico > li > ul > li > div, #especifico > li > ul > li > ul > li > div'">
+        <li ng-click="view='supervisor'">Agregar nuevo</li>
+		<li ng-click="view='supervisor'">Editar</li>
+		<li ng-click="view='supervisor'">Eliminar alterno</li>
+		<li>Eliminar</li>
+    </ul>
+
+    <script>
+        var librariesUrl = '../../lib/';
+    </script>
+    <script src="../../lib/require.config.js"></script>
+    <script data-main="caja" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "cause": "POR MAL MANEJO DE LA LIBRETA",
+    "value": 2345,
+    "term": 90,
+    "requestedBy": "SUPERVISOR",
+    "date": "12/12/2017",
+    "dateExpire": "12/02/2018"
+  }
+]

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+    <!-- <link href="../styles/themes/default/wireframe.css" rel="stylesheet" /> -->
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-view-container-root cb-view-container cb-group-layout container-fluid">
+            <div class="cb-form-header">
+                <div class="cb-flex cb-middle">
+                    <div class="cb-grow">
+						<div title="# de prestamo">#56465465465</div>
+                        <div class="cb-text-xl">Aguas Munoz Betty Jeanneth - PAS 1803235637</div>
+                        <div class="cb-flex cb-gutters">
+                            <div>
+                                <div>$20,000.00 USD</div>
+                                <div class="small control-label">Crédito Automotriz</div>
+                            </div>
+                            <div>
+                                <div>$700 USD</div>
+                                <div class="small control-label">Valor exigible</div>
+                            </div>
+                            <div>
+                                <div>SUCRE</div>
+                                <div class="small control-label">Oficina</div>
+                            </div>
+                            <div>
+                                <div>Vigente</div>
+                                <div class="small control-label">Estado</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button id="more-info" class="btn btn-default"><span class="fa fa-info-circle"></span> Mas información</button>
+                        <a href="prestamos-busqueda.html" class="btn btn-default"><span class="fa fa-search"></span> Buscar</a>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .popover-title {
+                    color: #333;
+                }
+            </style>
+            <div id="info" class="hidden">
+                <div style="margin-left: -15px; margin-right: -15px; margin-top: -10px; color:#333;">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th class="cb-no-wrap">Fecha de inicio</th>
+                                <td>12/12/2016</td>
+                            </tr>
+                            <tr>
+                                <th class="cb-no-wrap">Fecha vencimiento</th>
+                                <td>12/12/2016</td>
+                            </tr>
+                            <tr>
+                                <th class="cb-no-wrap">Oficina</th>
+                                <td>Sucre</td>
+                            </tr>
+                            <tr>
+                                <th class="cb-no-wrap">Cédula #</th>
+                                <td>180256324578</td>
+                            </tr>
+                            <tr>
+                                <th class="cb-no-wrap">Tasa efectiva anual</th>
+                                <td>9%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="cb-view-container cb-group-layout container">
+            <fieldset class="cb-group cb-group-simple">
+                <legend>Cuotas actuales</legend>
+                <div>
+                    <kendo-grid options="cuotas" k-selectable="true" k-scrollable="false"></kendo-grid>
+                </div>
+            </fieldset>
+            <fieldset class="cb-group cb-group-simple cb-group-flex">
+                <legend>Prorroga</legend>
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div class="control-label col-xs-4">Fecha prorroga</div>
+                                <div class="cb-control col-xs-8">
+                                    <input type="date" kendo-datepicker />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div class="cb-control form-control-static col-xs-12">
+                                    Fecha máxima de prorroga: 05-01-2016
+                                </div>
+                            </div>
+                        </div>    
+                    </div>    
+                </div>
+            </fieldset>
+            <fieldset class="cb-group cb-group-simple">
+                <legend>Cuotas prorrogadas</legend>
+                <div>
+                    <kendo-grid options="cuotas" k-scrollable="false"></kendo-grid>
+                </div>
+            </fieldset>
+        </div>
+        <div class="cb-navbar cb-navbar-bottom">
+            <nav class="navbar navbar-default navbar-fixed-bottom">
+                <button class="btn btn-primary navbar-btn">Guardar</button>
+            </nav>
+        </div>
+        <div class="cb-view-loading cb-hidden">
+            <div class="cb-view-loading-icon"></div>
+        </div>
+    </div>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="prestamos" src="../lib/require/require.js"></script>
+</body>
+
+</html>

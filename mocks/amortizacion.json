@@ -1,0 +1,230 @@
+[{
+        "number": 1,
+        "date": "2016/05/01",
+        "capitalBalance": 1000.00,
+        "capital": 100.00,
+        "interest": 6.58,
+        "comission": 2.00,
+        "value": 106.58,
+        "type": "I"
+    },
+    {
+        "number": 2,
+        "date": "2016/06/01",
+        "capitalBalance": 900.00,
+        "capital": 100.00,
+        "interest": 6.12,
+        "comission": 2.00,
+        "value": 106.12,
+        "type": "I"
+    },
+    {
+        "number": 3,
+        "date": "2016/07/01",
+        "capitalBalance": 800.00,
+        "capital": 150.00,
+        "interest": 5.26,
+        "comission": 3.00,
+        "value": 155.26,
+        "type": "I"
+    },
+    {
+        "number": 4,
+        "date": "2016/08/01",
+        "capitalBalance": 650.00,
+        "capital": 100.00,
+        "interest": 4.42,
+        "comission": 2.00,
+        "value": 104.42,
+        "type": "I"
+    },
+    {
+        "number": 5,
+        "date": "2016/09/01",
+        "capitalBalance": 550.00,
+        "capital": 100.00,
+        "interest": 3.74,
+        "comission": 2.00,
+        "value": 103.74,
+        "type": "I"
+    },
+    {
+        "number": 6,
+        "date": "2016/10/01",
+        "capitalBalance": 450.00,
+        "capital": 150.00,
+        "interest": 2.96,
+        "comission": 3.00,
+        "value": 152.96,
+        "type": "I"
+    },
+    {
+        "number": 7,
+        "date": "2016/11/01",
+        "capitalBalance": 300.00,
+        "capital": 100.00,
+        "interest": 2.04,
+        "comission": 2.00,
+        "value": 102.04,
+        "type": "I"
+    },
+    {
+        "number": 8,
+        "date": "2016/12/01",
+        "capitalBalance": 200.00,
+        "capital": 100.00,
+        "interest": 1.32,
+        "comission": 2.00,
+        "value": 101.32,
+        "type": "I"
+    },
+    {
+        "number": 9,
+        "date": "2017/01/01",
+        "capitalBalance": 100.00,
+        "capital": 100.00,
+        "interest": 0.68,
+        "comission": 2.00,
+        "value": 100.68,
+        "type": "I"
+    },
+{
+        "number": 1,
+        "date": "2017/02/01",
+        "capitalBalance": 1000.00,
+        "capital": 100.00,
+        "interest": 6.58,
+        "comission": 2.00,
+        "value": 106.58,
+        "type": "I"
+    },
+    {
+        "number": 2,
+        "date": "2017/03/01",
+        "capitalBalance": 900.00,
+        "capital": 100.00,
+        "interest": 6.12,
+        "comission": 2.00,
+        "value": 106.12,
+        "type": "I"
+    },
+    {
+        "number": 3,
+        "date": "2017/04/01",
+        "capitalBalance": 800.00,
+        "capital": 150.00,
+        "interest": 5.26,
+        "comission": 3.00,
+        "value": 155.26,
+        "type": "I"
+    },
+    {
+        "number": 4,
+        "date": "2017/05/01",
+        "capitalBalance": 650.00,
+        "capital": 100.00,
+        "interest": 4.42,
+        "comission": 2.00,
+        "value": 104.42,
+        "type": "I"
+    },
+    {
+        "number": 5,
+        "date": "2017/06/01",
+        "capitalBalance": 550.00,
+        "capital": 100.00,
+        "interest": 3.74,
+        "comission": 2.00,
+        "value": 103.74,
+        "type": "I"
+    },
+    {
+        "number": 6,
+        "date": "2017/07/01",
+        "capitalBalance": 450.00,
+        "capital": 150.00,
+        "interest": 2.96,
+        "comission": 3.00,
+        "value": 152.96,
+        "type": "I"
+    },
+    {
+        "number": 7,
+        "date": "2017/08/01",
+        "capitalBalance": 300.00,
+        "capital": 100.00,
+        "interest": 2.04,
+        "comission": 2.00,
+        "value": 102.04,
+        "type": "I"
+    },
+    {
+        "number": 8,
+        "date": "2017/09/01",
+        "capitalBalance": 200.00,
+        "capital": 100.00,
+        "interest": 1.32,
+        "comission": 2.00,
+        "value": 101.32,
+        "type": "I"
+    },
+    {
+        "number": 9,
+        "date": "2017/10/01",
+        "capitalBalance": 100.00,
+        "capital": 100.00,
+        "interest": 0.68,
+        "comission": 2.00,
+        "value": 100.68,
+        "type": "I"
+    },
+    {
+        "number": 9,
+        "date": "2017/11/01",
+        "capitalBalance": 100.00,
+        "capital": 100.00,
+        "interest": 0.68,
+        "comission": 2.00,
+        "value": 100.68,
+        "type": "I"
+    },
+    {
+        "number": 9,
+        "date": "2017/12/01",
+        "capitalBalance": 100.00,
+        "capital": 100.00,
+        "interest": 0.68,
+        "comission": 2.00,
+        "value": 100.68,
+        "type": "I"
+    },
+    {
+        "number": 9,
+        "date": "2018/01/01",
+        "capitalBalance": 100.00,
+        "capital": 100.00,
+        "interest": 0.68,
+        "comission": 2.00,
+        "value": 100.68,
+        "type": "I"
+    },
+    {
+        "number": 9,
+        "date": "2018/02/01",
+        "capitalBalance": 100.00,
+        "capital": 100.00,
+        "interest": 0.68,
+        "comission": 2.00,
+        "value": 100.68,
+        "type": "I"
+    },
+    {
+        "number": 9,
+        "date": "2018/03/01",
+        "capitalBalance": 100.00,
+        "capital": 100.00,
+        "interest": 0.68,
+        "comission": 2.00,
+        "value": 100.68,
+        "type": "I"
+    }]

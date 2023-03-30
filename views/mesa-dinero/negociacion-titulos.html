@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-viewport cb-flex cb-column">
+      <div class="cb-form-header cb-no-margin" ng-include="'../shared/header.html'"></div>
+      <div class="cb-grow cb-scrollable">
+        <div style="padding:30px;">
+          <fieldset class="cb-group cb-group-simple cb-group-flex" ng-disabled="!editable">
+            <div>
+              <div class="form-vertical">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Inversor</div>
+                      <div class="cb-control">
+                        <div class="input-group">
+                          <input type="text" class="form-control" ng-model="request.customer.name" readonly />
+                          <span class="input-group-btn">
+            								<button class="btn btn-default" ng-click="selectCustomer()"><span class="fa fa-bars"></span></button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Tipo de transacción</div>
+                      <div class="cb-control">
+                        <select class="form-control">
+                          <option></option>
+                          <option>Compra</option>
+                          <option>Venta</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Moneda</div>
+                      <div class="cb-control">
+                        <select class="form-control">
+                          <option></option>
+                          <option>USD</option>
+                          <option>EUR</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Formas de pago</div>
+                      <div class="cb-control">
+                        <select class="form-control" ng-model="request.paymentMethod">
+                          <option value=""></option>
+                          <option value="multiple">Multiple</option>
+                          <option value="account">Cuenta</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <div class="control-label">Comentario</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4" ng-if="request.paymentMethod!=''">
+                    <div class="form-group">
+                      <div class="control-label">Tipo de cuenta</div>
+                      <div class="cb-control">
+                        <select class="form-control">
+                          <option></option>
+                          <option>Corriente</option>
+                          <option>Ahorros</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4" ng-if="request.paymentMethod!=''">
+                    <div class="form-group">
+                      <div class="control-label"># Cuenta</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="cb-control">
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" /> Pendiente
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="cb-group cb-group-simple" ng-show="editable">
+            <legend>Títulos</legend>
+            <div>
+              <kendo-grid options="titulos"></kendo-grid>
+            </div>
+          </fieldset>
+          <fieldset class="cb-group cb-group-simple" ng-show="!editable">
+            <legend>Títulos</legend>
+            <div>
+              <kendo-grid options="titulosNotEditable"></kendo-grid>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="cb-navbar cb-navbar-bottom" ng-show="editable">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+          <button class="btn btn-primary navbar-btn" ng-click="submit()">Guardar</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div id="customer" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Búsqueda de clientes</h4>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger">
+            Aqui debe desplegarse el popup de selección de clientes, esta es solo una muestra para poder continuar con el flujo de navegación.
+          </div>
+          <div class="list-group">
+            <a class="list-group-item" href="#" ng-click="setCustomer({id:'0565543635', name:'Tapia Andrade Viviana María'})">
+              <div class="cb-flex">
+                <div class="cb-grow">
+                  <div><span title="Número operación" class="ng-binding">#0565543635</span></div>
+                  <div class="small text-muted"><span title="Cliente" class="ng-binding">Tapia Andrade Viviana María</span></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" ng-click="showResults=true">Buscar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cerrar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="title-search" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Búsqueda de títulos</h4>
+        </div>
+        <div class="modal-body">
+          <form ng-submit="searchSubmit($event)">
+            <fieldset class="cb-group cb-group-simple">
+              <div class="form-vertical">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <div class="control-label">Familia</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <div class="control-label">Nemotécnico</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <div class="control-label">Serie</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <div class="control-label">ISIN</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+          <fieldset class="cb-group cb-group-simple" ng-if="showResults">
+            <div>
+              <kendo-grid options="results"></kendo-grid>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" ng-click="showResults=true">Buscar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cerrar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="title" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Agregar titulo</h4>
+        </div>
+        <div class="modal-body">
+          <div class="cb-group cb-group-collapsible container" style="width:100%;">
+            <ul kendo-panel-bar>
+              <li class="k-state-active">
+                <span>General</span>
+                <div>
+                  <fieldset class="cb-group cb-group-simple">
+                    <div class="form-vertical">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <div class="control-label">Emisor</div>
+                            <div class="cb-control">
+                              <div class="input-group">
+                                <input type="text" class="form-control" readonly />
+                                <span class="input-group-btn">
+                                  <button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Emisión</div>
+                            <div class="cb-control">
+                              <input type="text" kendo-datepicker />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Activación</div>
+                            <div class="cb-control">
+                              <input type="text" kendo-datepicker />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Vencimiento</div>
+                            <div class="cb-control">
+                              <input type="text" kendo-datepicker />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Plazo</div>
+                            <div class="cb-control">
+                              <div class="input-group">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-addon">Días</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Tipo de Plazo</div>
+                            <div class="cb-control">
+                              <select class="form-control">
+                                <option></option>
+                                <option>Financiero</option>
+                                <option>Real</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Cantidad</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Cupón principal</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" value="Sí" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Periodicidad cupón principal</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" value="30 días" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Gracia de capital</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" value="30 días" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Periodicidad cupón principal</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" value="12-12-2017" disabled />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </li>
+              <li class="k-state-active">
+                <span>Interés</span>
+                <div>
+                  <fieldset class="cb-group cb-group-simple">
+                    <div class="form-vertical">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Tasa de interés</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Tipo</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" value="Fijo" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Cupón de interés</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" value="Sí" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Spread</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" value="No" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Tipo de tasa</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Gracia de interés</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" value="3 meses" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Período de la tasa</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Período del cupón</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" value="Cada 15 días" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Fecha último cambio</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Fecha último cobro</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" value="12-12-2017" disabled />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </li>
+              <li class="k-state-active">
+                <span>Negociación</span>
+                <div>
+                  <fieldset class="cb-group cb-group-simple">
+                    <div class="form-vertical">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Categoría de inversión</div>
+                            <div class="cb-control">
+                              <select class="form-control">
+                                <option>Al vencimiento</option>
+                                <option>Disponible para la venta</option>
+                                <option>Para Negociación</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Custodia</div>
+                            <div class="cb-control">
+                              <div class="input-group">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-btn">
+                                  <button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Tipo de mercado</div>
+                            <div class="cb-control">
+                              <div class="input-group">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-btn">
+                                  <button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Serie de adquisición</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Lámina mínima</div>
+                            <div class="cb-control">
+                              <div class="input-group">
+                                <input type="text" class="form-control" disabled value="1000000" />
+                                <span class="input-group-addon">USD</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Put / Call</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Tipo de negociación</div>
+                            <div class="cb-control">
+                              <select class="form-control" ng-model="title.tipoNegociacion">
+                                <option value="price">Precio</option>
+                                <option value="return">Rendimiento</option>
+                                <option value="discount">Descuento</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Interés</div>
+                            <div class="cb-control">
+                              <select class="form-control">
+                                <option>Sí</option>
+                                <option>No</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Principal</div>
+                            <div class="cb-control">
+                              <select class="form-control">
+                                <option>Sí</option>
+                                <option>No</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Valor nominal</div>
+                            <div class="cb-control">
+                              <div class="input-group">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-addon">USD</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Precio</div>
+                            <div class="cb-control">
+                              <div class="input-group">
+                                <input type="text" class="form-control text-right" ng-disabled="title.tipoNegociacion!='price'" />
+                                <span class="input-group-addon">%</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Valor efectivo</div>
+                            <div class="cb-control">
+                              <div class="input-group">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-addon">USD</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Rendimiento</div>
+                            <div class="cb-control">
+                              <div class="input-group">
+                                <input type="text" class="form-control text-right" ng-model="title.return" ng-disabled="title.tipoNegociacion!='return'" />
+                                <span class="input-group-addon">%</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Interés ganado</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Interés pendiente</div>
+                            <div class="cb-control">
+                              <input type="text" class="form-control" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <div class="control-label">Tasa base</div>
+                            <div class="cb-control">
+                              <div class="input-group">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-btn">
+                                  <button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button type="button" class="btn btn-primary navbar-btn" ng-click="submitTitle()">Aceptar</button>
+              <button type="button" class="btn btn-default navbar-btn" ng-click="calculate()" data-dismiss="modal">Calcular</button>
+              <button type="button" class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="flow" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Flujo de retorno de inversión</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple">
+            <div>
+              <kendo-grid options="amortizacion"></kendo-grid>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button type="button" class="btn btn-primary navbar-btn" ng-click="acceptCalc()">Aceptar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

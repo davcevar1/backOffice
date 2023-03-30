@@ -1,0 +1,4 @@
+[
+    {"id":1, "enabled":true, "name":"CASH MANAGEMENT", "description": "CASH MANAGEMENT", "authorized":""},
+    {"id":2, "enabled":false, "name":"INTERNET BANKING", "description": "INTERNET BANKING", "authorized":""}
+]

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+    <style>
+        #filters .btn {
+            text-align: left;
+        }
+        #filters .btn:hover,
+        #filters .btn:focus {
+            text-decoration: none;
+        }
+        /*#lista-clientes .k-grid-header {
+            display: none;
+        }*/
+        #lista-clientes tbody td {
+            border: 0;
+        }
+    </style>
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-breadcrumb">
+			<ul class="breadcrumb">
+				<li>Inicio</li>
+				<li>Grupo solidario</li>
+			</ul>
+		</div>
+        <div class="cb-view-container-root cb-view-container cb-group-layout container-fluid">
+            <div class="container-fluid" style="max-width:600px;">
+                <div class="cb-flex cb-gutters">
+                    <div class="cb-grow" ng-if="selectedField.id!=2">
+                        <input type="text" class="form-control input-lg" placeholder="Ingresar {{ selectedField.label }}" />
+                    </div>
+                    <div class="cb-grow" ng-if="selectedField.id==2 && (selectedType.id==2 || selectedType.id==3)">
+                        <input type="text" class="form-control input-lg" placeholder="Ingresar Nombre" />
+                    </div>
+					<div class="cb-grow" ng-if="selectedField.id==2 && selectedType.id==1">
+                        <input type="text" class="form-control input-lg" placeholder="Nombres" />
+                    </div>
+                    <div class="cb-grow" ng-if="selectedField.id==2 && selectedType.id==1">
+                        <input type="text" class="form-control input-lg" placeholder="Apellidos" />
+                    </div>
+                    <div>
+                        <button class="btn btn-primary btn-lg" ng-click="showResults=true"><span class="fa fa-search"></span></button>
+                    </div>
+                </div>
+                <div id="filters" class="cb-flex cb-gutters cb-gap-bottom">
+                    <div class="form-control-static">Filtrado por:</div>
+                    <div>
+                        <div class="dropdown">
+                            <button class="btn btn-link" data-toggle="dropdown">
+                                {{ selectedEntity.label }} <span class="caret"></span>
+                                <div class="small text-muted">Entidad</div>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li ng-class="{'active':selectedEntity==item}" ng-repeat="item in filters.entity"><a href="#" ng-click="setEntity(item)">{{ item.label }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dropdown">
+                            <button class="btn btn-link" data-toggle="dropdown">
+                                {{ selectedField.label }} <span class="caret"></span>
+                                <div class="small text-muted">Buscar por</div>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li ng-class="{'active':selectedField==item}" ng-repeat="item in filters.field"><a href="#" ng-click="setField(item)" ng-if="selectedType.id!=2 || (selectedType.id==2 && item.id!=2)">{{ item.label }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="showResults">
+                    <kendo-grid id="lista-clientes" options="clientesFiltrados"></kendo-grid>
+                </div>
+            </div>
+        </div>
+        <div class="cb-view-loading cb-hidden">
+            <div class="cb-view-loading-icon"></div>
+        </div>
+    </div>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="grupo" src="../lib/require/require.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,3 @@
+[
+    {"id": "25", "currency": "PESO COLOMBIANO", "value": "100",	"cashDeskOrigin":"2010", "officeOrigin": "AVENIDA CHILE", "cashDeskDestination":"9993", "officeDestination":"AVENIDA JIMENEZ",	"cashierOrigin": "PEDRO MONTENEGRO ROSALES", "cashierDestination": "IVAN ESPINOZA", "cashDeskIdOrigin":"391", "cashDeskIdDestination": "14", "reason":"1"}
+]

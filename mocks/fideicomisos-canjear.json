@@ -1,0 +1,25 @@
+[{
+  "customer":"234567 - JOSE MORALES",
+  "expire":"12/12/2018",
+  "enabled": false,
+  "value": 543.98,
+  "number": 23,
+  "bank": "42352345",
+  "february": 0,
+  "march": 543.98,
+  "april": 543.98,
+  "may": 543.98,
+  "june": 543.98
+}, {
+  "customer":"234567 - MAIRA ROMERO",
+  "expire":"12/06/2018",
+  "enabled": false,
+  "value": 543.98,
+  "number": 45,
+  "bank": "42352345",
+  "february": 0,
+  "march": 156.34,
+  "april": 156.34,
+  "may": 156.34,
+  "june": 156.34
+}]

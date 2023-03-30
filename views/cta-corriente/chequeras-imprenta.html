@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+  <style>
+    ng-cloak {
+      display: none;
+    }
+  </style>
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view" ng-cloak ng-init="header.collapsable=true; header.collapsed=true; editable=true;">
+    <div class="cb-viewport cb-flex cb-column" style="background:transparent;">
+      <div class="cb-scrollable cb-grow">
+        <div class="container" style="padding:30px;">
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <div class="form-vertical">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Número de corrido</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <kendo-grid options="chequerasBusqueda"></kendo-grid>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

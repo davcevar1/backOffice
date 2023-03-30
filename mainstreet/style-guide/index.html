@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Mainstreet Style Guide</title>
+
+  <!-- Theme -->
+  <link rel="stylesheet" href="assets/themes/mainstreet.css" />
+  <style>
+    .header {
+      background-color: #FFF;
+      padding: 30px 15px;
+    }
+
+    .logo {
+      max-height: 25px;
+    }
+  </style>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="node_modules/bootstrap/js/bootstrap.min.js"></script>
+  <script>
+    if (sessionStorage.styleGuideTheme) {
+      document.querySelector('link').href = document.querySelector('link').href.replace('mainstreet.css', sessionStorage.styleGuideTheme + '.css')
+    }
+  </script>
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="container">
+      <div class="wf-flex">
+        <div class="wf-grow">
+          <img class="logo" alt="Brand" src="assets/logo-cobis-mainstreet.svg">
+        </div>
+        <div class="wf-grow text-right">
+          Guía de estilo
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container p-4 p-md-5">
+    <h1>Color</h1>
+    <p class="lead">La paleta de color refleja un estilo y apariencia unificado y reconocible, el color primario y secundario generalmente refleja la marca y sirven para acentuar elementos. Variaciones claras o oscuras se pueden aplicar a cada color
+      para diferentes elementos de la interfaz.</p>
+    <h2>Paleta de color</h2>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="mb-2">Primary</div>
+        <table class="table table-bordered text-center">
+          <tr>
+            <td class="bg-primary">Primary</td>
+          </tr>
+        </table>
+        <p>Generalmente se utiliza para botones, enlaces o elementos seleccionados.</p>
+      </div>
+      <div class="col-sm-6">
+        <div class="mb-2">Default</div>
+        <table class="table table-bordered text-center">
+          <tr>
+            <td class="bg-default">Default</td>
+          </tr>
+        </table>
+        <p>Generalmente se utiliza para acciones secundarias.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="mb-2">Status</div>
+        <table class="table table-bordered text-center">
+          <tr>
+            <td class="bg-danger w-25">Danger</td>
+            <td class="bg-warning w-25">Warning</td>
+            <td class="bg-success w-25">Success</td>
+            <td class="bg-info w-25">Info</td>
+          </tr>
+        </table>
+        <p>Se utiliza para resaltar el estado de un elemento.</p>
+      </div>
+      <div class="col-sm-6">
+        <div class="mb-2">Grey scale</div>
+        <table class="table table-bordered text-center">
+          <tr>
+            <td class="bg-100">
+              <div class="badge badge-light" style="margin-top: 42px; margin-left: -7px; position: absolute;">Light</div>100
+            </td>
+            <td class="bg-200">200</td>
+            <td class="bg-300">300</td>
+            <td class="bg-400">400</td>
+            <td class="bg-500">500</td>
+            <td class="bg-600">600</td>
+            <td class="bg-700">700</td>
+            <td class="bg-800">
+              <div class="badge badge-dark" style="margin-top: 42px; margin-left: -4px; position: absolute;">Dark</div>800
+            </td>
+            <td class="bg-900">900</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="mb-2">Colors</div>
+    <table class="table table-bordered text-center">
+      <tr>
+        <td class="bg-blue">Blue</td>
+        <td class="bg-indigo">Indigo</td>
+        <td class="bg-purple">Purple</td>
+        <td class="bg-pink">Pink</td>
+        <td class="bg-red">Red</td>
+        <td class="bg-orange">Orange</td>
+        <td class="bg-yellow">Yellow</td>
+        <td class="bg-green">Green</td>
+        <td class="bg-teal">Teal</td>
+        <td class="bg-cyan">Cyan</td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>

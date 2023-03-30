@@ -1,0 +1,6 @@
+[
+    {"id": "A-VALOR", "description": "VALOR FIJO", "class": "VALOR"},
+    {"id": "APERCRED", "description": "APERTURA DE CREDITO", "class": "VALOR"},
+    {"id": "COMFNG", "description": "FACTOR COMISION FNG", "class": "VALOR"},
+    {"id": "ESTCRED", "description": "ESTUDIO DE CREDITO", "class": "VALOR"}
+]

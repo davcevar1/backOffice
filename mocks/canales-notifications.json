@@ -1,0 +1,14 @@
+[
+  {"id":"N100", "enabled": true, "description": "Recibir notificación de pago de planilla crédito", "product":"Internet", "variable": "", "editable": true},
+  {"id":"N101", "enabled": true, "description": "Recibir notificación de pago de planilla débito", "product":"Internet", "variable": "", "editable": true},
+  {"id":"N102", "enabled": true, "description": "Recibir notificación de transferencia a terceros", "product":"Internet", "variable": "", "editable": false},
+  {"id":"N103", "enabled": true, "description": "Recibir notificación de pago de planilla crédito", "product":"Internet", "variable": "", "editable": true},
+  {"id":"N104", "enabled": true, "description": "Recibir notificación de pago de planilla débito", "product":"Internet", "variable": "", "editable": true},
+  {"id":"N105", "enabled": true, "description": "Recibir notificación de transferencia a terceros", "product":"BANCAMOVIL", "variable": "", "editable": true},
+  {"id":"N106", "enabled": true, "description": "Recibir notificación de pago de planilla crédito", "product":"Internet", "variable": "", "editable": true},
+  {"id":"N107", "enabled": true, "description": "Recibir notificación de pago de planilla débito", "product":"Internet", "variable": "", "editable": true},
+  {"id":"N108", "enabled": true, "description": "Recibir notificación de transferencia a terceros", "product":"Internet", "variable": "", "editable": true},
+  {"id":"N109", "enabled": true, "description": "Recibir notificación de pago de planilla crédito", "product":"Internet", "variable": "", "editable": true},
+  {"id":"N110", "enabled": true, "description": "Recibir notificación de pago de planilla débito", "product":"Internet", "variable": "", "editable": true},
+  {"id":"N111", "enabled": true, "description": "Recibir notificación de transferencia a terceros", "product":"Internet", "variable": "", "editable": true}
+]

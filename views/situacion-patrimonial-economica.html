@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-breadcrumb">
+			<ul class="breadcrumb">
+				<li>Inicio</li>
+				<li>Situación patrimonial / ecónomica</li>
+			</ul>
+		</div>
+		<div class="cb-view-container-root cb-group-layout container">
+            <fieldset>
+                <legend>Situación patrimonial</legend>    
+                <div class="row" style="margin-bottom:20px;">
+                    <div class="col-sm-4">
+                        <kendo-grid options="activos"></kendo-grid>
+                    </div>
+                    <div class="col-sm-4">
+                        <kendo-grid options="pasivos"></kendo-grid>
+                    </div>
+                    <div class="col-sm-4">
+                        <kendo-grid options="patrimonio"></kendo-grid>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Situación ecónomica</legend>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <kendo-grid options="ingresos"></kendo-grid>
+                    </div>
+                    <div class="col-sm-4">
+                        <kendo-grid options="gastos"></kendo-grid>
+                    </div>
+                    <div class="col-sm-4">
+                        <kendo-grid options="situacionEconomica"></kendo-grid>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="cb-view-loading cb-hidden">
+            <div class="cb-view-loading-icon"></div>
+        </div>
+    </div>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="situacion" src="../lib/require/require.js"></script>
+</body>
+
+</html>

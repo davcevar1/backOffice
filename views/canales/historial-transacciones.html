@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view" ng-cloak ng-init="header.collapsable=true; header.collapsed=true; editable=true;">
+    <div class="cb-viewport cb-flex cb-column" style="background:transparent;">
+      <div class="cb-scrollable cb-grow">
+        <div class="container" style="padding:30px;">
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <div class="form-vertical">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Alcance</div>
+                      <div class="cb-control">
+                        <select class="form-control">
+                          <option>Todos</option>
+                          <option>Diario</option>
+                          <option>Histórico</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Canal</div>
+                      <div class="cb-control">
+                        <select class="form-control">
+                          <option>Todos</option>
+                          <option selected>Internet Banking</option>
+                          <option>Banca Móvil</option>
+                          <option>Chatbot</option>
+                          <option>Cash Management</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Producto</div>
+                      <div class="cb-control">
+                        <input type="text" kendo-combo-box options="transactions" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Transacción</div>
+                      <div class="cb-control">
+                        <input type="text" kendo-combo-box options="transactions" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Tipo de ejecución</div>
+                      <div class="cb-control">
+                        <select class="form-control">
+                          <option>Todas</option>
+                          <option>En línea</option>
+                          <option>Fuera de línea</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Estado de ejecución</div>
+                      <div class="cb-control">
+                        <select class="form-control">
+                          <option>Todas</option>
+                          <option>Ejecutado</option>
+                          <option>Error Normal</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Cliente</div>
+                      <div class="cb-control">
+                        <div class="input-group">
+                          <input type="text" name="customer" class="form-control" readonly placeholder="Todos" ng-model="selectedCustomer.name" />
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" ng-show="selectedCustomer" ng-click="selectedCustomer = null"><span class="fa fa-times"></span></button>
+            								<button class="btn btn-default" data-toggle="modal" data-target="#cliente"><span class="fa fa-bars"></span></button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Usuario</div>
+                      <div class="cb-control">
+                        <input type="text" kendo-combo-box options="transactions" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Fecha</div>
+                      <div class="cb-control">
+                        <select class="form-control">
+                          <option>Proceso</option>
+                          <option>Real</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Rango de fechas</div>
+                      <div class="cb-control cb-flex cb-gutters-tiny cb-middle">
+                        <div class="cb-grow">
+                          <input type="date" kendo-datepicker />
+                        </div>
+                        <div>/</div>
+                        <div class="cb-grow">
+                          <input type="date" kendo-datepicker />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Número de referencia</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <kendo-grid options="transactions7"></kendo-grid>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cliente" class="modal fade" ng-cloak>
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Búsqueda de clientes afiliados</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid" style="max-width:600px;">
+            <div class="cb-flex cb-gutters">
+              <div class="cb-grow">
+                <div class="cb-flex cb-gutters">
+                  <div class="cb-grow form-group" style="margin-bottom:0;">
+                    <input type="text" class="form-control input-lg" placeholder="Ingrese {{ selectedField.label }}" />
+                  </div>
+                  <div ng-if="!isAdvanced">
+                    <button class="btn btn-primary btn-lg" ng-click="find()" title="Buscar"><span class="fa fa-search"></span></button>
+                  </div>
+                </div>
+                <div id="filters" class="cb-flex cb-gutters" ng-class="{'cb-gap-bottom':!isAdvanced}">
+                  <div class="form-control-static">Buscar por:</div>
+                  <div>
+                    <div class="dropdown">
+                      <button class="btn btn-link" data-toggle="dropdown">
+                        {{ selectedField.label }} <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li ng-class="{'active':selectedField==item}" ng-repeat="item in filters.field"><a href="#" ng-click="setField(item)">{{ item.label }}</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div ng-show="!showResults && isAdvanced">
+              <div class="cb-grid-no-header k-grid k-widget">
+                <div class="k-header k-grid-toolbar ng-scope">
+                  <button class="btn btn-primary ng-scope" ng-click="showResults=true"><span class="fa fa-search"></span> Buscar</button>
+                </div>
+              </div>
+            </div>
+            <kendo-grid class="cb-grid-no-header" ng-show="showResults" options="customers2"></kendo-grid>
+          </div>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cerrar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/x-kendo-template" id="transaction-detail">
+    <kendo-grid options="transactionDetail" class="cb-grid-no-header"></kendo-grid>
+  </script>
+
+  <script type="text/x-kendo-template" id="customer">
+    <div class="cb-flex">
+      <div class="cb-grow">
+        <div>\\#<span title="Identificación">#: data.documentNumber #</span> - <span title="Nombre">#: data.name # </span></div>
+        <div class="small text-muted">Persona natural - <span title="Código MIS">123</span> - <span title="Fecha de ingreso">12/12/2017</span></div>
+      </div>
+    </div>
+  </script>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

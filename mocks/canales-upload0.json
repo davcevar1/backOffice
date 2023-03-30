@@ -1,0 +1,6 @@
+[
+  {"lot": 123, "records": 2345, "login": "ncastaneda", "service": "Pago de nómina", "account": "02300004567", "status": "EN PROCESO"},
+  {"lot": 124, "records": 2345, "login": "ncastaneda", "service": "Afiliaciones masivas", "account": "02300004567", "status": "APROBADO"},
+  {"lot": 126, "records": 2345, "login": "ncastaneda", "service": "Afiliaciones masivas", "account": "02300004567", "status": "FALLO"},
+  {"lot": 127, "records": 2345, "login": "ncastaneda", "service": "Domiciliados", "account": "02300004567", "status": "CARGANDO"}
+]

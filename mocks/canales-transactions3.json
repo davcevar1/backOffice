@@ -1,0 +1,13 @@
+[
+  {"id":1, "description": "1875901 - ValidateTokenUser", "reference": "52345323", "status": "No Aplicada", "amount": 0, "executeStatus": "En línea", "date": "20-09-2018", "user":"ncastaneda"},
+  {"id":2, "description": "1875901 - ValidateTokenUser", "reference": "52345323", "status": "Aplicada", "amount": 0, "executeStatus": "En línea", "date": "20-09-2018", "user":"ncastaneda"},
+  {"id":3, "description": "1875902 - Transferencias a otros bancos", "reference": "52345323", "status": "Aplicada", "amount": 230, "executeStatus": "En línea", "date": "21-09-2018", "user":"ncastaneda"},
+  {"id":4, "description": "1875902 - Transferencias a otros bancos", "reference": "52345323", "status": "No Aplicada", "amount": 340, "executeStatus": "Fuera de línea", "date": "22-09-2018", "user":"ncastaneda"},
+  {"id":5, "description": "1875901 - ValidateTokenUser", "reference": "52345323", "status": "Aplicada", "amount": 0, "executeStatus": "En línea", "date": "23-09-2018", "user":"ncastaneda"},
+  {"id":6, "description": "1875902 - Transferencias a otros bancos", "reference": "52345323", "status": "Aplicada", "amount": 20, "executeStatus": "En línea", "date": "23-09-2018", "user":"ncastaneda"},
+  {"id":7, "description": "1875902 - Transferencias a otros bancos", "reference": "52345323", "status": "Aplicada", "amount": 340, "executeStatus": "En línea", "date": "23-09-2018", "user":"ncastaneda"},
+  {"id":8, "description": "1875901 - ValidateTokenUser", "reference": "52345323", "status": "Aplicada", "amount": 0, "executeStatus": "En línea", "date": "24-09-2018", "user":"ncastaneda"},
+  {"id":9, "description": "1875902 - Transferencias a otros bancos", "reference": "52345323", "status": "Aplicada", "amount": 0, "executeStatus": "Fuera de línea", "date": "24-09-2018", "user":"ncastaneda"},
+  {"id":10, "description": "1875902 - Transferencias a otros bancos", "reference": "52345323", "status": "No Aplicada", "amount": 230, "executeStatus": "En línea", "date": "24-09-2018", "user":"ncastaneda"},
+  {"id":11, "description": "1875902 - Transferencias a otros bancos", "reference": "52345323", "status": "No Aplicada", "amount": 20, "executeStatus": "Fuera de línea", "date": "25-09-2018", "user":"ncastaneda"}
+]

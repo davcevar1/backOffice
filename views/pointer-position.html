@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div id="drag" draggable="true" style="background:#CFC; width: 100px; height: 100px; margin:30px;"></div>
+	<div id="canvas" style="background:#FCF; width: 400px; height: 400px; margin:30px; position:relative;"></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script>
+		var dragOffset;
+		$(function() {
+			$('#drag')
+				.on('dragstart', function(e) {
+					console.log(e);
+					e.originalEvent.dataTransfer.setData('text/plain', 'This text may be dragged');
+					dragOffset = {x:e.offsetX, y:e.offsetY};
+				});
+			$('#canvas')
+				.on('drop', function(e) {
+					console.log(e);
+					e.preventDefault();
+					$(e.currentTarget).append('<div style="background:#CFC; position:absolute; width:100px; height:100px; top:'+(e.offsetY-dragOffset.y)+'px; left:'+(e.offsetX-dragOffset.x)+'px;"></div>');
+				})
+				.on('dragover', function(e) {
+					e.preventDefault();
+				});
+		});
+	</script>
+</body>
+
+</html>

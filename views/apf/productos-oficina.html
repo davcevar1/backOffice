@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+  <style>
+    .k-treeview .k-item>div{
+      display: flex;
+      align-items: center;
+    }
+
+    .k-treeview .k-item div > .k-icon {
+      margin-top: 1px;
+    }
+
+    .k-treeview .k-item div > .k-checkbox {
+      margin: 0 5px;
+      margin-right: 1px;
+    }
+
+    .k-treeview .k-item div > .k-checkbox input {
+      margin: 0;
+    }
+
+    .k-treeview .k-item div > .k-in {
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-viewport">
+    <div kendo-splitter k-panes="[{size:'350px', collapsible:true}, {}]">
+      <div>
+        <kendo-tree-view id="products" k-data-source="productos" />
+      </div>
+      <div class="cb-main-content">
+        <div class="cb-view-container-root container-fluid">
+          <fieldset class="cb-group cb-group-simple" ng-show="view=='oficinas'">
+            <div>
+              <kendo-tree-view id="oficinas" options="oficinas" />
+            </div>
+          </fieldset>
+        </div>
+        <div class="cb-navbar-placeholder cb-navbar-bottom">
+          <nav class="navbar navbar-default navbar-fixed-bottom">
+            <button class="btn btn-primary navbar-btn">Aceptar</button>
+            <button class="btn btn-default navbar-btn" ng-click="view=null">Cancelar</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="rename" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Cambiar nombre</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <div class="control-label">Nombre</div>
+                  <div class="cb-control">
+                    <input type="text" class="form-control" value="Préstamo vehicular" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul kendo-context-menu k-filter="'#products > li > ul > li > ul > li > ul > li > div'">
+      <li ng-click="view='oficinas'">Oficinas asignadas</li>
+  </ul>
+
+  <ul kendo-context-menu k-filter="'#oficinas > li > ul > li > ul > li > div'">
+      <li ng-click="showRename()">Cambiar nombre</li>
+  </ul>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

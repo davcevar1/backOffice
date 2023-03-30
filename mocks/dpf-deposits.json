@@ -1,0 +1,8 @@
+[
+  {"number":"4345676543", "owner":"Jose Gonzales", "startDate":"2016-05-05", "endDate":"2018-05-05"},
+  {"number":"7654323456", "owner":"Viviana Tapia", "startDate":"2016-03-05", "endDate":"2018-02-05"},
+  {"number":"9857493867", "owner":"Carlos Altamirano", "startDate":"2016-04-05", "endDate":"2017-05-05"},
+  {"number":"7657667878", "owner":"Jorge Ramirez", "startDate":"2016-07-05", "endDate":"2017-05-05"},
+  {"number":"4000333345", "owner":"Priscila Vasquez", "startDate":"2016-02-05", "endDate":"2018-12-10"},
+  {"number":"5000043456", "owner":"Farid Alcivar", "startDate":"2017-05-05", "endDate":"2018-12-05"}
+]

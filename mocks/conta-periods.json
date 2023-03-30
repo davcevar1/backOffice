@@ -1,0 +1,7 @@
+[
+  {"code":1, "start":"01/12/2017", "end":"31/12/2017", "type":"Diario", "status":"Vigente"},
+  {"code":2, "start":"01/01/2018", "end":"30/01/2017", "type":"Diario", "status":"Vigente"},
+  {"code":3, "start":"01/02/2018", "end":"28/02/2017", "type":"Diario", "status":"Vigente"},
+  {"code":4, "start":"01/03/2018", "end":"31/03/2017", "type":"Diario", "status":"Vigente"},
+  {"code":5, "start":"01/04/2018", "end":"30/04/2017", "type":"Diario", "status":"Vigente"}
+]

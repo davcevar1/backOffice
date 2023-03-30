@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-view-container-root cb-view-container cb-group-layout container-fluid">
+      <div class="container-fluid" style="max-width:600px;">
+        <div class="cb-flex cb-gutters">
+          <div class="cb-grow">
+            <div class="cb-flex cb-gutters">
+              <div>
+                <a href="#" class="btn btn-default btn-lg" title="Nuevo depósito" ng-click="showModal('account')"><span
+                    class="fa fa-plus"></span></a>
+              </div>
+              <div class="cb-grow form-group" style="margin-bottom:0;">
+                <input type="text" class="form-control input-lg" placeholder="Ingrese {{ selectedField.label }}" />
+              </div>
+              <div ng-if="!isAdvanced">
+                <button class="btn btn-primary btn-lg" ng-click="find()" title="Search"><span
+                    class="fa fa-search"></span></button>
+              </div>
+            </div>
+            <div id="filters" class="cb-flex cb-gutters" ng-class="{'cb-gap-bottom':!isAdvanced}">
+              <div class="form-control-static">Buscar por:</div>
+              <div>
+                <div class="dropdown">
+                  <button class="btn btn-link" data-toggle="dropdown">
+                    {{ selectedField.label }} <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li ng-class="{'active':selectedField==item}" ng-repeat="item in filters.field"><a href="#"
+                        ng-click="setField(item)">{{ item.label }}</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid" style="max-width: 600px;">
+        <fieldset class="cb-group cb-group-simple cb-group-flex" ng-if="showResults">
+          <div>
+            <kendo-grid class="cb-grid-no-header" options="requests" style="margin: 0;"></kendo-grid>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <div ng-include="'includes/popups.html'"></div>
+
+  <script type="text/x-kendo-template" id="account">
+    <div class="cb-flex">
+      <div class="cb-grow">
+        <div><span title="Número">\\##: data.number #</span> - <span title="Nombre">#: data.owner #</span></div>
+        <div class="small text-muted"><span title="Producto">#: data.product #</span></div>
+      </div>
+      <div class="text-right">
+        <div title="Monto">#= kendo.toString(Number(data.value), 'c') #</div>
+        <div class="small text-muted">Saldo disponible</div>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-kendo-template" id="request">
+    <div class="cb-flex">
+      <div class="cb-grow">
+        <div><span title="Número">\\##: data.number #</span> - <span title="Nombre">#: data.owner #</span></div>
+        <div class="small text-muted"><span title="Producto">#: data.product #</span> - <span title="Fecha apertura">#: data.startDate #</span> - <span title="Fecha vencimiento">#: data.endDate #</span></div>
+      </div>
+      <div class="text-right">
+        <div title="Monto">#= kendo.toString(Number(data.value), 'c') #</div>
+        <div class="small text-muted">Monto</div>
+      </div>
+    </div>
+  </script>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,283 @@
+<style>
+
+
+
+
+  .cb-menu .list-group-item.active,
+  .cb-menu .list-group-item.active:hover,
+  .cb-menu .list-group-item.active:focus {
+    color: #333;
+  }
+
+  .label_package {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 0px !important;
+    z-index: 3;
+    color: #607287 !important;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .new_base {
+    position: relative;
+    z-index: 3;
+    background-color: #319ddc;
+    display: inline;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 0;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+  }
+
+  .new1 {
+    left: 3px;
+  }
+
+  .new2 {
+    left: 42px;
+  }
+
+  .new3 {
+    left: 50px;
+  }
+</style>
+<script type="text/javascript" language="JavaScript">
+  //Verifico que no estoy en la app de la posicion consolidad y aplico marco y fondo blanco
+  $(document).ready(function() {
+    $('#mainIframe').on('load', function() {
+      var ls = $(this).contents();
+      var ng_app;
+      if (ls.find("html")[0].attributes[0] != null) {
+        ng_app = ls.find("html")[0].attributes[0].value;
+      }
+      var vc_search_exist = ls[0].getElementById("VC_SEARCHLAEO_828628");
+
+      if (ng_app == undefined || ng_app == null) {
+        var homePageUrl = cobis.utils.isNullOrEmpty(sessionStorage.getItem("homePageUrl")) ? cobis.constant.HOME_PAGE_URL : sessionStorage.getItem("homePageUrl");
+        var windowParent = cobis.utils.getWindowParent(window);
+        if (windowParent != null) {
+          windowParent.location.href = homePageUrl;
+        }
+      } else if (ng_app != "VC_COMPOSITHE_383962" && vc_search_exist == null) {
+        $(this).contents().find("html").addClass('cb-content-iframe');
+      } else {
+        ls.find("body")[0].setAttribute("style", "background-color:#f7f7f7");
+      }
+    });
+  });
+  $(window).resize(function() {
+    var width = $(window).width();
+    if (document.getElementById("menu-0") != null) {
+      var expanded = document.getElementById("menu-0").getAttribute("aria-expanded");
+      if (width < 768 && expanded == 'true') {
+        $("div.cb-menu").find('button').click();
+      }
+    }
+  });
+  /*
+  function showResponsiveMenu() {
+    if (($("div.cont-name").attr("class") == "col-xs-4 col-md-5 cont-name hidden-xs" && $("div.cont-bookmark").attr("class") == "col-xs-8 col-md-7 cont-bookmark hidden-xs") ||
+      ($("div.cont-name").attr("class") == "col-xs-4 col-md-5 cont-name hidden-xs hidden-sm" && $("div.cont-bookmark").attr("class") == "col-xs-8 col-md-7 cont-bookmark hidden-xs hidden-sm")) {
+      $("div.cont-name").removeClass("hidden-xs");
+      $("div.cont-bookmark").removeClass("hidden-xs");
+      $(".cb-header .cb-menu").removeClass("hidden-xs");
+      $('.cb-main-layout').addClass('hidden-xs');
+
+      $("div.cont-name").removeClass("hidden-sm");
+      $("div.cont-bookmark").removeClass("hidden-sm");
+      $(".cb-header .cb-menu").removeClass("hidden-sm");
+      $('.cb-main-layout').addClass('hidden-sm');
+    } else {
+      $("div.cont-name").addClass('hidden-xs');
+      $("div.cont-bookmark").addClass('hidden-xs');
+      $(".cb-header .cb-menu").addClass("hidden-xs");
+      $('.cb-main-layout').removeClass('hidden-xs');
+
+      $("div.cont-name").addClass('hidden-sm');
+      $("div.cont-bookmark").addClass('hidden-sm');
+      $(".cb-header .cb-menu").addClass("hidden-sm");
+      $('.cb-main-layout').removeClass('hidden-sm');
+    }
+  }
+  */
+
+  //Función de escucha a cambios en el dom del contenido dentro del iframe
+  window.addEventListener("message", function(e) {
+    //Por compatibilidad se envía el mensaje como json y luego se parsea
+    if (e.data !== "recaptcha-setup") {
+      var message = JSON.parse(e.data);
+      switch (message.event) {
+        case 'resize':
+          //En caso de que el mensaje tenga el resize se hace el cambio en el iframe
+          $('#mainIframe').height(message.height + 160);
+          break;
+      }
+    }
+  });
+
+  function goToTopHtml(element) {
+    $('html, body').animate({
+      scrollTop: $(element).offset().top + 'px'
+    }, 'fast');
+  }
+</script>
+
+<header class="cb-header">
+  <div class="container">
+    <div class="cb-header__row1">
+      <div class="cb-header__menu">
+        <button type="button" ng-click="toggleMenu()">
+          <div class="fa fa-bars"></div>
+        </button>
+      </div>
+      <div class="cb-header__logo"></div>
+      <div class="cb-header__actions">
+        <button type="button" class="cb-notifications cb-item cb-item--column" ng-click="notification()">
+          <div class="cb-item__icon">
+            <div class="fa fa-bell"></div>
+          </div>
+          <div class="cb-item__label">{{ 'CWC.SECURITY.LOGIN.LABELS.ALERT' | translate }}</div>
+          <div class="cb-item__counter" ng-if="notificationNumber > 0">{{ notificationNumber <= 99 ? notificationNumber : '99+' }}</div>
+        </button>
+        <button class="cb-authorization" ng-if="authorizationNumber > -1" ng-click="authorization()">
+          <div class="cb-item__icon">
+            <div class="fa fa-check-circle"></div>
+          </div>
+          <div class="cb-item__label">{{ 'CWC.SECURITY.LOGIN.LABELS.AUTHORIZATIONS' | translate }}</div>
+          <div class="cb-item__counter" ng-if="authorizationNumber > 0">{{ authorizationNumber <= 99 ? authorizationNumber : '99+' }}</div>
+        </button>
+        <div class="btn-group" ng-if="mini.length > 0">
+          <button type="button" class="cb-account cb-item cb-item--column dropdown-toggle" data-toggle="dropdown">
+            <div class="cb-item__icon">
+              <div class="fa fa-user"></div>
+            </div>
+            <div class="cb-item__label">{{ 'CWC.SECURITY.LOGIN.LABELS.MY_ACCOUNT' | translate }}</div>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li ng-repeat="menuItem in mini"><a href="#" ng-click="setView(menuItem, menuItem.url,null,$event)">{{ menuItem.label }}</a></li>
+          </ul>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="cb-language cb-item cb-item--reverse dropdown-toggle" data-toggle="dropdown">
+            <div class="cb-item__icon">
+              <div class="fa fa-angle-down"></div>
+            </div>
+            <div class="cb-item__label">{{ LenguajeSelect }}</div>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right" id="listLenguaje">
+            <li ng-click="changeL(1)" id="1"><a>{{ 'CWC.SECURITY.LOGIN.LABELS.LANGUAGE_SPANISH' | translate }}</a></li>
+            <li ng-click="changeL(2)" id="2"><a>{{ 'CWC.SECURITY.LOGIN.LABELS.LANGUAGE_ENGLISH' | translate }}</a></li>
+          </ul>
+        </div>
+        <button type="button" class="cb-signout cb-item cb-item--reverse" ng-click="logOut()">
+          <div class="cb-item__icon">
+            <div class="fa fa-sign-out"></div>
+          </div>
+          <div class="cb-item__label">{{ 'CWC.SECURITY.LOGIN.LABELS.LOGOUT' | translate }}</div>
+        </button>
+      </div>
+    </div>
+    <div class="cb-header__row2" ng-class="{'cb-collapsed': bookmarksCollapsed, 'cb-empty':!favorites || favorites.length === 0}">
+      <div class="cb-header__profile cb-item">
+        <div class="cb-avatar cb-item__icon" ng-style="{'background-image': 'url('+imgPersonal+')'}">
+          <div class="cb-image hidden-sm hidden-xs" style="position:relative;" title="{{'CWC.SECURITY.LOGIN.LABELS.CHANGE_PER_IMG'|translate}}">
+            <div ng-if="imgPersonalType=='L'" class="cb-profile-ph cb-flex cb-middle cb-center">{{imgPersonal}}</div>
+            <div ng-if="imgPersonalType=='I'" class="cb-profile-ph cb-flex cb-middle cb-center"></div>
+            <input type="file" accept="image/*" ng-model="upload" class="hidden" onchange="angular.element(this).scope().uploadPicture(this.files)" />
+          </div>
+        </div>
+        <div class="cb-item__label">
+          <div>{{ user }}</div>
+          <div class="small text-muted" id="cb-date">{{ 'CWC.SECURITY.LOGIN.LABELS.LAST_INTO' | translate }}: {{ lastAccess | date: 'medium' }}</div>
+        </div>
+      </div>
+      <div class="cb-header__bookmarks">
+        <button type="button" class="cb-item cb-item--column" ng-click="setView(menuItem, menuItem.url,null,$event)" ng-if="menuItem.favorite" ng-repeat="menuItem in favorites" title="{{menuItem.favoriteDesc}}">
+          <div class="cb-icon cb-item__icon">
+            <svg>
+              <use xlink:href="" ng-href="${contextPath}/cobis/web/assets/img/icons.svg&#35;{{menuItem.icon}}" />
+            </svg>
+          </div>
+          <div class="cb-item__label">{{ menuItem.favoriteDesc }}</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="cb-bookmark-toggle" ng-class="{'cb-collapsed': bookmarksCollapsed}">
+  <button type="button" ng-click="toggleBookmarks()"><span class="fa fa-angle-up"></span></button>
+</div>
+
+<div class="cb-main-layout container">
+  <div class="row">
+    <div class="cb-sidebar col-md-4" ng-class="{'cb-opened': menuOpened}">
+      <div class="cb-menu-backdrop" ng-click="toggleMenu()">
+        <div class="cb-button"><span class="fa fa-times"></span></div>
+      </div>
+      <div class="cb-menu">
+        <button class="btn btn-default btn-block cb-btn-menu cb-btn-dropdown collapsed" data-target="#menu-0">{{'CWC.SECURITY.LOGIN.LABELS.MENU'|translate}}</button>
+        <div class="collapse" id="menu-0">
+          <div class="list-group">
+            <div class="list-group-item" ng-if="menuItem.mini=='N'" ng-repeat="menuItem in collectionMenus[1].children" ng-class="{active: menuItem==currentMenuItem}">
+              <div class="cb-flex cb-middle">
+                <div ng-if="menuItem.isPackage='S'" class="cb-icon">
+                  <svg class="icon_menu">
+                    <use xlink:href="" ng-href="${contextPath}/cobis/web/assets/img/icons.svg&#35;{{menuItem.iconPackage}}" />
+                  </svg>
+                </div>
+                <div ng-if="menuItem.isNew == 'S' && !menuItem.children" class="new1">{{'CWC.SECURITY.LOGIN.LABELS.NEW'|translate}}</div>
+                <a ng-show="!menuItem.children" href="javascript://" ng-click="setView(menuItem, menuItem.url,null,$event)" ng-class="{'label_package': '{{ menuItem.isPackage }}' == 'S'}" class="cb-grow">{{menuItem.label}}</a>
+                <a ng-show="menuItem.children && menuItem.children.length>0" href="javascript://" data-target="#menu-{{ menuItem.idMenu }}" ng-class="{'label_package': '{{ menuItem.isPackage }}' == 'S'}" class="cb-grow cb-collapsible collapsed">{{menuItem.label}}</a>
+                <div ng-show="!menuItem.children" ng-click="setFavorite(menuItem, $event)" ng-class="{'fa-star':menuItem.favorite, 'fa-star-o':!menuItem.favorite}" class="fa"></div>
+              </div>
+              <div class="collapse" id="menu-{{menuItem.idMenu}}">
+                <div class="list-group" style="margin-bottom: -1px;">
+                  <div class="list-group-item" ng-if="menuItemLevel2.mini=='N'" ng-repeat="menuItemLevel2 in menuItem.children" ng-class="{active: menuItemLevel2==currentMenuItem}">
+                    <div class="cb-flex cb-middle">
+                      <div ng-if="menuItemLevel2.isNew == 'S'  && !menuItemLevel2.children" class=" new_base new2">{{'CWC.SECURITY.LOGIN.LABELS.NEW'|translate}}</div>
+                      <a ng-show="!menuItemLevel2.children" href="javascript://" ng-click="setView(menuItemLevel2, menuItemLevel2.url,null,$event)" class="cb-grow">{{menuItemLevel2.label}}</a>
+                      <a ng-show="menuItemLevel2.children && menuItemLevel2.children.length>0" href="javascript://" data-target="#menu-{{ menuItemLevel2.idMenu }}" class="cb-grow cb-collapsible collapsed">{{ menuItemLevel2.label }}</a>
+                      <div ng-show="!menuItemLevel2.children" ng-click="setFavorite(menuItemLevel2, $event)" ng-class="{'fa-star':menuItemLevel2.favorite, 'fa-star-o':!menuItemLevel2.favorite}" class="fa"></div>
+                    </div>
+                    <div class="collapse" id="menu-{{menuItemLevel2.idMenu}}">
+                      <div class="list-group" style="margin-bottom: -1px;">
+                        <div class="list-group-item" ng-if="menuItemLevel3.mini=='N'" ng-repeat="menuItemLevel3 in menuItemLevel2.children" ng-class="{active: menuItemLevel3==currentMenuItem}">
+                          <div class="cb-flex cb-middle">
+                            <div ng-if="menuItemLevel3.isNew == 'S'" class="new_base new3">{{'CWC.SECURITY.LOGIN.LABELS.NEW'|translate}}</div>
+                            <a href="javascript://" ng-click="setView(menuItemLevel3, menuItemLevel3.url,null,$event)" class="cb-grow">{{menuItemLevel3.label}}</a>
+                            <div ng-click="setFavorite(menuItemLevel3, $event) " ng-class="{'fa-star':menuItemLevel3.favorite, 'fa-star-o':!menuItemLevel3.favorite}" class="fa"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Widget -->
+      <div id="divCollectionMenuWidgets" class="cb-widgets"></div>
+      <!-- Placeholder -->
+    </div>
+    <div class="cb-workarea col-md-8">
+      <h1 id="pageTitle" class="cb-page-title">{{menuLabel}}</h1>
+      <iframe class="embed-responsive-item cb-iframe " name="container-view " style="visibility: hidden;overflow:hidden" ng-src="{{shellTab.url}}" id="mainIframe" scrollable="false"></iframe>
+    </div>
+  </div>
+</div>
+
+<script type="text/ng-template" id="warning-dialog.html">
+  <div class="modal-header">
+        <h3 translate>CWC.SECURITY.IDLE.TITLES.MODAL_IDLE_TITLE</h3>
+    </div>
+    <div idle-countdown="countdown" class="modal-body">
+        <progressbar max="60" value="60" animate="true" class="progress-striped active"><span translate>CWC.SECURITY.IDLE.TITLES.MODAL_IDLE_PROGRESS_BAR</span>{{countdown}} <span translate>CWC.SECURITY.IDLE.TITLES.MODAL_IDLE_PROGRESS_TIME</span>
+        </progressbar>
+    </div>
+</script>

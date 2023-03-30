@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Guía de estilo - Cobis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../styles/theme.css" rel="stylesheet" />
+  <link href="style-guide.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <nav class="cb-globalnav navbar navbar-fixed-top navbar-inverse">
+    <div class="container-fluid cb-flex">
+      <div class="navbar-brand" href="#"><img src="images/logo.png" /></div>
+      <ul class="nav navbar-nav cb-grow">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="standards.html">Principios</a></li>
+        <li class="active"><a href="components.html">Componentes</a></li>
+        <li><a href="icons.html">Íconos</a></li>
+        <li><a href="resources.html">Recursos</a></li>
+        <li><div class="label label-danger" style="margin-left: 40px; margin-top: 18px; display: block;">Versión preliminar</div></li>
+      </ul>
+      <a href="../views/container.html" target="_blank" class="btn btn-primary navbar-btn">Abrir prototipo <span class="fa fa-angle-double-right"></span></a>
+    </div>
+  </nav>
+  <div class="cb-sidebar">
+    <ul>
+      <li><a href="#">Componentes</a></li>
+      <ul>
+        <li><a href="#">Campos de ingreso</a></li>
+        <ul>
+          <li><a href="#">Input</a></li>
+          <li><a href="#">Prefix/Suffix</a></li>
+          <li><a href="#">Input button</a></li>
+        </ul>
+        <li><a href="#">Selección</a></li>
+        <li><a href="#">Botones</a></li>
+        <li><a href="#">Grillas</a></li>
+      </ul>
+      <li><a href="#">Grupos</a></li>
+      <ul>
+        <li><a href="#">Grupo simple</a></li>
+        <li><a href="#">Separador</a></li>
+        <li><a href="#">Colapsables</a></li>
+        <li><a href="#">Acordeón</a></li>
+        <li><a href="#">Tabs verticales</a></li>
+        <li><a href="#">Tabs horizontales</a></li>
+      </ul>
+      <li><a href="#">Formularios</a></li>
+      <ul>
+        <li><a href="#">Básico</a></li>
+        <li><a href="#">Detalle</a></li>
+        <li><a href="#">Búsqueda</a></li>
+        <li><a href="#">Popup</a></li>
+      </ul>
+    </ul>
+  </div>
+
+  <div class="cb-content">
+    <h1>Componentes</h1>
+    <h2>Campos de ingreso</h2>
+    <h3>Input</h3>
+    <div class="cb-controls-preview">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <div class="control-label">Input text</div>
+            <input type="text" class="form-control" placeholder="Ingrese un texto" />
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <div class="control-label">Input text disabled</div>
+            <input type="text" class="form-control" disabled placeholder="Deshabilitado" />
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <div class="control-label">Input text readonly</div>
+            <input type="text" class="form-control" readonly placeholder="Solo lectura" />
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group has-success">
+            <div class="control-label">Input con exito</div>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group has-warning">
+            <div class="control-label">Input con advertencia</div>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group has-error">
+            <div class="control-label">Input con error</div>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <div class="control-label">Input link</div>
+            <a href="#" class="form-control text-right" readonly>$2,000.00</a>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <div class="control-label">Textarea (Multiples líneas)</div>
+            <textarea class="form-control"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3>Prefix/Suffix</h3>
+    <div class="cb-controls-preview">
+      <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="text" class="form-control" placeholder="Ingrese un texto" />
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Ingrese un texto" />
+            <span class="input-group-addon">USD</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="text" class="form-control" placeholder="Ingrese un texto" />
+            <span class="input-group-addon">USD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <h3>Input button</h3>
+    <div class="cb-controls-preview">
+      <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Seleccione una opción" readonly />
+            <div class="input-group-btn">
+              <button class="btn btn-default"><span class="fa fa-ellipsis-h"></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Ingrese un texto" />
+            <div class="input-group-btn">
+              <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <h3>Selección</h3>
+    <div class="cb-controls-preview">
+      <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="control-label">Dropdown List</div>
+          <input kendo-drop-down-list k-data-source="countryNames" />
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="control-label">Combobox</div>
+          <select kendo-combo-box>
+                            <option>Albania</option>
+                            <option>Andorra</option>
+                            <option>Armenia</option>
+                            <option>Austria</option>
+                            <option>Azerbaijan</option>
+                            <option>Belarus</option>
+                            <option>Belgium</option>
+                            <option>Bosnia & Herzegovina</option>
+                            <option>Bulgaria</option>
+                            <option>Croatia</option>
+                            <option>Cyprus</option>
+                            <option>Czech Republic</option>
+                            <option>Denmark</option>
+                            <option>Estonia</option>
+                            <option>Finland</option>
+                            <option>France</option>
+                            <option>Georgia</option>
+                            <option>Germany</option>
+                            <option>Greece</option>
+                            <option>Hungary</option>
+                            <option>Iceland</option>
+                            <option>Ireland</option>
+                            <option>Italy</option>
+                            <option>Kosovo</option>
+                            <option>Latvia</option>
+                            <option>Liechtenstein</option>
+                            <option>Lithuania</option>
+                            <option>Luxembourg</option>
+                            <option>Macedonia</option>
+                            <option>Malta</option>
+                            <option>Moldova</option>
+                            <option>Monaco</option>
+                            <option>Montenegro</option>
+                            <option>Netherlands</option>
+                            <option>Norway</option>
+                            <option>Poland</option>
+                            <option>Portugal</option>
+                            <option>Romania</option>
+                            <option>Russia</option>
+                            <option>San Marino</option>
+                            <option>Serbia</option>
+                            <option>Slovakia</option>
+                            <option>Slovenia</option>
+                            <option>Spain</option>
+                            <option>Sweden</option>
+                            <option>Switzerland</option>
+                            <option>Turkey</option>
+                            <option>Ukraine</option>
+                            <option>United Kingdom</option>
+                            <option>Vatican City</option>
+                        </select>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <div class="control-label">Multiselect</div>
+          <select kendo-multi-select k-data-source="countryNames"></select>
+        </div>
+      </div>
+    </div>
+    </div>
+    <h2>Botones</h2>
+    <h3>Botón por defecto</h3>
+    <div class="row">
+      <div class="col-sm-6">
+        <button class="btn btn-default">Ver detalles</button>
+      </div>
+      <div class="col-sm-6">
+        <button class="btn btn-default" disabled>Ver detalles</button>
+      </div>
+    </div>
+    <h3>Botón primario</h3>
+    <div class="row">
+      <div class="col-sm-6">
+        <button class="btn btn-primary">Aceptar</button>
+      </div>
+      <div class="col-sm-6">
+        <button class="btn btn-primary" disabled>Aceptar</button>
+      </div>
+    </div>
+    <h2>Grupos</h2>
+    <h3>Grupo simple</h3>
+    <fieldset class="cb-group cb-group-simple">
+      <div class="form-vertical">
+        <legend>Operación</legend>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <div class="control-label">Producto</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Certificado al vencimiento</option>
+                  <option>Depósito a plazo fijo</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <div class="control-label">Moneda</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Dólares</option>
+                  <option>Euros</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <div class="control-label">Categoría</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Nominativos</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <div class="control-label">Periodicidad</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option>Ninguna</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <h3>Separador</h3>
+    <fieldset class="cb-group cb-group-simple">
+      <div class="form-vertical">
+        <legend>Operación</legend>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <div class="control-label">Producto</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Certificado al vencimiento</option>
+                  <option>Depósito a plazo fijo</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <div class="control-label">Moneda</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Dólares</option>
+                  <option>Euros</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <div class="control-label">Categoría</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option></option>
+                  <option>Nominativos</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <div class="control-label">Periodicidad</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option>Ninguna</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <hr />
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Monto</div>
+              <div class="cb-control">
+                <input type="number" ng-model="amount" kendo-numeric-text-box k-format="c0" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Plazo</div>
+              <div class="cb-control">
+                <input type="number" ng-model="term" kendo-numeric-text-box k-format="c0" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Tasa</div>
+              <div class="cb-control">
+                <input type="number" ng-model="rate" kendo-numeric-text-box k-format="c0" />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Fecha de ingreso</div>
+              <div class="cb-control">
+                <input type="date" kendo-datepicker />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">Fecha de vencimiento</div>
+              <div class="cb-control">
+                <input type="date" kendo-datepicker />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <div class="control-label">&nbsp;</div>
+              <div class="cb-control">
+                <button class="btn btn-default btn-block" ng-click="simulate()">Simular</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <h3>Tabs verticales</h3>
+    <fieldset class="cb-group cb-group-tabbed-v">
+      <div>
+        <div class="row">
+          <div class="col-tab-items col-sm-2">
+            <ul class="nav nav-pills nav-stacked cb-nav-responsive">
+              <li class="active"><a href="#info" data-toggle="tab">General</a></li>
+              <li><a href="#adicional" data-toggle="tab">Adicional</a></li>
+              <li><a href="#deudores" data-toggle="tab">Deudores</a></li>
+              <li><a href="#operaciones" data-toggle="tab">Operaciones</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-10">
+            <div class="tab-content">
+              <div id="info" class="tab-pane active">
+                <div class="cb-group cb-group-collapsible container" style="padding-top:30px;">
+                  <ul kendo-panel-bar k-options="{expandMode:'single'}">
+                    <li class="k-state-active">
+                      <span>Operación</span>
+                      <div>
+                        <fieldset class="cb-group cb-group-simple">
+                          <div class="form-vertical">
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <div class="form-group">
+                                  <div class="control-label">Producto</div>
+                                  <div class="cb-control">
+                                    <select class="form-control">
+                                      <option></option>
+                                      <option>Certificado al vencimiento</option>
+                                      <option>Depósito a plazo fijo</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-3">
+                                <div class="form-group">
+                                  <div class="control-label">Moneda</div>
+                                  <div class="cb-control">
+                                    <select class="form-control">
+                                      <option></option>
+                                      <option>Dólares</option>
+                                      <option>Euros</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-3">
+                                <div class="form-group">
+                                  <div class="control-label">Categoría</div>
+                                  <div class="cb-control">
+                                    <select class="form-control">
+                                      <option></option>
+                                      <option>Nominativos</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-3">
+                                <div class="form-group">
+                                  <div class="control-label">Periodicidad</div>
+                                  <div class="cb-control">
+                                    <select class="form-control">
+                                      <option>Ninguna</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-12">
+                                <hr />
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="form-group">
+                                  <div class="control-label">Monto</div>
+                                  <div class="cb-control">
+                                    <input type="number" ng-model="amount" kendo-numeric-text-box k-format="c0" />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="form-group">
+                                  <div class="control-label">Plazo</div>
+                                  <div class="cb-control">
+                                    <input type="number" ng-model="term" kendo-numeric-text-box k-format="c0" />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="form-group">
+                                  <div class="control-label">Tasa</div>
+                                  <div class="cb-control">
+                                    <input type="number" ng-model="rate" kendo-numeric-text-box k-format="c0" />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="form-group">
+                                  <div class="control-label">Fecha de ingreso</div>
+                                  <div class="cb-control">
+                                    <input type="date" kendo-datepicker />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="form-group">
+                                  <div class="control-label">Fecha de vencimiento</div>
+                                  <div class="cb-control">
+                                    <input type="date" kendo-datepicker />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="form-group">
+                                  <div class="control-label">&nbsp;</div>
+                                  <div class="cb-control">
+                                    <button class="btn btn-default btn-block" ng-click="simulate()">Simular</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+                    </li>
+                    <li>
+                      <span>Dirección</span>
+                      <div>
+                        <div class="cb-group cb-group-simple">
+                          <div class="form-vertical">
+                            <div class="row">
+                              <div class="form-group col-md-6">
+                                <div for="inputEmail4">Nombres</div>
+                                <input type="email" class="form-control" id="inputEmail4">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <div for="inputPassword5">Apellidos</div>
+                                <input type="password" class="form-control" id="inputPassword5">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div for="inputAddress1">Dirección</div>
+                              <input type="text" class="form-control" id="inputAddress1">
+                            </div>
+                            <div class="row">
+                              <div class="form-group col-md-5">
+                                <div for="inputCity1">Ciudad</div>
+                                <input type="text" class="form-control" id="inputCity1">
+                              </div>
+                              <div class="form-group col-md-4">
+                                <div for="inputState">Provincia</div>
+                                <select id="inputState" class="form-control">
+                                  <option selected>Seleccione...</option>
+                                  <option>...</option>
+                                </select>
+                              </div>
+                              <div class="form-group col-md-3">
+                                <div for="inputZip2">Código postal</div>
+                                <input type="text" class="form-control" id="inputZip2">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="checkbox">
+                                <label for="gridCheck">
+                                  <input type="checkbox" id="gridCheck"> Recibir correspondencia
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <span>Forma de pago</span>
+                      <div>
+                        <fieldset class="cb-group cb-group-simple">
+                          <legend>Instrucción de cancelación</legend>
+                          <div>
+                            <kendo-grid options="capitalPayment"></kendo-grid>
+                          </div>
+                        </fieldset>
+                        <fieldset class="cb-group cb-group-simple">
+                          <legend>Pago de interés</legend>
+                          <div>
+                            <kendo-grid options="interestPayment"></kendo-grid>
+                          </div>
+                        </fieldset>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="adicional">
+              </div>
+              <div id="operaciones">
+              </div>
+              <div id="deudores" class="tab-pane">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <h3>Tabs horizontales</h3>
+    <div style="position:relative; border:1px solid #CCC; padding:30px;">
+      <div class="cb-view">
+        <div class="cb-view-container cb-group-layout container">
+          <div class="cb-group cb-group-simple">
+            <div class="k-tabstrip-wrapper">
+              <div kendo-tab-strip>
+                <ul>
+                  <li class="k-state-active">
+                    <a href="#">Resumen</a>
+                  </li>
+                  <li>
+                    <a href="#">Titulares</a>
+                  </li>
+                  <li>
+                    <a href="#">Cuenta</a>
+                  </li>
+                  <li ng-show="product=='schedule'">
+                    <a href="#">Cuotas</a>
+                  </li>
+                  <li>
+                    <a href="#">Movimientos</a>
+                  </li>
+                </ul>
+                <div>
+                  <div class="container">
+                    <fieldset class="cb-group cb-group-tabbed-v">
+                      <div>
+                        <div class="row">
+                          <div class="col-tab-items col-sm-2">
+                            <ul class="nav nav-pills nav-stacked cb-nav-responsive">
+                              <li class="active"><a href="#info" data-toggle="tab">General</a></li>
+                              <li><a href="#adicional" data-toggle="tab">Adicional</a></li>
+                              <li><a href="#deudores" data-toggle="tab">Deudores</a></li>
+                              <li><a href="#operaciones" data-toggle="tab">Operaciones</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-10">
+                            <div class="tab-content">
+                              <div id="info" class="tab-pane active">
+                                <div class="cb-group cb-group-collapsible container" style="padding-top:30px;">
+                                  <ul kendo-panel-bar k-options="{expandMode:'single'}">
+                                    <li class="k-state-active">
+                                      <span>Operación</span>
+                                      <div>
+                                        <fieldset class="cb-group cb-group-simple">
+                                          <div class="form-vertical">
+                                            <div class="row">
+                                              <div class="col-sm-3">
+                                                <div class="form-group">
+                                                  <div class="control-label">Producto</div>
+                                                  <div class="cb-control">
+                                                    <select class="form-control">
+                                                      <option></option>
+                                                      <option>Certificado al vencimiento</option>
+                                                      <option>Depósito a plazo fijo</option>
+                                                    </select>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-sm-3">
+                                                <div class="form-group">
+                                                  <div class="control-label">Moneda</div>
+                                                  <div class="cb-control">
+                                                    <select class="form-control">
+                                                      <option></option>
+                                                      <option>Dólares</option>
+                                                      <option>Euros</option>
+                                                    </select>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-sm-3">
+                                                <div class="form-group">
+                                                  <div class="control-label">Categoría</div>
+                                                  <div class="cb-control">
+                                                    <select class="form-control">
+                                                      <option></option>
+                                                      <option>Nominativos</option>
+                                                    </select>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-sm-3">
+                                                <div class="form-group">
+                                                  <div class="control-label">Periodicidad</div>
+                                                  <div class="cb-control">
+                                                    <select class="form-control">
+                                                      <option>Ninguna</option>
+                                                    </select>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-sm-12">
+                                                <hr />
+                                              </div>
+                                              <div class="col-sm-4">
+                                                <div class="form-group">
+                                                  <div class="control-label">Monto</div>
+                                                  <div class="cb-control">
+                                                    <input type="number" ng-model="amount" kendo-numeric-text-box k-format="c0" />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                <div class="form-group">
+                                                  <div class="control-label">Plazo</div>
+                                                  <div class="cb-control">
+                                                    <input type="number" ng-model="term" kendo-numeric-text-box k-format="c0" />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                <div class="form-group">
+                                                  <div class="control-label">Tasa</div>
+                                                  <div class="cb-control">
+                                                    <input type="number" ng-model="rate" kendo-numeric-text-box k-format="c0" />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                <div class="form-group">
+                                                  <div class="control-label">Fecha de ingreso</div>
+                                                  <div class="cb-control">
+                                                    <input type="date" kendo-datepicker />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                <div class="form-group">
+                                                  <div class="control-label">Fecha de vencimiento</div>
+                                                  <div class="cb-control">
+                                                    <input type="date" kendo-datepicker />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                <div class="form-group">
+                                                  <div class="control-label">&nbsp;</div>
+                                                  <div class="cb-control">
+                                                    <button class="btn btn-default btn-block" ng-click="simulate()">Simular</button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </fieldset>
+                                      </div>
+                                    </li>
+                                    <li>
+                                      <span>Dirección</span>
+                                      <div>
+                                        <div class="cb-group cb-group-simple">
+                                          <div class="form-vertical">
+                                            <div class="row">
+                                              <div class="form-group col-md-6">
+                                                <div for="inputEmail4">Nombres</div>
+                                                <input type="email" class="form-control" id="inputEmail4">
+                                              </div>
+                                              <div class="form-group col-md-6">
+                                                <div for="inputPassword5">Apellidos</div>
+                                                <input type="password" class="form-control" id="inputPassword5">
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <div for="inputAddress1">Dirección</div>
+                                              <input type="text" class="form-control" id="inputAddress1">
+                                            </div>
+                                            <div class="row">
+                                              <div class="form-group col-md-5">
+                                                <div for="inputCity1">Ciudad</div>
+                                                <input type="text" class="form-control" id="inputCity1">
+                                              </div>
+                                              <div class="form-group col-md-4">
+                                                <div for="inputState">Provincia</div>
+                                                <select id="inputState" class="form-control">
+                                                  <option selected>Seleccione...</option>
+                                                  <option>...</option>
+                                                </select>
+                                              </div>
+                                              <div class="form-group col-md-3">
+                                                <div for="inputZip2">Código postal</div>
+                                                <input type="text" class="form-control" id="inputZip2">
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <div class="checkbox">
+                                                <label for="gridCheck">
+                                                  <input type="checkbox" id="gridCheck"> Recibir correspondencia
+                                                </label>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </li>
+                                    <li>
+                                      <span>Forma de pago</span>
+                                      <div>
+                                        <fieldset class="cb-group cb-group-simple">
+                                          <legend>Instrucción de cancelación</legend>
+                                          <div>
+                                            <kendo-grid options="capitalPayment"></kendo-grid>
+                                          </div>
+                                        </fieldset>
+                                        <fieldset class="cb-group cb-group-simple">
+                                          <legend>Pago de interés</legend>
+                                          <div>
+                                            <kendo-grid options="interestPayment"></kendo-grid>
+                                          </div>
+                                        </fieldset>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div id="adicional">
+                              </div>
+                              <div id="operaciones">
+                              </div>
+                              <div id="deudores" class="tab-pane">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="cb-grow cb-scrollable">
+
+                </div>
+                <div class="cb-grow cb-scrollable">
+
+                </div>
+                <div class="cb-grow cb-scrollable">
+
+                </div>
+                <div class="cb-grow cb-scrollable">
+
+                </div>
+              </div>
+            </div>
+            <div class="cb-navbar cb-navbar-bottom">
+              <nav class="navbar navbar-default navbar-fixed-bottom" style="position:absolute;">
+                <button class="btn btn-primary navbar-btn" ng-click="submitSaveDeposit()">Guardar</button>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2>Formularios</h2>
+    <p>El diseño de formularios tiene como principales objetivos:</p>
+    <ul>
+      <li>Proveer una clara diferenciación entre las acciones primarias y secundarias.</li>
+      <li>Prevenir errores del usuario cuando interactuan.</li>
+      <li>Manejo consistente de errores.</li>
+    </ul>
+    <h3>Básico</h3>
+    <div style="position:relative; border:1px solid #CCC;">
+      <div class="cb-view">
+        <div class="cb-breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="#">Pantalla inicial</a></li>
+            <li>Subpantalla</li>
+          </ol>
+        </div>
+        <div class="cb-view-container cb-group-layout container" style="padding-top: 30px;max-width: 700px;">
+          <div class="cb-group cb-group-simple">
+            <div class="form-vertical">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <div for="inputEmail5">Nombres</div>
+                  <input type="email" class="form-control" id="inputEmail5">
+                </div>
+                <div class="form-group col-md-6">
+                  <div for="inputPassword4">Apellidos</div>
+                  <input type="password" class="form-control" id="inputPassword4">
+                </div>
+              </div>
+              <div class="form-group">
+                <div for="inputAddress2">Dirección</div>
+                <input type="text" class="form-control" id="inputAddress2">
+              </div>
+              <div class="row">
+                <div class="form-group col-md-5">
+                  <div for="inputCity2">Ciudad</div>
+                  <input type="text" class="form-control" id="inputCity2">
+                </div>
+                <div class="form-group col-md-4">
+                  <div for="inputState2">Provincia</div>
+                  <select id="inputState2" class="form-control">
+                    <option selected>Seleccione...</option>
+                    <option>...</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-3">
+                  <div for="inputZip1">Código postal</div>
+                  <input type="text" class="form-control" id="inputZip1">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="checkbox">
+                  <label for="gridCheck">
+                    <input type="checkbox" id="gridCheck"> Recibir correspondencia
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: 30px;">
+          <nav class="navbar navbar-default navbar-fixed-bottom" style="position:absolute; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+            <button class="btn btn-primary navbar-btn" data-dismiss="modal" ng-click="submitSaveDeposit()">Guardar</button>
+            <button class="btn btn-default navbar-btn" data-dismiss="modal" ng-click="resetSaveDeposit()">Limpiar</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <h3>Formulario de detalle</h3>
+    <div style="position:relative; border:1px solid #CCC;">
+      <div class="cb-view">
+        <div class="cb-viewport cb-flex cb-column" style="position:relative;">
+          <div class="cb-form-header cb-no-margin" ng-include="'../views/shared/header.html'"></div>
+          <div class="k-tabstrip-wrapper cb-flex cb-grow">
+            <div kendo-tab-strip class="cb-flex cb-column cb-grow">
+              <ul>
+                <li class="k-state-active">
+                  <a href="#">Resumen</a>
+                </li>
+                <li>
+                  <a href="#">Titulares</a>
+                </li>
+                <li>
+                  <a href="#">Cuenta</a>
+                </li>
+                <li ng-show="product=='schedule'">
+                  <a href="#">Cuotas</a>
+                </li>
+                <li>
+                  <a href="#">Movimientos</a>
+                </li>
+              </ul>
+              <div class="cb-grow cb-scrollable">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div kendo-chart k-options="average6m" style="height: 350px;"></div>
+                    </div>
+                    <div class="col-sm-6">
+                      <h4 style="color: #8e8e8e; font-size: 16px; font-weight: normal; text-align: center;">Sumario</h4>
+                      <ul class="list-group">
+                        <li class="list-group-item">Retenciones</li>
+                        <li class="list-group-item cb-flex">
+                          <div class="cb-grow" style="font-weight:bold;">Remesas</div>
+                          <div>800.00 USD</div>
+                        </li>
+                        <li class="list-group-item cb-flex">
+                          <div class="cb-grow" style="font-weight:bold;">Remesas hoy</div>
+                          <div>300.00 USD</div>
+                        </li>
+                        <li class="list-group-item cb-flex">
+                          <div class="cb-grow" style="font-weight:bold;">Retenciones 24h</div>
+                          <div>300.00 USD</div>
+                        </li>
+                        <li class="list-group-item cb-flex">
+                          <div class="cb-grow" style="font-weight:bold;">Retenciones 12h</div>
+                          <div>800.00 USD</div>
+                        </li>
+                        <li class="list-group-item">Bloqueos</li>
+                        <li class="list-group-item cb-flex">
+                          <div class="cb-grow" style="font-weight:bold;">Por valor</div>
+                          <div>4,000.00 USD</div>
+                        </li>
+                        <li class="list-group-item cb-flex">
+                          <div class="cb-grow" style="font-weight:bold;">Por encaje</div>
+                          <div>800.00 USD</div>
+                        </li>
+                        <li class="list-group-item cb-flex">
+                          <div class="cb-grow" style="font-weight:bold;">Ultima transacción</div>
+                          <div>2018-03-12</div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cb-grow cb-scrollable">
+
+              </div>
+              <div class="cb-grow cb-scrollable">
+
+              </div>
+              <div class="cb-grow cb-scrollable">
+
+              </div>
+              <div class="cb-grow cb-scrollable">
+
+              </div>
+            </div>
+          </div>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: 30px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="position:absolute;">
+              <button class="btn btn-primary navbar-btn" ng-click="submitSaveDeposit()">Guardar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3>Búsquedas</h3>
+  </div>
+
+  <script>
+    var librariesUrl = '../lib/';
+  </script>
+  <script src="../lib/require.config.js"></script>
+  <script data-main="style-guide" src="../lib/require/require.js"></script>
+</body>
+
+</html>

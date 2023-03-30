@@ -1,0 +1,12 @@
+[
+  {"number":"11", "name":"Fondos disponibles", "movements":"N", "currency":"USD", "type":"Deudora", "status":"Vigente"},
+  {"number":"1101", "name":"Caja", "movements":"N", "currency":"USD", "type":"Deudora", "status":"Vigente"},
+  {"number":"110105", "name":"Efectivo", "movements":"N", "currency":"USD", "type":"Deudora", "status":"Vigente"},
+  {"number":"11010501", "name":"Caja general", "movements":"S", "currency":"USD", "type":"Deudora", "status":"Vigente"},
+  {"number":"11010502", "name":"Caja ATM", "movements":"S", "currency":"USD", "type":"Deudora", "status":"Vigente"},
+  {"number":"110110", "name":"Caja chica", "movements":"N", "currency":"USD", "type":"Deudora", "status":"Vigente"},
+  {"number":"11011001", "name":"Caja chica agencias", "movements":"S", "currency":"USD", "type":"Deudora", "status":"Cancelada"},
+  {"number":"11011002", "name":"Caja chica secretaría", "movements":"S", "currency":"USD", "type":"Deudora", "status":"Vigente"},
+  {"number":"11011003", "name":"Caja chica GOE", "movements":"S", "currency":"USD", "type":"Acredora", "status":"Vigente"},
+  {"number":"11011004", "name":"Fondo construcciones", "movements":"N", "currency":"USD", "type":"Deudora", "status":"Vigente"}
+]

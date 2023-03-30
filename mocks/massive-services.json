@@ -1,0 +1,9 @@
+[
+  {"name": "Afiliaciones masivas", "icon":"usergroup--plus", "status": "Vigente", "blocked": "No aplica", "affectation": "Afectación línea a línea", "validate_affiliation": "No aplica", "authorization": "Si"},
+  {"name": "Pago a terceros", "icon": "transfer--user", "status": "Vigente", "blocked": "No aplica", "affectation": "Afectación línea a línea", "validate_affiliation": "No aplica", "authorization": "Si"},
+  {"name": "Domiciliados", "icon": "list-upload", "status": "Vigente", "blocked": "No aplica", "affectation": "Afectación línea a línea", "validate_affiliation": "No aplica", "authorization": "Si"},
+  {"name": "Domiciliados Interbancarios", "icon": "list-upload", "status": "Vigente", "blocked": "No aplica", "affectation": "Afectación línea a línea", "validate_affiliation": "No aplica", "authorization": "Si"},
+  {"name": "Pago de nómina", "icon": "payment-upload", "status": "Vigente", "blocked": "No aplica", "affectation": "Afectación línea a línea", "validate_affiliation": "No aplica", "authorization": "Si"},
+  {"name": "Pagos masivos", "icon": "payments-upload", "status": "Vigente", "blocked": "No aplica", "affectation": "Afectación línea a línea", "validate_affiliation": "No aplica", "authorization": "Si"},
+  {"name": "Cobros", "icon": "request-money", "status": "Vigente", "blocked": "No aplica", "affectation": "Afectación línea a línea", "validate_affiliation": "No aplica", "authorization": "Si"}
+]

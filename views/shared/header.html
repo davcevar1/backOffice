@@ -1,0 +1,78 @@
+<div class="cb-flex" ng-class="{'cb-collapsed':header.collapsed}">
+  <div class="cb-grow">
+    <div ng-if="header.secondaryText" class="cb-secondary-text" title="# de prestamo">{{ header.secondaryText }}</div>
+    <div ng-if="header.primaryText" class="cb-primary-text cb-text-xl"><button class="btn btn-default cb-caret" ng-if="header.collapsable" ng-click="header.collapsed=!header.collapsed" style="padding:5px; margin-left:-26px; margin-right:5px;"><span
+          class="fa fa-angle-down"></span></button>{{ header.collapsed? header.secondaryText+' - '+header.primaryText : header.primaryText }}</div>
+    <div ng-if="!hideFields" class="cb-fields cb-flex cb-gutters">
+      <div ng-repeat="field in header.fields | filter:{opened:true}">
+        <div>{{ field.value }}</div>
+        <div class="small control-label">{{ field.label }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="cb-actions cb-flex cb-top">
+      <div ng-if="!header.hideMoreInfo" class="btn-group" ng-show="header.fields && header.fields.length>0">
+      <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="Más información">
+          <span class="fa fa-bell"></span>
+          <div class="badge" style="background-color:#ef7926;">5</div>
+      </button>
+      <ul class="cb-notifications dropdown-menu dropdown-menu-right">
+        <div class="cb-notifications-header cb-flex cb-middle">
+            <h5 class="cb-grow">Notificaciones</h5>
+        </div>
+        <li ng-repeat="notification in notifications | filter:{priority:true}" class="cb-notification" ng-class="{'cb-unread': !notification.read}">
+            <a href="javascript://" ng-click="notification.read = !notification.read; $event.stopPropagation()">
+                <div class="cb-flex cb-middle">
+                    <div class="cb-item-icon {{ notification.icon }}"></div>
+                    <div class="cb-grow">
+                        <div class="cb-title">{{ notification.label }}</div>
+                        <div class="cb-description text-muted">{{ notification.description }}</div>
+                        <div class="cb-date small text-muted" style="font-weight: bold;">{{ notification.date | date }}</div>
+                        <div class="cb-flex cb-gutters-tiny" style="margin-top: 8px;" ng-if="notification.actions">
+                            <button type="button" class="btn btn-sm {{ action.class }}" ng-repeat="action in notification.actions">{{ action.label }}</button>
+                        </div>
+                    </div>
+                    <div class="cb-status"></div>
+                </div>
+            </a>
+        </li>
+        <hr style="margin-top: 5px; margin-bottom: 5px;" />
+        <li ng-repeat="notification in notifications | filter:{priority:false}" class="cb-notification" ng-class="{'cb-unread': !notification.read}">
+            <a href="javascript://" ng-click="notification.read = !notification.read; $event.stopPropagation()">
+                <div class="cb-flex cb-middle">
+                    <div class="cb-item-icon {{ notification.icon }}"></div>
+                    <div class="cb-grow">
+                        <div class="cb-title">{{ notification.label }}</div>
+                        <div class="cb-description text-muted">{{ notification.description }}</div>
+                        <div class="cb-date small text-muted" style="font-weight: bold;">{{ notification.date | date }}</div>
+                        <div class="cb-flex cb-gutters-tiny" style="margin-top: 8px;" ng-if="notification.actions">
+                            <button type="button" class="btn btn-sm {{ action.class }}" ng-repeat="action in notification.actions">{{ action.label }}</button>
+                        </div>
+                    </div>
+                    <div class="cb-status"></div>
+                </div>
+            </a>
+        </li>
+      </ul>
+    </div>
+    <button ng-show="!editable && !header.hideSearch" class="btn btn-default dropdown-toggle" type="button" title="Buscar" ng-click="gotoSearch()"><span class="fa fa-search"></span></button>
+    <div ng-if="!header.hideMoreInfo" class="btn-group" ng-show="header.fields && header.fields.length>0">
+      <button id="more-info" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="Más información"><span class="fa fa-info-circle"></span></button>
+      <ul class="dropdown-menu dropdown-menu-right" style="color:#333; max-height:400px; overflow: auto;">
+        <li>
+          <div ng-repeat="field in header.fields | filter:{opened:false}" class="cb-flex cb-gutters" style="padding: 5px 0; margin: 0 10px;" ng-style="{'border-bottom': !$last? '1px solid #ddd' : ''}">
+            <strong class="cb-grow cb-no-wrap">{{ field.label }}:</strong>
+            <div class="cb-no-wrap">{{ field.value }}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="btn-group" ng-show="!editable">
+      <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" ng-if="header.actions.length>0"><span class="fa fa-ellipsis-v"></span></button>
+      <ul class="dropdown-menu dropdown-menu-right" ng-if="(header.actions | filter:{opened:false}).length>0">
+        <li class="divider" ng-if="action.label=='-'" ng-repeat-start="action in header.actions | filter:{opened:false}"></li>
+        <li ng-if="action.label!='-'" ng-repeat-end><a href="javascript://" ng-click="action.click()">{{ action.label }}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

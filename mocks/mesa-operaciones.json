@@ -1,0 +1,111 @@
+[{
+  "id": "24523452",
+  "status": "Activo",
+  "product": "Título",
+  "operationType": "Compra",
+  "paymentMethod": "Banco Central",
+  "date": "12/12/2018",
+  "customer": "José Matinez Velasco",
+  "trader": "Marco Andrade",
+  "user": "mandrade",
+  "amount": 500678
+}, {
+  "id": "24523452",
+  "status": "Activo",
+  "product": "Título",
+  "operationType": "Venta",
+  "paymentMethod": "Banco Central",
+  "date": "12/12/2018",
+  "customer": "José Matinez Velasco",
+  "trader": "Marco Andrade",
+  "user": "mandrade",
+  "amount": 500678
+}, {
+  "id": "24523452",
+  "status": "Activo",
+  "product": "Título",
+  "operationType": "Arbitraje",
+  "paymentMethod": "Banco Central",
+  "date": "12/12/2018",
+  "customer": "José Matinez Velasco",
+  "trader": "Marco Andrade",
+  "user": "mandrade",
+  "amount": 500678
+}, {
+  "id": "24523452",
+  "status": "Activo",
+  "product": "Título",
+  "operationType": "Compra",
+  "paymentMethod": "Banco Central",
+  "date": "12/12/2018",
+  "customer": "José Matinez Velasco",
+  "trader": "Marco Andrade",
+  "user": "mandrade",
+  "amount": 500678
+}, {
+  "id": "24523452",
+  "status": "Activo",
+  "product": "Título",
+  "operationType": "Compra",
+  "paymentMethod": "Banco Central",
+  "date": "12/12/2018",
+  "customer": "José Matinez Velasco",
+  "trader": "Marco Andrade",
+  "user": "mandrade",
+  "amount": 500678
+}, {
+  "id": "24523452",
+  "status": "Activo",
+  "product": "Título",
+  "operationType": "Compra",
+  "paymentMethod": "Banco Central",
+  "date": "12/12/2018",
+  "customer": "José Matinez Velasco",
+  "trader": "Marco Andrade",
+  "user": "mandrade",
+  "amount": 500678
+}, {
+  "id": "24523452",
+  "status": "Activo",
+  "product": "Título",
+  "operationType": "Compra",
+  "paymentMethod": "Banco Central",
+  "date": "12/12/2018",
+  "customer": "José Matinez Velasco",
+  "trader": "Marco Andrade",
+  "user": "mandrade",
+  "amount": 500678
+}, {
+  "id": "24523452",
+  "status": "Activo",
+  "product": "Título",
+  "operationType": "Compra",
+  "paymentMethod": "Banco Central",
+  "date": "12/12/2018",
+  "customer": "José Matinez Velasco",
+  "trader": "Marco Andrade",
+  "user": "mandrade",
+  "amount": 500678
+}, {
+  "id": "24523452",
+  "status": "Activo",
+  "product": "Título",
+  "operationType": "Compra",
+  "paymentMethod": "Banco Central",
+  "date": "12/12/2018",
+  "customer": "José Matinez Velasco",
+  "trader": "Marco Andrade",
+  "user": "mandrade",
+  "amount": 500678
+}, {
+  "id": "24523452",
+  "status": "Activo",
+  "product": "Título",
+  "operationType": "Compra",
+  "paymentMethod": "Banco Central",
+  "date": "12/12/2018",
+  "customer": "José Matinez Velasco",
+  "trader": "Marco Andrade",
+  "user": "mandrade",
+  "amount": 500678
+}]

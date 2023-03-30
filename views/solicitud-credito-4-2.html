@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Desembolso</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+    <style>
+		.input-group-btn .btn {
+			line-height: 20px;
+		}
+	</style>
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-toolbar cb-toolbar-top">
+            <div class="cb-toolbar-content">
+                <div id="task-title" class="cb-grow cb-text-ellipsis">
+                    <span id="task-badge" class="label label-default cb-text-sm">234523452444</span> Proceso / Tarea (Versión 4)
+                </div>
+                <div>
+                    <button class="btn btn-default">Observaciones</button>
+                    <button class="btn btn-default">Requerimientos</button>
+                    <div class="btn-group">
+                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Acciones <span class="caret"></span></button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#">Opcion 1</a></li>
+                            <li><a href="#">Opcion 2</a></li>
+                            <li><a href="#">Opcion 3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+        </div>
+		<div class="cb-view-container-root cb-view-container cb-group-layout">
+            <div class="cb-form-header">
+                <div class="pull-right">
+                    <button class="btn btn-default"><span class="fa fa-print"></span> Imprimir</button>
+                </div>
+                <div class="cb-group cb-group-simple">
+                    <div class="cb-text-xl">Aguas Munoz Betty Jeanneth</div> 
+                    <div>
+                        <span class="control-label">Trámite:</span> 02154000020
+                        <span class="control-label">Tipo producto:</span> Crédito automotriz
+                        <span class="control-label">Monto solicitado:</span> $20,000.00 USD
+                        <span class="control-label">Cuota solicitada:</span> 36 meses
+                    </div>
+                    <div>
+                        <span class="control-label">Oficina:</span> Sucursal Sucre
+                        <span class="control-label">Oficial:</span> Jose Martinez
+                        <span class="control-label">Fecha de inicio:</span> 12/12/2015
+                    </div>
+                </div>
+			</div>
+			<div class="cb-view-container cb-group-layout">
+                <fieldset class="cb-group cb-group-simple">
+					<legend>Valores a liquidar</legend>
+                    <div>
+						<kendo-grid options="valoresOptions"></kendo-grid> 
+					</div>
+                </fieldset>
+				<fieldset class="cb-group cb-group-simple">
+					<legend>Instrucciones de desembolso</legend>
+                    <div>
+						<kendo-grid options="desembolsosOptions"></kendo-grid> 
+					</div>
+                </fieldset>
+            </div>    
+		</div>
+        <div class="cb-wizard">
+            <div class="cb-wizard-content">
+                <div class="container-fluid">
+                    <div class="cb-wizard-row">
+						<div ng-show="wizardScrollLeft">
+                            <a href="#" class="btn btn-link" data-slide="prev"><span class="fa fa-angle-left"></span></a>
+                        </div>
+						<div class="cb-steps" style="overflow:hidden;">
+							<div class="cb-step"><a href="solicitud-credito-1-2.html" class="btn btn-default btn-block">Ingreso</a></div>
+							<div class="cb-step"><a href="solicitud-credito-2-2.html" class="btn btn-default btn-block">Negociación</a></div>
+							<div class="cb-step"><a href="solicitud-credito-3-2.html" class="btn btn-default btn-block">Garantías</a></div>
+							<div class="cb-step cb-active"><button class="btn btn-default btn-block">Instrucciones desembolso</button></div>
+                            <div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Informacion cliente</button></div>
+							<div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Direcciones y teléfonos</a></div>
+							<div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Estado financiero</a></div>
+						</div>
+						<div ng-show="wizardScrollRight">
+                            <a href="#" class="btn btn-link" data-slide="next"><span class="fa fa-angle-right"></span></a>
+                        </div>
+						<div class="cb-actions">
+                            <div class="btn-group btn-block dropup">
+							  <a href="cliente-datos-generales.html" class="btn btn-primary">Continuar</a>
+							  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu dropdown-menu-right">
+								<li><a href="#">Guardar temporalmente</a></li>
+								<li><a href="#">Imprimir</a></li>
+							  </ul>
+							</div>
+                        </div>
+                    </div>    
+                </div>    
+            </div>	
+        </div>
+        <div class="cb-view-loading cb-hidden"> 
+            <div class="cb-view-loading-icon"></div> 
+        </div>
+    </div>
+	
+	<script type="text/x-kendo-template" id="template">
+        <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button><button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Editar</button><button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+    </script>
+	
+	<script type="text/x-kendo-template" id="amortizacion2">
+        <button class="btn btn-default"><span class="fa fa-calculator"></span> Calcular</button>
+    </script>
+	
+	<script type="text/x-kendo-template" id="polizaTools">
+        <button ng-click="addPoliza()" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button><button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Editar</button><button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+    </script>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="solicitud-credito" src="../lib/require/require.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+[
+  {"number":"0545000987", "status":"Vigente", "value":"3456", "product": "Cuenta de ahorros", "identifier":"1798765456", "owner":"Tapia Andrade Viviana María"},
+  {"number":"0456880001", "status":"Vigente", "value":"65433", "product": "Cuenta de ahorros", "identifier":"1798765456", "owner":"Tapia Andrade Viviana María"},
+  {"number":"0463456566", "status":"No Vigente", "value":"234", "product": "Cuenta de ahorros", "identifier":"1798765456", "owner":"Tapia Andrade Viviana María"},
+  {"number":"0565543635", "status":"Vigente", "value":"2344", "product": "Cuenta de ahorros", "identifier":"1798765456", "owner":"Tapia Andrade Viviana María"}
+]

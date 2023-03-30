@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Guía de estilo Cobis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../styles/theme.css" rel="stylesheet" />
+  <link href="style-guide.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <nav class="cb-globalnav navbar navbar-fixed-top navbar-inverse">
+    <div class="container-fluid cb-flex">
+      <div class="navbar-brand" href="#"><img src="images/logo.png" /></div>
+      <ul class="nav navbar-nav cb-grow">
+        <li class="active"><a href="index.html">Inicio</a></li>
+        <li><a href="standards.html">Principios</a></li>
+        <li><a href="components.html">Componentes</a></li>
+        <li><a href="icons.html">Íconos</a></li>
+        <li><a href="resources.html">Recursos</a></li>
+        <li><div class="label label-danger" style="margin-left: 40px; margin-top: 18px; display: block;">Versión preliminar</div></li>
+      </ul>
+      <a href="../views/container.html" target="_blank" class="btn btn-primary navbar-btn">Abrir prototipo <span class="fa fa-angle-double-right"></span></a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="jumbotron" style="background:transparent;">
+      <div class="cb-flex cb-gutters">
+        <div style="max-width:1000px;">
+          <h1 style="margin:0; padding: 0;margin-bottom:30px; background:transparent; border:0;">Guía de estilo Cobis</h1>
+          <p>El objetivo de esta guía es proveer de algunos elementos prediseñados y reglas que los diseñadores y desarrolladores deben seguir para asegurarse que cada elemento de la plataforma en conjunto sea consistente.</p>
+          <p>La mejor forma de lograr esto es pensar y trabajar enfocado en el usuario y sus necesidades.</p>
+        </div>
+        <div>
+          <img src="images/intro.png" class="img-responsive" />
+          <p class="text-center" style="margin-top:40px;"><a class="btn btn-primary btn-lg" href="standards.html" role="button">Conocer más</a></p>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="text-center">Copyright &copy 2018 Cobis. Todos los Derechos Reservados.</div>
+  </div>
+
+  <script>
+    var librariesUrl = ' ../lib/';
+  </script>
+  <script src="../lib/require.config.js"></script>
+  <script data-main="style-guide" src="../lib/require/require.js"></script>
+</body>
+
+</html>

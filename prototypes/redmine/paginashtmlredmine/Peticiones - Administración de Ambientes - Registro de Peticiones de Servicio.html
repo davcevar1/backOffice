@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Peticiones - Administración de Ambientes - Registro de Peticiones de Servicio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="Redmine" />
+<meta name="keywords" content="issue,bug,tracker" />
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="SVJplNcQrHBbaU0g6qkUHufb94mCH+gVUUPWZICakjCPePmOZqn3kZvIO36KHb2Km/cf9P86ZZUm/Zm5mkcHzg==" />
+<link rel='shortcut icon' href='/favicon.ico?1480364180' />
+<link rel="stylesheet" media="all" href="/stylesheets/jquery/jquery-ui-1.11.0.css?1546844893" />
+<link rel="stylesheet" media="all" href="/themes/a1/stylesheets/application.css?1548124448" />
+<link rel="stylesheet" media="all" href="/stylesheets/responsive.css?1546844893" />
+
+<script src="/javascripts/jquery-1.11.1-ui-1.11.0-ujs-3.1.4.js?1546844892"></script>
+<script src="/javascripts/application.js?1546844892"></script>
+<script src="/javascripts/responsive.js?1546844893"></script>
+<script>
+//<![CDATA[
+$(window).load(function(){ warnLeavingUnsaved('Esta página contiene texto no guardado y si la abandona sus cambios se perderán'); });
+//]]>
+</script>
+<script src="/themes/a1/javascripts/theme.js?1546847094"></script>
+<link rel="stylesheet" media="screen" href="/plugin_assets/redmine_banner/stylesheets/banner.css?1498969320" /><script src="/plugin_assets/redmine_banner/javascripts/banner.js?1498969320"></script> <link rel="stylesheet" media="screen" href="/plugin_assets/redmine_feriado/stylesheets/redmine_feriado.css?1546844892" />  <link rel="stylesheet" media="screen" href="/plugin_assets/redmine_lightbox2/stylesheets/jquery.fancybox-2.1.5.css?1546844892" /><link rel="stylesheet" media="screen" href="/plugin_assets/redmine_lightbox2/stylesheets/lightbox.css?1546844892" /><script src="/plugin_assets/redmine_lightbox2/javascripts/jquery.fancybox-2.1.5.pack.js?1546844892"></script><script src="/plugin_assets/redmine_lightbox2/javascripts/lightbox.js?1546844892"></script> <link rel="stylesheet" media="screen" href="/plugin_assets/redmine_agile/stylesheets/redmine_agile.css?1546844892" />
+<!-- page specific tags -->
+<script>
+//<![CDATA[
+var datepickerOptions={dateFormat: 'yy-mm-dd', firstDay: 1, showOn: 'button', buttonImageOnly: true, buttonImage: '/images/calendar.png?1546844893', showButtonPanel: true, showWeek: true, showOtherMonths: true, selectOtherMonths: true, changeMonth: true, changeYear: true, beforeShow: beforeShowDatePicker};
+//]]>
+</script><script src="/javascripts/i18n/datepicker-es.js?1546844892"></script>    <link rel="alternate" type="application/atom+xml" title="Peticiones" href="https://servicedesk.cobiscorp.com/projects/admin-de-ambientes/issues.atom?key=82265f31e91a6aec1e1e30b78df108174a5fb5f6" />
+    <link rel="alternate" type="application/atom+xml" title="Detalles de todos los cambios" href="https://servicedesk.cobiscorp.com/issues/changes.atom?key=82265f31e91a6aec1e1e30b78df108174a5fb5f6" />
+<script src="/javascripts/context_menu.js?1546844891"></script><link rel="stylesheet" media="screen" href="/stylesheets/context_menu.css?1546844891" /></head>
+<body class="theme-A1 project-admin-de-ambientes controller-issues action-index">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+
+        <div class="flyout-menu__search">
+            <form action="/projects/admin-de-ambientes/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <input type="hidden" name="issues" value="1" />
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">&#9906;</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Búsqueda" />
+</form>        </div>
+
+        <div class="flyout-menu__avatar flyout-menu__avatar--no-avatar">
+            <a class="user active" href="/users/1032">ntrujillo</a>
+        </div>
+
+        <h3>Proyecto</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Perfil</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="/my/account">Mi cuenta</a></li><li><a class="logout" rel="nofollow" data-method="post" href="/logout">Terminar sesión</a></li></ul>    </div>
+    <div id="loggedas">Conectado como <a class="user active" href="/users/1032">ntrujillo</a></div>
+    <ul><li><a class="home" href="/">Inicio</a></li><li><a class="my-page" href="/my/page">Mi página</a></li><li><a class="projects" href="/projects">Proyectos</a></li><li><a class="help" href="https://www.redmine.org/guide">Ayuda</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/admin-de-ambientes/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+        <input type="hidden" name="scope" />
+        <input type="hidden" name="issues" value="1" />
+        <label for='q'>
+          <a accesskey="4" href="/projects/admin-de-ambientes/search">Búsqueda</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" />
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">Administración de Ambientes</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" value="" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=issues" autocomplete="off" /></div><div class="drdn-items projects selection"><a title="COBISCORP" href="/projects/cobiscorp?jump=issues"><span style="padding-left:0px;">COBISCORP</span></a><a title="CALIDAD Y PROCESOS" href="/projects/calidad-y-proceso?jump=issues"><span style="padding-left:16px;">CALIDAD Y PROCESOS</span></a><a title="Mejora Continua" href="/projects/mejora-continua?jump=issues"><span style="padding-left:32px;">Mejora Continua</span></a><a title="Oportunidades de mejora a procesos y metodologías organizacionales" href="/projects/oportunidades-de-mejora-metodologias-pmo?jump=issues"><span style="padding-left:32px;">Oportunidades de mejora a procesos y metodologías organizacionales</span></a><a title="COBIS Service Desk - Soporte" href="/projects/cobis-service-desk-soporte?jump=issues"><span style="padding-left:16px;">COBIS Service Desk - Soporte</span></a><a title="Infraestructura " href="/projects/si-infraestructura?jump=issues"><span style="padding-left:16px;">Infraestructura </span></a><a title="Administración de Ambientes" class="selected" href="/projects/admin-de-ambientes?jump=issues"><span style="padding-left:16px;">Administración de Ambientes</span></a><a title="Administración Herramientas ALM" href="/projects/administracion-herramientas-alm?jump=issues"><span style="padding-left:16px;">Administración Herramientas ALM</span></a><a title="Servicio de Catalogación" href="/projects/servicio-de-catalogacion?jump=issues"><span style="padding-left:16px;">Servicio de Catalogación</span></a><a title="Herramientas de Productividad" href="/projects/herramientas-de-productividad-soporte-interno?jump=issues"><span style="padding-left:16px;">Herramientas de Productividad</span></a><a title="Pista de Arquitectura - Soporte" href="/projects/pista-de-arquitectura-soporte?jump=issues"><span style="padding-left:16px;">Pista de Arquitectura - Soporte</span></a><a title="Producto - Sales &amp; Service Suite" href="/projects/sales-service-suite?jump=issues"><span style="padding-left:16px;">Producto - Sales &amp; Service Suite</span></a><a title="Modernizacion COBIS Ecuador" href="/projects/modernizacion-cobis-ecuador?jump=issues"><span style="padding-left:16px;">Modernizacion COBIS Ecuador</span></a><a title="Te Creemos - Implantación" href="/projects/te-creemos-implantacion?jump=issues"><span style="padding-left:16px;">Te Creemos - Implantación</span></a><a title="Te Creemos - Post Instalación" href="/projects/te-creemos-post-instalacion?jump=issues"><span style="padding-left:16px;">Te Creemos - Post Instalación</span></a><a title="Cobis Cloud &amp; Main Street" href="/projects/cobis-cloud-main-street?jump=issues"><span style="padding-left:16px;">Cobis Cloud &amp; Main Street</span></a><a title="Terrabank" href="/projects/terrabank?jump=issues"><span style="padding-left:16px;">Terrabank</span></a><a title="Santander - Tuiio " href="/projects/santander-tuiio?jump=issues"><span style="padding-left:16px;">Santander - Tuiio </span></a><a title="Santander - Tuiio Certificación" href="/projects/santander-tuiio-certificacion?jump=issues"><span style="padding-left:16px;">Santander - Tuiio Certificación</span></a></div><div class="drdn-items all-projects selection"><a href="/projects?jump=issues">Todos los proyectos</a></div></div></div>
+    </div>
+
+    <h1><span class="breadcrumbs"><a class="root" href="/projects/cobiscorp?jump=issues">COBISCORP</a><span class="separator"> &raquo; </span></span><span class="current-project">Administración de Ambientes</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a id="new-object" onclick="toggleNewObjectDropdown(); return false;" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a accesskey="7" class="new-issue-sub" href="/projects/admin-de-ambientes/issues/new">Nueva petición</a></li></ul>
+</li><li><a class="overview" href="/projects/admin-de-ambientes">Vistazo</a></li><li><a class="activity" href="/projects/admin-de-ambientes/activity">Actividad</a></li><li><a class="issues selected" href="/projects/admin-de-ambientes/issues">Peticiones</a></li><li><a class="time-entries" href="/projects/admin-de-ambientes/time_entries">Tiempo dedicado</a></li></ul>
+        <div class="tabs-buttons" style="display:none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+            <h3>Peticiones</h3>
+
+<ul>
+    <li><a href="/projects/admin-de-ambientes/issues?set_filter=1">Ver todas las peticiones</a></li>
+      <li><a href="/projects/admin-de-ambientes/issues/report">Resumen</a></li>
+
+
+</ul>
+
+<h3>Reportes</h3>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+ 
+
+
+
+
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+    <a class="icon icon-add new-issue" href="/projects/admin-de-ambientes/issues/new">Nueva petición</a>
+</div>
+
+<h2>Peticiones</h2>
+
+<form id="query_form" action="/projects/admin-de-ambientes/issues" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+  <input type="hidden" name="set_filter" id="set_filter" value="1" />
+<input type="hidden" name="type" id="query_type" value="IssueQuery" disabled="disabled" />
+<input type="hidden" name="sort" value="id:desc" />
+
+<div id="query_form_with_buttons" class="hide-when-print">
+<div id="query_form_content">
+  <fieldset id="filters" class="collapsible ">
+    <legend onclick="toggleFieldset(this);">Filtros</legend>
+    <div style="">
+      <script>
+//<![CDATA[
+
+var operatorLabels = {"=":"igual","!":"no igual","o":"abierta","c":"cerrada","!*":"ninguno","*":"todos","\u003e=":"\u003e=","\u003c=":"\u003c=","\u003e\u003c":"entre","\u003ct+":"en menos que","\u003et+":"en más que","\u003e\u003ct+":"en los próximos","t+":"en","t":"hoy","ld":"ayer","w":"esta semana","lw":"última semana","l2w":"en las últimas 2 semanas","m":"este mes","lm":"último mes","y":"este año","\u003et-":"hace menos de","\u003ct-":"hace más de","\u003e\u003ct-":"en los anteriores","t-":"hace","~":"contiene","!~":"no contiene","=p":"cualquier petición del proyecto","=!p":"cualquier petición que no sea del proyecto","!p":"no hay peticiones en el proyecto","*o":"cualquier peticiones abierta","!o":"peticiones cerradas"};
+var operatorByType = {"list":["=","!"],"list_status":["o","=","!","c","*"],"list_optional":["=","!","!*","*"],"list_subprojects":["*","!*","=","!"],"date":["=","\u003e=","\u003c=","\u003e\u003c","\u003ct+","\u003et+","\u003e\u003ct+","t+","t","ld","w","lw","l2w","m","lm","y","\u003et-","\u003ct-","\u003e\u003ct-","t-","!*","*"],"date_past":["=","\u003e=","\u003c=","\u003e\u003c","\u003et-","\u003ct-","\u003e\u003ct-","t-","t","ld","w","lw","l2w","m","lm","y","!*","*"],"string":["=","~","!","!~","!*","*"],"text":["~","!~","!*","*"],"integer":["=","\u003e=","\u003c=","\u003e\u003c","!*","*"],"float":["=","\u003e=","\u003c=","\u003e\u003c","!*","*"],"relation":["=","=p","=!p","!p","*o","!o","!*","*"],"tree":["=","~","!*","*"]};
+var availableFilters = {"status_id":{"type":"list_status","name":"Estado","remote":true,"values":[["Pendiente","1"],["Autorización Gerente","44"],["Se necesitan más datos","12"],["Solicitud Recurso","37"],["Atención Solicitud","39"],["Generar Licencia","45"],["Entregada Cliente","24"],["Devuelta","17"],["Cerrada","18"],["Cancelado","8"]]},"tracker_id":{"type":"list","name":"Tipo","values":[["Solicitud Especialista","8"],["Solicitud Licencia","9"]]},"priority_id":{"type":"list","name":"Prioridad","values":[["1. Crítica","5"],["2. Media","4"],["3. No Crítica","3"]]},"author_id":{"type":"list","name":"Autor","remote":true},"assigned_to_id":{"type":"list_optional","name":"Asignado a","remote":true},"member_of_group":{"type":"list_optional","name":"Asignado al grupo","remote":true},"assigned_to_role":{"type":"list_optional","name":"Asignado al perfil","remote":true},"fixed_version_id":{"type":"list_optional","name":"Versión prevista","remote":true},"fixed_version.due_date":{"type":"date","name":"Fecha de la versión indicada","values":null},"fixed_version.status":{"type":"list","name":"Estado de la versión indicada","values":[["abierto","open"],["bloqueado","locked"],["cerrado","closed"]]},"category_id":{"type":"list_optional","name":"Categoría","remote":true},"subject":{"type":"text","name":"Asunto","values":null},"description":{"type":"text","name":"Descripción","values":null},"created_on":{"type":"date_past","name":"Creado","values":null},"updated_on":{"type":"date_past","name":"Actualizado","values":null},"closed_on":{"type":"date_past","name":"Cerrada","values":null},"start_date":{"type":"date","name":"Fecha de inicio","values":null},"due_date":{"type":"date","name":"Fecha Estimada Entrega","values":null},"estimated_hours":{"type":"float","name":"Tiempo a Facturar","values":null},"done_ratio":{"type":"integer","name":"% Realizado","values":null},"attachment":{"type":"text","name":"Fichero","values":null},"watcher_id":{"type":"list","name":"Seguidor","values":[["\u003c\u003c yo mismo \u003e\u003e","me"]]},"updated_by":{"type":"list","name":"Actualizado por","remote":true},"last_updated_by":{"type":"list","name":"Última actualización por","remote":true},"cf_54":{"type":"list_optional","name":"Tipo Licencia","remote":true},"cf_36":{"type":"integer","name":"No. Devoluciones Cliente","values":null},"cf_20":{"type":"text","name":"Solución","values":null},"cf_58":{"type":"list_optional","name":"Solución Enviada","remote":true},"cf_60":{"type":"string","name":"Fecha Solución","values":null},"cf_99":{"type":"list_optional","name":"Ambiente Interno","remote":true},"cf_112":{"type":"list_optional","name":"Motivo Devolución Cliente","remote":true},"cf_113":{"type":"list_optional","name":"Servicio Afectado","remote":true},"cf_114":{"type":"list_optional","name":"Motivo Caída Ambiente","remote":true},"cf_115":{"type":"list_optional","name":"Cliente","remote":true},"cf_116":{"type":"list_optional","name":"Proyecto","remote":true},"cf_123":{"type":"string","name":" Project a Reportar","values":null},"relates":{"type":"relation","name":"relacionada con","remote":true},"duplicates":{"type":"relation","name":"duplicada de","remote":true},"duplicated":{"type":"relation","name":"duplicada por","remote":true},"blocks":{"type":"relation","name":"bloquea a","remote":true},"blocked":{"type":"relation","name":"bloqueado por","remote":true},"precedes":{"type":"relation","name":"anterior a","remote":true},"follows":{"type":"relation","name":"posterior a","remote":true},"copied_to":{"type":"relation","name":"copiada a","remote":true},"copied_from":{"type":"relation","name":"copiada desde","remote":true},"parent_id":{"type":"tree","name":"Tarea padre","values":null},"child_id":{"type":"tree","name":"Subtareas","values":null},"issue_id":{"type":"integer","name":"Petición","values":null}};
+var labelDayPlural = "días";
+
+var filtersUrl = "\/queries\/filter?project_id=317\u0026type=IssueQuery";
+
+$(document).ready(function(){
+  initFilters();
+  addFilter("status_id", "o", [""]);
+});
+
+//]]>
+</script>
+<table id="filters-table">
+</table>
+
+<div class="add-filter">
+<label for="add_filter_select">Añadir el filtro</label>
+<select id="add_filter_select"><option value="">&nbsp;</option>
+<option value="status_id">Estado</option>
+<option value="tracker_id">Tipo</option>
+<option value="priority_id">Prioridad</option>
+<option value="author_id">Autor</option>
+<option value="assigned_to_id">Asignado a</option>
+<option value="fixed_version_id">Versión prevista</option>
+<option value="category_id">Categoría</option>
+<option value="subject">Asunto</option>
+<option value="description">Descripción</option>
+<option value="estimated_hours">Tiempo a Facturar</option>
+<option value="done_ratio">% Realizado</option>
+<option value="attachment">Fichero</option>
+<option value="watcher_id">Seguidor</option>
+<option value="updated_by">Actualizado por</option>
+<option value="last_updated_by">Última actualización por</option>
+<option value="cf_54">Tipo Licencia</option>
+<option value="cf_36">No. Devoluciones Cliente</option>
+<option value="cf_20">Solución</option>
+<option value="cf_58">Solución Enviada</option>
+<option value="cf_60">Fecha Solución</option>
+<option value="cf_99">Ambiente Interno</option>
+<option value="cf_112">Motivo Devolución Cliente</option>
+<option value="cf_113">Servicio Afectado</option>
+<option value="cf_114">Motivo Caída Ambiente</option>
+<option value="cf_115">Cliente</option>
+<option value="cf_116">Proyecto</option>
+<option value="cf_123"> Project a Reportar</option>
+<option value="issue_id">Petición</option><optgroup label="Asignado a"><option value="member_of_group">Asignado al grupo</option>
+<option value="assigned_to_role">Asignado al perfil</option></optgroup><optgroup label="Versión prevista"><option value="fixed_version.due_date">Fecha de la versión indicada</option>
+<option value="fixed_version.status">Estado de la versión indicada</option></optgroup><optgroup label="Fecha"><option value="created_on">Creado</option>
+<option value="updated_on">Actualizado</option>
+<option value="closed_on">Cerrada</option>
+<option value="start_date">Fecha de inicio</option>
+<option value="due_date">Fecha Estimada Entrega</option></optgroup><optgroup label="Relaciones"><option value="relates">relacionada con</option>
+<option value="duplicates">duplicada de</option>
+<option value="duplicated">duplicada por</option>
+<option value="blocks">bloquea a</option>
+<option value="blocked">bloqueado por</option>
+<option value="precedes">anterior a</option>
+<option value="follows">posterior a</option>
+<option value="copied_to">copiada a</option>
+<option value="copied_from">copiada desde</option>
+<option value="parent_id">Tarea padre</option>
+<option value="child_id">Subtareas</option></optgroup></select>
+</div>
+
+<input type="hidden" name="f[]" id="f_" value="" />
+
+    </div>
+  </fieldset>
+
+  <fieldset id="options" class="collapsible collapsed">
+    <legend onclick="toggleFieldset(this);">Opciones</legend>
+    <div style="display: none;">
+      <table>
+        <tr>
+          <td class="field">Columnas</td>
+          <td>
+<table class="query-columns">
+  <tr>
+    <td style="padding-left:0">
+      <label for="available_c">Columnas disponibles</label>
+      <br />
+      <select name="available_columns[]" id="available_c" multiple="multiple" size="10" style="width:150px" ondblclick="moveOptions(this.form.available_c, this.form.selected_c);"><option value="parent">Tarea padre</option>
+<option value="author">Autor</option>
+<option value="category">Categoría</option>
+<option value="fixed_version">Versión prevista</option>
+<option value="start_date">Fecha de inicio</option>
+<option value="due_date">Fecha Estimada Entrega</option>
+<option value="estimated_hours">Tiempo a Facturar</option>
+<option value="total_estimated_hours">Total de Tiempo Estimado</option>
+<option value="spent_hours">Tiempo dedicado</option>
+<option value="total_spent_hours">Tiempo total dedicado</option>
+<option value="done_ratio">% Realizado</option>
+<option value="created_on">Creado</option>
+<option value="closed_on">Cerrada</option>
+<option value="last_updated_by">Última actualización por</option>
+<option value="relations">Peticiones relacionadas</option>
+<option value="attachments">Ficheros</option>
+<option value="route_id">Responsable</option>
+<option value="is_private">Privada</option>
+<option value="cf_54">Tipo Licencia</option>
+<option value="cf_61">Fecha Primera Respuesta</option>
+<option value="cf_36">No. Devoluciones Cliente</option>
+<option value="cf_20">Solución</option>
+<option value="cf_58">Solución Enviada</option>
+<option value="cf_60">Fecha Solución</option>
+<option value="cf_98">Observaciones</option>
+<option value="cf_99">Ambiente Interno</option>
+<option value="cf_112">Motivo Devolución Cliente</option>
+<option value="cf_113">Servicio Afectado</option>
+<option value="cf_114">Motivo Caída Ambiente</option>
+<option value="cf_115">Cliente</option>
+<option value="cf_116">Proyecto</option>
+<option value="cf_117">Tipo de Servidor</option>
+<option value="cf_123"> Project a Reportar</option></select>
+    </td>
+    <td class="buttons">
+      <input type="button" value="&#8594;"
+       onclick="moveOptions(this.form.available_c, this.form.selected_c);" /><br />
+      <input type="button" value="&#8592;"
+       onclick="moveOptions(this.form.selected_c, this.form.available_c);" />
+    </td>
+    <td>
+      <label for="selected_c">Columnas seleccionadas</label>
+      <br />
+      <select name="c[]" id="selected_c" multiple="multiple" size="10" style="width:150px" ondblclick="moveOptions(this.form.selected_c, this.form.available_c);"><option value="project">Proyecto</option>
+<option value="tracker">Tipo</option>
+<option value="status">Estado</option>
+<option value="priority">Prioridad</option>
+<option value="subject">Asunto</option>
+<option value="assigned_to">Asignado a</option>
+<option value="updated_on">Actualizado</option></select>
+    </td>
+    <td class="buttons">
+      <input type="button" value="&#8648;" onclick="moveOptionTop(this.form.selected_c);" /><br />
+      <input type="button" value="&#8593;" onclick="moveOptionUp(this.form.selected_c);" /><br />
+      <input type="button" value="&#8595;" onclick="moveOptionDown(this.form.selected_c);" /><br />
+      <input type="button" value="&#8650;" onclick="moveOptionBottom(this.form.selected_c);" />
+    </td>
+  </tr>
+</table>
+
+<script>
+//<![CDATA[
+
+$(document).ready(function(){
+  $('.query-columns').closest('form').submit(function(){
+    $('#selected_c option').prop('selected', true);
+  });
+});
+
+//]]>
+</script></td>
+        </tr>
+        <tr>
+          <td class="field"><label for='group_by'>Agrupar resultados por</label></td>
+          <td><select name="group_by" id="group_by"><option value="">&nbsp;</option>
+<option value="project">Proyecto</option>
+<option value="tracker">Tipo</option>
+<option value="status">Estado</option>
+<option value="priority">Prioridad</option>
+<option value="author">Autor</option>
+<option value="assigned_to">Asignado a</option>
+<option value="category">Categoría</option>
+<option value="fixed_version">Versión prevista</option>
+<option value="done_ratio">% Realizado</option>
+<option value="cf_54">Tipo Licencia</option>
+<option value="cf_36">No. Devoluciones Cliente</option>
+<option value="cf_58">Solución Enviada</option>
+<option value="cf_99">Ambiente Interno</option>
+<option value="cf_112">Motivo Devolución Cliente</option>
+<option value="cf_113">Servicio Afectado</option>
+<option value="cf_114">Motivo Caída Ambiente</option>
+<option value="cf_115">Cliente</option>
+<option value="cf_116">Proyecto</option></select></td>
+        </tr>
+        <tr>
+          <td class="field">Mostrar</td>
+          <td><label class="inline"><input type="checkbox" name="c[]" value="description" /> Descripción</label><label class="inline"><input type="checkbox" name="c[]" value="last_notes" /> Últimas notas</label></td>
+        </tr>
+        <tr>
+          <td>Totales</td>
+          <td><label class="inline"><input type="checkbox" name="t[]" value="estimated_hours" /> Tiempo a Facturar</label><label class="inline"><input type="checkbox" name="t[]" value="spent_hours" /> Tiempo dedicado</label><label class="inline"><input type="checkbox" name="t[]" value="cf_36" /> No. Devoluciones Cliente</label><input type="hidden" name="t[]" id="t_" value="" /></td>
+        </tr>
+      </table>
+    </div>
+  </fieldset>
+</div>
+
+<p class="buttons">
+  <a href="#" onclick="$(&quot;#query_form&quot;).submit(); return false;" class="icon icon-checked">Aceptar</a>
+  <a class="icon icon-reload" href="/projects/admin-de-ambientes/issues?set_filter=1&amp;sort=">Anular</a>
+</p>
+</div>
+
+
+
+</form>
+
+
+<form data-cm-url="/issues/context_menu" action="/projects/admin-de-ambientes/issues" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="iCZNNvjdSOVNCyc9TkAYmlMZrNiWuEsYxo63+pgXzCpODN0sSWQTBI2qUWMu9LEOLzVEpeudxpixMPgngspZ1A==" /><input type="hidden" name="back_url" value="/projects/admin-de-ambientes/issues" />
+<div class="autoscroll">
+<table class="list issues odd-even sort-by-id sort-desc">
+  <thead>
+    <tr>
+      <th class="checkbox hide-when-print">
+        <input type="checkbox" name="check_all" id="check_all" value="" class="toggle-selection" title="Seleccionar todo/No seleccionar nada" />
+      </th>
+        <th><a title="Ordenar por &quot;#&quot;" class="sort desc" href="/projects/admin-de-ambientes/issues?sort=id">#</a></th>
+        <th><a title="Ordenar por &quot;Proyecto&quot;" href="/projects/admin-de-ambientes/issues?sort=project%2Cid%3Adesc">Proyecto</a></th>
+        <th><a title="Ordenar por &quot;Tipo&quot;" href="/projects/admin-de-ambientes/issues?sort=tracker%2Cid%3Adesc">Tipo</a></th>
+        <th><a title="Ordenar por &quot;Estado&quot;" href="/projects/admin-de-ambientes/issues?sort=status%2Cid%3Adesc">Estado</a></th>
+        <th><a title="Ordenar por &quot;Prioridad&quot;" href="/projects/admin-de-ambientes/issues?sort=priority%3Adesc%2Cid%3Adesc">Prioridad</a></th>
+        <th><a title="Ordenar por &quot;Asunto&quot;" href="/projects/admin-de-ambientes/issues?sort=subject%2Cid%3Adesc">Asunto</a></th>
+        <th><a title="Ordenar por &quot;Asignado a&quot;" href="/projects/admin-de-ambientes/issues?sort=assigned_to%2Cid%3Adesc">Asignado a</a></th>
+        <th><a title="Ordenar por &quot;Actualizado&quot;" href="/projects/admin-de-ambientes/issues?sort=updated_on%3Adesc%2Cid%3Adesc">Actualizado</a></th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr id="issue-126044" class="hascontextmenu odd issue tracker-8 status-12  ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="126044" /></td>
+    <td class="id"><a href="/issues/126044">126044</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Se necesitan más datos</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/126044">Soporte para procesos IEN</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/1917">Ricardo Lopez</a></td>
+    <td class="updated_on">2019-09-11 10:44 AM</td>
+  </tr>
+  <tr id="issue-126020" class="hascontextmenu even issue tracker-8 status-24  ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="126020" /></td>
+    <td class="id"><a href="/issues/126020">126020</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/126020">Instalacion Clientes Web-C23 - Ambiente Pruebas y Certificación</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/98">Angela Rodríguez</a></td>
+    <td class="updated_on">2019-09-11 02:19 AM</td>
+  </tr>
+  <tr id="issue-125981" class="hascontextmenu odd issue tracker-8 status-39  ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125981" /></td>
+    <td class="id"><a href="/issues/125981">125981</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Atención Solicitud</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125981">Instalación ACH ambiente de pruebas C23</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/401">Alex Ponce</a></td>
+    <td class="updated_on">2019-09-11 08:55 AM</td>
+  </tr>
+  <tr id="issue-125969" class="hascontextmenu even issue tracker-8 status-24  ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125969" /></td>
+    <td class="id"><a href="/issues/125969">125969</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125969">Actualización ambientes internos C23</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/123">Estiwar Carrión</a></td>
+    <td class="updated_on">2019-09-11 10:05 AM</td>
+  </tr>
+  <tr id="issue-125962" class="hascontextmenu odd issue tracker-9 status-24  overdue ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125962" /></td>
+    <td class="id"><a href="/issues/125962">125962</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Licencia</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125962">Licencia Herramientas cobis Geovanny Guamán</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/29">Ximena Fernández</a></td>
+    <td class="updated_on">2019-09-10 02:04 PM</td>
+  </tr>
+  <tr id="issue-125951" class="hascontextmenu even issue tracker-8 status-12  ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125951" /></td>
+    <td class="id"><a href="/issues/125951">125951</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Se necesitan más datos</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125951">Revisión de error &quot;INVALID MAC ADDRESS&quot; de ambiente de desarrollo</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/1683">Cristian Leon</a></td>
+    <td class="updated_on">2019-09-11 10:08 AM</td>
+  </tr>
+  <tr id="issue-125947" class="hascontextmenu odd issue tracker-8 status-24  overdue ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125947" /></td>
+    <td class="id"><a href="/issues/125947">125947</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125947">Instalación de parche 5.5.0.4 en ambiente de Pruebas C23J</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/130">Santiago Gavilanes</a></td>
+    <td class="updated_on">2019-09-11 10:04 AM</td>
+  </tr>
+  <tr id="issue-125945" class="hascontextmenu even issue tracker-8 status-12  ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125945" /></td>
+    <td class="id"><a href="/issues/125945">125945</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Se necesitan más datos</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125945">Compilación en ambiente de Pruebas C23</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/98">Angela Rodríguez</a></td>
+    <td class="updated_on">2019-09-10 02:48 PM</td>
+  </tr>
+  <tr id="issue-125937" class="hascontextmenu odd issue tracker-8 status-24  overdue ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125937" /></td>
+    <td class="id"><a href="/issues/125937">125937</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">1. Crítica</td>
+    <td class="subject"><a href="/issues/125937">soporte batch pruebas grupales</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/29">Ximena Fernández</a></td>
+    <td class="updated_on">2019-09-10 03:38 PM</td>
+  </tr>
+  <tr id="issue-125929" class="hascontextmenu even issue tracker-8 status-24  ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125929" /></td>
+    <td class="id"><a href="/issues/125929">125929</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125929">Actualización ambientes Andalucia pruebas</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/123">Estiwar Carrión</a></td>
+    <td class="updated_on">2019-09-10 04:42 PM</td>
+  </tr>
+  <tr id="issue-125925" class="hascontextmenu odd issue tracker-8 status-24  ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125925" /></td>
+    <td class="id"><a href="/issues/125925">125925</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125925">Actualización ambientes CPN proyectos interno</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/123">Estiwar Carrión</a></td>
+    <td class="updated_on">2019-09-10 03:09 PM</td>
+  </tr>
+  <tr id="issue-125922" class="hascontextmenu even issue tracker-9 status-24  overdue ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125922" /></td>
+    <td class="id"><a href="/issues/125922">125922</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Licencia</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">1. Crítica</td>
+    <td class="subject"><a href="/issues/125922">Licencia Designer generator Edison Cajas</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/29">Ximena Fernández</a></td>
+    <td class="updated_on">2019-09-10 09:38 AM</td>
+  </tr>
+  <tr id="issue-125893" class="hascontextmenu odd issue tracker-8 status-24  overdue ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125893" /></td>
+    <td class="id"><a href="/issues/125893">125893</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">1. Crítica</td>
+    <td class="subject"><a href="/issues/125893">Error en bdd Pruebas individuales Te Creemos</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/29">Ximena Fernández</a></td>
+    <td class="updated_on">2019-09-09 05:07 PM</td>
+  </tr>
+  <tr id="issue-125890" class="hascontextmenu even issue tracker-9 status-12  ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125890" /></td>
+    <td class="id"><a href="/issues/125890">125890</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Licencia</td>
+    <td class="status">Se necesitan más datos</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125890">Licencia Generador de Servidios GGuaman</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/29">Ximena Fernández</a></td>
+    <td class="updated_on">2019-09-09 03:52 PM</td>
+  </tr>
+  <tr id="issue-125865" class="hascontextmenu odd issue tracker-8 status-12  ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125865" /></td>
+    <td class="id"><a href="/issues/125865">125865</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Se necesitan más datos</td>
+    <td class="priority">1. Crítica</td>
+    <td class="subject"><a href="/issues/125865">No permite multiples sesiones</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/999">Stephanie Flores</a></td>
+    <td class="updated_on">2019-09-09 12:19 PM</td>
+  </tr>
+  <tr id="issue-125852" class="hascontextmenu even issue tracker-8 status-24  overdue ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125852" /></td>
+    <td class="id"><a href="/issues/125852">125852</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125852">Ambiente desarrollo CACPE</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/483">Gabriela Estupiñan</a></td>
+    <td class="updated_on">2019-09-09 11:43 AM</td>
+  </tr>
+  <tr id="issue-125850" class="hascontextmenu odd issue tracker-8 status-12  overdue ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125850" /></td>
+    <td class="id"><a href="/issues/125850">125850</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Se necesitan más datos</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125850">Ambiente de desarrollo C23</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/1049">Jonatan Rueda</a></td>
+    <td class="updated_on">2019-09-09 11:35 AM</td>
+  </tr>
+  <tr id="issue-125848" class="hascontextmenu even issue tracker-8 status-12  overdue ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125848" /></td>
+    <td class="id"><a href="/issues/125848">125848</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Se necesitan más datos</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125848">Ejecucion BCP Ambiente de Certificacion Banco Amazonas</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/159">Alexander Balladares</a></td>
+    <td class="updated_on">2019-09-11 08:34 AM</td>
+  </tr>
+  <tr id="issue-125843" class="hascontextmenu odd issue tracker-8 status-24  overdue ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125843" /></td>
+    <td class="id"><a href="/issues/125843">125843</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125843">Actualiazar ambientes Andalucia interno proyecto</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/123">Estiwar Carrión</a></td>
+    <td class="updated_on">2019-09-09 05:37 PM</td>
+  </tr>
+  <tr id="issue-125817" class="hascontextmenu even issue tracker-8 status-24  overdue ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125817" /></td>
+    <td class="id"><a href="/issues/125817">125817</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125817">Soporte brindado por Sebastián Mafla para la instación del Contenedor Web Desacoplado para Banco FIE-  </a></td>
+    <td class="assigned_to"><a class="user active" href="/users/316">Verónica Burbano</a></td>
+    <td class="updated_on">2019-09-06 08:58 PM</td>
+  </tr>
+  <tr id="issue-125791" class="hascontextmenu odd issue tracker-8 status-24  overdue ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125791" /></td>
+    <td class="id"><a href="/issues/125791">125791</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125791">Actualizacion CWC</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/310">Augusto Bucheli</a></td>
+    <td class="updated_on">2019-09-06 03:30 PM</td>
+  </tr>
+  <tr id="issue-125777" class="hascontextmenu even issue tracker-8 status-24  overdue ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125777" /></td>
+    <td class="id"><a href="/issues/125777">125777</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125777">Instalacion jar de Firmas-WEB</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/91">Viviana Arias</a></td>
+    <td class="updated_on">2019-09-06 11:44 AM</td>
+  </tr>
+  <tr id="issue-125757" class="hascontextmenu odd issue tracker-8 status-12  ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125757" /></td>
+    <td class="id"><a href="/issues/125757">125757</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Se necesitan más datos</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125757">Creación de ambiente para Teller Web</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/130">Santiago Gavilanes</a></td>
+    <td class="updated_on">2019-09-06 09:47 AM</td>
+  </tr>
+  <tr id="issue-125708" class="hascontextmenu even issue tracker-8 status-12  overdue ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125708" /></td>
+    <td class="id"><a href="/issues/125708">125708</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Se necesitan más datos</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125708">Configuracion Teller en el ambiente de pruebas CPN 192.168.67.37</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/307">Francisco Schnabel</a></td>
+    <td class="updated_on">2019-09-05 04:13 PM</td>
+  </tr>
+  <tr id="issue-125702" class="hascontextmenu odd issue tracker-8 status-24  overdue ">
+    <td class="checkbox hide-when-print"><input type="checkbox" name="ids[]" value="125702" /></td>
+    <td class="id"><a href="/issues/125702">125702</a></td>
+    <td class="project"><a href="/projects/admin-de-ambientes">Administración de Ambientes</a></td>
+    <td class="tracker">Solicitud Especialista</td>
+    <td class="status">Entregada Cliente</td>
+    <td class="priority">2. Media</td>
+    <td class="subject"><a href="/issues/125702">copia el contenedor desacoplado de Te Creemos Pruebas Individuales</a></td>
+    <td class="assigned_to"><a class="user active" href="/users/29">Ximena Fernández</a></td>
+    <td class="updated_on">2019-09-05 01:47 PM</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+</form>
+<span class="pagination"><ul class="pages"><li class="previous"><span>« Anterior</span></li><li class="current"><span>1</span></li><li class="page"><a href="/projects/admin-de-ambientes/issues?page=2">2</a></li><li class="page"><a href="/projects/admin-de-ambientes/issues?page=3">3</a></li><li class="spacer"><span>&hellip;</span></li><li class="page"><a href="/projects/admin-de-ambientes/issues?page=17">17</a></li><li class="next page"><a accesskey="n" href="/projects/admin-de-ambientes/issues?page=2">Siguiente »</a></li></ul><span><span class="items">(1-25/424)</span> <span class="per-page">Por página: <span class="selected">25</span>, <a href="/projects/admin-de-ambientes/issues?per_page=50">50</a>, <a href="/projects/admin-de-ambientes/issues?per_page=100">100</a></span></span></span>
+
+<p class="other-formats">Exportar a:  <span><a class="atom" rel="nofollow" href="/projects/admin-de-ambientes/issues.atom?key=82265f31e91a6aec1e1e30b78df108174a5fb5f6">Atom</a></span>
+  <span><a class="csv" rel="nofollow" onclick="showModal(&#39;csv-export-options&#39;, &#39;350px&#39;); return false;" href="/projects/admin-de-ambientes/issues.csv">CSV</a></span>
+  <span><a class="pdf" rel="nofollow" href="/projects/admin-de-ambientes/issues.pdf">PDF</a></span>
+</p>
+<div id="csv-export-options" style="display:none;">
+  <h3 class="title">CSV opciones de exportación</h3>
+  <form id="csv-export-form" action="/projects/admin-de-ambientes/issues.csv" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+  <input type="hidden" name="set_filter" value="1" /><input type="hidden" name="f[]" value="status_id" /><input type="hidden" name="op[status_id]" value="o" /><input type="hidden" name="v[status_id][]" value="" /><input type="hidden" name="c[]" value="id" /><input type="hidden" name="c[]" value="project" /><input type="hidden" name="c[]" value="tracker" /><input type="hidden" name="c[]" value="status" /><input type="hidden" name="c[]" value="priority" /><input type="hidden" name="c[]" value="subject" /><input type="hidden" name="c[]" value="assigned_to" /><input type="hidden" name="c[]" value="updated_on" /><input type="hidden" name="sort" value="id:desc" />
+  <p>
+    <label><input type="radio" name="c[]" id="c__" value="" checked="checked" /> Columnas seleccionadas</label><br />
+    <label><input type="radio" name="c[]" id="c__all_inline" value="all_inline" /> Todas las columnas</label>
+  </p>
+  <p>
+    <label><input type="checkbox" name="c[]" id="c_" value="description" /> Descripción</label>
+    <label><input type="checkbox" name="c[]" id="c_" value="last_notes" /> Últimas notas</label>
+  </p>
+  <p class="buttons">
+    <input type="submit" value="Exportar" onclick="hideModal(this);" />
+    <input type="button" value="Cancelar" onclick="hideModal(this);" />
+  </p>
+</form></div>
+
+
+
+
+
+
+
+          <link rel="stylesheet" media="screen" href="/plugin_assets/sidebar_hide/stylesheets/sidebar_hide.css?1546844892" />
+<script src="/plugin_assets/sidebar_hide/javascripts/sidebar_hide.js?1546844892"></script>
+
+    <div id="sidebarHandler">
+        <div id="hideSidebarButton" onclick="hideSideBar()"></div>
+    </div>
+
+        <div style="clear:both;"></div>
+    </div>
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Cargando...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+<div id="footer">
+  <div class="bgl"><div class="bgr">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> &copy; 2006-2017 Jean-Philippe Lang
+    </div><div class="bgr">
+    Refactored by <a href="http://www.cobiscorp.com">Cobis</a> &copy; 2010-2019 Support Center
+    </div></div>
+</div>
+</div>
+</div>
+ 
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+  <style>
+    body {
+      /*background: url(bg0.png);*/
+      background-position: center;
+      background-size: cover;
+    }
+    .pac-container {
+      z-index: 2000;
+    }
+    #map {
+      border: 1px solid #CCC;
+    }
+    #searchbox {
+      border-radius: 0;
+      border-left: 0;
+      border-top: 0;
+      border-right: 0;
+    }
+    .cb-steps {
+      margin-top: 20px;
+      max-width: 600px;
+      margin: auto;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script>sessionStorage.theme = 'cpn';</script>
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-view-container-root cb-view-container cb-group-layout container-fluid">
+      <h1 class="text-center">Crédito Consumo</h1>
+      <ul class="cb-steps" style="margin-top: 20px;">
+          <li>Ingreso</li>
+          <li>Oferta</li>
+          <li>Solicitud</li>
+          <li class="active">Contrato</li>
+          <li>Carga de documentos</li>
+      </ul>
+      <div class="container">
+        <h2 class="text-center">Contrato</h2>
+        <fieldset class="cb-group cb-group-simple">
+          <h4>Términos y condiciones del crédito</h4>
+          <div>
+            <p>El(los) cliente(s) declara(n) y certifican que todos los bienes e ingresos detallados en este documento, así como los datos registrados son ciertos y correctos. En caso de que hayan cambios
+            a los mencionados datos me (nos) obligo (amos) a actualizarlos inmediatamente, en caso de incumplimiento de esta obligación asumo (imos) cualquier responsabilidad por tal omisión.</p>
+            <p>Autorizo (amos) a la Cooperativa Policía Nacional Ltda. Para que efectúe las investigaciones pertinentes sobre los mismos a su entera satisfacción. Al fiel cumplimiento de lo estipulado me
+            (nos) obligo (mos) con todos mis (nuestros) bienes presentes y futuros. Además faculto (amos) a la Cooperativa Policía Nacional Ltda. Para que en caso de mora pueda debitar de cualquier
+            depósito, incluso de cuentas personales o de inversiones que yo (nosotros) mantenga (mos) en el Banco, sin previo aviso, la cantidad de dinero necesaria para abonar a la obligación.</p>
+            <p>Certifico que he firmado el presente documento con posterioridad al registro de toda la información solicitada en este formulario y en cualquier formulario necesario para la
+            instrumentación de productos y servicios con la Cooperativa de la Policía Nacional.”</p>
+            <p>El(los) cliente(s) declara(n) y certifican que todos los bienes e ingresos detallados en este documento, así como los datos registrados son ciertos y correctos. En caso de que hayan cambios
+            a los mencionados datos me (nos) obligo (amos) a actualizarlos inmediatamente, en caso de incumplimiento de esta obligación asumo (imos) cualquier responsabilidad por tal omisión.</p>
+            <p>Autorizo (amos) a la Cooperativa Policía Nacional Ltda. Para que efectúe las investigaciones pertinentes sobre los mismos a su entera satisfacción. Al fiel cumplimiento de lo estipulado me
+            (nos) obligo (mos) con todos mis (nuestros) bienes presentes y futuros. Además faculto (amos) a la Cooperativa Policía Nacional Ltda. Para que en caso de mora pueda debitar de cualquier
+            depósito, incluso de cuentas personales o de inversiones que yo (nosotros) mantenga (mos) en el Banco, sin previo aviso, la cantidad de dinero necesaria para abonar a la obligación.</p>
+            <p>Certifico que he firmado el presente documento con posterioridad al registro de toda la información solicitada en este formulario y en cualquier formulario necesario para la
+            instrumentación de productos y servicios con la Cooperativa de la Policía Nacional.”</p>
+          </div>
+        </fieldset>
+        <div class="cb-flex cb-middle">
+        <div class="cb-grow">
+          <div class="checkbox">
+            <label style="font-weight: bold; color: #377a42;">
+              <input type="checkbox" ng-model="request.otherIncome"> Acepto
+            </label>
+          </div>
+        </div>
+        <div class="cb-flex cb-middle cb-gutters">
+          <div class="text-muted">Ingrese el código enviado a su celular</div>
+          <input type="text" class="form-control" style="width:80px;" />
+        </div>
+      </div>
+      </div>
+      <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+          <a href="flow-actualizacion.html" class="btn btn-default navbar-btn" style="min-width: 120px;">Anterior</a>
+          <a href="flow-confirmacion.html" class="btn btn-primary navbar-btn" style="min-width: 120px;">Continuar</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+  <script>
+    var map;
+
+    function initMap() {
+      var coords = {
+        lat: -0.18260586363608503,
+        lng: -78.4791290985138
+      };
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: coords,
+        disableDefaultUI: true,
+        streetViewControl: false,
+        mapTypeControl: false,
+        zoomControl: true,
+        zoom: 17
+      });
+      map.addListener('click', function(e) {
+        map.panTo(e.latLng);
+        marker.setPosition(e.latLng);
+        $('#lat').val(e.latLng.lat);
+        $('#lng').val(e.latLng.lng);
+      });
+      var marker = new google.maps.Marker({
+        map: map,
+        draggable: true,
+        position: new google.maps.LatLng(coords)
+      });
+      google.maps.event.addListener(marker, "dragend", function(e) {
+        map.panTo(e.latLng);
+        $('#lat').val(e.latLng.lat);
+        $('#lng').val(e.latLng.lng);
+      });
+      var input = document.getElementById('searchbox');
+      var searchBox = new google.maps.places.SearchBox(input);
+      map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+      // Bias the SearchBox results towards current map's viewport.
+      map.addListener('bounds_changed', function() {
+        searchBox.setBounds(map.getBounds());
+      });
+
+      var markers = [];
+      // Listen for the event fired when the user selects a prediction and retrieve
+      // more details for that place.
+      searchBox.addListener('places_changed', function() {
+        var places = searchBox.getPlaces();
+
+        if (places.length == 0) {
+          return;
+        }
+
+        // Clear out the old markers.
+        markers.forEach(function(marker) {
+          marker.setMap(null);
+        });
+        markers = [];
+
+        // For each place, get the icon, name and location.
+        var bounds = new google.maps.LatLngBounds();
+        places.forEach(function(place) {
+          if (!place.geometry) {
+            console.log("Returned place contains no geometry");
+            return;
+          }
+          var icon = {
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(25, 25)
+          };
+
+          // Create a marker for each place.
+          markers.push(new google.maps.Marker({
+            map: map,
+            icon: icon,
+            title: place.name,
+            position: place.geometry.location
+          }));
+
+          if (place.geometry.viewport) {
+            // Only geocodes have viewport.
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+          }
+        });
+        map.fitBounds(bounds);
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkmlHqLJzKsMmv9Ma3MiRpebWEgiSu9GM&callback=initMap&libraries=places" async defer></script>
+</body>
+
+</html>

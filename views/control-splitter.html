@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-viewport">
+        <div kendo-splitter k-panes="[{size:'200px', collapsible:true}, {}]">
+            <div>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="javascript://">Empresa</a></li>
+                    <li><a href="javascript://">Información Adicional</a></li>
+                </ul>
+            </div>
+            <div class="cb-sub-scrollable">
+                <!-- ng-include -->
+                <div>
+                    <div>
+                        <div>
+                            <!-- designer-form-load -->
+                            <div>
+                                <!-- ng-include -->
+                                <div>
+                                    <div class="cb-view-container-root cb-view-container cb-group-layout container-fluid">
+                                        <!-- kendo-validator -->
+                                        <div>
+                                            <div>
+                                                <div class="row">
+                                                    <div class="col-tab-items col-sm-2">
+                                                        <ul class="nav nav-pills nav-stacked cb-nav-responsive">
+                                                            <li class="active">
+                                                                <a data-toggle="tab"> <span class="cb-title">Información General</span> <span class="ng-binding cb-validation-none"></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a data-toggle="tab"> <span class="cb-title">Datos Demográficos</span> <span class="cb-validation-none"></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a data-toggle="tab"> <span class="cb-title">Datos Económicos</span> <span class="cb-validation-none"></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                        <div class="tab-content">
+                                                            <div class="tab-pane active">
+                                                                <!-- kendo-validator -->
+                                                                <div>
+                                                                    <div class="cb-group cb-group-simple">
+                                                                        <!-- kendo-validator -->
+                                                                        <div>
+                                                                            <div class="form-vertical">
+                                                                                <div class="row">
+                                                                                    <div class="col-xs-12">
+                                                                                        <div class="form-group cb-required">
+                                                                                            <div class="control-label">Nombre</div>
+                                                                                            <div class="cb-control">
+                                                                                                <input type="text" class="form-control" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-xs-12">
+                                                                                        <div class="form-group cb-required">
+                                                                                            <div class="control-label">Apellidos</div>
+                                                                                            <div class="cb-control">
+                                                                                                <input type="text" class="form-control" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-xs-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="control-label">Género</div>
+                                                                                            <div class="cb-control">
+                                                                                                <select kendo-combo-box>
+                                                                                                    <option></option>
+                                                                                                    <option>Masculino</option>
+                                                                                                    <option>Femenino</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-xs-12">
+                                                                                        <div class="form-group">
+                                                                                            <div class="control-label">&nbsp;</div>
+                                                                                            <div class="cb-control">
+                                                                                                <button class="btn btn-default btn-block">Seleccione una opcion</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cb-navbar cb-navbar-bottom">
+                                            <nav class="navbar navbar-default navbar-fixed-bottom">
+                                                <button class="btn btn-primary navbar-btn">Guardar</button>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="control" src="../lib/require/require.js"></script>
+</body>
+
+</html>

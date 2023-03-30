@@ -1,0 +1,9 @@
+[
+    {
+        "cardNumber": "1234567899876",
+        "product": "Cuenta corriente",
+        "accountNumber": "12354678",
+        "principal": true,
+        "status": "Por activar"
+    }
+]

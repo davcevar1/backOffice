@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view" ng-init="editable=true; create=true;">
+    <div class="cb-viewport cb-flex cb-column">
+      <div class="cb-form-header cb-no-margin">
+        <div class="cb-flex">
+          <div class="cb-grow">
+            <div class="cb-text-xl">Tapia Andrade Viviana María (Principal)</div>
+          </div>
+          <div class="cb-actions">
+            <div class="btn-group">
+              <button id="more-info" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="Más información"><span class="fa fa-info-circle"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right" style="color:#333; max-height:300px; overflow: auto;">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th colspan="2">Más información</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="ng-scope">
+                      <th class="cb-no-wrap ng-binding">Ciclo</th>
+                      <td class="cb-no-wrap">Cada fin de mes</td>
+                    </tr>
+                    <tr class="ng-scope">
+                      <th class="cb-no-wrap ng-binding">Tipo promedio</th>
+                      <td class="ng-binding">---</td>
+                    </tr>
+                    <tr class="ng-scope">
+                      <th class="cb-no-wrap ng-binding">Tipo capitalización</th>
+                      <td class="ng-binding">2</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="k-tabstrip-wrapper cb-flex cb-grow">
+        <div kendo-tab-strip class="cb-flex cb-column cb-grow">
+          <ul>
+            <li class="k-state-active">
+              <a href="#">
+                <span class="cb-title">Clientes</span>
+                <span class="cb-validation-success">0</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="cb-title">Operación</span>
+                <span class="cb-validation-fail">2</span>
+              </a>
+            </li>
+            <li ng-show="product=='schedule'">
+              <a href="#">Cuotas</a>
+            </li>
+          </ul>
+          <div class="cb-grow cb-scrollable">
+            <fieldset class="cb-group cb-group-simple">
+              <div>
+                <kendo-grid options="owners"></kendo-grid>
+              </div>
+            </fieldset>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+              <div ng-include="'includes/operacion.html'"></div>
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <fieldset class="cb-group cb-group-simple">
+              <div>
+                <kendo-grid options="moneyActivity"></kendo-grid>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+        <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+          <button class="btn btn-primary navbar-btn" data-dismiss="modal" ng-click="finish()">Guardar</button>
+          <button class="btn btn-default navbar-btn" data-dismiss="modal" ng-click="resetSaveDeposit()">Limpiar</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

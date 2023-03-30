@@ -1,0 +1,5 @@
+[
+  {"default":true, "userName":"ncastaneda", "description": "Nidia Castaneda", "type": "Email", "value":"ncastaneda@email.com", "createdAt":"12-12-2017", "updatedAt":"12-12-2017"},
+  {"default":false, "userName":"ncastaneda", "description": "Nidia Castaneda", "type": "Email", "value":"n.castaneda@yahoo.com", "createdAt":"12-12-2017", "updatedAt":"12-12-2017"},
+  {"default":true, "userName":"froldan", "description": "Nidia Castaneda", "type": "Celular", "value":"09 8765 4321", "createdAt":"12-12-2017", "updatedAt":"12-12-2017"}
+]

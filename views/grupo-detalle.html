@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-viewport cb-flex cb-column">
+
+            <div class="cb-form-header cb-no-margin" ng-include="'prestamos-cabecera.html'"></div>
+            
+            <div class="k-tabstrip-wrapper cb-flex cb-grow">
+                <div kendo-tab-strip class="cb-flex cb-column cb-grow">
+                    <ul>
+                        <li class="k-state-active">
+                            <a href="#">Miembros</a>
+                        </li>
+                        <li>
+                            <a href="#">Montos</a>
+                        </li>
+                    </ul>
+                    <div class="cb-grow cb-scrollable">
+                        <div class="container">
+                            <kendo-grid k-options="miembros"></kendo-grid>
+                        </div>
+                    </div>
+                    <div class="cb-grow">
+                        <div class="container">
+                            <kendo-grid options="montos"></kendo-grid>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="grupo" src="../lib/require/require.js"></script>
+</body>
+
+</html>

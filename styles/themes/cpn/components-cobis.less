@@ -1,0 +1,31 @@
+.cb-steps {
+  li {
+    color: #666666;
+    font-weight: bold;
+    font-size: 11px;
+    &::after {
+      background-color: #cecdc9;
+      top: 5px;
+      height: 6px;
+    }
+    &::before {
+      font-size: 0px;
+      width: 16px;
+      height: 16px;
+      color: #666666;
+      border-color: #666666;
+      background-color: #666666;
+    }
+    &.active {
+      color: #666666;
+      &::before {
+        background-color: #4bac47;
+        color: #FFF;
+        border: 0;
+      }
+      + li::after {
+        background-color: #cecdc9;
+      }
+    }
+  }
+}

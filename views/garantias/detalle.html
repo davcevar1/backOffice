@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-viewport cb-flex cb-column">
+      <div class="cb-form-header cb-no-margin" ng-include="'../shared/header.html'"></div>
+      <div class="k-tabstrip-wrapper cb-flex cb-grow">
+        <div kendo-tab-strip="tabs" class="cb-flex cb-column cb-grow">
+          <ul>
+            <li class="k-state-active" ng-show="!editable">
+              <a href="#">Resumen</a>
+            </li>
+            <li id="tab-clientes">
+              <a href="#">Clientes</a>
+            </li>
+            <li>
+              <a href="#">Operación</a>
+            </li>
+            <li>
+              <a href="#">Pólizas</a>
+            </li>
+            <li>
+              <a href="#">Especificaciones</a>
+            </li>
+            <li>
+              <a href="#">Vencimientos</a>
+            </li>
+            <li>
+              <a href="#">Transacciones</a>
+            </li>
+            <li ng-show="tipoGarantia=='Plazo fijo'">
+              <a href="#">Plazo fijo</a>
+            </li>
+          </ul>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div kendo-chart k-options="summary" style="height: 350px;"></div>
+                </div>
+                <div class="col-sm-6">
+                  <h4 style="color: #8e8e8e; font-size: 16px; font-weight: normal; text-align: center; margin-bottom:22px;">Sumario</h4>
+                  <ul class="list-group">
+                    <li class="list-group-item cb-flex">
+                      <div class="cb-grow" style="font-weight:bold;">Garante personal</div>
+                      <div>-</div>
+                    </li>
+                    <li class="list-group-item cb-flex">
+                      <div class="cb-grow" style="font-weight:bold;">Adecuada</div>
+                      <div>-</div>
+                    </li>
+                    <li class="list-group-item cb-flex">
+                      <div class="cb-grow" style="font-weight:bold;">Inspección</div>
+                      <div>Mensual</div>
+                    </li>
+                    <li class="list-group-item cb-flex">
+                      <div class="cb-grow" style="font-weight:bold;">Motivo de inspección</div>
+                      <div>-</div>
+                    </li>
+                    <li class="list-group-item cb-flex">
+                      <div class="cb-grow" style="font-weight:bold;">Fuente valor</div>
+                      <div>-</div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <fieldset class="cb-group cb-group-simple">
+              <div>
+                <kendo-grid options="clientes"></kendo-grid>
+              </div>
+            </fieldset>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container-fluid">
+              <div ng-include="'includes/general.html'"></div>
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+              <fieldset class="cb-group cb-group-simple">
+                <div>
+                  <kendo-grid options="especificacion"></kendo-grid>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+              <fieldset class="cb-group cb-group-simple">
+                <div>
+                  <kendo-grid options="especificacion"></kendo-grid>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+              <fieldset class="cb-group cb-group-simple">
+                <div>
+                  <kendo-grid options="especificacion"></kendo-grid>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+              <fieldset class="cb-group cb-group-simple">
+                <div>
+                  <kendo-grid options="especificacion"></kendo-grid>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;" ng-show="editable">
+        <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+          <button class="btn btn-primary navbar-btn" data-dismiss="modal" ng-click="edit()">Guardar</button>
+          <button class="btn btn-default navbar-btn" data-dismiss="modal" ng-click="editable=false">Cancelar</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div id="spec-form" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Entidad</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div class="form-vertical">
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group cb-required">
+                    <div class="control-label">Tipo</div>
+                    <div class="cb-control">
+                      <select class="form-control"></select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group cb-required">
+                    <div class="control-label">m2 Construcción</div>
+                    <div class="cb-control">
+                      <div class="input-group">
+                        <input type="number" class="form-control" />
+                        <span class="input-group-addon">m2</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group cb-required">
+                    <div class="control-label">m2 Terreno</div>
+                    <div class="cb-control">
+                      <div class="input-group">
+                        <input type="number" class="form-control" />
+                        <span class="input-group-addon">m2</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group cb-required">
+                    <div class="control-label">Habitaciones</div>
+                    <div class="cb-control">
+                      <input type="number" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group cb-required">
+                    <div class="control-label">Baños</div>
+                    <div class="cb-control">
+                      <input type="number" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group cb-required">
+                    <div class="control-label">Plantas</div>
+                    <div class="cb-control">
+                      <input type="number" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group cb-required">
+                    <div class="control-label">Garajes</div>
+                    <div class="cb-control">
+                      <input type="number" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group cb-required">
+                    <div class="control-label">Año Construcción</div>
+                    <div class="cb-control">
+                      <input type="number" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="status-form" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Liberación</h4>
+        </div>
+        <div class="modal-body">
+          <div class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <div class="form-vertical">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="form-group">
+                      <div class="control-label">Motivo</div>
+                      <div class="cb-control">
+                        <select class="form-control"></select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="value-form" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Cambio de Valor</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="control-label">Cobertura</div>
+            <div class="cb-control">
+              <select class="form-control"></select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="control-label">Causa</div>
+            <div class="cb-control">
+              <select class="form-control"></select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="control-label">Tipo</div>
+            <div class="cb-control">
+              <select class="form-control">
+                <option>Crédito</option>
+                <option>Débito</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="control-label">Nuevo valor</div>
+            <div class="cb-control">
+              <input type="number" class="form-control" />
+            </div>
+          </div>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="vencimientos-form" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Vencimientos</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <div class="form-vertical">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <div class="control-label">Fecha</div>
+                      <div class="cb-control">
+                        <input kendo-datepicker />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <div class="control-label">Valor</div>
+                      <div class="cb-control">
+                        <input kendo-numeric-text-box />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <div class="control-label">Documento</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <div class="control-label">Beneficiario</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <div class="control-label">Instrucción</div>
+                      <div class="cb-control">
+                        <textarea class="form-control"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="garantia-form" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Tipo de garantía</h4>
+        </div>
+        <div class="modal-body" style="max-height:350px; overflow:auto;">
+          <div kendo-tree-view="treeGarantias" k-options="garantiasOptions"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="garantias" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

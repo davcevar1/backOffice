@@ -1,0 +1,16 @@
+[
+  {"id":1, "name":"Matriz"},
+  {"id":2, "name":"Quito"},
+  {"id":3, "name":"Guayaquil"},
+  {"id":4, "name":"Manta"},
+  {"id":5, "name":"Machala"},
+  {"id":6, "name":"Cuenca"},
+  {"id":7, "name":"Portoviejo"},
+  {"id":8, "name":"Ambato"},
+  {"id":9, "name":"Riobamba"},
+  {"id":10, "name":"Ibarra"},
+  {"id":11, "name":"Tulcán"},
+  {"id":12, "name":"Guaranda"},
+  {"id":13, "name":"Esmeraldas"},
+  {"id":14, "name":"Atacames"}
+]

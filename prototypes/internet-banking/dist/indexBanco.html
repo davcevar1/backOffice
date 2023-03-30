@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Cobiscorp - Tu banco de siempre en la era digital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../styles/bootstrap/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    /* roboto-300 - latin-ext_latin */
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 300;
+      src: url('roboto-v18-latin-ext_latin-300.eot');
+      /* IE9 Compat Modes */
+      src: local('Roboto Light'), local('Roboto-Light'), url('roboto-v18-latin-ext_latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('../assets/index/roboto-v18-latin-ext_latin-300.woff') format('woff'), /* Modern Browsers */
+      url('../assets/index/roboto-v18-latin-ext_latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('../assets/index/roboto-v18-latin-ext_latin-300.svg#Roboto') format('svg');
+      /* Legacy iOS */
+    }
+
+    /* roboto-regular - latin-ext_latin */
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      src: url('roboto-v18-latin-ext_latin-regular.eot');
+      /* IE9 Compat Modes */
+      src: local('Roboto'), local('Roboto-Regular'), url('roboto-v18-latin-ext_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('../assets/index/roboto-v18-latin-ext_latin-regular.woff') format('woff'), /* Modern Browsers */
+      url('../assets/index/roboto-v18-latin-ext_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('../assets/index/roboto-v18-latin-ext_latin-regular.svg#Roboto') format('svg');
+      /* Legacy iOS */
+    }
+
+    /* roboto-700 - latin-ext_latin */
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      src: url('roboto-v18-latin-ext_latin-700.eot');
+      /* IE9 Compat Modes */
+      src: local('Roboto Bold'), local('Roboto-Bold'), url('roboto-v18-latin-ext_latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('../assets/index/roboto-v18-latin-ext_latin-700.woff') format('woff'), /* Modern Browsers */
+      url('../assets/index/roboto-v18-latin-ext_latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('../assets/index/roboto-v18-latin-ext_latin-700.svg#Roboto') format('svg');
+      /* Legacy iOS */
+    }
+
+    /* open-sans-300 - latin-ext_latin */
+
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 300;
+      src: url('open-sans-v15-latin-ext_latin-300.eot');
+      /* IE9 Compat Modes */
+      src: local('Open Sans Light'), local('OpenSans-Light'), url('open-sans-v15-latin-ext_latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('../assets/index/open-sans-v15-latin-ext_latin-300.woff') format('woff'), /* Modern Browsers */
+      url('../assets/index/open-sans-v15-latin-ext_latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('../assets/index/open-sans-v15-latin-ext_latin-300.svg#OpenSans') format('svg');
+      /* Legacy iOS */
+    }
+
+    /* open-sans-regular - latin-ext_latin */
+
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: url('open-sans-v15-latin-ext_latin-regular.eot');
+      /* IE9 Compat Modes */
+      src: local('Open Sans Regular'), local('OpenSans-Regular'), url('open-sans-v15-latin-ext_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('../assets/index/open-sans-v15-latin-ext_latin-regular.woff') format('woff'), /* Modern Browsers */
+      url('../assets/index/open-sans-v15-latin-ext_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('../assets/index/open-sans-v15-latin-ext_latin-regular.svg#OpenSans') format('svg');
+      /* Legacy iOS */
+    }
+
+    /* open-sans-700 - latin-ext_latin */
+
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 700;
+      src: url('open-sans-v15-latin-ext_latin-700.eot');
+      /* IE9 Compat Modes */
+      src: local('Open Sans Bold'), local('OpenSans-Bold'), url('open-sans-v15-latin-ext_latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('../assets/index/open-sans-v15-latin-ext_latin-700.woff') format('woff'), /* Modern Browsers */
+      url('../assets/index/open-sans-v15-latin-ext_latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('../assets/index/open-sans-v15-latin-ext_latin-700.svg#OpenSans') format('svg');
+      /* Legacy iOS */
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+    }
+
+    .btn-primary {
+      color: #ffffff;
+      background: #3492cc;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .panel-heading {
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .form-control {
+      background-color: #f5f5f5;
+      color: #666666;
+      font-family: 'Roboto', sans-serif;
+      margin-bottom: 10px;
+      border: 2px solid #b1b1b1;
+      border-radius: 4px;
+      padding: 7px 15px;
+      height: 40px;
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+	.logo {
+		padding:20px;
+	}
+
+	.search-box {
+		max-width:350px;
+		margin-left:auto;
+	}
+
+	.cb-header {
+		border-radius: 4px;
+		background: url(../assets/img/banner_index_banco.jpg);
+		background-size: cover;
+		background-position: center;
+		margin-top: 10px;
+		height: 350px;
+	}
+
+	#frmOptions > div {
+		border-bottom-right-radius: 4px;
+		border-top-right-radius: 4px;
+		height:350px;
+		width:470px;
+		margin-left:auto;
+		padding:40px;
+		padding-left: 140px;
+		background: linear-gradient(to right, rgba(125,185,232,0) 0%,rgba(30,87,153,1) 90%);
+		color: #FFF;
+		text-align: center;
+	}
+
+	@media (max-width: 767px) {
+		.logo {
+			text-align: center;
+		}
+		.cb-globalnav {
+			text-align: center;
+		}
+		.search-box {
+			max-width: unset;
+		}
+		#frmOptions > div {
+      width: unset;
+			height: unset;
+			padding:24px;
+			border-radius: 0;
+		}
+		.cb-header {
+			height: unset;
+			border-radius: 0;
+		}
+	}
+
+  </style>
+</head>
+
+<body class="cb-shell" style="background:#FFF;">
+  <div class="container">
+    <div class="row">
+      <div class="logo col-sm-6">
+        <img src="../assets/img/logo.png" />
+      </div>
+      <div class="col-sm-6 text-right">
+        <ul class="cb-globalnav list-inline" style="margin-top:10px;">
+          <li><span class="fa fa-map-marker"></span> <a href="#">Oficinas y sucursales</a></li>
+          <li><span class="fa fa-envelope-o"></span> <a href="#">Cont&aacute;ctenos</a></li>
+          <li><span class="fa fa-question-circle"></span> <a href="#">Ayuda</a></li>
+        </ul>
+        <div class="input-group search-box">
+          <input type="search" class="form-control" />
+          <span class="input-group-btn">
+            <button class="btn btn-primary" style="padding: 8px 12px;">Buscar</button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="cb-header">
+      <form id="frmOptions">
+        <div>
+          <h2>Banco Cobis Online</h2>
+          <div class="form-group">
+            <button class="btn btn-default btn-lg btn-block" onclick="openInNewTab('http://192.168.66.168:8080/CWC-IBN/services/cobis/web/app/index.html#/login');" target="_blank">Banca Personas</button>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-default btn-lg btn-block" onclick="openInNewTab('http://192.168.66.168:8080/CWC-BIB/services/cobis/web/app/index.html#/login');" target="_blank">Banca Empresas</button>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-default btn-lg btn-block" onclick="openInNewTab('http://192.168.66.168:8080/CWC-CM/services/cobis/web/app/index.html#/login');" target="_blank">Cash Management</button>
+          </div>
+        </div>
+        <input id="optionCobis" name="optionCobis" type="hidden" value="">
+      </form>
+    </div>
+    <div class="row" style="margin-top:30px;">
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-heading" style="font-size: 18px; font-weight: bold; color: #1e5699;">Productos</div>
+          <div class="list-group" style="height:163px;">
+            <a class="list-group-item" href="#">Dep&oacute;sito Remoto Online</a>
+            <a class="list-group-item" href="#">Servicios Mercantiles</a>
+            <a class="list-group-item" href="#">Comunidad Online</a>
+            <a class="list-group-item" href="#">Pr&eacute;stamos Inmediatos</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-heading" style="font-size: 18px; font-weight: bold; color: #1e5699;">Compromiso de Transparencia</div>
+          <div class="list-group" style="height:163px;">
+            <a class="list-group-item" href="#">Tasas de inter&eacute;s y tarifas</a>
+            <a class="list-group-item" href="#">Calificaci&oacute;n de riesgo</a>
+            <a class="list-group-item" href="#">Estados comparativos</a>
+            <a class="list-group-item" href="#">Resoluciones</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-heading" style="font-size: 18px; font-weight: bold; color: #1e5699;">Acerca de nosotros</div>
+          <div class="panel-body" style="height:163px;">
+            <p style="font-size:16px;">Banco Cobis es una de las instituciones m&aacute;s importantes del Ecuador, La excelencia en el servicio al cliente es nuestro activo m&aacutes importante.</p>
+            <div class="text-center"><button class="btn btn-primary">Conocer m&aacute;s</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center" style="padding-bottom:50px;">
+      <hr />
+      <ul class="list-inline">
+        <li><a href="#">Oportunidades laborales</a></li>
+        <li><a href="#">Pr&aacute;cticas publicitarias</a></li>
+        <li><a href="#">Ayuda</a></li>
+        <li><a href="#">Privacidad y seguridad</a></li>
+        <li><a href="#">Mapa del sitio</a></li>
+      </ul>
+      <div class="text-muted small">
+        Copyright &copy; 2018 Banco Cobis, Todos los Derechos Reservados.
+      </div>
+    </div>
+  </div>
+  <script languaje="javascript">
+    function loginCobisBanking(option) {
+      var frmOptions = document.getElementById("frmOptions");
+
+      frmOptions.method = "GET";
+      var optionCobis = document.getElementById("optionCobis")
+      optionCobis.value = option;
+
+      frmOptions.target = "_blank";
+      frmOptions.action = "index.html#/login";
+      frmOptions.submit();
+    }
+
+    function openInNewTab(url) {
+      var win = window.open(url, '_blank');
+      win.focus();
+    }
+  </script>
+</body>
+
+</html>

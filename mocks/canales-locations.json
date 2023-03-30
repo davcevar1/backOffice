@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2_vVWHWOkmCHumoy3PPikOuH10MSLwE0_5uC09HCW3x7iotrf7g",
+    "name": "Banco Cobis NNUU",
+    "address": "Naciones Unidas OE34-234 y Amazonas",
+    "city": "Quito",
+    "state": "Pichincha",
+    "country": "Ecuador",
+    "status": "Vigente"
+  },
+  {
+    "id": 1,
+    "image": "http://www.riocentroshopping.com/assets/img/upload/big/308541cc1641488ae6e0b14c4135b1a8.jpg",
+    "name": "Banco Cobis Cumbaya",
+    "address": "Pampite OE34-234 y Libertadores",
+    "city": "Quito",
+    "state": "Pichincha",
+    "country": "Ecuador",
+    "status": "Vigente"
+  },
+  {
+    "id": 1,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyyvtVU1obcfyPo4dwcFPnq05Ca2iqOh-DWgoM4P40GIHAIuarbA",
+    "name": "Banco Cobis Carcelén",
+    "address": "Lugo OE34-234 y Madrid",
+    "city": "Quito",
+    "state": "Pichincha",
+    "country": "Ecuador",
+    "status": "Vigente"
+  },
+  {
+    "id": 1,
+    "image": "http://www.brandemia.org/sites/default/files/inline/images/fachada-pichincha2.jpg",
+    "name": "Banco Cobis Valle de los Chillos",
+    "address": "General Rumiñahui OE12-334 y Luis Felipe Borja",
+    "city": "Quito",
+    "state": "Pichincha",
+    "country": "Ecuador",
+    "status": "Vigente"
+  },
+  {
+    "id": 1,
+    "image": "https://res.cloudinary.com/civico/image/upload/c_fit,f_auto,fl_lossy,h_1200,q_auto:low,w_1200/v1/entity/image/file/320/001/522fd90f31e93c82f4001320.jpg",
+    "name": "Banco Cobis 6 de diciembre",
+    "address": "6 de diciembre OE34-123 y Shirys",
+    "city": "Quito",
+    "state": "Pichincha",
+    "country": "Ecuador",
+    "status": "Vigente"
+  }
+]

@@ -1,0 +1,400 @@
+/* CONTROLS BOOTSTRAP */
+.alert {
+  // TODO: Deprecated
+  > .glyphicon {
+    margin-right: 10px;
+  }
+
+  &.alert-success {
+    .alert-variant(@alert-success-bg; @alert-success-border; @alert-success-text);
+  }
+
+  &.alert-info {
+    .alert-variant(@alert-info-bg; @alert-info-border; @alert-info-text);
+  }
+
+  &.alert-warning {
+    .alert-variant(@alert-warning-bg; @alert-warning-border; @alert-warning-text);
+  }
+
+  &.alert-danger {
+    .alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-text);
+  }
+}
+
+.btn {
+  border-radius: @widget-border-radius;
+  overflow: hidden;
+  text-overflow: clip;
+
+  .input-group-btn & {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &.btn-default {
+    background-color: #FFF;
+    border-color: @link-color;
+    color: @link-color;
+
+    &:focus,
+    &:hover {
+      background-color: darken(#FFF, 10%);
+      border-color: darken(#f8f8f8, 40%);
+    }
+
+    &.active {
+      background-color: #f1f1f1;
+    }
+  }
+
+  &.btn-primary {
+    background-color: @link-color;
+    border-color: darken(@link-color, 20%);
+    color: #FFF;
+
+    &:focus,
+    &:hover {
+      background-color: darken(@link-color, 10%);
+      border-color: darken(@link-color, 40%);
+    }
+  }
+
+  &.btn-link {
+    color: @link-color;
+  }
+
+  &.btn-danger {
+    background: @danger-color;
+    border-color: darken(@danger-color, 20%);
+
+    &:focus,
+    &:hover {
+      background-color: darken(@danger-color, 10%);
+      border-color: darken(@danger-color, 40%);
+    }
+  }
+}
+
+.btn-group {
+  &.btn-block {
+    display: flex;
+
+    > .btn:first-child {
+      flex: 1;
+    }
+  }
+}
+
+.btn-group-lg > .btn,
+.btn-lg {
+  line-height: 1.34;
+}
+
+.modal {
+  .modal-header {
+    min-height: 35px;
+    background-color: @primary-color;
+    border: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-top: -1px;
+    margin-left: -1px;
+    margin-right: -1px;
+    border: 1px solid rgba(0,0,0,.2);
+
+    > .modal-title {
+      font-size: 14px;
+      color: #FFF;
+      flex: 1;
+    }
+
+    > .close {
+      text-shadow: 0 0;
+      color: #FFF;
+      opacity: 1;
+    }
+  }
+
+  .modal-content {
+    background-color: @background-color;
+    border-radius: 5px;
+    @media (max-width: (@screen-sm - 1)) {
+      overflow: auto;
+    }
+
+    .modal-body {
+      padding: 15px;
+    }
+  }
+
+  .modal-footer {
+    padding: 15px 0;
+    margin: 0 15px;
+    text-align: center;
+
+    .btn {
+      min-width: 100px;
+    }
+  }
+
+  &-backdrop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #9a9a9a;
+
+    &.in {
+      filter: alpha(opacity=80);
+      opacity: 0.8;
+    }
+  }
+}
+
+.form-control {
+  border-radius: @widget-border-radius;
+
+  &[readonly] {
+    box-shadow: 0 0;
+    background-color: #EEE;
+    cursor: default;
+
+    a & {
+      color: @link-color;
+      cursor: pointer;
+    }
+  }
+
+  &.cb-no-border {
+    border: none;
+    box-shadow: none;
+    padding: inherit;
+    color: inherit;
+
+    &,
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &:focus {
+    border-color: @focus-color;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px fade(@focus-color, 60%);
+  }
+}
+//TODO: Validar en donde se usa, esto se agrego en designer
+
+div.form-group > div > div.form-group {
+  margin-bottom: 0;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: @form-group-vertical-margin;
+
+  &.cb-required {
+    .control-label:after {
+      content: '*';
+      color: @danger-color;
+      position: absolute;
+      padding-left: 5px;
+    }
+    .checkbox-inline {
+        span:after {
+            content: '*';
+            color: @danger-color;
+            position: absolute;
+            padding-left: 5px;  
+        }    
+    }
+  }
+
+  input[readonly] {
+    &,
+    + .k-select {
+      background-color: #f0f1f2;
+    }
+  }
+
+  &.has-success {
+    input[type="text"] {
+      background: #dff0d8;
+    }
+  }
+
+  &.has-error {
+    input[type="text"] {
+      background: #f2dede;
+    }
+  }
+
+  &:not(.cb-no-label) {
+    .control-label:empty:before {
+      content: '\a0';
+    }
+  }
+
+  > .control-label {
+    color: lighten(@text-color, 20%);
+    font-size: @font-size-base;
+    font-weight: normal;
+    line-height: 17px; //En ie por defecto sale 17.14px y desplaza los controles por eso se fuerza q 17px
+
+    .glyphicon {
+      vertical-align: middle;
+      margin-top: -3px;
+    }
+  }
+
+  .form-horizontal > .row > [class*="col-"] > & {
+    min-height: 34px;
+
+    .control-label {
+      padding-top: 10px;
+      margin-bottom: 0;
+    }
+  }
+
+  .form-vertical > .row > [class*="col-"] > & {
+    min-height: 57px;
+  }
+
+  .form-horizontal > .row > [class*="col-"] > & .control-label,
+  .form-vertical > .row > [class*="col-"] > & .control-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inherit;
+  }
+
+  /* Personalización para que los controles de kendoui tengan el mismo comportamiento de los controles de bootstrap */
+  .k-textbox,
+  .k-widget {
+    width: 100%;
+  }
+
+  .k-textbox {
+    height: 34px;
+  }
+
+  .checkbox-inline {
+      display: block;
+  }
+}
+
+.checkbox-inline,
+.radio-inline {
+  margin-left: 0 !important;
+  margin-right: 10px;
+}
+
+.container {
+  .container,
+  .k-scrollable & {
+    width: 100%;
+  }
+}
+
+.container,
+.container-fluid {
+  .container,
+  .container-fluid {
+    padding: 0;
+  }
+}
+
+/* Hay una incompatibilidad con la propiedad box-sizing entre kendoui y bootstrap esto lo corrije */
+.row {
+  [class*="col-"],
+  [class*="col-"]:before,
+  [class*="col-"]:after {
+    box-sizing: border-box;
+  }
+}
+
+.input-group-addon {
+  &:first-child {
+    border-top-left-radius: @widget-border-radius;
+    border-bottom-left-radius: @widget-border-radius;
+  }
+
+  &:last-child {
+    border-top-right-radius: @widget-border-radius;
+    border-bottom-right-radius: @widget-border-radius;
+  }
+}
+
+.input-group-btn {
+  z-index: 2;
+  &:not(:first-child):not(:last-child) {
+    &,
+    & .btn {
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+    }
+  }
+
+  .btn {
+    height: 34px;
+    //line-height: 17px; //En ie por defecto sale 17.14px y desplaza los controles por eso se fuerza q 17px
+  }
+}
+
+.dropdown-menu {
+  border-radius: @widget-border-radius;
+  font-size: 12px;
+
+  > li {
+    > a:focus,
+    > a:hover {
+      background: lighten(@link-color, 50%);
+      color: @text-color;
+    }
+
+    &.active > a,
+    &.active > a:focus,
+    &.active > a:hover {
+      background: @link-color;
+      color: #FFF;
+    }
+  }
+}
+
+.navbar {
+  &.navbar-default {
+    &.navbar-static-top {
+      box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+      border-color: @br-navbar;
+      background: @background-color;
+    }
+  }
+}
+
+.nav-pills {
+  > li {
+    &.active {
+      > a {
+        &,
+        &:focus,
+        &:hover {
+          background-color: @primary-color;
+        }
+      }
+    }
+
+    > a {
+      border-radius: @widget-border-radius;
+    }
+  }
+}
+
+.table-responsive {
+  border-radius: @widget-border-radius;
+}

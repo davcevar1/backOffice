@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-viewport cb-flex cb-column">
+            <div class="cb-form-header cb-no-margin">
+                <div class="cb-flex cb-middle">
+                    <div class="cb-grow">
+                        <div title="# Garantía">01-7131-5838 - PERSONA FISICA NACIONAL</div>
+                        <div class="cb-text-xl">AGUAS MUNOZ BETTY JEANNETH</div>
+                        <div class="cb-flex cb-gutters">
+                            <div>
+                                <div>ADMUSER</div>
+                                <div class="small control-label">Ejecutivo de cuenta</div>
+                            </div>
+                            <div>
+                                <div>VIGENTE</div>
+                                <div class="small control-label">Estado</div>
+                            </div>
+                            <div>
+                                <div>10/24/2013</div>
+                                <div class="small control-label">Cliente desde</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cb-flex cb-gutters">
+                        <div class="input-group" style="width:200px;">
+                            <input type="text" class="form-control" />
+                            <span class="input-group-btn">
+                                <a href="#" class="btn btn-default" title="Buscar"><span class="fa fa-search"></span></a>
+                            </span>
+                        </div>
+                        <div class="btn-group">
+                            <button id="more-info" class="btn btn-default" title="Información"><span class="fa fa-info-circle"></span> <span class="hidden-xs">Información</span></button>
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="fa fa-angle-down"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="#status-form" data-toggle="modal">Búsqueda avanzada</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="k-tabstrip-wrapper cb-flex cb-grow">
+                <div kendo-tab-strip class="cb-flex cb-column cb-grow">
+                    <ul>
+                        <li>
+                            <a href="#"><span class="fa fa-bar-chart"></span> Posición consolidada</a>
+                        </li>
+                        <li class="k-state-active">
+                            <a href="#"><span class="fa fa-bullhorn"></span> Productos</a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="fa fa-user"></span> Información del cliente</a>
+                        </li>
+                    </ul>
+                    <div class="cb-grow cb-no-padding" style="position:relative;">
+                        <div>
+                            <div>
+                                <div class="cb-viewport">
+                                    <div kendo-splitter k-panes="[{}, {size:'400px'}]">
+                                        <div>
+                                            <div class="cb-view-container-root container-fluid" ng-if="!currentView">
+                                                <div kendo-chart style="height:300px;"></div>
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-body text-center">
+                                                                <div class="cb-text-lg">12,3456.67 <small>BOB</small></div>
+                                                                <small class="text-muted">Riesgo total</small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-3 text-center">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-body text-center">
+                                                                <div class="cb-text-lg">12,3456.67 <small>BOB</small></div>
+                                                                <small class="text-muted">Riesgo directo</small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-3 text-center">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-body text-center">
+                                                                <div class="cb-text-lg">12,3456.67 <small>BOB</small></div>
+                                                                <small class="text-muted">Riesgo indirecto</small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-3 text-center">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-body text-center">
+                                                                <div class="cb-text-lg">12,3456.67 <small>BOB</small></div>
+                                                                <small class="text-muted">Contingente</small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <fieldset>
+                                                    <legend>Historial de calificación</legend>
+                                                    <div kendo-grid></div>
+                                                </fieldset>
+                                            </div>
+                                            <div class="cb-view-container-root container-fluid" ng-if="currentView=='deudas'">
+                                                <fieldset>
+                                                    <legend>CCA - CREDITO AUTOMOTRIZ</legend>
+                                                    <div kendo-grid></div>
+                                                </fieldset>
+                                            </div>
+                                            <div class="cb-view-container-root container-fluid" ng-if="currentView=='pasivos'">
+                                                <fieldset>
+                                                    <legend>CTE - CUENTA CORRIENTE PERSONAL</legend>
+                                                    <div kendo-grid></div>
+                                                </fieldset>
+                                                <fieldset>
+                                                    <legend>AHO - CUENTA AHORRO NORMAL</legend>
+                                                    <div kendo-grid></div>
+                                                </fieldset>
+                                            </div>
+                                            <div class="cb-view-container-root container-fluid" ng-if="currentView=='garantias'">
+                                                <fieldset>
+                                                    <legend>GAR - HIPOTECA SOBRE EDIFICACIONES</legend>
+                                                    <div kendo-grid></div>
+                                                </fieldset>
+                                            </div>
+                                            <button class="btn btn-default btn-xs" ng-if="currentView" ng-click="setCurrentView(null)" style="position: absolute; top: 10px; right: 10px;" title="Cerrar"><span class="fa fa-close"></span></button>
+                                        </div>
+                                        <ul kendo-panel-bar>
+                                            <li>
+                                                <span><button class="btn btn-default btn-xs btn-more-detail" ng-click="setCurrentView('deudas', $event)" title="Ver más detalle"><span class="fa fa-angle-double-left"></span></button> Deudas - 176,165.38 <small>BOB</small><span class="badge">1</span></span>
+                                                <div>
+                                                    <fieldset class="cb-group cb-group-simple">
+                                                        <legend>CCA - CREDITO AUTOMOTRIZ</legend>
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item">
+                                                                <div class="row">
+                                                                    <div class="col-xs-6" title="Número">
+                                                                        <div class="btn-group">
+                                                                            <a href="#" data-toggle="dropdown">10410000001301508</a>
+                                                                            <ul class="dropdown-menu">
+                                                                                <li><a href="#">Proceso 1</a></li>
+                                                                                <li><a href="#">Proceso 2</a></li>
+                                                                                <li><a href="#">Proceso 3</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-6 text-right" title="Monto">100,000.00 <small>BOB</small></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-6 text-muted cb-text-sm" title="Riesgo ML">176,165.38</div>
+                                                                    <div class="col-xs-6 text-muted text-right cb-text-sm"><span title="Saldo total">176,165.38</span> <span class="text-danger" title="Saldo vencido">(6,890.00)</span></div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </fieldset>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span><button class="btn btn-default btn-xs btn-more-detail" ng-click="setCurrentView('pasivos', $event)" title="Ver más detalle"><span class="fa fa-angle-double-left"></span></button> Pasivos - 27,678.00 <small>BOB</small><span class="badge">6</span></span>
+                                                <div>
+                                                    <fieldset class="cb-group cb-group-simple">
+                                                        <legend>CTE - CUENTA CORRIENTE PERSONAL</legend>
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item">
+                                                                <div class="row">
+                                                                    <div class="col-xs-6" title="Numero de cuenta">
+                                                                        <div class="btn-group">
+                                                                            <a href="#" data-toggle="dropdown">10410000016400009</a>
+                                                                            <ul class="dropdown-menu">
+                                                                                <li><a href="#">Proceso 1</a></li>
+                                                                                <li><a href="#">Proceso 2</a></li>
+                                                                                <li><a href="#">Proceso 3</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-6 text-right" title="Saldo disponible">600.00 <small>BOB</small></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-6 text-muted cb-text-sm" title="Fecha de apertura">12/31/1969</div>
+                                                                    <div class="col-xs-6 text-muted text-right cb-text-sm" title="Saldo contable">600.00</div>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item">
+                                                                <div class="row">
+                                                                    <div class="col-xs-6" title="Numero de cuenta">
+                                                                        <div class="btn-group">
+                                                                            <a href="#" data-toggle="dropdown">10410000016400009</a>
+                                                                            <ul class="dropdown-menu">
+                                                                                <li><a href="#">Proceso 1</a></li>
+                                                                                <li><a href="#">Proceso 2</a></li>
+                                                                                <li><a href="#">Proceso 3</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-6 text-right" title="Saldo disponible">600.00 <small>BOB</small></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-6 text-muted cb-text-sm" title="Fecha de apertura">12/31/1969</div>
+                                                                    <div class="col-xs-6 text-muted text-right cb-text-sm" title="Saldo contable">600.00</div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </fieldset>
+
+                                                    <fieldset class="cb-group cb-group-simple">
+                                                        <legend>AHO - CUENTA AHORRO NORMAL</legend>
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item">
+                                                                <div class="row">
+                                                                    <div class="col-xs-6" title="Numero de cuenta">
+                                                                        <div class="btn-group">
+                                                                            <a href="#" data-toggle="dropdown">10410000016400009</a>
+                                                                            <ul class="dropdown-menu">
+                                                                                <li><a href="#">Proceso 1</a></li>
+                                                                                <li><a href="#">Proceso 2</a></li>
+                                                                                <li><a href="#">Proceso 3</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-6 text-right" title="Saldo disponible">12,000.00 <small>BOB</small></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-6 text-muted cb-text-sm" title="Fecha de apertura">12/31/1969</div>
+                                                                    <div class="col-xs-6 text-muted text-right cb-text-sm" title="Saldo contable">10,000.00</div>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item">
+                                                                <div class="row">
+                                                                    <div class="col-xs-6" title="Numero de cuenta">
+                                                                        <div class="btn-group">
+                                                                            <a href="#" data-toggle="dropdown">10410000016400009</a>
+                                                                            <ul class="dropdown-menu">
+                                                                                <li><a href="#">Proceso 1</a></li>
+                                                                                <li><a href="#">Proceso 2</a></li>
+                                                                                <li><a href="#">Proceso 3</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-6 text-right" title="Saldo disponible">12,000.00 <small>BOB</small></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-6 text-muted cb-text-sm" title="Fecha de apertura">12/31/1969</div>
+                                                                    <div class="col-xs-6 text-muted text-right cb-text-sm" title="Saldo contable">10,000.00</div>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item">
+                                                                <div class="row">
+                                                                    <div class="col-xs-6" title="Numero de cuenta">
+                                                                        <div class="btn-group">
+                                                                            <a href="#" data-toggle="dropdown">10410000016400009</a>
+                                                                            <ul class="dropdown-menu">
+                                                                                <li><a href="#">Proceso 1</a></li>
+                                                                                <li><a href="#">Proceso 2</a></li>
+                                                                                <li><a href="#">Proceso 3</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-6 text-right" title="Saldo disponible">12,000.00 <small>BOB</small></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-6 text-muted cb-text-sm" title="Fecha de apertura">12/31/1969</div>
+                                                                    <div class="col-xs-6 text-muted text-right cb-text-sm" title="Saldo contable">10,000.00</div>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item">
+                                                                <div class="row">
+                                                                    <div class="col-xs-6" title="Numero de cuenta">
+                                                                        <div class="btn-group">
+                                                                            <a href="#" data-toggle="dropdown">10410000016400009</a>
+                                                                            <ul class="dropdown-menu">
+                                                                                <li><a href="#">Proceso 1</a></li>
+                                                                                <li><a href="#">Proceso 2</a></li>
+                                                                                <li><a href="#">Proceso 3</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-6 text-right" title="Saldo disponible">12,000.00 <small>BOB</small></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-6 text-muted cb-text-sm" title="Fecha de apertura">12/31/1969</div>
+                                                                    <div class="col-xs-6 text-muted text-right cb-text-sm" title="Saldo contable">10,000.00</div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </fieldset>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span><button class="btn btn-default btn-xs btn-more-detail" ng-click="setCurrentView('garantias', $event)" title="Ver más detalle"><span class="fa fa-angle-double-left"></span></button> Garantías - 150,000.00 <small>BOB</small><span class="badge">1</span></span>
+                                                <div>
+                                                    <fieldset class="cb-group cb-group-simple">
+                                                        <legend>GAR - HIPOTECA SOBRE EDIFICACIONES</legend>
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item">
+                                                                <div class="row">
+                                                                    <div class="col-xs-6" title="Numero">
+                                                                        <div class="btn-group">
+                                                                            <a href="#" data-toggle="dropdown">001HIPOTEDIF000004</a>
+                                                                            <ul class="dropdown-menu">
+                                                                                <li><a href="#">Proceso 1</a></li>
+                                                                                <li><a href="#">Proceso 2</a></li>
+                                                                                <li><a href="#">Proceso 3</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-6 text-right" title="Valor actual">150,000.00 <small>BOB</small></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-6 text-muted cb-text-sm"></div>
+                                                                    <div class="col-xs-6 text-muted text-right cb-text-sm" title="%MCR">15,000.00</div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </fieldset>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span><button class="btn btn-default btn-xs btn-more-detail" title="Ver más detalle"><span class="fa fa-angle-double-left"></span></button> Contingentes</span>
+                                                <div>test</div>
+                                            </li>
+                                            <li>
+                                                <span><button class="btn btn-default btn-xs btn-more-detail" title="Ver más detalle"><span class="fa fa-angle-double-left"></span></button> Riesgo indirecto</span>
+                                                <div>test</div>
+                                            </li>
+                                            <li>
+                                                <span><button class="btn btn-default btn-xs btn-more-detail" title="Ver más detalle"><span class="fa fa-angle-double-left"></span></button> Otros</span>
+                                                <div>test</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cb-grow cb-no-padding k-state-active">
+                        <div id="productos" kendo-splitter k-panes="[{size:'400px'}, {}]">
+                            <div></div>
+                            <div>
+                                <div class="cb-breadcrumb">
+                                    <ul class="breadcrumb">
+                                        <li>Categoría producto final</li>
+                                    </ul>
+                                </div>
+                                <div class="cb-view-container-root cb-view-container cb-group-simple container-fluid">
+                                    <div>
+                                        <div class="pull-right" style="margin-left:40px; margin-bottom:40px;">
+                                            <a href="cliente-datos-generales.html" class="btn btn-default" style="width:150px;">Solicitar</a>
+                                            <a href="cliente-datos-generales.html" class="btn btn-default" style="width:150px;">Simular</a>
+                                        </div>
+                                        <h2 style="margin-top:0;">CREDITO AUTOMOTRIZ</h2>
+                                        <p>Decide la manera en la que quieres financiarlo y págalo en cómodas cuotas mensuales. Con Autofácil puedes comprar tu vehículo propio en cualquier concesionario autorizado del país. Simplemente tienes que llenar un formulario en cualquiera de nuestras oficinas o directamente en el concesionario.</p>
+                                        <h4>Monedas</h4>
+                                        <ul>
+                                            <li>BOLIVIANOS</li>
+                                            <li>DOLARES</li>
+                                        </ul>
+                                        <h4>Políticas</h4>
+                                        <ul>
+                                            <li>POLITICA 1</li>
+                                            <li>POLITICA 2</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cb-grow cb-scrollable">
+                        <div class="cb-view-container-root cb-view-container cb-group-collapsible container">
+                            <fieldset class="cb-group cb-group-tabbed-v">
+                                <div class="row">
+                                    <div class="col-tab-items col-sm-2">
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <li class="active"><a href="#tab0" data-toggle="tab">Datos personales</a></li>
+                                            <li><a href="#tab1" data-toggle="tab">Direcciones y correos</a></li>
+											<li><a href="#tab2" data-toggle="tab">Relaciones</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="cb-tab-content col-sm-10 tab-content">
+                                        <div id="tab0" class="tab-pane active">
+                                            <ul kendo-panel-bar>
+                                                <li class="k-state-active">
+                                                    <span>Datos Personales</span>
+                                                    <div class="k-active" style="padding:20px;">
+                                                        <div class="pull-right">
+                                                            <a href="cliente-natural.html" class="btn btn-default"><span class="fa fa-pencil"></span> Editar</a>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Nacionalidad</label>
+                                                                    <div>188</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Estado Civil</label>
+                                                                    <div>CASADO (A)</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Fecha de Nacimiento</label>
+                                                                    <div>1/1/2010</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Sexo</label>
+                                                                    <div>FEMENINO</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tipo de Cliente</label>
+                                                                    <div>PERSONA NATURAL</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Categoría</label>
+                                                                    <div></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="k-state-active">
+                                                    <span>Datos Academicos</span>
+                                                    <div style="padding:20px;">
+                                                        <div class="row">
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Nivel de Estudio</label>
+                                                                    <div></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Profesión</label>
+                                                                    <div>ABOGADO</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Actividad</label>
+                                                                    <div>CENTROS DE EJERCICIO, SAUNAS Y RELAJAMIENTO FISICO</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="k-state-active">
+                                                    <span>Otra Informacion</span>
+                                                    <div style="padding:20px;">
+                                                        <div class="row">
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Grupo Económico</label>
+                                                                    <div></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Estado</label>
+                                                                    <div></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tipo de Vinculación</label>
+                                                                    <div>CLIENTE</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Cliente Preferencial</label>
+                                                                    <div>N</div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Reportado a SBS</label>
+                                                                    <div>N</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Límite Máximo Endeudamiento</label>
+                                                                    <div></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Línea de Negocio</label>
+                                                                    <div></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Segmento de Negocio</label>
+                                                                    <div></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Vinculado</label>
+                                                                    <div></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div id="tab1" class="tab-pane">
+                                            <fieldset class="cb-group cb-group-simple">
+                                                <legend>Direcciones</legend>
+                                                <div>
+                                                    <kendo-grid options="direcciones"></kendo-grid>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset class="cb-group cb-group-simple">
+                                                <legend>Correos electrónicos</legend>
+                                                <div>
+                                                    <kendo-grid options="emails"></kendo-grid>
+                                                 </div>
+                                            </fieldset>
+                                        </div>
+										<div id="tab2" class="tab-pane">
+											<div class="cb-group cb-group-simple">
+												<div>
+													<kendo-grid options="relaciones"></kendo-grid>
+												</div>
+											</div>
+										</div>
+									</div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cb-view-loading cb-hidden">
+                <div class="cb-view-loading-icon"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="info" class="hidden">
+        <div style="color:#333; margin: -10px -15px;">
+            <table class="table" style="margin:0;">
+                <tbody>
+                    <tr>
+                        <th class="cb-no-wrap">Categoría</th>
+                        <td>AVAL</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Ingreso</th>
+                        <td>12/12/2016</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Vencimiento</th>
+                        <td>12/12/2016</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Ultimo avalúo</th>
+                        <td>12/12/2016</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Valor inicial</th>
+                        <td>$5,000.00 USD</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Valor comercial</th>
+                        <td>$5,000.00 USD</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Valor utilizado</th>
+                        <td>$5,000.00 USD</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Valor disponible</th>
+                        <td>$5,000.00 USD</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="address-form" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Dirección</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset class="cb-group cb-group-simple cb-group-flex">
+                        <div class="form-vertical">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Tipo</div>
+                                        <div class="cb-control">
+                                            <select class="form-control">
+                                                <option>Domicilio</option>
+                                                <option>Trabajo</option>
+                                                <option>Otro</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Calles</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Referencia</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">País</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Provincia</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Ciudad</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Parroquia</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Barrio</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Ubicación</div>
+                                        <div class="cb-control cb-flex cb-gutters">
+                                            <div class="cb-grow">
+                                                <input type="text" class="form-control" value="-0.180653, -78.467834" readonly />
+                                            </div>
+                                            <div>
+                                                <button class="btn btn-default" title="Mapa"><span class="fa fa-location-arrow"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group cb-required">
+                                        <div class="cb-control">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" /> Direccion principal
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" /> Direccion correspondencia
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="cb-group cb-group-simple">
+                        <legend>Teléfonos</legend>
+                        <div>
+                            <kendo-grid options="telefonos"></kendo-grid>
+                         </div>
+                    </fieldset>
+                    <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+                        <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+                            <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="customer-form" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Cliente</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset class="cb-group cb-group-tabbed-v">
+                        <div class="row">
+                            <div class="col-tab-items col-sm-2">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li class="active"><a href="#tab0" data-toggle="tab">Información general</a></li>
+                                    <li><a href="#tab1" data-toggle="tab">Datos demográficos</a></li>
+                                    <li><a href="#tab1" data-toggle="tab">Datos económicos</a></li>
+                                    <li><a href="#tab1" data-toggle="tab">Actividades económicas</a></li>
+                                </ul>
+                            </div>
+                            <div class="cb-tab-content col-sm-10 tab-content">
+                                <div id="tab0" class="tab-pane active">
+                                    <fieldset class="cb-group cb-group-simple cb-group-flex">
+                                        <div>
+                                            <div class="form-vertical">
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Tipo</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control" ng-model="type">
+                                                                    <option value="person">Natural</option>
+                                                                    <option value="company">Jurídica</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Estado</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cb-flex cb-wrap" ng-show="type=='person'">
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Nombres</div>
+                                                                <div class="cb-control">
+                                                                    <div class="cb-control cb-flex cb-gutters">
+                                                                        <div class="cb-grow">
+                                                                            <input type="text" class="form-control" placeholder="Primer Nombre" />
+                                                                        </div>
+                                                                        <div class="cb-grow">
+                                                                            <input type="text" class="form-control" placeholder="Segundo Nombre" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Apellidos</div>
+                                                                <div class="cb-control">
+                                                                    <div class="cb-control cb-flex cb-gutters">
+                                                                        <div class="cb-grow">
+                                                                            <input type="text" class="form-control" placeholder="Paterno" />
+                                                                        </div>
+                                                                        <div class="cb-grow">
+                                                                            <input type="text" class="form-control" placeholder="Materno" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Conocido como</div>
+                                                                <div class="cb-control">
+                                                                    <input type="text" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Identificación</div>
+                                                                <div class="cb-control cb-flex cb-gutters">
+                                                                    <div class="cb-grow">
+                                                                        <select class="form-control">
+                                                                            <option>Cédula</option>
+                                                                            <option>Pasaporte</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="cb-grow">
+                                                                        <input type="text" class="form-control" placeholder="# Identificación" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Vencimiento identificación</div>
+                                                                <div class="cb-control">
+                                                                    <input type="date" kendo-datepicker />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Email</div>
+                                                                <div class="cb-control">
+                                                                    <input type="text" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                <div class="control-label">Género</div>
+                                                                <div class="cb-control">
+                                                                    <select class="form-control">
+                                                                        <option></option>
+                                                                        <option>Masculino</option>
+                                                                        <option>Femenino</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Fecha de nacimiento</div>
+                                                                <div class="cb-control">
+                                                                    <input type="date" kendo-datepicker />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Nacionalidad</div>
+                                                                <div class="cb-control">
+                                                                    <input type="text" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group">
+                                                                <div class="control-label">Estado civil</div>
+                                                                <div class="cb-control">
+                                                                    <select class="form-control" ng-model="civilStatus">
+                                                                        <option></option>
+                                                                        <option value="single">Soltero(a)</option>
+                                                                        <option value="married">Casado(a)</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Sucursal de gestión</div>
+                                                                <div class="cb-control">
+                                                                    <input type="text" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Oficial de Negocio</div>
+                                                                <div class="cb-control">
+                                                                    <input type="text" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div ng-show="type=='company'">
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Razon social</div>
+                                                                <div class="cb-control">
+                                                                    <input type="text" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Nombre comercial</div>
+                                                                <div class="cb-control">
+                                                                    <input type="text" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Identificación</div>
+                                                                <div class="cb-control cb-flex cb-gutters">
+                                                                    <div class="cb-grow">
+                                                                        <select class="form-control">
+                                                                            <option>Cédula</option>
+                                                                            <option>Pasaporte</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="cb-grow">
+                                                                        <input type="text" class="form-control" placeholder="# Identificación" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Vencimiento identificación</div>
+                                                                <div class="cb-control">
+                                                                    <input type="date" kendo-datepicker />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group cb-required">
+                                                                <div class="control-label">Fecha de constitución</div>
+                                                                <div class="cb-control">
+                                                                    <input type="date" kendo-datepicker />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+                        <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+                            <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="cliente" src="../lib/require/require.js"></script>
+</body>
+
+</html>

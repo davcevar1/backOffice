@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+  <style>
+    .sign-placeholder {
+      border: 2px dashed #CCC;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 180px;
+    }
+    .sign {
+      height: 180px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sign .btn {
+      display: none;
+    }
+    .sign:hover .btn {
+      display: block;
+    }
+    .sign__tools {
+      padding: 5px;
+      background-color: #FFF;
+    }
+  </style>
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-viewport cb-flex cb-column">
+      <div class="cb-form-header cb-no-margin" ng-include="'../shared/header.html'"></div>
+      <div class="k-tabstrip-wrapper cb-flex cb-grow">
+        <div kendo-tab-strip="tabs" class="cb-flex cb-column cb-grow">
+          <ul>
+            <li class="k-state-active" ng-show="!editable">
+              <a href="#">Resumen</a>
+            </li>
+            <li id="tab-clientes">
+              <a href="#">Titulares</a>
+            </li>
+            <li>
+              <a href="#">Operación</a>
+            </li>
+            <li ng-show="!editable">
+              <a href="#">Movimientos</a>
+            </li>
+            <li ng-show="!editable">
+              <a href="#">Cheques</a>
+            </li>
+            <li ng-show="!editable">
+              <a href="#">Sobregiros</a>
+            </li>
+          </ul>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div kendo-chart k-options="average6m" style="height: 350px;"></div>
+                </div>
+                <div class="col-sm-6">
+                  <h4 style="color: #8e8e8e; font-size: 16px; font-weight: normal; text-align: center;">Sumario</h4>
+                  <ul class="list-group">
+                    <li class="list-group-item">Retenciones</li>
+                    <li class="list-group-item cb-flex">
+                      <div class="cb-grow" style="font-weight:bold;">Remesas</div>
+                      <div>800.00 USD</div>
+                    </li>
+                    <li class="list-group-item cb-flex">
+                      <div class="cb-grow" style="font-weight:bold;">Remesas hoy</div>
+                      <div>300.00 USD</div>
+                    </li>
+                    <li class="list-group-item cb-flex">
+                      <div class="cb-grow" style="font-weight:bold;">Retenciones 24h</div>
+                      <div>300.00 USD</div>
+                    </li>
+                    <li class="list-group-item cb-flex">
+                      <div class="cb-grow" style="font-weight:bold;">Retenciones 12h</div>
+                      <div>800.00 USD</div>
+                    </li>
+                    <li class="list-group-item">Bloqueos</li>
+                    <li class="list-group-item cb-flex">
+                      <div class="cb-grow" style="font-weight:bold;">Por valor</div>
+                      <div>4,000.00 USD</div>
+                    </li>
+                    <li class="list-group-item cb-flex">
+                      <div class="cb-grow" style="font-weight:bold;">Por encaje</div>
+                      <div>800.00 USD</div>
+                    </li>
+                    <li class="list-group-item cb-flex">
+                      <div class="cb-grow" style="font-weight:bold;">Ultima transacción</div>
+                      <div>2018-03-12</div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <fieldset class="cb-group cb-group-simple">
+              <div>
+                <kendo-grid options="owners"></kendo-grid>
+              </div>
+            </fieldset>
+            <fieldset class="cb-group cb-group-simple">
+              <legend>Condiciones de retiro</legend>
+              <div>
+                <kendo-grid options="conditions"></kendo-grid>
+              </div>
+            </fieldset>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+              <div ng-include="'includes/operacion.html'"></div>
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <fieldset class="cb-group cb-group-simple">
+              <div class="form-vertical">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Fecha desde</div>
+                      <div class="cb-control">
+                        <input type="date" kendo-date-picker />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Fecha hasta</div>
+                      <div class="cb-control">
+                        <input type="date" kendo-date-picker />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Tipo de transacción</div>
+                      <div class="cb-control">
+                        <select class="form-control">
+                          <option>Todas</option>
+                          <option>Débitos</option>
+                          <option>Créditos</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="cb-group cb-group-simple">
+              <div>
+                <kendo-grid options="moneyActivity"></kendo-grid>
+              </div>
+            </fieldset>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+              <fieldset class="cb-group cb-group-simple">
+                <div class="form-vertical">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Tipo de cheques</div>
+                        <div class="cb-control">
+                          <select class="form-control" ng-model="gridAction">
+                            <option>Todos</option>
+                            <option>Normales</option>
+                            <option>Certificados</option>
+                            <option>Gerencia</option>
+                            <option>Revocados</option>
+                            <option>Suspesión transitoria</option>
+                            <option>Declaración si efecto</option>
+                            <option>Devueltos</option>
+                            <option value="void">Anulados</option>
+                            <option>Levantamiento anulados</option>
+                            <option>Defecto for forma y firma</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Filtrar por</div>
+                        <div class="cb-control">
+                          <select class="form-control" ng-model="filterBy">
+                            <option value="all">Todos</option>
+                            <option value="number">Número de cheque</option>
+                            <option value="range">Rango de números de cheque</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4" ng-show="filterBy=='number'">
+                      <div class="form-group">
+                        <div class="control-label">Número de cheque</div>
+                        <div class="cb-control">
+                          <input type="number" class="form-control" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4" ng-show="filterBy=='range'">
+                      <div class="form-group">
+                        <div class="control-label">Rango números de cheque</div>
+                        <div class="cb-control cb-flex cb-gutters">
+                          <div class="cb-grow">
+                            <input type="number" class="form-control" placeholder="Desde" />
+                          </div>
+                          <div class="cb-grow">
+                            <input type="number" class="form-control" placeholder="Hasta" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Número de chequera</div>
+                        <div class="cb-control">
+                          <input type="search" class="form-control" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Origen</div>
+                        <div class="cb-control">
+                          <select class="form-control">
+                            <option>Todos</option>
+                            <option>Ventanilla</option>
+                            <option>Cámara</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Transferidos</div>
+                        <div class="cb-control">
+                          <select class="form-control">
+                            <option>Todos</option>
+                            <option>Sí</option>
+                            <option>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Pagados</div>
+                        <div class="cb-control">
+                          <select class="form-control">
+                            <option>Todos</option>
+                            <option>Sí</option>
+                            <option>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="cb-group cb-group-simple">
+                <div>
+                  <kendo-grid ng-show="gridAction!='void'" options="checks"></kendo-grid>
+                  <kendo-grid class="multiselectChecks" ng-show="gridAction=='void'" options="checks3"></kendo-grid>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable"></div>
+          <div class="cb-grow cb-scrollable"></div>
+        </div>
+      </div>
+      <div class="cb-navbar cb-navbar-bottom" ng-show="editable">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+          <button class="btn btn-primary navbar-btn" data-dismiss="modal" ng-click="edit()">Guardar</button>
+          <button class="btn btn-default navbar-btn" data-dismiss="modal" ng-click="editable=false">Cancelar</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div id="conditions" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Condición de retiro</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset>
+            <div class="form-group">
+              <div class="control-label">Titulares</div>
+              <div class="cb-control">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" /> 1765677789 - José Morales
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" /> 175456665 - Martín Morales
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="control-label">Fecha (Desde/Hasta)</div>
+              <div class="cb-control">
+                <div class="cb-flex cb-gutters">
+                  <div class="cb-grow">
+                    <input kendo-datepicker type="text" />
+                  </div>
+                  <div class="cb-grow">
+                    <input kendo-datepicker type="text" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="control-label">Monto (Desde/Hasta)</div>
+              <div class="cb-control">
+                <div class="cb-flex cb-gutters">
+                  <div class="cb-grow">
+                    <input type="text" class="form-control" />
+                  </div>
+                  <div class="cb-grow">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="control-label">Observaciones</div>
+              <div class="cb-control">
+                <textarea type="text" class="form-control"></textarea>
+              </div>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="signature" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Firmas y/o Sello</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="control-label">Nombre y Cédula</div>
+                <div class="cb-control">
+                  Jose Martinez - 1789098762
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="control-label">Firma</div>
+                <div class="cb-control">
+                  <div class="sign-placeholder" ng-if="!capturedSign">
+                    <div ng-if="capturing && capturing == 'sign'">Capturando...</div>
+                    <button type="button" class="btn btn-default" ng-if="!capturing || capturing != 'sign'" ng-click="capture('sign')">Capturar</button>
+                  </div>
+                  <div class="sign" ng-if="capturedSign" style="background-image: url(../../images/signature1.svg);">
+                    <button type="button" class="btn btn-default" ng-click="capture('sign')">Volver a capturar</button>
+                    <button type="button" class="btn btn-default" style="margin-left: 10px;" ng-click="editCapture('sign', true)">Editar</button>
+                    <button type="button" class="btn btn-default" style="margin-left:10px;" ng-click="removeCapture('sign')">Eliminar</button>
+                  </div>
+                  <div ng-show="editingSign" class="sign__tools cb-flex cb-gutters-tiny">
+                    <div style="min-width: 105px;">
+                      <select kendo-drop-down-list ng-model="signTools.editType">
+                        <option value="contrast">Contraste</option>
+                        <option value="brightness">Brillo</option>
+                        <option value="eraser">Borrador</option>
+                      </select>
+                    </div>
+                    <div class="cb-grow">
+                      <input type="range" min="0" max="100" ng-show="signTools.editType != eraser" />
+                      <div class="text-muted small" ng-show="signTools.editType == eraser">Pase el puntero del ratón por la imagen, haga click y mantenga presionado para borrar</div>
+                    </div>
+                    <button class="btn btn-default" ng-click="editCapture('sign', false)">Aceptar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="control-label">Sello</div>
+                <div class="cb-control">
+                  <div class="sign-placeholder" ng-if="!capturedSeal">
+                    <div ng-if="capturing && capturing == 'seal'">Capturando...</div>
+                    <button type="button" class="btn btn-default" ng-if="!capturing || capturing != 'seal'" ng-click="capture('seal')">Capturar</button>
+                  </div>
+                  <div class="sign" ng-if="capturedSeal" style="background-image: url(../../images/signature1.svg);">
+                    <button type="button" class="btn btn-default" ng-click="capture('seal')">Volver a capturar</button>
+                    <button type="button" class="btn btn-default" style="margin-left: 10px;" ng-click="editCapture('seal', true)">Editar</button>
+                    <button type="button" class="btn btn-default" style="margin-left: 10px;" ng-click="removeCapture('seal')">Eliminar</button>
+                  </div>
+                  <div ng-show="editingSeal" class="sign__tools cb-flex cb-gutters-tiny">
+                    <div style="min-width: 105px;">
+                      <select kendo-drop-down-list ng-model="sealTools.editType">
+                        <option value="contrast">Contraste</option>
+                        <option value="brightness">Brillo</option>
+                        <option value="eraser">Borrador</option>
+                      </select>
+                    </div>
+                    <div class="cb-grow">
+                      <input type="range" min="0" max="100" ng-show="sealTools.editType != eraser" />
+                      <div class="text-muted small" ng-show="sealTools.editType == eraser">Pase el puntero del ratón por la imagen, haga click y mantenga presionado para borrar</div>
+                    </div>
+                    <button class="btn btn-default" ng-click="editCapture('seal', false)">Aceptar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Guardar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cerrar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="signatures" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Firmas</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="control-label">Monto</div>
+                <div class="cb-control">
+                  $500 - $10,000 USD
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="control-label">Vigencia</div>
+                <div class="cb-control">
+                  12/12/2018 - 12/12/2019
+                </div>
+              </div>
+            </div>
+          </div>
+          <fieldset class="cb-group cb-group-simple">
+            <legend>Firmas y/o Sellos</legend>
+            <div class="row">
+              <div class="col-sm-6">
+                <div style="background:#FFF; padding: 15px;">
+                  <div>
+                    <img src="../../images/signature1.svg" style="max-height:100px; margin:auto;" class="img-responsive" />
+                  </div>
+                  <div class="text-center">José Morales</div>
+                </div>
+              </div>
+              <div class="col-sm-6" style="background:#FFF; padding: 15px;">
+                <div style="background:#FFF; padding: 15px;">
+                  <div>
+                    <img src="../../images/signature1.svg" style="max-height:100px; margin:auto;" class="img-responsive" />
+                  </div>
+                  <div class="text-center">Martín Morales</div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cerrar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="value-block" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Bloqueo de valores</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple">
+            <div>
+              <kendo-grid options="valueBlock"></kendo-grid>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cerrar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="value-unblock" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Desbloqueo de valores</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple">
+            <p>Estás seguro que deseas levantar el bloqueo seleccionado?</p>
+            <div class="form-group">
+              <div class="control-label">Causa</div>
+              <div class="cb-control">
+                <select class="form-control">
+                  <option>POR PEDIDO DEL CLIENTE</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="control-label">Solicitado por</div>
+              <div class="cb-control">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="movements-block" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Bloqueo de movimientos</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple">
+            <div>
+              <kendo-grid options="movementsBlock"></kendo-grid>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cerrar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="chequeras" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Chequeras</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple" ng-show="checksMode=='edit'">
+            <div class="form-vertical">
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Emisor de la chequera</div>
+                    <div class="cb-control">
+                      <select class="form-control">
+                        <option></option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Tipo de chequera</div>
+                    <div class="cb-control">
+                      <select class="form-control">
+                        <option></option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Número de cheques</div>
+                    <div class="cb-control">
+                      <select class="form-control">
+                        <option></option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Número de chequeras</div>
+                    <div class="cb-control">
+                      <select class="form-control">
+                        <option></option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Oficina de entrega</div>
+                    <div class="cb-control">
+                      <div class="input-group">
+                        <input type="text" class="form-control" disabled="">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" disabled=""><span class="fa fa-bars"></span></button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Estado</div>
+                    <div class="cb-control">
+                      <select class="form-control" ng-model="checkStatus">
+                        <option>Solicitada</option>
+                        <option value="void">Anulada</option>
+                        <option>Entregada</option>
+                        <option>Activa</option>
+                        <option>Devuelta</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12" ng-show="checkStatus=='void'">
+                  <div class="form-group">
+                    <div class="control-label">Motivo de anulación</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <hr />
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Número de chequeras emitidas</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" disabled value="5" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Número de chequeras en stock</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" disabled value="243" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Fecha posible de entrega</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" disabled value="12/06/2019" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="cb-group cb-group-simple" ng-show="checksMode=='list'">
+            <div class="form-vertical">
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label"># de Chequera</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="cb-group cb-group-simple cb-group-flex" ng-show="checksMode=='list'">
+            <div>
+              <kendo-grid options="chequeras"></kendo-grid>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-default navbar-btn" data-dismiss="modal" ng-show="checksMode=='list'">Cerrar</button>
+              <button class="btn btn-primary navbar-btn" ng-click="checksMode='list'" ng-show="checksMode=='edit'">Aceptar</button>
+              <button class="btn btn-default navbar-btn" ng-click="checksMode='list'" ng-show="checksMode=='edit'">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="checks" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Cheques</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple">
+            <div class="form-vertical">
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Acción</div>
+                    <div class="cb-control">
+                      <select class="form-control" ng-model="action">
+                        <option></option>
+                        <option value="void">Anulación</option>
+                        <option>Corrección de anulación</option>
+                        <option>Levantamiento de anulación</option>
+                        <option value="revocation">Revocatoria</option>
+                        <option>Corrección revocatoria</option>
+                        <option>Levantamiento revocatoria</option>
+                        <option>Ajuste revocatoria</option>
+                        <option>Protesto</option>
+                        <option>Justificación de protesto</option>
+                        <option>Eliminación de protesto</option>
+                        <option>Reverso de protesto</option>
+                        <option>Eliminación protestos</option>
+                        <option value="declaration">Declaración sin efecto</option>
+                        <option value="standby">Suspensión transitoria</option>
+                        <option value="return">Devolución por forma y firma</option>
+                        <option>Reverso de devolución por forma y firma</option>
+                        <option>Levantamiento de certificación</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4" ng-show="checkMode!='edit'">
+                  <div class="form-group">
+                    <div class="control-label">Aplicar por</div>
+                    <div class="cb-control">
+                      <select class="form-control" ng-model="applyBy">
+                        <option value="number">Número</option>
+                        <option value="range">Rango</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4" ng-show="checkMode=='edit' || applyBy=='number'">
+                  <div class="form-group">
+                    <div class="control-label">Número</div>
+                    <div class="cb-control">
+                      <input type="number" class="form-control" ng-show="checkMode!='edit'" />
+                      <input type="number" class="form-control" ng-show="checkMode=='edit'" value="12345" disabled />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4" ng-show="checkMode!='edit' && applyBy=='range'">
+                  <div class="form-group">
+                    <div class="control-label">Números</div>
+                    <div class="cb-control cb-flex cb-gutters">
+                      <div class="cb-grow">
+                        <input type="number" class="form-control" placeholder="Desde" />
+                      </div>
+                      <div class="cb-grow">
+                        <input type="number" class="form-control" placeholder="Hasta" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4" ng-show="applyBy=='number' && (action=='return' || action=='declaration' || action=='revocation')">
+                  <div class="form-group">
+                    <div class="control-label">Valor</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4" ng-show="action=='declaration' || action=='revocation'">
+                  <div class="form-group">
+                    <div class="control-label">Beneficiario</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4" ng-show="action=='declaration' || action=='standby' || action=='void' || action=='return' || action=='revocation'">
+                  <div class="form-group">
+                    <div class="control-label">Causa</div>
+                    <div class="cb-control">
+                      <div class="input-group">
+                        <input type="text" class="form-control" disabled="">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" disabled=""><span class="fa fa-bars"></span></button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4" ng-show="action=='declaration' || action=='standby' || action=='void' || action=='revocation'">
+                  <div class="form-group">
+                    <div class="control-label">Clase</div>
+                    <div class="cb-control">
+                      <div class="input-group">
+                        <input type="text" class="form-control" disabled="">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" disabled=""><span class="fa fa-bars"></span></button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4" ng-show="action=='declaration' || action=='standby' || action=='revocation'">
+                  <div class="form-group">
+                    <div class="control-label">Fecha de giro</div>
+                    <div class="cb-control">
+                      <input type="date" kendo-datepicker />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4" ng-show="action=='void'">
+                  <div class="form-group">
+                    <div class="control-label">Costo</div>
+                    <div class="cb-control">
+                      <select class="form-control">
+                        <option></option>
+                        <option>Con costo</option>
+                        <option>Sin costo</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4" ng-show="action=='revocation'">
+                  <div class="form-group">
+                    <div class="control-label">Comentario</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="digit" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Dígito verificador</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple">
+            <div class="form-vertical">
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="form-group">
+                    <div class="control-label">Número de cheque</div>
+                    <div class="cb-control">
+                      <input type="number" class="form-control" ng-show="checkMode!='edit'" />
+                      <input type="number" class="form-control" ng-show="checkMode=='edit'" value="12345" disabled />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Verificador</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" disabled />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

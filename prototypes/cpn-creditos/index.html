@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Cobiscorp - Tu banco de siempre en la era digital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: url(bg.png) no-repeat #f7f7f7;
+    }
+
+    iframe {
+      position: absolute;
+      top: 198px;
+      left: 388px;;
+      width: 810px;
+      height: 800px;
+      border: 1px solid #b9bbbf;
+      margin-bottom: 50px;
+    }
+  </style>
+  <script>
+    window.addEventListener("message", function(event) {
+      setTimeout(function() {
+        if (event.data.height) {
+          document.getElementById('workarea').style.height = (event.data.height + 15) + 'px';
+        }
+      }, 100);
+    }, false);
+    sessionStorage.appBackground = false;
+  </script>
+</head>
+
+<body>
+  <iframe id="workarea" src="../../views/cpn/ubicacion.html?theme=cpn"></iframe>
+</body>
+
+</html>

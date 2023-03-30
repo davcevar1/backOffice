@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../../styles/theme.css" rel="stylesheet" />
+    <style>
+        .k-grid-update,
+        .k-grid-cancel,
+        .k-grid-edit-row .cb-command,
+        .k-grid-edit-row .fa-check-circle {
+            display: none;
+        }
+        
+        .k-grid-edit-row .k-grid-update,
+        .k-grid-edit-row .k-grid-cancel {
+            display: inline-block;
+        }
+        
+        .k-tabstrip:focus {
+            box-shadow: 0 0 0;
+        }
+        
+        .input-group-btn .btn {
+            line-height: 20px;
+        }
+        
+        .cb-grid-borderless {
+            border: 0;
+            box-shadow: 0 0;
+        }
+        
+        .cb-grid-borderless .k-grid-header {
+            display: none;
+        }
+        
+        .cb-grid-borderless tbody td {
+            border: 0;
+        }
+    </style>
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-viewport">
+        <div kendo-splitter k-panes="[{size:'250px', collapsible:true}, {}]">
+            <div>
+                <div kendo-tab-strip>
+                    <ul>
+                        <li class="k-state-active">
+                            <a href="#">General</a>
+                        </li>
+                        <li>
+                            <a href="#">Cajeros</a>
+                        </li>
+                    </ul>
+                    <div class="cb-no-padding">
+                        <div style="padding:5px;">
+                            <div class="input-group">
+                                <input type="text" ng-model="keywords" class="form-control" />
+                                <span class="input-group-btn">
+                                    <button title="Limpiar" class="btn btn-default" ng-show="keywords.length>0" ng-click="keywords=''"><span class="fa fa-times"></span></button>
+                                    <button title="Buscar" class="btn btn-default"><span class="fa fa-search"></span></button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="padding-left: 5px; padding-right: 5px;"><span class="caret"></span></button>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="#">Banco</a></li>
+                                    <li><a href="#">Regional</a></li>
+                                    <li><a href="#">Oficina</a></li>
+                                </ul>
+                                </span>
+
+                            </div>
+                        </div>
+                        <kendo-grid id="sucursales" class="cb-grid-borderless" options="sucursales" ng-show="keywords.length>0"></kendo-grid>
+                        <kendo-tree-view id="especifico" k-data-source="especifico" ng-show="!keywords || keywords.length==0" />
+                        
+    
+                    </div>
+                    <div class="cb-no-padding">
+                        <div style="padding:5px;">
+                            <div class="input-group">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-btn">
+                                    <button title="Buscar" class="btn btn-default"><span class="fa fa-search"></span></button>
+                                </span>
+                            </div>
+                        </div>
+                        <kendo-grid id="lista-cajeros" class="cb-grid-borderless" options="cajeros2"></kendo-grid>
+                    </div>
+                </div>
+            </div>
+            <div class="cb-main-content">
+                <div class="cb-breadcrumb" ng-if="view=='cajas' || view=='caja' || view=='limites'">
+                    <ol class="breadcrumb">
+                        <li>BANCO AGRARIO DE COLOMBIA</li>
+                        <li>REGIONAL BOGOTA CONSOLIDADO</li>
+                        <li>AVENIDA JIMENEZ</li>
+                        <li>NORMAL</li>
+                    </ol>
+                </div>
+                <div class="cb-view-container-root container-fluid" ng-if="view=='efectivo'">
+                    <kendo-grid options="efectivo"></kendo-grid>
+                </div>
+                <div class="cb-view-container-root container-fluid" ng-if="view=='limites'">
+                    <kendo-grid options="limites"></kendo-grid>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" /> Solo vigentes
+                        </label>
+                    </div>
+                </div>
+                <div class="cb-view-container-root container-fluid" ng-show="view=='cajas'">
+                    <div kendo-grid="gridCajas" k-options="cajasEdicion"></div>
+                </div>
+                <div class="cb-view-container-root container-fluid" ng-if="view=='caja'">
+                    <div class="cb-group cb-group-simple cb-group-flex">
+                        <div>
+                            <div class="form-vertical">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div class="form-group">
+                                            <div class="control-label">Tipo</div>
+                                            <div class="cb-control">
+                                                <input type="text" class="form-control" readonly value="NORMAL" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="form-group">
+                                            <div class="control-label"># Placa</div>
+                                            <div class="cb-control">
+                                                <input type="text" class="form-control" readonly />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="form-group">
+                                            <div class="control-label">Estado</div>
+                                            <div class="cb-control">
+                                                <select class="form-control">
+                                                    <option>Vigente</option>
+                                                    <option>Eliminado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group">
+                                            <div class="control-label">Categor&iacute;a</div>
+                                            <div class="cb-control">
+                                                <select class="form-control" ng-options="option.id as option.description for option in cajasCategory" ng-model="selectedCaja.categoryId" required></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group">
+                                            <div class="control-label">C&oacute;digo</div>
+                                            <div class="cb-control">
+                                                <input type="text" class="form-control" ng-model="selectedCaja.code" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" /> Imprimir comprobante de transacci&oacute;n
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div kendo-tab-strip ng-show="state == 'edit'">
+                        <ul>
+                            <li class="k-state-active">
+                                <a href="#">Hist&oacute;rico cajeros</a>
+                            </li>
+                            <li>
+                                <a href="#">Saldo de efectivo</a>
+                            </li>
+                        </ul>
+                        <div>
+                            <kendo-grid options="cajeros"></kendo-grid>
+                        </div>
+                        <div>
+                            <kendo-grid options="efectivo"></kendo-grid>
+                        </div>
+                    </div>
+                </div>
+                <div class="cb-navbar-placeholder cb-navbar-bottom" ng-show="view=='caja'">
+                    <nav class="navbar navbar-default navbar-fixed-bottom">
+                        <button class="btn btn-default navbar-btn" ng-click="view='cajas'">Cancelar</button>
+                        <button class="btn btn-primary navbar-btn" ng-click="submitCaja()">Aceptar</button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul kendo-context-menu k-filter="'#especifico > li > div'">
+        <li ng-click="view='cajas'">Cajas</li>
+        <li ng-click="view='limites'">Limites Banco</li>
+        <li ng-click="view='limites'">Limites todas las regionales</li>
+        <li ng-click="view='efectivo'">Saldo de efectivo</li>
+    </ul>
+
+    <ul kendo-context-menu k-filter="'#especifico > li > ul > li > div'">
+        <li ng-click="view='cajas'">Cajas</li>
+        <li ng-click="view='limites'">Limites Regional</li>
+        <li ng-click="view='limites'">Limites todas las oficinas</li>
+        <li ng-click="view='efectivo'">Saldo de efectivo</li>
+    </ul>
+
+    <ul kendo-context-menu k-filter="'#especifico > li > ul > li > ul > li > div'">
+        <li ng-click="view='cajas'">Cajas</li>
+        <li ng-click="view='limites'">Limites Oficina</li>
+        <li ng-click="view='efectivo'">Saldo de efectivo</li>
+    </ul>
+
+    <ul kendo-context-menu k-filter="'#especifico > li > ul > li > ul > li > ul > li > div, #sucursales tr'">
+        <li ng-click="view='cajas'">Cajas</li>
+        <li ng-click="view='limites'">Limites tipo de caja</li>
+        <li ng-click="view='efectivo'">Saldo de efectivo</li>
+    </ul>
+
+    <ul kendo-context-menu k-filter="'#general .k-in'">
+        <li ng-click="view='limites'">Limites</li>
+    </ul>
+
+    <ul kendo-context-menu k-filter="'#lista-cajeros tr'">
+        <li ng-click="view='limites'">Limites</li>
+        <li ng-click="view='efectivo'">Saldo de efectivo</li>
+    </ul>
+
+    <script type="text/x-kendo-template" id="detail-template">
+        <kendo-grid options="detalleEfectivo"></kendo-grid>
+    </script>
+
+    <script>
+        var librariesUrl = '../../lib/';
+    </script>
+    <script src="../../lib/require.config.js"></script>
+    <script data-main="caja" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

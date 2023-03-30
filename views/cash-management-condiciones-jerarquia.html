@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-breadcrumb">
+			<ol class="breadcrumb">
+				<li>Condiciones</li>
+				<li>RADIOCOM S.A. (102050015 - PERSONA JURIDICA)</li>
+			</ol>
+		</div>
+        <div class="cb-view-container-root container">
+            <div class="cb-group cb-group-simple" ng-show="!condicion">
+                <div>
+                    <div kendo-grid="gridCondiciones" k-options="condiciones"></div>
+                </div>
+            </div>
+            <div class="row" ng-show="condicion">
+                <div class="col-xs-6">
+                    <fieldset class="cb-group cb-group-simple cb-group-flex">
+                        <legend>Condición</legend>
+                        <div>
+                            <div class="form-vertical">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <div class="control-label">Canal</div>
+                                            <div class="cb-control">
+                                                <select class="form-control" ng-options="option.description as option.description for option in channelOptions" ng-model="condicion.channel" required></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" ng-show="!condicion.allTransactions">
+                                            <div class="control-label">Transacción</div>
+                                            <div class="cb-control">
+                                                <select class="form-control"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="cb-control">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" checked ng-model="condicion.allTransactions" /> Todas las transacciones
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="control-label">Tipo de ejecución</div>
+                                            <div class="cb-control">
+                                                <select class="form-control"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="control-label">Estado</div>
+                                            <div class="cb-control">
+                                                <select class="form-control"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-xs-6">
+                    <fieldset class="cb-group cb-group-simple cb-group-flex">
+                        <legend>Vigencia</legend>
+                        <div>
+                            <div class="form-vertical">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <div class="cb-control">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="range" value="N" ng-model="condicion.range" /> Indefinida
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="range" value="S" ng-model="condicion.range" /> Rango de fechas
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" ng-show="condicion.range=='S'">
+                                            <div class="control-label">Fecha desde</div>
+                                            <div class="cb-control">
+                                                <input type="date" kendo-date-picker />
+                                            </div>
+                                        </div>
+                                        <div class="form-group" ng-show="condicion.range=='S'">
+                                            <div class="control-label">Fecha hasta</div>
+                                            <div class="cb-control">
+                                                <input type="date" kendo-date-picker />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-xs-12">
+                    <fieldset class="cb-group cb-group-simple">
+                        <legend>Jerarquía</legend>
+                        <div>
+                            <kendo-grid k-options="jerarquia"></kendo-grid>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="cb-navbar cb-navbar-bottom" ng-show="condicion">
+            <nav class="navbar navbar-default navbar-fixed-bottom">
+                <button class="btn btn-primary navbar-btn" ng-click="saveCondition()">Guardar</button>
+                <button class="btn btn-default navbar-btn" ng-click="cancelCondition()">Cancelar</button>
+            </nav>
+        </div>
+    </div>
+    <div id="jerarquia-form" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Jerarquia</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset class="cb-group cb-group-simple cb-group-flex">
+                        <div class="form-vertical">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Tipo</div>
+                                        <div class="cb-control">
+                                            <select class="form-control">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Número</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Moneda</div>
+                                        <div class="cb-control">
+                                            <select class="form-control">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Tipo</div>
+                                        <div class="cb-control">
+                                            <select class="form-control"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Monto minimo</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Monto maximo</div>
+                                        <div class="cb-control">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+                        <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+                            <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+                            <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="cash-management" src="../lib/require/require.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="container" style="padding:30px;">
+      <fieldset class="cb-group cb-group-simple">
+        <div>
+          <div class="form-vertical">
+            <div class="row">
+              <div class="col-sm-6 col-md-4">
+                <div class="form-group cb-required">
+                  <div class="control-label">Primer nombre</div>
+                  <div class="cb-control">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="form-group cb-required">
+                  <div class="control-label">Segundo nombre</div>
+                  <div class="cb-control">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="form-group cb-required">
+                  <div class="control-label">Primer apellido</div>
+                  <div class="cb-control">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="form-group cb-required">
+                  <div class="control-label">Segundo apellido</div>
+                  <div class="cb-control">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="form-group cb-required">
+                  <div class="control-label">Género</div>
+                  <div class="cb-control">
+                    <select class="form-control">
+                      <option></option>
+                      <option>Masculino</option>
+                      <option>Femenino</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="form-group cb-required">
+                  <div class="control-label">Fecha de nacimiento</div>
+                  <div class="cb-control">
+                    <select class="form-control">
+                      <option></option>
+                      <option>Masculino</option>
+                      <option>Femenino</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="form-group cb-required">
+                  <div class="control-label">Estado civil</div>
+                  <div class="cb-control">
+                    <select class="form-control">
+                      <option></option>
+                      <option>Soltero/a</option>
+                      <option>Casado/a</option>
+                      <option>Divorsiado/a</option>
+                      <option>Viudo/a</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="form-group cb-required">
+                  <div class="control-label">País de Nacionalidad</div>
+                  <div class="cb-control">
+                    <select class="form-control">
+                      <option></option>
+                      <option>México</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="form-group cb-required">
+                  <div class="control-label">Estado de nacimiento</div>
+                  <div class="cb-control">
+                    <select class="form-control">
+                      <option></option>
+                      <option>Coahuila</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="form-group cb-required">
+                  <div class="control-label">Dependientes económicos</div>
+                  <div class="cb-control">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="cb-navbar cb-navbar-bottom">
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <button class="btn btn-primary navbar-btn" data-dismiss="modal" ng-click="finish()">Guardar</button>
+        <button class="btn btn-default navbar-btn" data-dismiss="modal" ng-click="validateCurp()">Validar CURP</button>
+        <button class="btn btn-default navbar-btn" data-dismiss="modal" ng-click="goto('prospectos.html')">Cancelar</button>
+      </nav>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

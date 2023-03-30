@@ -1,0 +1,25 @@
+[{
+    "color": "rgb(142, 188, 0)",
+    "channel": "Internet Banking",
+    "percentage": 0.4,
+    "count": 400
+  },
+  {
+    "color": "rgb(255, 105, 0)",
+    "channel": "Banca Móvil",
+    "percentage": 0.3,
+    "count": 300
+  },
+  {
+    "color": "rgb(37, 160, 218)",
+    "channel": "Cash",
+    "percentage": 0.2,
+    "count": 200
+  },
+  {
+    "color": "rgb(48, 155, 70)",
+    "channel": "Chatbot",
+    "percentage": 0.1,
+    "count": 100
+  }
+]

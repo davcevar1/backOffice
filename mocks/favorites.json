@@ -1,0 +1,34 @@
+{
+  "success": true,
+  "data": {
+    "id": 3,
+    "label": "Favoritos",
+    "root": true,
+    "children": [
+      {
+        "id": 3,
+        "label": "Direcciones",
+        "url": "#"
+      }, {
+        "id": 4,
+        "label": "Firmas",
+        "url": "#"
+      }, {
+        "id": 5,
+        "label": "Cuentas",
+        "children": [{
+          "id": 6,
+          "label": "Cuentas de Ahorros",
+          "url": "#"
+        }, {
+          "id": 7,
+          "label": "Cuentas corrientes",
+          "url": "#"
+        }, {
+          "id": 8,
+          "label": "Inversiones",
+          "url": "#"
+        }]
+      }]
+  }
+}

@@ -1,0 +1,922 @@
+(function (angular, cobis, $) {
+	'use strict';
+
+	var logger = angular.isDefined(cobis.logging) ? cobis.logging.getLoggerManager('app/views/home/home.controller.js') : window.console;
+	logger.debug('Initializing Home Controller');
+
+	function HomeController($scope, $state, $http, $rootScope, $window, $q, $DESIGNER_VIEW_ROOT, $timeout, $modal, Auth, PropertiesServiceProvider, constants, servicePath) {
+
+		cobis.container.configIdle($scope);
+		cobis.showMessageWindow.loading(true);
+
+		function closeModals() {
+			try {
+				if ($scope.warning) {
+					$scope.warning.close();
+					$scope.warning = null;
+				}
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function uploadPicture(imagen) {
+			try {
+				var file = imagen[0];
+				var img = new Image();
+				img.src = window.URL.createObjectURL(file);
+				img.onload = function () {
+					var width = img.naturalWidth,
+						height = img.naturalHeight;
+					window.URL.revokeObjectURL(img.src);
+					if (width <= 320 && height <= 240) {
+						var reader = new FileReader();
+						reader.readAsDataURL(file);
+						reader.onload = function () {
+							var baseImagen = reader.result;
+							PropertiesServiceProvider.updateImagenPersonal({
+								imagenP: baseImagen
+							}).then(function successCallback(d) {
+								var dat = d.data,
+									key;
+
+								if ($state.current.name === 'home') {
+									if (dat.success === true) {
+										$scope.imgPersonalType = 'I';
+										$scope.imgPersonal = reader.result;
+									} else {
+										if (dat.messages[0].description == null) {
+											var code = "CWC.ERROR.ERROR" + dat.messages[0].code + "CODE";
+											var description = "CWC.ERROR.ERROR" + dat.messages[0].code + "DESCRIPTION";
+											$scope.code = cobis.translate(code);
+											$scope.descriptionError = cobis.translate(description);
+											cobis.showMessageWindow.alertError($scope.descriptionError, $scope.code);
+										} else {
+											$scope.code = cobis.translate("CWC.ERROR.IMAGENERROR.CODE");
+											$scope.descriptionError = cobis.translate("CWC.ERROR.IMAGENERROR.DESCRIPTION");
+											cobis.showMessageWindow.alertError($scope.descriptionError);
+										}
+										$rootScope.logOut();
+									}
+								}
+							});
+						};
+						reader.onerror = function (error) {
+							$scope.code = cobis.translate("CWC.ERROR.IMAGENERROR.CODE");
+							$scope.descriptionError = cobis.translate("CWC.ERROR.IMAGENERROR.DESCRIPTION");
+							cobis.showMessageWindow.alertError($scope.descriptionError);
+						};
+					} else {
+						$scope.code = cobis.translate("CWC.ERROR.IMAGENZISE.CODE");
+						$scope.descriptionError = cobis.translate("CWC.ERROR.IMAGENZISE.DESCRIPTION");
+						cobis.showMessageWindow.alertError($scope.descriptionError);
+					}
+				};
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function loadMenuWidgets() {
+			try {
+				PropertiesServiceProvider.getMenuWidgets().then(function successCallback(response) {
+					var responseWidget = {
+						name: "",
+						url: "",
+						isVisible: true,
+						childrenWidget: []
+					};
+					var widgetsChildren = [];
+					angular.forEach(response.data.widgetItems, function (widget) {
+						var children = {
+							id: widget.intId,
+							name: widget.strName,
+							label: widget.strLabel,
+							order: widget.intOrder,
+							url: widget.strUrl,
+							isVisible: widget.blnVisible,
+							className: widget.strEstilo
+						};
+						widgetsChildren.push(children);
+					});
+					responseWidget.childrenWidget = widgetsChildren;
+					$rootScope.collectionWidgets = responseWidget;
+
+					if ($rootScope.collectionWidgets.childrenWidget != undefined && $rootScope.collectionWidgets.childrenWidget.length > 0 && $rootScope.collectionWidgets.isVisible) {
+						angular.forEach($rootScope.collectionWidgets.childrenWidget, function (jsonWidget) {
+							if (jsonWidget.isVisible) {
+								var iFrame = '<iframe class="' + jsonWidget.className + '"';
+								iFrame += 'name="shellTab{{shellTab.id}}" ng-class="" ng-load=""';
+								iFrame += 'ng-src="{{shellTab.url}}" id="mainIframeMenuWidgets-' + jsonWidget.id + '" scrolling="no" style="visibility: hidden;"></iframe>';
+
+								$("#divCollectionMenuWidgets").append(iFrame);
+								loadIframeMenuWidget(jsonWidget);
+							}
+						});
+
+					}
+					setTimeout(function () {
+						cobis.showMessageWindow.loading(false);
+					}, 4000)
+				}, function errorCallback(err) {
+					$scope.code = cobis.translate("CWC.ERROR.SERVICEMENU.CODE");
+					$scope.descriptionError = cobis.translate("CWC.ERROR.SERVICEMENU.DESCRIPTION") + ' ' + err;
+					cobis.showMessageWindow.alertError($scope.descriptionError);
+				});
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function loadIframeMenuWidget(jsonWidget) {
+			try {
+				var url = '',
+					frame;
+
+				frame = $('#mainIframeMenuWidgets-' + jsonWidget.id)[0];
+				url = jsonWidget.url + '?id=' + jsonWidget.id;
+				frame.contentWindow.location.replace(url);
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function loadInitData() {
+			try {
+				PropertiesServiceProvider.iniPrincipal().then(function successCallback(d) {
+					var dat = d.data,
+						key;
+
+					if ($state.current.name === 'home') {
+						if (dat.success === true) {
+							cobis.userContext.setValue('currency', dat.data);
+							//Notificaciones
+							$scope.notificationNumber = dat.cantNotif;
+
+							//Autorizaciones
+							$scope.authorizationNumber = dat.cantAuthor;
+
+							if (dat.lastAccess != 'XXXXXXXXXXXXXXXXXXX') {
+								$scope.lastAccess = dat.lastAccess;
+								$(".cb-date").show();
+							}
+							//Imagen Personal
+							if (dat.typeimgPersonal == 'I') {
+								$scope.imgPersonal = dat.imgPersonal;
+							} else {
+								$scope.imgPersonal = dat.imgPersonal;
+							}
+							//I imagen -- L letrass
+							$scope.imgPersonalType = dat.typeimgPersonal;
+
+							if (dat.imgLogo != null && dat.imgLogo != "") {
+								$scope.imgLogo = "data:image/jpeg;base64," + dat.imgLogo;
+							}
+							loadMenuWidgets();
+							loadConsolidatedPosition();
+						} else {
+							cobis.showMessageWindow.loading(false);
+							if (dat.messages[0].description == null) {
+								var code = "CWC.ERROR.ERROR" + dat.messages[0].code + "CODE";
+								var description = "CWC.ERROR.ERROR" + dat.messages[0].code + "DESCRIPTION";
+								$scope.code = cobis.translate(code);
+								$scope.descriptionError = cobis.translate(description);
+								cobis.showMessageWindow.alertError($scope.descriptionError, $scope.code);
+							} else {
+								cobis.showMessageWindow.alertError(dat.messages[0].description);
+							}
+							$rootScope.logOut();
+						}
+						if(cobis.userContext.getValue('channelId') != "10") // hide authorization
+							$('span.fa.fa-check-circle').parent().css('display','none');
+					}
+				});
+
+				$(document).on('click', '.cb-menu [data-target]', function (e) {
+					var $link = $(this),
+						$target = $($link.data('target'));
+
+					//Expande/Colapsa paneles
+					if ($target.hasClass('in')) {
+						$link.addClass('collapsed');
+						$target.collapse('hide');
+					} else {
+						$link.removeClass('collapsed');
+						$target.collapse('show');
+					}
+				});
+
+				$(document).on('click', '.cb-menu > .collapse [data-target], .cb-menu > .list-group [data-target]', function (e) {
+					var self = this;
+					e.preventDefault();
+
+					//Colapsa otros paneles abiertos
+					$(this).closest('.list-group').find('[data-target]').each(function () {
+						if (this != self && $($(this).data('target')).hasClass('in')) {
+							$($(this).data('target')).collapse('hide');
+							$(this).addClass('collapsed');
+						}
+					});
+				});
+
+				cobis.containerScope = {
+					setNamePage: function (name) {
+						$scope.menuLabel = name;
+					},
+					isLogout: function () {
+						$rootScope.logOut();
+					},
+					setNotification: function (number) {
+						$scope.notificationNumber = number;
+					},
+					setAuthorization: function (number) {
+						$scope.authorizationNumber = number;
+					},
+					setView: function (menuItem, ibContainerUrl, label) {
+						setView(menuItem, ibContainerUrl, label);
+					},
+					goToTop: function () {
+						goToTop();
+					},
+					resizeWidgget: function (index, height) {
+						resizeWidgget(index, height);
+					},
+					setWhiteBackground: function () {
+						setWhiteBackground();
+					},
+					resize: function (height) {
+						resize(height);
+					},
+					showiframe: function () {
+						document.getElementById("mainIframe").style.visibility = "visible";
+					},
+					reloadWidget: function (widget, url) {
+						var frame = document.getElementById('mainIframeMenuWidgets-' + widget);
+						frame.src = url + '?id=' + widget;
+					},
+					goToTopHtml: function () {
+						//goToTopHtml('header.cb-header');
+						parent.scrollTo(0,0);
+					}
+				};
+
+				var intValor;
+				var culture = cobis.userContext.getValue(constants.culture);
+				var strCulture = culture.substring(0, 2);
+				if (strCulture == 'EN') {
+					$scope.LenguajeSelect = cobis.translate("CWC.SECURITY.LOGIN.LABELS.LANGUAGE_ENGLISH") + " ";
+				} else if (strCulture == 'ES') {
+					$scope.LenguajeSelect = cobis.translate("CWC.SECURITY.LOGIN.LABELS.LANGUAGE_SPANISH") + " ";
+				}
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function loadConsolidatedPosition() {
+			var initPage = cobis.userContext.getValue(constants.initPage);
+			if (initPage === null) {
+				initPage = servicePath.initPage;
+			}
+			if (initPage === null || initPage === undefined || initPage === "") {
+				initPage = '${contextPath}/cobis/web/views/init.html';
+			}
+			setView(null, initPage);
+			$scope.menuLabel = cobis.translate("CWC.SECURITY.LOGIN.LABELS.INITPAGE");
+		}
+
+		function setMenuFavorites(menuList) {
+			try {
+				menuList.forEach(function (menuItem) {
+					if (menuItem.favorite && menuItem.mini == "N") {
+						$scope.favorites.push(angular.copy(menuItem));
+					}
+					if (menuItem.children && menuItem.children.length > 0) {
+						setMenuFavorites(menuItem.children);
+					}
+				});
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function setFavorite(menuItem, $event) {
+			try {
+				PropertiesServiceProvider.managerFavorite({
+					menuId: menuItem.idMenu
+				}).then(function successCallback(d) {
+					var dat = d.data,
+						key;
+
+					if ($state.current.name === 'home') {
+						if (dat.success === true) {
+							menuItem.favorite = !menuItem.favorite;
+							$scope.favorites = [];
+							setMenuFavorites($rootScope.collectionMenus[1].children);
+						} else {
+							if (dat.messages.length > 0) {
+								if (dat.messages[0].description == null) {
+									var code = "CWC.ERROR.ERROR" + dat.messages[0].code + "CODE";
+									var description = "CWC.ERROR.ERROR" + dat.messages[0].code + "DESCRIPTION";
+									$scope.code = cobis.translate(code);
+									$scope.descriptionError = cobis.translate(description);
+									cobis.showMessageWindow.alertError($scope.descriptionError, $scope.code);
+								} else {
+									$scope.code = cobis.translate("CWC.ERROR.VALIDIMAGEN.CODE");
+									$scope.descriptionError = dat.messages[0].message;
+									cobis.showMessageWindow.alertError($scope.descriptionError);
+								}
+							} else {
+								$scope.code = cobis.translate("CWC.ERROR.FAVORITE.CODE");
+								$scope.descriptionError = cobis.translate("CWC.ERROR.FAVORITE.DESCRIPTION");
+								cobis.showMessageWindow.alertError($scope.descriptionError);
+							}
+						}
+					}
+				});
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		};
+
+		function logOut() {
+			try {
+				closeWindows(1).then(function successCallback(d) {
+					var dat = d;
+					if (dat.buttonIndex === 1) {
+						$rootScope.logOut();
+					}
+				})
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		};
+
+		function closeWindows(id, callback) {
+			try {
+				var cb = callback || angular.noop,
+					deferred = $q.defer();
+
+				if (id == 1) {
+					var title = cobis.translate("CWC.ERROR.LOGOUT.CODE");
+					var message = cobis.translate("CWC.ERROR.LOGOUT.DESCRIPTION");
+				}
+
+				if (id == 2) {
+					var title = cobis.translate("CWC.SUCCESS.CHANGELENGUAJE.CODE");
+					var message = cobis.translate("CWC.SUCCESS.CHANGELENGUAJE.DESCRIPTION");
+				}
+
+				if (id == 3) {
+					var title = cobis.translate("CWC.SUCCESS.CONFIRMCHANGELENGUAJE.CODE");
+					var message = cobis.translate("CWC.SUCCESS.CONFIRMCHANGELENGUAJE.DESCRIPTION");
+				}
+
+				cobis.showMessageWindow.confirm(message, title)
+					.then(function successCallback(data) {
+						deferred.resolve(data);
+						return cb();
+
+					}, function errorCallback(response) {
+						deferred.reject(response);
+						return cb(response);
+					});
+				return deferred.promise;
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function startClock() {
+			try {
+				$rootScope.clock = "..."; // initialise the time variable
+				$scope.tickInterval = 1000; //ms
+
+				var tick = function () {
+					$rootScope.clock = Date.now(); // get the current time
+					$timeout(tick, $scope.tickInterval); // reset the timer
+				};
+
+				// Start the timer
+				$timeout(tick, $scope.tickInterval);
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function setParentMenuItem(menuItem) {
+			try {
+				$rootScope.parentMenuItem = menuItem;
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function toggleMenuMain() {
+			try {
+				$rootScope.isMenuMain = !$rootScope.isMenuMain;
+				setParentMenuItem(null);
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+		
+		function toggleMenu() {
+			$rootScope.menuOpened = !$rootScope.menuOpened;
+			$('#menu-0').collapse('show');
+			if ($('#menu-1').closest('.list-group').find('> .list-group-item > div > .cb-collapsible:not(.collapsed)').length == 0) {
+				$('#menu-1').collapse('show');	
+			}
+		}
+		function toggleBookmarks() {
+			$rootScope.bookmarksCollapsed = !$rootScope.bookmarksCollapsed;			
+		}
+
+		function menuService(info) {
+			try {
+				logger.log('funcion properties', PropertiesServiceProvider);
+
+				var service = PropertiesServiceProvider.getMenuItems().then(function successCallback(data) {
+
+				}, function errorCallback(err) {
+					$scope.code = cobis.translate("CWC.ERROR.SERVICEMENU.CODE");
+					$scope.descriptionError = cobis.translate("CWC.ERROR.SERVICEMENU.DESCRIPTION") + ' ' + err;
+					cobis.showMessageWindow.alertError($scope.descriptionError);
+				});
+				return service;
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function notification() {
+			try {
+				var url = servicePath.notifPage;
+				var	label = cobis.translate("CWC.SECURITY.LOGIN.LABELS.NOTIFICATION");
+				var menuItem = { idMenu: $scope.notificationMenuId,
+								 url: url,
+								 favoriteDesc: label};
+
+				setView(menuItem, url);
+
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function setNotification(number) {
+			try {
+				$scope.notificationNumber = number;
+				cobis.containerScope.$apply();
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function authorization() {
+			try {
+				var url = servicePath.authorizationPage;
+				var	label = cobis.translate("CWC.SECURITY.LOGIN.LABELS.AUTHORIZATIONS");
+				var menuItem = { idMenu: $scope.authorizationMenuId,
+								 url: url,
+								 favoriteDesc: label};
+				setView(menuItem, url);
+
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function setAuthorization(number) {
+			try {
+				$scope.authorizationNumber = number;
+				cobis.containerScope.$apply();
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function setView(menuItem, ibContainerUrl, label, event) {
+			try {
+				//sessionStorage.setItem("homePageUrl", window.location.pathname + "#/blank");
+				if (event) {
+					event.preventDefault();
+				}
+				$scope.currentMenuItem = menuItem;
+				var idMenu,
+				    url = '',
+					iframe;
+				/*		
+				if ($(document).width() < 768) {
+					$("div.cont-name").addClass('hidden-xs');
+					$("div.cont-bookmark").addClass('hidden-xs');
+					$(".cb-header .cb-menu").addClass("hidden-xs");
+					$('.cb-main-layout').removeClass('hidden-xs');
+				}
+				*/
+				$rootScope.menuOpened = false;
+
+				if (menuItem != null) {
+					if (menuItem.idMenu == null && menuItem != null) {
+						idMenu = menuItem;
+					} else {
+						if (menuItem.url.indexOf("VC_COMPOSITHE_383962_TASK") > -1) {
+							document.getElementById("mainIframe").style.visibility = "hidden";
+						}
+						idMenu = menuItem.idMenu;
+						if (event){
+							event.preventDefault();
+						}
+					}
+					PropertiesServiceProvider.setTrnMenu({
+						menuId: idMenu
+					}).then(function successCallback(d) {
+						var dat = d.data,
+							key;
+
+						if ($state.current.name === 'home') {
+							if (dat.success === true) {
+
+								// document.getElementById("menu-main").children[1].style.top = "";
+								// document.getElementById("menu-main").children[1].style.transform = "";
+								$timeout(function () {
+									angular.element('#mainIframe').focus();
+								});
+
+								if (typeof $rootScope.isMenuMain === 'undefined') {
+									$rootScope.isMenuMain = false;
+								}
+								if (ibContainerUrl !== null) {
+									url = $DESIGNER_VIEW_ROOT + ibContainerUrl;
+								}
+								if (menuItem.url != null) {
+									url = $DESIGNER_VIEW_ROOT + menuItem.url;
+								}
+
+								iframe = $('#mainIframe')[0];
+								iframe.contentWindow.location.replace(url);
+
+								if (menuItem.idMenu != null) {
+									$scope.menuLabel = menuItem.favoriteDesc;
+								} else {
+									$scope.menuLabel = label;
+								}
+							} else {
+								if (dat.messages[0].description == null) {
+									var code = "CWC.ERROR.ERROR" + dat.messages[0].code + "CODE";
+									var description = "CWC.ERROR.ERROR" + dat.messages[0].code + "DESCRIPTION";
+									$scope.code = cobis.translate(code);
+									$scope.descriptionError = cobis.translate(description);
+									cobis.showMessageWindow.alertError($scope.descriptionError, $scope.code);
+									$rootScope.logOut();
+								}
+							}
+						}
+					});
+				} else {
+					/*
+					document.getElementById("menu-main").children[1].style.top = "";
+					document.getElementById("menu-main").children[1].style.transform = "";
+					*/
+					//Loading test
+					$timeout(function () {
+						angular.element('#mainIframe').focus();
+					});
+
+					//Loading test
+					if (typeof $rootScope.isMenuMain === 'undefined') {
+						$rootScope.isMenuMain = false;
+					}
+					if (ibContainerUrl !== null) {
+						url = ibContainerUrl;
+					}
+					if (menuItem !== null) {
+						url = $DESIGNER_VIEW_ROOT + menuItem.url;
+					}
+					iframe = $('#mainIframe')[0];
+					iframe.contentWindow.location.replace(url);
+				}
+
+				if (menuItem != null) {
+					window.scrollTo(0,0);
+					// goToTopHtml('header.cb-header');
+				}
+
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function setMenuUser(menuList) {
+			try {
+				menuList.forEach(function (menuItem) {
+					if (menuItem.mini == "S") {
+						$scope.mini.push(angular.copy(menuItem));
+					}
+					if (menuItem.children && menuItem.children.length > 0) {
+						setMenuUser(menuItem.children);
+					}
+				});
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function changeL(id) {
+			try {
+				closeWindows(3).then(function successCallback(d) {
+					var dat = d;
+					if (dat.buttonIndex === 1) {
+						var intValor;
+						var culture = cobis.userContext.getValue(constants.culture);
+						var strCulture = culture.substring(0, 2);
+						if (strCulture == 'EN') {
+							intValor = 2;
+						} else if (strCulture == 'ES') {
+							intValor = 1;
+						}
+
+						if (intValor != id) {
+							cobis.showMessageWindow.loading(true);
+							PropertiesServiceProvider.changeLenguaje({
+								lenguajeId: id
+							}).then(function successCallback(d) {
+								var dat = d.data,
+									key;
+
+								sessionStorage.setItem("changeLanguage", "true");
+
+								if ($state.current.name === 'home') {
+									if (dat.success === true) {
+										closeWindows(2).then(function successCallback(d) {
+											var dat = d;
+											if (dat.buttonIndex === 1) {
+												Auth.logout();
+												$rootScope.isLogout = true;
+												$state.go('login');
+											}
+										})
+										cobis.showMessageWindow.loading(false);
+									} else {
+										if (dat.messages.length > 0) {
+											if (dat.messages[0].description == null) {
+												var code = "CWC.ERROR.ERROR" + dat.messages[0].code + "CODE";
+												var description = "CWC.ERROR.ERROR" + dat.messages[0].code + "DESCRIPTION";
+												$scope.code = cobis.translate(code);
+												$scope.descriptionError = cobis.translate(description);
+												cobis.showMessageWindow.alertError($scope.descriptionError, $scope.code);
+											} else {
+												$scope.code = cobis.translate("CWC.ERROR.CHANGELENGUAJE.CODE");
+												$scope.descriptionError = dat.messages[0].description;
+												cobis.showMessageWindow.alertError($scope.descriptionError);
+											}
+										} else {
+											$scope.code = cobis.translate("CWC.ERROR.CHANGELENGUAJE.CODE");
+											$scope.descriptionError = cobis.translate("CWC.ERROR.CHANGELENGUAJE.DESCRIPTION");
+											cobis.showMessageWindow.alertError($scope.descriptionError);
+										}
+										cobis.showMessageWindow.loading(false);
+										$rootScope.logOut();
+									}
+								}
+							});
+						}
+					}
+				})
+			} catch (exception) {
+				cobis.showMessageWindow.loading(false);
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function loadMenus() {
+			try {
+				var jsonHome, jsonMenusTree, pluginArrayArg;
+
+				jsonHome = {
+					name: "Home",
+					url: "#/home"
+				};
+
+				jsonMenusTree = {
+					name: "",
+					url: "",
+					children: []
+				};
+
+				PropertiesServiceProvider.getMenuItems().then(
+					function (data) {
+						jsonMenusTree.children = data.menuItems;
+						$scope.favorites = [];
+						//Carga Favoritos
+						setMenuFavorites(data.menuItems);
+						//Carga Menu mi cuenta
+						$scope.mini = [];
+						$scope.authorizationMenuId = data.authorizationMenuId;
+						$scope.notificationMenuId = data.notificationMenuId;
+						setMenuUser(data.menuItems);
+					},
+					function (rError) {
+						logger.error(rError);
+						$scope.code = cobis.translate("CWC.ERROR.SERVICEMENU.CODE");
+						$scope.descriptionError = cobis.translate("CWC.ERROR.SERVICEMENU.DESCRIPTION") + ' ' + rError;
+						cobis.showMessageWindow.alertError($scope.descriptionError);
+					}
+				);
+
+				pluginArrayArg = [];
+				pluginArrayArg.push(jsonHome);
+				pluginArrayArg.push(jsonMenusTree);
+
+				$rootScope.collectionMenus = pluginArrayArg;
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function isActive(item) {
+			try {
+				var posUrl, frame;
+				frame = $('#mainIframe')[0];
+				if (angular.isDefined(item)) {
+					posUrl = item.url.indexOf("_TASK.html");
+					if (posUrl !== -1) {
+						return frame.contentWindow.location.href.indexOf(item.url.substring(0, posUrl)) !== -1;
+					}
+				}
+				return false;
+			} catch (exception) {
+				cobis.getMessageManager().showMessagesError(exception);
+				cobis.logging.getLoggerManager().error(exception);
+				$rootScope.logOut();
+			}
+		}
+
+		function goToTop() {
+			$('html, body').animate({
+				scrollTop: $('#mainIframe').parent().offset().top + 'px'
+			}, 'fast');
+		}
+
+		function resizeWidgget(index, height) {
+			var heightMore = parseInt(height.slice(0, -2)) + 2;
+			var iframeDoc = $('#mainIframeMenuWidgets-' + index.id)[0];
+			var attrStyle = document.createAttribute("style");
+			attrStyle.value = "height:" + heightMore + "px;visibility: visible;";
+			iframeDoc.setAttributeNode(attrStyle);
+		}
+
+		function resize(height) {
+			var $mainLoading = $("div.cb-view-loading-icon", document);
+			// SI SE HACE RESIZE, REMOVER EL LOADING DE LA PAGINA PRINCIPAL
+			if ($mainLoading.is(":visible")){
+				$mainLoading.remove();
+			}
+			var $iframe = $("#mainIframe");
+			var $body = $('body', $iframe.contents());
+
+			// RESIZE IFRAME
+			$iframe.height(height);
+
+			// ELIMINAR BARRA HORIZONTAL Y VERTICAL
+			$body.css('overflow','hidden');
+
+			//MOSTRAR IFRAME PRINCIPAL
+			$iframe.css('visibility','visible');
+
+			// COLOCAR FIJO EL LOADING EN POSICION CONSOLIDADA
+			var $vcInitPage = $("#VC_COMPOSITHE_383962", $body);
+			if ($vcInitPage.length > 0) {
+				var $loadingElem = $('div.cb-view-loading-icon', $body);
+				$loadingElem.css('top','100px');
+			}
+		}
+
+		function setWhiteBackground() {
+			$('#mainIframe').contents().find("html").addClass('cb-content-iframe');
+
+		}
+
+		function refreshFavoriteIcons() {
+			setTimeout(function () {
+				svg4everybody();
+			}, 300);
+		}
+
+		/********************************* SCOPE *******************************************/
+		$scope.user = cobis.userContext.getValue('_des_login');
+		$scope.isAuthenticated = null;
+		$scope.workAreaLeftStyle = {
+			'overflow': 'auto',
+			'-webkit-overflow-scrolling': 'touch'
+		};
+		$scope.pageTabsleftStyle = {};
+		$scope.pageTabsleftStyle = {
+			left: '1px'
+		};
+		$scope.workAreaLeftStyle.left = '1px';
+		$scope.notification = notification;
+		$scope.setNotification = setNotification;
+		$scope.authorization = authorization;
+		$scope.setAuthorization = setAuthorization;
+		$scope.setView = setView;
+		$scope.isActive = isActive;
+		$scope.logOut = logOut;
+		$scope.changeL = changeL;
+		$scope.loadMenus = loadMenus;
+		$scope.setFavorite = setFavorite;
+		$scope.setParentMenuItem = setParentMenuItem;
+		$scope.uploadPicture = uploadPicture;
+		$scope.authorizationMenuId = 0;
+		$scope.notificationMenuId = 0;
+		$rootScope.showLogoutSection = true;
+		$rootScope.showPagesFooter = true;
+		$rootScope.isLogout = false;
+		$rootScope.toggleMenu = toggleMenu;
+		$rootScope.toggleBookmarks = toggleBookmarks;
+
+		$scope.menuLabel = cobis.translate("CWC.SECURITY.LOGIN.LABELS.INITPAGE");
+        window.history.pushState({}, "", window.location.toString());
+		$rootScope.userInfo = {
+			name: cobis.userContext.getValue(constants.login),
+			lastAccess: cobis.userContext.getValue(constants.lastAccess),
+			fullName: cobis.userContext.getValue(constants.fullName),
+			userIp: cobis.userContext.getValue(constants.terminalIp)
+		};
+
+		loadMenus();
+		setParentMenuItem(null);
+		startClock();
+		loadInitData();
+		refreshFavoriteIcons();
+
+		//Actualiza el alto del iframe principal
+		/*$(window).on('message', function (e) {
+			var message = e.originalEvent.data;
+			switch (message.action) {
+				case 'resize':
+					$('#mainIframe').height(message.height + 60);
+					break;
+			}
+		});
+
+		(function listenerIframe() {
+			window.addEventListener("message", function (e) {
+				var message = JSON.parse(e.data);
+				switch (message.event) {
+					case 'resize':
+						if (message.height > $('#mainIframe').height()) {
+							$('#mainIframe').height(message.height + 100);
+							console.log($('#mainIframe'));
+						}
+						break;
+				}
+			});
+		})();*/
+	}
+
+	app.register.controller('HomeController', HomeController);
+	HomeController.$inject = ['$scope', '$state', '$http', '$rootScope', '$window', '$q', 'DESIGNER_VIEW_ROOT', '$timeout', '$modal', 'Auth', 'PropertiesServiceProvider', 'CONSTANTS', 'SERVICE_PATHS'];
+}(window.angular, window.cobis, window.kendo.jQuery));

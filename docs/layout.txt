@@ -1,0 +1,159 @@
+LAYOUT
+------
+    cb-group-* Contienen los controles de kendo no deben ser el control como tal porque algunos tienen wrappers que se dibujan fuera del control
+
+    <body> 
+        cb-view
+            &.cb-sticky-bottom (verificar el caso en kendo splitter)
+            cb-breadcrumb (cb-breadcrumb-fixed-top mismo estilo por compatibilidad)
+                breadcrumb
+            cb-form-header
+            cb-view-container-root
+		#validator
+		&[kendo-validator]
+                cb-view-container
+		    &.container
+                    &.container-fluid	
+                    &.cb-group-simple
+                        fieldset
+				legend
+                            		span
+                                		&.cb-validation-success
+                                		&.cb-validation.fail
+                                		&.cb-validation-none
+                            		span.cb-title
+                        	[kendo-validator]
+                    &.cb-group-tabbed-h (ver si aplica tener la opcion de justificado o no)
+                        ul kendo-validator
+                            li
+                                span
+                                    .cb-validation-success
+                                    .cb-validation-fail
+                                    .cb-validation-none
+                                span.cb-title
+                        div
+                    &.cb-group-tabbed-v
+                        row
+                            col-xs-3
+                                &.vertical-tabbed-layout (DEPRECATED)
+                                nav nav-pills nav-stacked 
+                                    &.tabs-left(DEPRECATED)
+                                    &.cb-tabbed-v
+                                        li
+                                            a
+                                                span
+                                                    .cb-validation-success
+                                                    .cb-validation.fail
+                                                    .cb-validation-none
+                                                span.cb-title
+                            col-xs-9
+                                tab-content
+                                    tab-pane
+                    &.cb-group-collapsible
+                        ul
+                            li
+                                span
+                                    span 
+                                        &.cb-validation-success
+                                        &.cb-validation-fail
+                                    span
+                                        &.vc-title (DEPRECATED) 
+                                        cb-title
+                                div
+                    &.cb-group-accordion (preguntar si es necesario distinguir o usar el group-collapsible)
+                        ul
+                            li
+                                span
+                                span 
+                                    &.cb-validation-success
+                                    &.cb-validation-fail
+                                span
+                                    &.vc-title (DEPRECATED)
+                                    cb-title
+                                div
+                    &.cb-group-layout (contenedor de grupos)
+                        row
+                    &.cb-group-html-section
+                    cb-group
+                        &.cb-group-layout
+                            row
+                        &.cb-group-simple
+                            legend
+                                span
+                                    .cb-validation-success
+                                    .cb-validation.fail
+                                    .cb-validation-none
+                                span.cb-title
+                            div (validator)
+                                k-grid
+                                    k-grid-
+                                        hiperlink (DEPRECATED)
+                                        button (DEPRECATED)
+                                        image-button (DEPRECATED)
+                        &.cb-group-tabbed-h (ver si aplica tener la opcion de justificado o no)
+                        &.cb-group-tabbed-v
+                            nav nav-tabs 
+                                    &.tabs-left(DEPRECATED)
+                                    cb-tabbed-v
+                                        li
+                                            a
+                                                span
+                                                    .cb-validation-success
+                                                    .cb-validation.fail
+                                                    .cb-validation-none
+                                                span.cb-title
+                        &.cb-group-collapsible                
+                        &.cb-group-accordion
+                            ul
+                                li
+                        &.cb-group-html-section
+                        &.cb-group-layout (contenedor de grupos)
+                        k-grid
+                        form-vertical
+                        form-horizontal
+                            row.cb-col-container
+                                form-group
+				    &.cb-no-label	
+                                    &.cb-required
+                                        .cb-control
+                                            
+                    fieldset.cb-group.cb-group-simple
+                        legend
+
+                cb-navbar-placeholder (cb-control-bar DEPRECATED)
+                    &.cb-navbar-top
+                    &.cb-navbar-bottom
+                        navbar
+
+            cb-view-loading (cb-page-loading DEPRECATED)
+                &.cb-hidden
+                cb-view-loading-icon
+    
+    modal-body
+        cb-view-container-root
+    
+cb-node-actions
+cb-gutter-v
+cb-viewport (position fixed, con scroll automatico, hijos tienen q tener posicion absoluta)
+cb-control-bar (Solo por compatibilidad no es estandar)
+            
+FORMAT
+------
+cb-vertical-middle
+cb-without-margins (REVISAR SI APLICA cb-no-margin)
+cb-no-margin
+cb-no-scroll
+cb-gutter-v (DEPRECATED)
+cb-text-sm
+cb-text-md
+cb-text-lg
+cb-text-xl
+cb-text-red
+cb-text-green
+cb-text-orange
+cb-text-grey
+cb-text-capitalize
+
+CONTROLS
+--------
+cb-grid

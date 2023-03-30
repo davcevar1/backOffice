@@ -1,0 +1,51 @@
+[{
+    "code":"1",
+    "text":"BANCO AGRARIO DE COLOMBIA",
+    "items":[
+        {"code":"22100", "text":"REGIONAL ANTIOQUIA CONSOLIDADO",",items":[
+            {"code":"1300", "text":"REGIONAL ANTIOQUIA PROPIO","items":[]},                                     
+            {"code":"1301", "text":"ANDES","items":[]},                            
+            {"code":"1302", "text":"ABEJORRAL","items":[]},                                               
+            {"code":"1303", "text":"MEDELLIN JUNIN","items":[]},                                          
+            {"code":"1307", "text":"MEDELLIN AMERICA","items":[]}
+        ]},
+        {"code":"22200", "text":"REGIONAL BOGOTA CONSOLIDADO","items":[            
+            {"code":"70", "text":"AVENIDA JIMENEZ","items":[
+                {"code":"A", "text":"ATM CAJEROS AUTOMATICOS","items":[]},
+                {"code":"B", "text":"BOVEDA","items":[]},
+                {"code":"D", "text":"DIFERIDO","items":[]},
+                {"code":"E", "text":"DISPENSADOR DE EFECTIVO","items":[]},
+                {"code":"L", "text":"BLINDADO","items":[]},
+                {"code":"M", "text":"MINITESORO","items":[]},
+                {"code":"N", "text":"NORMAL","items":[]},
+                {"code":"V", "text":"CAJAS MOVILES","items":[]},
+                {"code":"X", "text":"CAJAS EXTENDIDAS","items":[]}
+            ]},                                                  
+            {"code":"820", "text":"AVENIDA CHILE","items":[]},                                                    
+            {"code":"10240", "text":"|CB  CAFE INTERNET BOX","items":[]},                                            
+            {"code":"10496", "text":"CB - DROGUERIA EXPRESS","items":[]},                                           
+            {"code":"10752", "text":"CB - ENVIOS DIMONEX","items":[]}                                              
+        ]},
+        {"code":"22300", "text":"REGIONAL CAFETERA CONSOLIDADO","items":[
+            {"code":"1800", "text":"REGIONAL CAFETERA PROPIO","items":[]},                                         
+            {"code":"1801", "text":"AGUADAS","items":[]},                                                          
+            {"code":"1803", "text":"MANIZALES SUCURSAL","items":[]},                                               
+            {"code":"1812", "text":"NEIRA-CALDAS","items":[]},                                                     
+            {"code":"1820", "text":"BELALCAZAR","items":[]}                                                      
+        ]}, 
+        {"code":"22400", "text":"REGIONAL COSTA CONSOLIDADO","items":[            
+            {"code":"1203", "text":"ACHI","items":[]},                                                             
+            {"code":"1207", "text":"CARTAGENA SUCURSAL","items":[]},                                               
+            {"code":"1215", "text":"ARJONA","items":[]},                                                           
+            {"code":"1216", "text":"CALAMAR","items":[]},                                                          
+            {"code":"1218", "text":"MARIA LA BAJA","items":[]}                                                    
+        ]},    
+        {"code":"22500", "text":"REGIONAL SANTANDER CONSOLIDADO","items":[
+            {"code":"1244", "text":"MORALES (BOLIVAR)","items":[]},                                               
+            {"code":"1255", "text":"SAN PABLO (BOLIVAR)","items":[]},                                              
+            {"code":"1265", "text":"SIMITI","items":[]},                                                           
+            {"code":"1270", "text":"SANTA ROSA DEL SUR","items":[]},                                               
+            {"code":"1394", "text":"YONDO","items":[]}
+        ]}
+    ]
+}]

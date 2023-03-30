@@ -1,0 +1,30 @@
+[
+  {
+    "selected": false,
+    "service": "Pensiones",
+    "code": "45234524",
+    "description": "Pensión Septiembre 2018",
+    "value": 235
+  },
+  {
+    "selected": false,
+    "service": "Pensiones",
+    "code": "45234524",
+    "description": "Pensión Agosto 2018",
+    "value": 235
+  },
+  {
+    "selected": false,
+    "service": "Pensiones",
+    "code": "45234524",
+    "description": "Pensión Julio 2018",
+    "value": 235
+  },
+  {
+    "selected": false,
+    "service": "Cursos extracurriculares",
+    "code": "45234524",
+    "description": "Curso basketball Julio 2018",
+    "value": 65
+  }
+]

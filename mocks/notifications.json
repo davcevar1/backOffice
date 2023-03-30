@@ -1,0 +1,8 @@
+[
+    {"description": "Recepción de abono en cuenta", "hasConditions": true, "type": "amount", "operator":"MAYOR", "value": "$1,000 USD", "enabled": true},
+    {"description": "Retiro de Cuenta", "hasConditions": true, "type": "amount", "operator":"MAYOR", "value": "$200 USD", "enabled": false},
+    {"description": "Fecha próxima de cancelación de DPF", "hasConditions": true, "type": "days", "operator":"MENOR IGUAL", "value": "5", "enabled": false},
+    {"description": "Pago de créditos", "hasConditions": true, "type": "days", "operator":"MENOR IGUAL", "value": "5", "enabled": false},
+    {"description": "Próximo vencimiento de pago de créditos", "hasConditions": true, "type": "days", "operator":"MENOR IGUAL", "value": "5", "enabled": false},
+    {"description": "Notificaciones por Causales Débito/Crédito", "hasConditions": false, "type": "none", "enabled": false}
+]

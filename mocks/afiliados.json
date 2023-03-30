@@ -1,0 +1,54 @@
+[
+	{
+		"id": "1234",
+        "account": "321304565",
+		"name": "José Martinez",
+		"role": "Deudor",
+		"documentType": "Cédula",
+		"documentNumber": "1236548954",
+		"rate": "A",
+        "status": "Vigente",
+        "phone": "254 2547",
+        "email": "jose.martinez@email.com",
+        "action": "Eliminar"
+	},
+	{
+		"id": "1235",
+        "account": "489765545",
+		"name": "Pedro Martinez",
+		"role": "Codeudor",
+		"documentType": "Pasaporte",
+		"documentNumber": "1234564954",
+		"rate": "A",
+        "status": "Vigente",
+        "phone": "254 2547",
+        "email": "pedro.martinez@email.com",
+        "action": "Añadir"
+	},
+    {
+		"id": "1234",
+        "account": "321304565",
+		"name": "José Martinez",
+		"role": "Deudor",
+		"documentType": "Cédula",
+		"documentNumber": "1236548954",
+		"rate": "A",
+        "status": "Vigente",
+        "phone": "458 2547",
+        "email": "jose.martinez@email.com",
+        "action": "Añadir"
+	},
+	{
+		"id": "1235",
+        "account": "489765545",
+		"name": "Pedro Martinez",
+		"role": "Codeudor",
+		"documentType": "RIF",
+		"documentNumber": "1234564954",
+		"rate": "A",
+        "status": "Vigente",
+        "phone": "254 4587",
+        "email": "pedro.martinez@email.com",
+        "action": "Añadir"
+	}
+]

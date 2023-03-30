@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Preguntas de seguridad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../styles/theme.css" rel="stylesheet" />
+  <style>
+    .ng-cloak {
+        display: none;
+    }
+    .logo {
+        margin-bottom: 24px;
+    }
+    .text-primary { 
+        color: #0E5889;
+    }
+    h1 {
+        font-size: 16px;
+        color: #0E5889;
+    }
+    .wrapper {
+        width: 100%;
+        max-width: 450px;
+        height: 100vh;
+        overflow: auto;
+        background-color: #FFF;
+        padding: 24px;
+        
+        font-size: 14px;
+    }
+    .controlbar {
+        padding: 24px 0;
+    }
+    .questions-info {
+        margin-bottom: 24px;
+    }
+    .list-group--questions .checkbox {
+        margin: 0;
+    }
+    .list-group--questions .list-group-item {
+        padding-right: 10px;
+        transition: background-color .2s, border-color .2s;
+    }
+    .list-group--questions .list-group-item.active {
+        color: #333;
+        background-color: #20628f0d;
+    }
+    .list-group--questions .list-group-item.active .question__question label {
+        font-weight: bold;
+        color: #0E5889;
+    }
+    .list-group--questions .list-group-item:first-child {
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+    }
+    .list-group--questions .list-group-item:last-child {
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+    .question__question label {
+        display: block;
+    }
+    .question__question input + span {
+        transform: opacity .2s;
+    }
+    .question__question input:disabled + span {
+        opacity: .4;
+    }
+    .question__answer {
+        margin-top: 0;
+        margin-left: 20px;
+        transition: max-height .2s, margin .2s, opacity .2s;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+    }
+    .list-group--questions .list-group-item.active .question__answer {
+        max-height: 40px;
+        margin-top: 10px;
+        opacity: 1;
+    }
+    .bg {
+        background-image: url(/cobiscorp/cobis-ui/images/security-questions-bg.png);
+        background-size: cover;
+        height: 100vh;
+        flex-grow: 1;
+    }
+  </style>
+</head>
+
+<body ng-controller="controller" style="display: flex;">
+  <div class="wrapper ng-cloak">
+      <div class="logo text-center"><img src="/cobiscorp/cobis-ui/images/bbpbank-logo.svg" /></div>
+      <div class="questions-info">
+          <h1>Preguntas de seguridad</h1>
+          <p>De las siguientes preguntas disponibles, selecciona un mínimo de 3 y un máximo de 5 preguntas que puedas responder.</p>
+          <p><strong>Recuerda:</strong> no escoger preguntas que después te sea difícil recordar la respuesta.</p>
+      </div>
+      <div class="list-group list-group--questions">
+        <div class="list-group-item text-center" ng-class="{'text-danger': questionsChecked() < 3, 'text-success': questionsChecked() >= 5 }" style="font-weight: bold;">{{ questionsChecked() }} / 5</div>
+        <div class="list-group-item" ng-class="{active: question.checked}" ng-repeat="question in questions">
+            <div class="question__question checkbox">
+              <label>
+                <input type="checkbox" ng-model="question.checked" ng-disabled="!question.checked && questionsChecked() >= 5" />
+                <span>{{ question.label }}</span>
+              </label>
+            </div>
+            <div class="question__answer">
+                <input type="text" class="form-control" ng-model="question.answer" placeholder="Ingresa la respuesta" />
+            </div>
+        </div>
+      </div>
+      <div class="controlbar">
+          <button type="button" class="btn btn-block btn-primary">Continuar</button>
+      </div>
+  </div>
+  <div class="bg"></div>
+
+  <script>
+    var librariesUrl = '../lib/';
+  </script>
+  <script src="../lib/require.config.js"></script>
+  <script data-main="security-questions" src="../lib/require/require.js"></script>
+</body>
+
+</html>

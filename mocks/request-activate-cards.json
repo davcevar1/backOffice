@@ -1,0 +1,16 @@
+[
+    {
+        "cardNumber": "1234567899876",
+        "product": "Cuenta corriente",
+        "accountNumber": "12354678",
+        "principal": true,
+        "status": "Emitida"
+    },
+    {
+        "cardNumber": "5876587658765",
+        "product": "Cuenta corriente",
+        "accountNumber": "12354678",
+        "principal": false,
+        "status": "Emitida"
+    }
+]

@@ -1,0 +1,15 @@
+[
+  {"codProfile": "2", "channel": "1", "active": "2", "cancel": "10", "other": "0", "inactiv": "0", "profile": "PERFIL JURIDICO", "bloqued": "0"},
+  {"codProfile": "1", "channel": "1", "active": "0", "cancel": "7", "other": "0", "inactiv": "0", "profile": "PERFIL NATURAL", "bloqued": "0"},
+  {"codProfile": "6", "channel": "1", "active": "0", "cancel": "1", "other": "0", "inactiv": "0", "profile": "PERFIL PRUEBA", "bloqued": "0"},
+  {"codProfile": "38","channel": "1", "active": "0", "cancel": "1", "other": "0", "inactiv": "0", "profile": "PRUEBA UNITARIA", "bloqued": "0"},
+  {"codProfile": "7", "channel": "10","active": "2", "cancel": "0", "other": "0", "inactiv": "0", "profile": "PERFIL CASH MANAGEMENT", "bloqued": "0"},
+  {"codProfile": "5", "channel": "10","active": "1", "cancel": "0", "other": "0", "inactiv": "0", "profile": "PERFIL JURIDICO AUTORIZANTE", "bloqued": "0"},
+  {"codProfile": "3", "channel": "10","active": "1", "cancel": "0", "other": "0", "inactiv": "0", "profile": "PERFIL JURIDICO CONSULTA", "bloqued": "0"},
+  {"codProfile": "2", "channel": "12","active": "2", "cancel": "0", "other": "0", "inactiv": "0", "profile": "PERFIL JURIDICO", "bloqued": "0"},
+  {"codProfile": "5", "channel": "12","active": "2", "cancel": "0", "other": "0", "inactiv": "0", "profile": "PERFIL JURIDICO AUTORIZANTE", "bloqued": "0"},
+  {"codProfile": "3", "channel": "12","active": "1", "cancel": "0", "other": "0", "inactiv": "0", "profile": "PERFIL JURIDICO CONSULTA", "bloqued": "0"},
+  {"codProfile": "1","channel": "12","active": "4", "cancel": "0", "other": "0", "inactiv": "0", "profile": "PERFIL NATURAL", "bloqued": "0"},
+  {"codProfile": "1","channel": "6", "active": "0", "cancel": "0", "other": "1", "inactiv": "0", "profile": "PERFIL NATURAL", "bloqued": "0"},
+  {"codProfile": "39","channel": "8","active": "3", "cancel": "0", "other": "1", "inactiv": "0", "profile": "PERFIL BANCA MOVIL", "bloqued": "0"}
+]

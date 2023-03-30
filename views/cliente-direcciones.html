@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Datos generales</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+    <style>
+		.input-group-btn .btn {
+			line-height: 20px;
+		}
+	</style>
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-view-container-root cb-view-container cb-group-layout">
+            <div class="cb-form-header">
+                <div class="pull-right">
+                    <button class="btn btn-default"><span class="fa fa-print"></span> Imprimir</button>
+                </div>
+                <div class="cb-group cb-group-simple">
+                    <div class="cb-text-xl">Aguas Munoz Betty Jeanneth</div> 
+                    <div>
+                        <span class="control-label">Trámite:</span> 02154000020
+                        <span class="control-label">Tipo producto:</span> Crédito automotriz
+                        <span class="control-label">Monto solicitado:</span> $20,000.00 USD
+                        <span class="control-label">Cuota solicitada:</span> 36 meses
+                    </div>
+                    <div>
+                        <span class="control-label">Oficina:</span> Sucursal Sucre
+                        <span class="control-label">Oficial:</span> Jose Martinez
+                        <span class="control-label">Fecha de inicio:</span> 12/12/2015
+                    </div>
+                </div>
+			</div>
+			<div class="cb-view-container cb-group-layout container-fluid">
+				<div class="btn-toolbar cb-gap-bottom">
+					<button class="btn btn-default" data-toggle="modal" data-target="#direccion"><span class="glyphicon glyphicon-plus"></span> Agregar</button>
+					<button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+				</div>
+				<kendo-grid options="direcciones"></kendo-grid> 
+			</div>   
+		</div>
+        <div class="cb-wizard">
+            <div class="cb-wizard-content">
+                <div class="container-fluid">
+                    <div class="cb-wizard-row">
+						<div ng-show="wizardScrollLeft">
+                            <a href="#" class="btn btn-link" data-slide="prev"><span class="fa fa-angle-left"></span></a>
+                        </div>
+						<div class="cb-steps" style="overflow:hidden;">
+							<div class="cb-step"><a href="solicitud-credito-1-2.html" class="btn btn-default btn-block">Ingreso</a></div>
+							<div class="cb-step"><a href="solicitud-credito-2-2.html" class="btn btn-default btn-block">Negociación</a></div>
+							<div class="cb-step"><a href="solicitud-credito-3-2.html" class="btn btn-default btn-block">Garantías</a></div>
+							<div class="cb-step"><a href="solicitud-credito-4-2.html" class="btn btn-default btn-block">Instrucciones desembolso</a></div>
+                            <div class="cb-step"><a href="cliente-datos-generales.html" class="btn btn-default btn-block">Informacion cliente</a></div>
+							<div class="cb-step cb-active"><button class="btn btn-default btn-block">Direcciones y teléfonos</a></div>
+							<div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Estado financiero</button></div>
+						</div>
+						<div ng-show="wizardScrollRight">
+                            <a href="#" class="btn btn-link" data-slide="next"><span class="fa fa-angle-right"></span></a>
+                        </div>
+						<div class="cb-actions">
+                            <div class="btn-group btn-block dropup">
+							  <a href="cliente-estados-financieros.html" class="btn btn-primary">Continuar</a>
+							  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu dropdown-menu-right">
+								<li><a href="#">Guardar temporalmente</a></li>
+								<li><a href="#">Imprimir</a></li>
+							  </ul>
+							</div>
+                        </div>
+                    </div>    
+                </div>    
+            </div>	
+        </div>
+        <div class="cb-view-loading cb-hidden"> 
+            <div class="cb-view-loading-icon"></div> 
+        </div>
+    </div>
+	
+	<div id="direccion" class="modal fade" tabindex="-1" role="dialog">
+	  <div class="modal-dialog modal-md">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title">Dirección</h4>
+		  </div>
+		  <div class="modal-body">
+				<form>
+					<fieldset class="row">
+						<div class="col-xs-6">
+							<div class="form-group">
+								<div class="control-label">Ciudad</div>
+								<div class="cb-control">
+									<div class="input-group">
+										<input type="text" class="form-control" />
+										<span class="input-group-btn">
+											<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<div class="control-label">Parroquia</div>
+								<div class="cb-control">
+									<div class="input-group">
+										<input type="text" class="form-control" />
+										<span class="input-group-btn">
+											<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<div class="control-label">Zona</div>
+								<div class="cb-control">
+									<div class="input-group">
+										<input type="text" class="form-control" />
+										<span class="input-group-btn">
+											<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<div class="control-label">Sector</div>
+								<div class="cb-control">
+									<div class="input-group">
+										<input type="text" class="form-control" />
+										<span class="input-group-btn">
+											<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<div class="control-label">Barrio</div>
+								<div class="cb-control">
+									<div class="input-group">
+										<input type="text" class="form-control" />
+										<span class="input-group-btn">
+											<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>	
+				</form>	
+				<div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+                    <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+                        <button class="btn btn-primary navbar-btn">Aceptar</button>
+                        <button class="btn btn-default navbar-btn">Cancelar</button>
+                    </nav>
+                </div>
+		  </div>
+		</div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="cliente" src="../lib/require/require.js"></script>
+</body>
+
+</html>

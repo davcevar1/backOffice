@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Trafalgar</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="node_modules/jquery-mobile/dist/jquery.mobile.min.css" />
+  <link rel="stylesheet" href="theme/base.css">
+
+</head>
+
+<body>
+  <div data-role="page" class="vh-100 vw-100 d-flex flex-column">
+    <div class="ui-header" data-position="fixed" data-tap-toggle="false">
+      <h1 class="ui-title">Detalle de la Cuenta</h1>
+    </div>
+    <div class="ui-content flex-grow-1">
+      <div class="cb-page-header p-4">
+        <div class="cb-label">Mi dinero disponible</div>
+        <div class="text-highlight">$ 5,087.49</div>
+      </div>
+      <div class="mt-4 d-flex flex-column gap-3">
+        <a href="#" class="cb-card">
+          <div class="d-flex align-items-center">
+            <div class="flex-grow-1">
+              <div class="text-small text-muted">VIE 28 DIC</div>
+              <div>Recarga Celular</div>
+              <div class="text-small text-muted">Cuenta de Electricidad</div>
+            </div>
+            <strong class="text-medium text-danger">- $ 4,392.49</strong>
+          </div>
+        </a>
+        <a href="#" class="cb-card">
+          <div class="d-flex align-items-center">
+            <div class="flex-grow-1">
+              <div class="text-small text-muted">VIE 28 DIC</div>
+              <div>Pago Cuentas</div>
+              <div class="text-small text-muted">Cuenta de Electricidad</div>
+            </div>
+            <strong class="text-medium text-success">+ $ 2,324.00</strong>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="cb-nav ui-footer">
+      <a href="#" class="active">
+        <div class="d-flex flex-column">
+          <svg class="cb-icon">
+            <use href="theme/images/icons.svg#home"></use>
+          </svg>
+          <div>Inicio</div>
+        </div>
+      </a>
+      <a href="#">
+        <div class="d-flex flex-column">
+          <svg class="cb-icon">
+            <use href="theme/images/icons.svg#transfers"></use>
+          </svg>
+          <div>Transferencias</div>
+        </div>
+      </a>
+      <a href="#">
+        <div class="d-flex flex-column">
+          <svg class="cb-icon">
+            <use href="theme/images/icons.svg#payments"></use>
+          </svg>
+          <div>Pagos</div>
+        </div>
+      </a>
+      <a href="#">
+        <div class="d-flex flex-column">
+          <svg class="cb-icon">
+            <use href="theme/images/icons.svg#ellipsis-horizontal"></use>
+          </svg>
+          <div>Más</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="cb-backdrop">
+    <div class="cb-card cb-card--ticket p-4">
+      <div class="text-center text-success mb-4">
+        <svg class="cb-icon cb-icon--size-5">
+          <use href="theme/images/factoricons-slim.svg#check-circle"></use>
+        </svg>
+        <div class="text-subtitle">Comprobante de Pago</div>
+      </div>
+      <div class="cb-list">
+        <div class="cb-list__item">
+          Viernes 21 de Dic 2020, 11:10:05 hs
+        </div>
+        <div class="cb-list__item">
+          <div class="text-small text-muted">ORIGEN</div>
+          <div>Cuenta de Ahorros</div>
+          <strong>N° 02553356245</strong>
+        </div>
+        <div class="cb-list__item">
+          <strong>Recarga Celular</strong>
+          <div class="text-highlight text-brand-3">$ 25.00</div>
+        </div>
+        <div class="cb-list__item">
+          <div>Transacción Nº 0001786698896</div>
+          <div>Tarifa del servicio $ 5.00</div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <button type="button" class="ui-btn" data-role="none">Compartir</button>
+        <button type="button" class="ui-btn ui-btn-c ui-btn--brand-3" data-role="none">Salir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+    crossorigin="anonymous"></script>
+  <script src="node_modules/jquery-mobile/dist/jquery.mobile.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+    <style>
+        .popover-title {
+            color: #333;
+        }
+    </style>
+    <!-- <link href="../styles/themes/default/wireframe.css" rel="stylesheet" /> -->
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-viewport cb-flex cb-column">
+            <div class="cb-form-header cb-no-margin">
+                <div class="cb-flex cb-middle">
+                    <div class="cb-grow">
+                        <div title="# Garantía">#000011100000002</div>
+                        <div class="cb-text-xl">PAGARE - $4,500.00 USD</div>
+                        <div class="cb-flex cb-gutters">
+                            <div>
+                                <div>CERRADA</div>
+                                <div class="small control-label">Clase</div>
+                            </div>
+                            <div>
+                                <div>VIGENTE</div>
+                                <div class="small control-label">Estado</div>
+                            </div>
+                            <div>
+                                <div>DISTRITO GENERAL</div>
+                                <div class="small control-label">Oficina</div>
+                            </div>
+                            <div>
+                                <div>CENTRAL DE CUSTODIA</div>
+                                <div class="small control-label">Ubicación</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="btn-group">
+                            <button id="more-info" class="btn btn-default" title="Información"><span class="fa fa-info-circle"></span> <span class="hidden-xs">Información</span></button>
+                            <a href="garantias-busqueda.html" class="btn btn-default" title="Buscar"><span class="fa fa-search"></span> <span class="hidden-xs">Buscar</span></a>
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="fa fa-angle-down"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="#status-form" data-toggle="modal">Liberación</a></li>
+                                <li><a href="#value-form" data-toggle="modal">Cambio de valor</a></li>
+                                <li><a href="#status-form" data-toggle="modal">Estado de cuenta</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="k-tabstrip-wrapper cb-flex cb-grow">
+                <div kendo-tab-strip class="cb-flex cb-column cb-grow">
+                    <ul>
+                        <li class="k-state-active">
+                            <a href="#">General</a>
+                        </li>
+                        <li>
+                            <a href="#">Situación/Clase</a>
+                        </li>
+                        <li>
+                            <a href="#">Localización</a>
+                        </li>
+                        <li>
+                            <a href="#">Descripción</a>
+                        </li>
+                        <li>
+                            <a href="#">Compartida</a>
+                        </li>
+                        <li>
+                            <a href="#">Especificación</a>
+                        </li>
+                    </ul>
+                    <div class="cb-grow cb-scrollable">
+                        <div class="container">
+                            <fieldset class="cb-group cb-group-simple">
+                                <legend>Clientes</legend>
+                                <div>
+                                    <kendo-grid options="clientes"></kendo-grid>
+                                </div>
+                            </fieldset>
+                            <fieldset class="cb-group cb-group-simple">
+                                <div>
+                                    <div class="form-vertical">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Fuente Valor</div>
+                                                    <div class="cb-control">
+                                                        <select class="form-control"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Grado</div>
+                                                    <div class="cb-control">
+                                                        <select class="form-control"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="cb-grow cb-scrollable">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <fieldset class="cb-group cb-group-simple">
+                                        <div>
+                                            <div class="form-vertical">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Admisibilidad</div>
+                                                            <div class="cb-control">
+                                                                <select class="form-control"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Constitución</div>
+                                                            <div class="cb-control">
+                                                                <input type="date" kendo-datepicker />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Ultimo avalúo</div>
+                                                            <div class="cb-control">
+                                                                <input type="date" kendo-datepicker />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Vencimiento</div>
+                                                            <div class="cb-control">
+                                                                <input type="date" kendo-datepicker />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Estado jurídico</div>
+                                                            <div class="cb-control">
+                                                                <input type="date" kendo-datepicker />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group cb-required">
+                                                            <div class="control-label">Instrucción</div>
+                                                            <div class="cb-control">
+                                                                <textarea class="form-control"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <div class="control-label">Clase</div>
+                                        <div class="cb-control">
+                                            <div class="radio">
+                                              <label>
+                                                <input type="radio" name="clase"> Abierta
+                                              </label>
+                                            </div>
+                                            <div class="radio">
+                                              <label>
+                                                <input type="radio" name="clase"> Cerrada
+                                              </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="control-label">Cuantía</div>
+                                        <div class="cb-control">
+                                            <div class="radio">
+                                              <label>
+                                                <input type="radio" name="clase"> Determinada
+                                              </label>
+                                            </div>
+                                            <div class="radio">
+                                              <label>
+                                                <input type="radio" name="clase"> Indeterminada
+                                              </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="form-group">
+                                        <div class="cb-control">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" /> Castigada
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" /> Agotada
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" /> Control de vecimiento
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" /> Est comercial o industrial
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" /> Siniestro
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cb-grow cb-scrollable">
+                        <div class="container">
+                            <fieldset class="cb-group cb-group-simple">
+                                <div>
+                                    <div class="form-vertical">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Ubicación documento</div>
+                                                    <div class="cb-control">
+                                                        <select class="form-control"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Ciudad documento</div>
+                                                    <div class="cb-control">
+                                                        <select class="form-control"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Ciudad garantía</div>
+                                                    <div class="cb-control">
+                                                        <select class="form-control"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Oficina contabilización</div>
+                                                    <div class="cb-control">
+                                                        <select class="form-control"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Dirección</div>
+                                                    <div class="cb-control">
+                                                        <input type="text" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Teléfono</div>
+                                                    <div class="cb-control">
+                                                        <input type="text" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Almacén de depósito</div>
+                                                    <div class="cb-control">
+                                                        <select class="form-control"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <hr />
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Depositario</div>
+                                                    <div class="cb-control">
+                                                        <select class="form-control"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Licencia #</div>
+                                                    <div class="cb-control">
+                                                        <select class="form-control"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Vencimiento licencia</div>
+                                                    <div class="cb-control">
+                                                        <input type="date" kendo-datepicker />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="cb-grow cb-scrollable">
+                        <div class="container">
+                            <fieldset class="cb-group cb-group-simple">
+                                <div>
+                                    <div class="form-vertical">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Descripción</div>
+                                                    <div class="cb-control">
+                                                        <textarea class="form-control"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Visita de control</div>
+                                                    <div class="cb-control">
+                                                        <select class="form-control">
+                                                            <option>Si</option>
+                                                            <option>No</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group cb-required">
+                                                    <div class="control-label">Periodicidad</div>
+                                                    <div class="cb-control">
+                                                        <select class="form-control">
+                                                            <option>Anual</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="cb-grow cb-scrollable">
+                        <div class="container">
+                            <fieldset class="cb-group cb-group-simple cb-group-flex">
+                                <div>
+                                    <div class="form-vertical">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group cb-required">
+                                                    <div class="cb-control">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" ng-model="shared" /> Compartida
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="cb-group cb-group-simple" ng-if="shared">
+                                <div> 
+                                    <kendo-grid options="compartido"></kendo-grid>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="cb-grow cb-scrollable">
+                        <div class="container">
+                            <fieldset class="cb-group cb-group-simple">
+                                <div>
+                                    <kendo-grid options="especificacion"></kendo-grid>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cb-navbar cb-navbar-bottom">
+                <nav class="navbar navbar-default navbar-fixed-bottom">
+                    <button class="btn btn-primary navbar-btn">Guardar</button>
+                </nav>
+            </div>
+            <div class="cb-view-loading cb-hidden">
+                <div class="cb-view-loading-icon"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="info" class="hidden">
+        <div style="color:#333; margin: -10px -15px;">
+            <table class="table" style="margin:0;">
+                <tbody>
+                    <tr>
+                        <th class="cb-no-wrap">Categoría</th>
+                        <td>AVAL</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Ingreso</th>
+                        <td>12/12/2016</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Vencimiento</th>
+                        <td>12/12/2016</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Ultimo avalúo</th>
+                        <td>12/12/2016</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Valor inicial</th>
+                        <td>$5,000.00 USD</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Valor comercial</th>
+                        <td>$5,000.00 USD</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Valor utilizado</th>
+                        <td>$5,000.00 USD</td>
+                    </tr>
+                    <tr>
+                        <th class="cb-no-wrap">Valor disponible</th>
+                        <td>$5,000.00 USD</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="status-form" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Liberación</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="cb-group cb-group-simple cb-group-flex">
+                        <div>
+                            <div class="form-vertical">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <div class="control-label">Motivo</div>
+                                            <div class="cb-control">
+                                                <input type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+                        <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+                            <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+                            <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="value-form" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Cambio de Valor</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="control-label">Nuevo valor</div>
+                        <div class="cb-control">
+                            <input type="number" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+                        <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+                            <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+                            <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="entity-form" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Entidad</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset class="cb-group cb-group-simple cb-group-flex">
+                        <div class="form-vertical">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Nombre</div>
+                                        <div class="cb-control">
+                                            <select class="form-control"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">% Compartido</div>
+                                        <div class="cb-control">
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" />
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Fecha</div>
+                                        <div class="cb-control">
+                                            <input type="date" kendo-datepicker />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Valor</div>
+                                        <div class="cb-control">
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" />
+                                                <span class="input-group-addon">USD</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group cb-required">
+                                        <div class="cb-control">
+                                            <div class="small text-muted">Valor contable: $47,000.00 USD<br /> % Corporacion: 56%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+                        <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+                            <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="spec-form" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Entidad</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset class="cb-group cb-group-simple cb-group-flex">
+                        <div class="form-vertical">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Tipo</div>
+                                        <div class="cb-control">
+                                            <select class="form-control"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">m2 Construcción</div>
+                                        <div class="cb-control">
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" />
+                                                <span class="input-group-addon">m2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">m2 Terreno</div>
+                                        <div class="cb-control">
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" />
+                                                <span class="input-group-addon">m2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Habitaciones</div>
+                                        <div class="cb-control">
+                                            <input type="number" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Baños</div>
+                                        <div class="cb-control">
+                                            <input type="number" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Plantas</div>
+                                        <div class="cb-control">
+                                            <input type="number" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Garajes</div>
+                                        <div class="cb-control">
+                                            <input type="number" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group cb-required">
+                                        <div class="control-label">Año Construcción</div>
+                                        <div class="cb-control">
+                                            <input type="number" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+                        <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+                            <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="garantias" src="../lib/require/require.js"></script>
+</body>
+
+</html>

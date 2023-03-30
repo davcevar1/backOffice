@@ -1,0 +1,175 @@
+// out: style-guide.css, sourcemap: false, compress: false
+@color-1: #354052;
+@color-2: #e1edf7;
+@screen-xs: 480px;
+@screen-sm: 768px;
+@screen-md: 992px;
+@screen-lg: 1200px;
+
+body {
+  margin-top: 50px;
+  background: #FFF;
+}
+
+h1 {
+  margin-left: -30px;
+  margin-right: -30px;
+  margin-top: -30px;
+  padding: 30px;
+  background: #f4f6f8;
+  color: #364051;
+  border-bottom: 1px solid fade(#a6c8e6, 40%);
+  margin-bottom: 30px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  &:hover {
+    .cb-anchor {
+      display: block;
+      position: absolute;
+      margin-left: -20px;
+      font-size: 16px;
+      top: 50%;
+      margin-top: -8px;
+      padding-right: 5px; 
+    }
+  }
+  .cb-anchor {
+    display: none;
+  }
+}
+
+.cb-globalnav {
+  background-color: @color-1;
+}
+
+.cb-sidebar {
+  position: fixed;
+  left: 0;
+  width: 250px;
+  bottom: 0;
+  top: 50px;
+  border-right: 1px solid #a6c8e6;
+  overflow-y: auto;
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    color: #333;
+    padding: 5px 0;
+    display: block;
+  }
+
+  > ul {
+    padding: 15px;
+
+    > li {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    > ul {
+      padding-left: 15px;
+
+      > ul {
+        padding-left: 15px;
+      }
+    }
+  }
+}
+
+.cb-searchbox {
+  padding: 10px;
+  border-bottom: 1px solid fade(@color-1, 10%);
+  position: fixed;
+  width: 100%;
+  background-color: #FFF;
+
+  input {
+    border: 0;
+    box-shadow: 0 0;
+
+    &:focus,
+    &:hover {
+      box-shadow: 0 0;
+    }
+  }
+}
+
+.cb-content {
+  position: fixed;
+  overflow-y: auto;
+  left: 250px;
+  right: 0;
+  bottom: 0;
+  top: 50px;
+  padding: 30px;
+}
+
+.cb-controls-preview {
+  border: 2px solid #a6c8e7;
+  margin: 0;
+  padding: 25px;
+}
+
+.cb-grid {
+  display: grid;
+  grid-gap: 5px;
+  @media (min-width: @screen-lg) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  @media (max-width: (@screen-lg - 1)) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  @media (max-width: (@screen-md - 1)) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: (@screen-sm - 1)) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.navbar {
+  .navbar-brand {
+    padding: 14px 15px;
+
+    img {
+      max-height: 23px;
+    }
+  }
+
+  &.navbar-inverse {
+    .navbar-nav {
+      & > .active {
+        & > a {
+          &,
+          &:focus,
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+    }
+  }
+}
+
+.container {
+  max-width: 100% !important;
+}
+
+.box-color-white {
+  color: #FFF;
+}
+
+.box-color {
+  padding: 20px;
+  text-align: center;
+}

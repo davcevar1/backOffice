@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view" ng-init="editable=true; create=true;">
+    <div class="cb-viewport cb-flex cb-column" style="background:transparent;">
+      <div class="cb-breadcrumb">
+        <ul class="breadcrumb">
+          <li><a href="cargas-masivas.html">Buscar cliente</a></li>
+          <li>#0245000345 - Tapia Andrade Viviana María</li>
+        </ul>
+      </div>
+      <div class="cb-scrollable cb-grow">
+        <div class="container" style="padding:30px;">
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <div class="form-vertical">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Login</div>
+                      <div class="cb-control">
+                        <select class="form-control">
+                          <option value="undefined">ncastaneda (Activo)</option>
+                          <option value="days">pmorales (Bloqueado)</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Servicio</div>
+                      <div class="cb-control">
+                        <select class="form-control" ng-model="service">
+                          <option value="nomina">Pago de nómina</option>
+                          <option value="cobros">Cobros</option>
+                          <option value="afiliaciones">Afiliaciones masivas</option>
+                          <option value="domiciliados">Domiciliados</option>
+                          <option value="domiciliados2">Domiciliación bancaria</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Lote</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Fecha desde</div>
+                      <div class="cb-control">
+                        <input type="text" kendo-datepicker />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Fecha hasta</div>
+                      <div class="cb-control">
+                        <input type="text" kendo-datepicker />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <div class="control-label">Estado</div>
+                      <div class="cb-control">
+                        <select class="form-control" ng-model="service">
+                          <option value="nomina">Pago de nómina</option>
+                          <option value="cobros">Cobros</option>
+                          <option value="afiliaciones">Afiliaciones masivas</option>
+                          <option value="domiciliados">Domiciliados</option>
+                          <option value="domiciliados2">Domiciliación bancaria</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <kendo-grid options="massiveUpload2"></kendo-grid>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ng-include="'includes/popups.html'"></div>
+
+  <script type="text/x-kendo-template" id="detail">
+    <kendo-grid options="massiveUpload"></kendo-grid>
+  </script>
+  <script type="text/x-kendo-template" id="item">
+    <div class="cb-flex cb-gutters cb-middle">
+      <div style="border-radius:3px; background:url(#: data.image #) no-repeat; background-size:cover; width:120px; height:80px;"></div>
+      <div class="cb-grow">
+        <div><span title="Nombre">#: data.name #</span></div>
+        <div class="small text-muted"><span title="Canal">#: data.service #</span></div>
+      </div>
+      <div class="text-right">
+        <div title="Estado">#: data.status #</div>
+        <div class="small text-muted"><span title="Fecha">#: data.date #</span></div>
+      </div>
+    </div>
+  </script>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

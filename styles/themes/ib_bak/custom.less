@@ -1,0 +1,384 @@
+@import (reference) "../default/variables.less";
+@import (reference) "variables.less";
+
+#view-login {
+  width: 400px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+}
+
+div.cb-title.title-contact {
+  border-bottom: 1px #2d4b9b solid;
+  margin-bottom: 25px;
+  h2 {
+    font-size: 20px;
+  }
+
+}
+
+.cb-contact {
+  padding: 0px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.20);
+  &.col-xs-12{
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .row {
+    margin: 0px;
+    padding: 0px;
+    .col-sm-6.background-block-social {
+      margin: 0px;
+      background-color: #fff;
+      height: 136px;
+      padding-top: 18px;
+      .cont-socilal {
+        margin: 5px;
+        margin-left: 10px;
+        a {
+          .svg {
+            width: 25px;
+            height: 25px;
+          }
+        }
+        span {
+          margin-left: 5px;
+          font-size: 17px;
+        }
+      }
+    }
+    .col-sm-6.background-block-phone {
+      padding-top: 30px;
+      table {
+        margin-top: 0px;
+        td.phone {
+          border-bottom: 1px #fff solid;
+          padding-bottom: 5px;
+        }
+        td.phone {
+          border-bottom: 1px #fff solid;
+          padding-bottom: 5px;
+          div {
+            font-size: 25px;
+            color: #fff;
+            img {
+              margin-right: 15px;
+            }
+          }
+        }
+        .hours {
+          margin-top: 10px;
+          color: #fff
+        }
+
+      }
+      margin: 0px;
+      height: 136px;
+      background: rgba(0, 71, 142, 1);
+      background: -moz-linear-gradient(left, rgba(0, 71, 142, 1) 0%, rgba(0, 167, 205, 1) 100%);
+      background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0, 71, 142, 1)), color-stop(100%, rgba(0, 167, 205, 1)));
+      background: -webkit-linear-gradient(left, rgba(0, 71, 142, 1) 0%, rgba(0, 167, 205, 1) 100%);
+      background: -o-linear-gradient(left, rgba(0, 71, 142, 1) 0%, rgba(0, 167, 205, 1) 100%);
+      background: -ms-linear-gradient(left, rgba(0, 71, 142, 1) 0%, rgba(0, 167, 205, 1) 100%);
+      background: linear-gradient(to right, rgba(0, 71, 142, 1) 0%, rgba(0, 167, 205, 1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00478e', endColorstr='#00a7cd', GradientType=1);
+    }
+  }
+}
+
+.cb-ib-loans {
+  display: block;
+  background-color: @background_color_loans_2;
+  padding: 10px 20px;
+  table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    tr {
+      td {
+        border-bottom: 2px solid @color_loans_1 !important;
+        color: @color_loans_1;
+        font-size: 12px;
+        width: 50%;
+        vertical-align: middle;
+        padding-top: 15px !important;
+        padding-bottom: 12px !important;
+        padding-left: 16px !important;
+        &:last-child {
+          border-top-right-radius: 2px;
+          border-bottom-right-radius: 2px;
+          text-align: right;
+          width: 100px;
+        }
+        span {
+          font-size: 16px;
+          line-height: 20px;
+          color: @color_loans_1;
+          font-weight: 600;
+        }
+        small {
+          font-size: 12px;
+          line-height: 15px;
+          color: @color_loans_1;
+          display: block;
+        }
+        a {
+          display: block;
+        }
+      }
+      &:first-child {
+        td {
+          &:first-child {
+            color: @color_loans_1;
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+          }
+        }
+      }
+      &:nth-child(2) {
+        td {
+          &:first-child {
+            color: @color_loans_1;
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+            background-color: #B1E2F7;
+          }
+        }
+      }
+      &:nth-child(3) {
+        td {
+          &:first-child {
+            color: @background_color_loans_1;
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+            background-color: @color_loans_2;
+          }
+        }
+      }
+      &:last-child {
+        td {
+          border-bottom: none !important;
+        }
+      }
+    }
+  }
+  div {
+    a {
+      font-size: 15px !important;
+      padding-left: 15px !important;
+    }
+  }
+}
+
+.cb-group-ib-foreign-exchange {
+  padding: 20px 10px !important;
+  legend {
+    border-bottom: 0px;
+    text-align: left;
+    margin: 0px 0px 20px 10px;
+  }
+  .table-ib {
+    width: 100%;
+    max-width: 100%;
+    background-color: @background_color_loans_2;
+    //padding: 4px 5px 7px 5px;
+    box-sizing: border-box;
+    tr {
+      th {
+        font-size: 16px;
+        color: @color_loans_1;
+        font-weight: 600;
+        border: none;
+        text-align: left;
+      }
+      td {
+        span {
+          font-size: 16px;
+          line-height: 20px;
+          color: @color_loans_1;
+          font-weight: 600;
+          i {
+            font-weight: 300;
+            font-style: normal;
+          }
+        }
+        &:last-child {
+          text-align: right;
+          width: 100px;
+        }
+      }
+    }
+  }
+  table {
+    tr {
+      td {
+        a {
+          color: @color_loans_2;
+          font-size: 11px;
+          font-weight: bold;
+          letter-spacing: .5px;
+          i {
+            vertical-align: middle;
+            fill: #0098C6;
+            margin-left: 5px;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cb-grid-no-column-padding {
+  table {
+    td {
+      padding: 0px !important;
+    }
+  }
+}
+
+.cb-grid-ib-verification {
+  > table > tbody > tr {
+    background-color: #fff;
+    > td {
+      background-color: #fff;
+      .summary-two-fields-vertical {
+        div:first-child {
+          background-color: #fff;
+          margin-bottom: 5px;
+        }
+        div:last-child {
+          padding: 15px 20px;
+          background-color: #f5f5f5;
+        }
+      }
+    }
+  }
+}
+
+.cb-grid-ib-confirmation {
+  .cb-grid-ib-verification;
+  border: 6px solid #B9BBBF !important;
+  padding: 20px 35px;
+  margin: 40px;
+}
+
+.cb-grid-ib-parent {
+  .six-fields-2-4 {
+    .field-1,
+    .field-2 {
+      font-size: 16px;
+    }
+  }
+}
+
+.cb-grid-detail {
+  padding: 10px;
+  background-color: #f5f5f5;
+  .k-detail-row & {
+    td {
+      background-color: #FFF;
+      .field-1 {
+        font-weight: bold;
+      }
+    }
+  }
+  .k-alt + .k-detail-row & {
+    td {
+      background-color: #f5f5f5;
+    }
+  }
+  .k-grid-toolbar {
+    background: transparent;
+  }
+}
+
+.cb-navbar.cb-navbar-bottom {
+    .navbar-fixed-bottom {
+        position: relative;
+        border: 0;
+    }
+}
+
+/* Personalización de posicion de botones en grilla*/
+.k-grid .k-grid-toolbar .btn {
+  border: none;
+  float: right;
+}
+
+.k-detail-row .cb-group.cb-group-simple > div > .k-grid {
+  margin-bottom: 0px;
+
+}
+
+.has-error .help-block {
+  color: #EC6225;
+}
+
+.has-succes .help-block {
+  color: @color1;
+}
+
+.list-group > .list-group-item.active,
+.list-group > .list-group-item.active:focus,
+.list-group > .list-group-item.active:hover {
+  background-color: #fff;
+  border-color: #3c67dd;
+}
+.two-fields {
+	padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (max-width: 767px) {
+  .two-fields {
+    line-height: 1em;
+  }
+
+  .two-fields .field-2 {
+    font-size: x-small;
+  }
+
+  .k-list-container .two-fields {
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+}
+
+.alert {
+  > .glyphicon {
+    margin-right: 10px;
+  }
+  &.alert-success {
+    .alert-variant(@ib-alert-success-bg; @ib-alert-success-border; @ib-alert-success-text);
+  }
+  &.alert-info {
+    .alert-variant(@alert-info-bg; @alert-info-border; @alert-info-text);
+  }
+  &.alert-warning {
+    .alert-variant(@alert-warning-bg; @alert-warning-border; @alert-warning-text);
+  }
+  &.alert-danger {
+    .alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-text);
+  }
+}
+
+.cb-grid-ib-verification > table > tbody > tr > td .summary-two-fields-vertical div:first-child
+{
+  font-weight: 700;
+}
+
+.summary-template-title {
+  font-weight: 600;
+  font-size: large;
+}
+
+[ui-view="content"] {
+    display: none;
+    &.ng-scope {
+        display: inherit;
+    }
+}
+

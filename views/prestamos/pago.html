@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view" ng-init="header.collapsed=true; editable=true;">
+    <div class="cb-viewport cb-flex cb-column">
+      <div class="cb-form-header cb-no-margin">
+        <div class="cb-flex" ng-class="{'cb-collapsed':header.collapsed}">
+          <div class="cb-grow">
+            <div class="cb-secondary-text" title="# de prestamo">{{ header.secondaryText }}</div>
+            <div class="cb-primary-text cb-text-xl"><button class="btn btn-default cb-caret" ng-click="header.collapsed=!header.collapsed" style="padding:5px; margin-left:-26px; margin-right:5px;"><span class="fa fa-angle-down"></span></button>{{ header.collapsed? header.secondaryText+' - '+header.primaryText : header.primaryText }}</div>
+            <div class="cb-fields cb-flex cb-gutters">
+              <div ng-repeat="field in header.fields | filter:{opened:true}">
+                <div>{{ field.value }}</div>
+                <div class="small control-label">{{ field.label }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="cb-actions cb-flex cb-top">
+            <div class="btn-group">
+              <button id="more-info" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="Más información"><span class="fa fa-info-circle"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right" style="color:#333; max-height:300px; overflow: auto;">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th colspan="2">Más información</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="field in header.fields | filter:{opened:false}">
+                      <th class="cb-no-wrap">{{ field.label }}</th>
+                      <td>{{ field.value }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="k-tabstrip-wrapper cb-flex cb-grow">
+        <div kendo-tab-strip="tabs" class="cb-flex cb-column cb-grow">
+          <ul>
+            <li class="k-state-active">
+              <a href="#">Resumen</a>
+            </li>
+            <li>
+              <a href="#">Cuotas</a>
+            </li>
+            <li>
+              <a href="#">Negociación</a>
+            </li>
+            <li>
+              <a href="#">Prioridades</a>
+            </li>
+          </ul>
+          <div class="cb-grow cb-scrollable">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-7">
+                  <fieldset class="cb-group cb-group-simple">
+                    <legend>Rubros</legend>
+                    <div>
+                      <kendo-grid options="summary"></kendo-grid>
+                    </div>
+                  </fieldset>
+                  <fieldset class="cb-group cb-group-simple">
+                    <div style="border:1px solid #ccc;">
+                      <kendo-grid options="summary2" class="cb-grid-no-header" style="margin:0;"></kendo-grid>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="col-sm-5">
+                  <div class="cb-group cb-group-collapsible">
+                    <ul kendo-panel-bar k-options="{expandMode:'single'}">
+                      <li class="k-state-active">
+                        Pagos
+                        <div style="margin-top: -1px; padding: 0px;">
+                          <kendo-grid options="payments"></kendo-grid>
+                        </div>
+                      </li>
+                      <li>
+                        Condonaciones
+                        <div style="margin-top: -1px; padding: 0px;">
+                          <kendo-grid options="condonaciones"></kendo-grid>
+                        </div>
+                      </li>
+                      <li>
+                        Sobrante
+                        <div style="margin-top: -1px; padding: 0px;">
+                          <kendo-grid options="sobrante"></kendo-grid>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+              <kendo-grid options="amortizacion2"></kendo-grid>
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+              <fieldset class="cb-group cb-group-simple">
+                <div>
+                  <div class="form-vertical">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <fieldset class="cb-group cb-group-simple">
+                          <div>
+                            <div class="form-vertical">
+                              <div class="row">
+                                <div class="col-sm-12">
+                                  <div class="form-group">
+                                    <div class="control-label">Tipo de pago</div>
+                                    <div class="cb-control">
+                                      <div class="radio">
+                                        <label>
+                                        <input type="radio" name="tipo-pago"> Cuota
+                                        </label>
+                                      </div>
+                                      <div class="radio">
+                                        <label>
+                                        <input type="radio" name="tipo-pago"> Rubro
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-12">
+                                  <div class="form-group">
+                                    <div class="control-label">Tipo de pago interés</div>
+                                    <div class="cb-control">
+                                      <div class="radio">
+                                        <label>
+                                        <input type="radio" name="interes"> Acumulado
+                                        </label>
+                                      </div>
+                                      <div class="radio">
+                                        <label>
+                                        <input type="radio" name="interes"> Proyectado
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-12">
+                                  <div class="form-group">
+                                    <div class="control-label">Tipo de abono</div>
+                                    <div class="cb-control">
+                                      <div class="radio">
+                                        <label>
+                                        <input type="radio" name="fee"> Disminuye
+                                        </label>
+                                      </div>
+                                      <div class="radio">
+                                        <label>
+                                        <input type="radio" name="fee"> Mantiene
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <div class="control-label">Crédito</div>
+                          <div class="cb-control">
+                            <div class="checkbox">
+                              <label>
+                              <input type="checkbox"> Permite renovación
+                              </label>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                              <input type="checkbox"> Permite precancelar
+                              </label>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                              <input type="checkbox" ng-model="transaction.additional"> Permite pagos adicionales
+                              </label>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                              <input type="checkbox"> Permite solo pagos de cuota completa
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group" ng-show="transaction.additional">
+                          <div class="control-label">Pagos adicionales</div>
+                          <div class="cb-control">
+                            <div class="checkbox">
+                              <label>
+                              <input type="checkbox" checked> Aplica solo al capital
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                              <input type="radio" name="adicional" ng-model="transaction.capital" value="normal"> Pago normal/adelantado
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                              <input type="radio" name="adicional" ng-model="transaction.capital" value="extraordinary"> Pago extraordinario
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group" ng-show="transaction.additional && transaction.capital == 'extraordinary'">
+                          <div class="control-label">Pagos extraordinarios</div>
+                          <div class="cb-control">
+                            <div class="radio">
+                              <label>
+                              <input type="radio" name="extraordinarios"> Reducción de cuota
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                              <input type="radio" name="extraordinarios"> Reducción de tiempo
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <fieldset class="cb-group cb-group-simple">
+                          <div>
+                            <div class="form-vertical">
+                              <div class="row">
+                                <div class="col-sm-12">
+                                  <div class="form-group">
+                                    <div class="control-label">Cambio de tasa</div>
+                                    <div class="cb-control">
+                                      <div class="radio">
+                                        <label>
+                                        <input type="radio" name="exchange" ng-model="transaction.exchange" value="0"> Flotante
+                                        </label>
+                                      </div>
+                                      <div class="radio">
+                                        <label>
+                                        <input type="radio" name="exchange" ng-model="transaction.exchange" value="1"> No reajustable
+                                        </label>
+                                      </div>
+                                      <div class="radio">
+                                        <label>
+                                        <input type="radio" name="exchange" ng-model="transaction.exchange" value="2"> Períodico
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-12" ng-show="transaction.exchange == 2">
+                                  <div class="form-group">
+                                    <div class="control-label">Periodicidad</div>
+                                    <div class="cb-control cb-flex cb-gutters">
+                                      <div class="cb-grow">
+                                        <input type="number" ng-model="amount" kendo-numeric-text-box k-spinners="false" k-format="c0" />
+                                      </div>
+                                        <div>
+                                          <select class="form-control">
+                                            <option>Días</option>
+                                            <option>Meses</option>
+                                            <option>Trimestres</option>
+                                            <option>Semestres</option>
+                                            <option>Años</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                      <div class="radio">
+                                        <label>
+                                      <input type="radio" name="periodic"> Mantener cuota
+                                      </label>
+                                      </div>
+                                      <div class="radio">
+                                        <label>
+                                      <input type="radio" name="periodic"> Mantener plazo
+                                      </label>
+                                      </div>
+                                      <div class="radio">
+                                        <label>
+                                      <input type="radio" name="periodic"> Cuota final
+                                      </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="cb-grow cb-scrollable">
+            <div class="container">
+              <div kendo-grid="prioritiesGrid" options="priorities"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cb-navbar cb-navbar-bottom" ng-show="editable">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+          <button class="btn btn-primary navbar-btn" ng-click="goto('detalle.html')">Guardar</button>
+          <button class="btn btn-default navbar-btn">Imprimir</button>
+          <button class="btn btn-default navbar-btn" ng-click="goto('detalle.html')">Cancelar</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div id="condonar" class="modal fade">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Condonar</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <div class="form-vertical">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group cb-required">
+                      <div class="control-label">Rubro</div>
+                      <div class="cb-control cb-flex cb-gutters">
+                        <select class="form-control">
+                          <option></option>
+                          <option>IMPUESTO AL CRÉDITO SOLIDARIO</option>
+                          <option>CAPITAL</option>
+                          <option>GESTION COBRANZA EXTRAJUDICIAL</option>
+                          <option>INTERÉS DE MORA</option>
+                          <option>INTERÉS DE SEGURO FINANCIADO</option>
+                          <option>IVA COBRANZA EXTRAJUDICIAL</option>
+                          <option>GASTOS DE COBRANZA</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="form-group cb-required">
+                      <div class="control-label">Monto a condonar</div>
+                      <div class="cb-control cb-flex cb-gutters">
+                        <input type="number" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="editar-pago" class="modal fade">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Editar pago</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple">
+            <div class="form-group">
+              <div class="control-label">Forma de pago</div>
+              <div class="cb-control">
+                <select class="form-control" ng-model="paymentMethod">
+                  <option></option>
+                  <option value="debit">Nota de débito</option>
+                  <option value="check">Cheque</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="control-label">Monto</div>
+              <div class="cb-control">
+                <div class="cb-flex cb-gutters">
+                  <div class="cb-grow">
+                    <input type="text" kendo-numeric-text-box k-min="1" k-ng-model="amount" />
+                  </div>
+                    <div>
+                      <select class="form-control">
+                      <option>USD</option>
+                      <option>EUR</option>
+                    </select>
+                    </div>
+                  </div>
+                  <div class="text-muted small" style="margin-top:5px;">Conversión: $234.00 USD, Cotización: 1.34</div>
+                </div>
+              </div>
+              <div class="form-group" ng-show="paymentMethod=='check'">
+                <div class="control-label"># Cheque</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+              </div>
+                </div>
+                <div class="form-group" ng-show="paymentMethod=='check'">
+                  <div class="control-label">Banco</div>
+                  <div class="cb-control">
+                    <input type="text" class="form-control" />
+              </div>
+                  </div>
+                  <div class="form-group" ng-show="paymentMethod=='check'">
+                    <div class="control-label">Retención</div>
+                    <div class="cb-control">
+                      <input type="text" kendo-numeric-text-box />
+              </div>
+                    </div>
+                    <div class="form-group" ng-show="paymentMethod=='debit'">
+                      <div class="control-label">Referencia</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+              </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="control-label">Notas</div>
+                        <div class="cb-control">
+                          <input type="text" class="form-control" />
+              </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="cb-control">
+                            <div class="checkbox">
+                              <label>
+                    <input type="checkbox" /> Aplicar en línea
+                  </label>
+                            </div>
+                          </div>
+                        </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sobrante" class="modal fade">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Sobrante</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple">
+            <div class="form-group">
+              <div class="control-label">Forma de pago</div>
+              <div class="cb-control">
+                <select class="form-control" ng-model="paymentMethod">
+                  <option></option>
+                  <option value="debit">Nota de débito</option>
+                  <option value="check">Cheque</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="control-label">Monto</div>
+              <div class="cb-control">
+                <div class="cb-flex cb-gutters">
+                  <div class="cb-grow">
+                    <input type="text" kendo-numeric-text-box k-min="1" k-ng-model="amount" />
+                  </div>
+                    <div>
+                      <select class="form-control">
+                      <option>USD</option>
+                      <option>EUR</option>
+                    </select>
+                    </div>
+                  </div>
+                  <div class="text-muted small" style="margin-top:5px;">Conversión: $234.00 USD, Cotización: 1.34</div>
+                </div>
+              </div>
+              <div class="form-group" ng-show="paymentMethod=='check'">
+                <div class="control-label"># Cheque</div>
+                <div class="cb-control">
+                  <input type="text" class="form-control" />
+              </div>
+                </div>
+                <div class="form-group" ng-show="paymentMethod=='check'">
+                  <div class="control-label">Banco</div>
+                  <div class="cb-control">
+                    <input type="text" class="form-control" />
+              </div>
+                  </div>
+                  <div class="form-group" ng-show="paymentMethod=='check'">
+                    <div class="control-label">Retención</div>
+                    <div class="cb-control">
+                      <input type="text" kendo-numeric-text-box />
+              </div>
+                    </div>
+                    <div class="form-group" ng-show="paymentMethod=='debit'">
+                      <div class="control-label">Referencia</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+              </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="control-label">Notas</div>
+                        <div class="cb-control">
+                          <input type="text" class="form-control" />
+              </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="cb-control">
+                            <div class="checkbox">
+                              <label>
+                    <input type="checkbox" /> Aplicar en línea
+                  </label>
+                            </div>
+                          </div>
+                        </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-default navbar-btn" data-dismiss="modal">Cancelar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="prestamos" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

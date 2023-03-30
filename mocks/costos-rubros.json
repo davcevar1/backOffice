@@ -1,0 +1,8 @@
+[
+  {"label":"Sobregiro contratado / Interés sobre el disponible", "status": "complete"},
+  {"label":"Sobregiro contratado / Impuesto sobre el interés ganado", "status": "complete"},
+  {"label":"Sobregiro contratado / Tasa certificación cheque", "status": "complete"},
+  {"label":"Pago de intereses / Interés sobre el disponible", "status": "partial"},
+  {"label":"Pago de intereses / Impuesto sobre el interés ganado"},
+  {"label":"Pago de intereses / Tasa certificación cheque"}
+]

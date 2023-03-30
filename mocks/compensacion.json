@@ -1,0 +1,16 @@
+[
+    {"codgrupo":"1", "grupo":"POR COMPENSAR", "numero":1, "transaccion":"APERTURA DE CAJA", "valor":50000},
+    {"codgrupo":"3", "grupo":"POR COMPENSAR", "numero":2, "transaccion":"PAGO DE CHEQUE POR VENTANILLA", "valor":15000},
+	{"codgrupo":"3", "grupo":"POR COMPENSAR", "numero":1, "transaccion":"PAGO DE CHEQUE CERTIFICADO POR VENTANILLA", "valor":1532.00},
+	{"codgrupo":"3", "grupo":"POR COMPENSAR", "numero":1, "transaccion":"PAGO DE CHEQUE DE GERENCIA POR VENTANILLA", "valor":1538.95},
+    {"codgrupo":"4", "grupo":"POR COMPENSAR", "numero":2, "transaccion":"OTROS EGRESOS", "valor":1453.23},
+    {"codgrupo":"5", "grupo":"POR COMPENSAR", "numero":1, "transaccion":"INGRESOS CAJERO INTERNO", "valor":1000.00},
+    {"codgrupo":"6", "grupo":"POR COMPENSAR", "numero":23, "transaccion":"CONSIGNACION", "valor":15698.36},
+    {"codgrupo":"7", "grupo":"COMPENSADAS PENDIENTES", "numero":5, "transaccion":"NOTA CREDITO", "valor":1563.20},
+	{"codgrupo":"7", "grupo":"COMPENSADAS PENDIENTES", "numero":1, "transaccion":"NOTA DE CREDITO FECHA EFECTIVA", "valor":156.23},
+    {"codgrupo":"10", "grupo":"COMPENSADAS PENDIENTES", "numero":17, "transaccion":"RETIRO AHORROS CON TALONARIO", "valor":8959.26},
+	{"codgrupo":"10", "grupo":"COMPENSADAS PENDIENTES", "numero":6, "transaccion":"RETIRO FAMILIAS EN ACCION", "valor":8523.26},
+	{"codgrupo":"10", "grupo":"COMPENSADAS PENDIENTES", "numero":1, "transaccion":"CIERRE DE CUENTA AH", "valor":560.26},
+    {"codgrupo":"11", "grupo":"COMPENSADAS PENDIENTES", "numero":123, "transaccion":"DEPOSITO AHORROS CON TALONARIO", "valor":151561.00},
+	{"codgrupo":"11", "grupo":"COMPENSADAS PENDIENTES", "numero":75, "transaccion":"DEPOSITO AHORROS", "valor":897912.56}
+]

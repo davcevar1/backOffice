@@ -1,0 +1,31 @@
+[{
+    "number": "11",
+    "name": "Fondos disponibles",
+    "office": "MATRIZ",
+    "area": "TESORERÍA",
+    "movements": "N",
+    "currency": "USD",
+    "type": "Deudora",
+    "status": "Vigente"
+  },
+  {
+    "number": "1101",
+    "name": "Caja",
+    "office": "QUITO",
+    "area": "OBLIGACIONES",
+    "movements": "N",
+    "currency": "USD",
+    "type": "Deudora",
+    "status": "Vigente"
+  },
+  {
+    "number": "110105",
+    "name": "Efectivo",
+    "office": "MATRIZ",
+    "area": "AREA CIERRE",
+    "movements": "N",
+    "currency": "USD",
+    "type": "Deudora",
+    "status": "Vigente"
+  }
+]

@@ -1,0 +1,11 @@
+[{
+    "lastName": "Monroe",
+    "firstName": "Julian",
+    "middleName": "C",
+    "dob": "06/15/1979",
+    "type": "Shareholder",
+		"phone": "(908) 207 8822",
+		"address": "234 Main St., NJ 20435, United States",
+    "ownership": "50%"
+  }
+]

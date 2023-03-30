@@ -1,0 +1,23 @@
+[{
+    "id": "1234",
+    "name": "José Martinez",
+    "role": "Deudor",
+    "role2": "Presidente",
+    "documentType": "Cédula",
+    "documentNumber": "1236548954",
+    "rate": "A",
+    "officer": "JUAN REINOSO",
+    "blocked": false
+  },
+  {
+    "id": "1235",
+    "name": "Pedro Martinez",
+    "role": "Codeudor",
+    "role2": "Secretario",
+    "documentType": "Cédula",
+    "documentNumber": "1234564954",
+    "rate": "A",
+    "officer": "JUAN REINOSO",
+    "blocked": true
+  }
+]

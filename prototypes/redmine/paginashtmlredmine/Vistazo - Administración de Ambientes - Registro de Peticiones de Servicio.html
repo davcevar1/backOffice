@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Vistazo - Administración de Ambientes - Registro de Peticiones de Servicio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="Redmine" />
+<meta name="keywords" content="issue,bug,tracker" />
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="NdQwe0grUZTFPZokv3caPsHvk4Um8J12WjetrM4SXmnz/qBh+ZIKdQWc7Hrfw7OqvcN7+FvVEPYtieJx1M/Llw==" />
+<link rel='shortcut icon' href='/favicon.ico?1480364180' />
+<link rel="stylesheet" media="all" href="/stylesheets/jquery/jquery-ui-1.11.0.css?1546844893" />
+<link rel="stylesheet" media="all" href="/themes/a1/stylesheets/application.css?1548124448" />
+<link rel="stylesheet" media="all" href="/stylesheets/responsive.css?1546844893" />
+
+<script src="/javascripts/jquery-1.11.1-ui-1.11.0-ujs-3.1.4.js?1546844892"></script>
+<script src="/javascripts/application.js?1546844892"></script>
+<script src="/javascripts/responsive.js?1546844893"></script>
+<script>
+//<![CDATA[
+$(window).load(function(){ warnLeavingUnsaved('Esta página contiene texto no guardado y si la abandona sus cambios se perderán'); });
+//]]>
+</script>
+<script src="/themes/a1/javascripts/theme.js?1546847094"></script>
+<link rel="stylesheet" media="screen" href="/plugin_assets/redmine_banner/stylesheets/banner.css?1498969320" /><script src="/plugin_assets/redmine_banner/javascripts/banner.js?1498969320"></script> <link rel="stylesheet" media="screen" href="/plugin_assets/redmine_feriado/stylesheets/redmine_feriado.css?1546844892" />   <link rel="stylesheet" media="screen" href="/plugin_assets/redmine_agile/stylesheets/redmine_agile.css?1546844892" />
+<!-- page specific tags -->
+<link rel="alternate" type="application/atom+xml" title="ATOM" href="https://servicedesk.cobiscorp.com/projects/admin-de-ambientes/activity.atom?key=82265f31e91a6aec1e1e30b78df108174a5fb5f6" />
+</head>
+<body class="theme-A1 project-admin-de-ambientes controller-projects action-show">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+
+        <div class="flyout-menu__search">
+            <form action="/projects/admin-de-ambientes/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">&#9906;</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Búsqueda" />
+</form>        </div>
+
+        <div class="flyout-menu__avatar flyout-menu__avatar--no-avatar">
+            <a class="user active" href="/users/1032">ntrujillo</a>
+        </div>
+
+        <h3>Proyecto</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Perfil</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="/my/account">Mi cuenta</a></li><li><a class="logout" rel="nofollow" data-method="post" href="/logout">Terminar sesión</a></li></ul>    </div>
+    <div id="loggedas">Conectado como <a class="user active" href="/users/1032">ntrujillo</a></div>
+    <ul><li><a class="home" href="/">Inicio</a></li><li><a class="my-page" href="/my/page">Mi página</a></li><li><a class="projects" href="/projects">Proyectos</a></li><li><a class="help" href="https://www.redmine.org/guide">Ayuda</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/admin-de-ambientes/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+        <input type="hidden" name="scope" />
+        
+        <label for='q'>
+          <a accesskey="4" href="/projects/admin-de-ambientes/search">Búsqueda</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" />
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">Administración de Ambientes</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" value="" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=overview" autocomplete="off" /></div><div class="drdn-items projects selection"><a title="COBISCORP" href="/projects/cobiscorp?jump=welcome"><span style="padding-left:0px;">COBISCORP</span></a><a title="CALIDAD Y PROCESOS" href="/projects/calidad-y-proceso?jump=welcome"><span style="padding-left:16px;">CALIDAD Y PROCESOS</span></a><a title="Mejora Continua" href="/projects/mejora-continua?jump=welcome"><span style="padding-left:32px;">Mejora Continua</span></a><a title="Oportunidades de mejora a procesos y metodologías organizacionales" href="/projects/oportunidades-de-mejora-metodologias-pmo?jump=welcome"><span style="padding-left:32px;">Oportunidades de mejora a procesos y metodologías organizacionales</span></a><a title="COBIS Service Desk - Soporte" href="/projects/cobis-service-desk-soporte?jump=welcome"><span style="padding-left:16px;">COBIS Service Desk - Soporte</span></a><a title="Infraestructura " href="/projects/si-infraestructura?jump=welcome"><span style="padding-left:16px;">Infraestructura </span></a><a title="Administración de Ambientes" class="selected" href="/projects/admin-de-ambientes?jump=welcome"><span style="padding-left:16px;">Administración de Ambientes</span></a><a title="Administración Herramientas ALM" href="/projects/administracion-herramientas-alm?jump=welcome"><span style="padding-left:16px;">Administración Herramientas ALM</span></a><a title="Servicio de Catalogación" href="/projects/servicio-de-catalogacion?jump=welcome"><span style="padding-left:16px;">Servicio de Catalogación</span></a><a title="Herramientas de Productividad" href="/projects/herramientas-de-productividad-soporte-interno?jump=welcome"><span style="padding-left:16px;">Herramientas de Productividad</span></a><a title="Pista de Arquitectura - Soporte" href="/projects/pista-de-arquitectura-soporte?jump=welcome"><span style="padding-left:16px;">Pista de Arquitectura - Soporte</span></a><a title="Producto - Sales &amp; Service Suite" href="/projects/sales-service-suite?jump=welcome"><span style="padding-left:16px;">Producto - Sales &amp; Service Suite</span></a><a title="Modernizacion COBIS Ecuador" href="/projects/modernizacion-cobis-ecuador?jump=welcome"><span style="padding-left:16px;">Modernizacion COBIS Ecuador</span></a><a title="Te Creemos - Implantación" href="/projects/te-creemos-implantacion?jump=welcome"><span style="padding-left:16px;">Te Creemos - Implantación</span></a><a title="Te Creemos - Post Instalación" href="/projects/te-creemos-post-instalacion?jump=welcome"><span style="padding-left:16px;">Te Creemos - Post Instalación</span></a><a title="Cobis Cloud &amp; Main Street" href="/projects/cobis-cloud-main-street?jump=welcome"><span style="padding-left:16px;">Cobis Cloud &amp; Main Street</span></a><a title="Terrabank" href="/projects/terrabank?jump=welcome"><span style="padding-left:16px;">Terrabank</span></a><a title="Santander - Tuiio " href="/projects/santander-tuiio?jump=welcome"><span style="padding-left:16px;">Santander - Tuiio </span></a><a title="Santander - Tuiio Certificación" href="/projects/santander-tuiio-certificacion?jump=welcome"><span style="padding-left:16px;">Santander - Tuiio Certificación</span></a></div><div class="drdn-items all-projects selection"><a href="/projects?jump=overview">Todos los proyectos</a></div></div></div>
+    </div>
+
+    <h1><span class="breadcrumbs"><a class="root" href="/projects/cobiscorp?jump=overview">COBISCORP</a><span class="separator"> &raquo; </span></span><span class="current-project">Administración de Ambientes</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a id="new-object" onclick="toggleNewObjectDropdown(); return false;" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a accesskey="7" class="new-issue-sub" href="/projects/admin-de-ambientes/issues/new">Nueva petición</a></li></ul>
+</li><li><a class="overview selected" href="/projects/admin-de-ambientes">Vistazo</a></li><li><a class="activity" href="/projects/admin-de-ambientes/activity">Actividad</a></li><li><a class="issues" href="/projects/admin-de-ambientes/issues">Peticiones</a></li><li><a class="time-entries" href="/projects/admin-de-ambientes/time_entries">Tiempo dedicado</a></li></ul>
+        <div class="tabs-buttons" style="display:none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="nosidebar">
+    <div id="sidebar">
+        
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+</div>
+
+<h2>Vistazo</h2>
+
+
+<div class="splitcontentleft">
+  <ul>
+    <li><span class="label">Tiempo a Facturar:</span> No</li>
+  </ul>
+
+  <div class="issues box">
+    <h3 class="icon icon-issue">Peticiones</h3>
+    <table class="list issue-report">
+      <thead>
+        <tr>
+          <th></th>
+          <th>abiertas</th>
+          <th>cerradas</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name">
+            <a href="/projects/admin-de-ambientes/issues?set_filter=1&amp;tracker_id=8">Solicitud Especialista</a>
+          </td>
+          <td>
+            <a href="/projects/admin-de-ambientes/issues?set_filter=1&amp;tracker_id=8">395</a>
+          </td>
+          <td>
+            <a href="/projects/admin-de-ambientes/issues?set_filter=1&amp;status_id=c&amp;tracker_id=8">8465</a>
+          </td>
+          <td class="total">
+            <a href="/projects/admin-de-ambientes/issues?set_filter=1&amp;status_id=%2A&amp;tracker_id=8">8860</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="name">
+            <a href="/projects/admin-de-ambientes/issues?set_filter=1&amp;tracker_id=9">Solicitud Licencia</a>
+          </td>
+          <td>
+            <a href="/projects/admin-de-ambientes/issues?set_filter=1&amp;tracker_id=9">29</a>
+          </td>
+          <td>
+            <a href="/projects/admin-de-ambientes/issues?set_filter=1&amp;status_id=c&amp;tracker_id=9">27</a>
+          </td>
+          <td class="total">
+            <a href="/projects/admin-de-ambientes/issues?set_filter=1&amp;status_id=%2A&amp;tracker_id=9">56</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <a href="/projects/admin-de-ambientes/issues?set_filter=1">Ver todas las peticiones</a>
+    </p>
+  </div>
+
+  <div class="spent_time box">
+    <h3 class="icon icon-time">Tiempo dedicado</h3>
+      <p>17256.92 horas</p>
+    <p>
+    <a href="/projects/admin-de-ambientes/time_entries">Detalles</a> |
+    <a href="/projects/admin-de-ambientes/time_entries/report">Informe</a>
+    </p>
+  </div>
+  
+</div>
+
+<div class="splitcontentright">
+    <div class="members box">
+    <h3 class="icon icon-group">Miembros</h3>
+      <p><span class="label">HD Cliente Interno:</span> <a class="user active" href="/users/1053">Adriana Chiluisa</a>, <a class="user active" href="/users/699">Adriana Giler</a>, <a class="user active" href="/users/295">Alba Salguero</a>, <a class="user active" href="/users/1012">Alcivar Chicaiza</a>, <a class="user active" href="/users/86">Aldo Benavides</a>, <a class="user active" href="/users/284">Alejandro Fernández</a>, <a class="user active" href="/users/876">Alejandro Simonet</a>, <a class="user active" href="/users/1842">Alexander Caicedo</a>, <a class="user active" href="/users/1595">Alexander Inca</a>, <a class="user active" href="/users/1841">Alexander Orbes</a>, <a class="user active" href="/users/6">Alexandra Abadiano</a>, <a class="user active" href="/users/174">Alexandra Correa</a>, <a class="user active" href="/users/68">Alexis Rodríguez</a>, <a class="user active" href="/users/3">Alfonso Duque</a>, <a class="user active" href="/users/334">Alicia Tabarez</a>, <a class="user active" href="/users/930">Ana Guevara</a>, <a class="user active" href="/users/1052">Andrea Castro</a>, <a class="user active" href="/users/1095">Andres Cusme</a>, <a class="user active" href="/users/784">Andres Gonzalez</a>, <a class="user active" href="/users/1712">Andres Jacquin</a>, <a class="user active" href="/users/1346">Andres Liger</a>, <a class="user active" href="/users/1291">Andres Tapia</a>, <a class="user active" href="/users/1549">Andres Velasco</a>, <a class="user active" href="/users/904">Andrés Moreno</a>, <a class="user active" href="/users/98">Angela Rodríguez</a>, <a class="user active" href="/users/1198">Angelica Castro</a>, <a class="user active" href="/users/1713">Angelica Gomez</a>, <a class="user active" href="/users/1681">Armando Miramon</a>, <a class="user active" href="/users/1112">Armando Quishpe</a>, <a class="user active" href="/users/310">Augusto Bucheli</a>, <a class="user active" href="/users/369">Aurelia Hidalgo</a>, <a class="user active" href="/users/1714">Brayan Batista</a>, <a class="user active" href="/users/40">Brian Sanson</a>, <a class="user active" href="/users/1715">Camilo Nova</a>, <a class="user active" href="/users/1054">Carla Fernandez</a>, <a class="user active" href="/users/48">Carlos Echeverría</a>, <a class="user active" href="/users/1059">Carlos Plua</a>, <a class="user active" href="/users/1428">Carlos Tiguaque</a>, <a class="user active" href="/users/134">Carmen Milán</a>, <a class="user active" href="/users/1843">Christian Benalcazar</a>, <a class="user active" href="/users/1393">Christian Brussil</a>, <a class="user active" href="/users/684">Christian Padilla</a>, <a class="user active" href="/users/1716">Cristian Acosta</a>, <a class="user active" href="/users/1683">Cristian Leon</a>, <a class="user active" href="/users/259">César Masabanda</a>, <a class="user active" href="/users/502">Daniel Jarrín</a>, <a class="user active" href="/users/706">Daniel Salazar</a>, <a class="user active" href="/users/902">Dario Cumbal</a>, <a class="user active" href="/users/1168">Darley Pacheco</a>, <a class="user active" href="/users/1662">David Loja</a>, <a class="user active" href="/users/10">David Mejía</a>, <a class="user active" href="/users/261">David Morla</a>, <a class="user active" href="/users/1074">Diana Garzón</a>, <a class="user active" href="/users/1287">Diana Naranjo</a>, <a class="user active" href="/users/1656">Diego Enriquez</a>, <a class="user active" href="/users/1347">Diego Flores</a>, <a class="user active" href="/users/335">Diego Melo</a>, <a class="user active" href="/users/1622">Diego Narvaez</a>, <a class="user active" href="/users/944">Douglas Fu</a>, <a class="user active" href="/users/368">Douglas Villagómez</a>, <a class="user active" href="/users/1853">Edison Cajas</a>, <a class="user active" href="/users/230">Eduardo Tayupanta</a>, <a class="user active" href="/users/739">Elias ElHelou</a>, <a class="user active" href="/users/688">Elizabeth Corrales</a>, <a class="user active" href="/users/790">Elva Almeida</a>, <a class="user active" href="/users/568">Erica  Ortega</a>, <a class="user active" href="/users/1384">Erick Canas</a>, <a class="user active" href="/users/936">Esneider Canencio</a>, <a class="user active" href="/users/1024">Esteban Baez</a>, <a class="user active" href="/users/300">Esteban Morán</a>, <a class="user active" href="/users/188">Esteban Salazar</a>, <a class="user active" href="/users/1368">Estefania Ramirez</a>, <a class="user active" href="/users/123">Estiwar Carrión</a>, <a class="user active" href="/users/1157">Evelyn Chavez</a>, <a class="user active" href="/users/198">Fabián Altamirano</a>, <a class="user active" href="/users/1025">Fabricio Huera</a>, <a class="user active" href="/users/1718">Farith Sanmiguel</a>, <a class="user active" href="/users/1094">Felipe Borja</a>, <a class="user active" href="/users/268">Fernando Abad</a>, <a class="user active" href="/users/124">Fernando Guerra Cuzme</a>, <a class="user active" href="/users/312">Fernando Ortega</a>, <a class="user active" href="/users/460">Fernando Sánchez</a>, <a class="user active" href="/users/1651">Francis Cobos</a>, <a class="user active" href="/users/399">Francisco Espinosa</a>, <a class="user active" href="/users/307">Francisco Schnabel</a>, <a class="user active" href="/users/912">Francisco Vargas</a>, <a class="user active" href="/users/1900">Frank Rodriguez</a>, <a class="user active" href="/users/127">Franklin Escudero</a>, <a class="user active" href="/users/1719">Freddy Feria</a>, <a class="user active" href="/users/79">Freddy Pinto</a>, <a class="user active" href="/users/192">Gabriel Villamagua</a>, <a class="user active" href="/users/483">Gabriela Estupiñan</a>, <a class="user active" href="/users/575">Gabriela Santillán</a>, <a class="user active" href="/users/915">Gelen Romero</a>, <a class="user active" href="/users/1665">Geovanny Guaman</a>, <a class="user active" href="/users/600">Giovanny Cueva</a>, <a class="user active" href="/users/1763">Gustavo Moyano</a>, <a class="user active" href="/users/657">Gustavo Vilatuña</a>, <a class="user active" href="/users/1060">Henry Salazar</a>, <a class="user active" href="/users/1078">Holman Garcia</a>, <a class="user active" href="/users/1901">Humberto Pacheco</a>, <a class="user active" href="/users/1126">Irina Gonzalez</a>, <a class="user active" href="/users/298">Isaac Torres</a>, <a class="user active" href="/users/737">Ivan Masapanta</a>, <a class="user active" href="/users/278">Ivette Rojas</a>, <a class="user active" href="/users/306">Ivonne Granda</a>, <a class="user active" href="/users/773">Iván Espinoza</a>, <a class="user active" href="/users/1702">Jack Bermeo</a>, <a class="user active" href="/users/157">Jackeline Jaramillo</a>, <a class="user active" href="/users/42">Jaime Hidalgo</a>, <a class="user active" href="/users/293">Javier García</a>, <a class="user active" href="/users/941">Jefferson Mateo</a>, <a class="user active" href="/users/1131">Jeison Gutierrez</a>, <a class="user active" href="/users/1927">Jessika Santa</a>, <a class="user active" href="/users/1147">Jesus Reyes</a>, <a class="user active" href="/users/1721">Jhon Chaparro</a>, <a class="user active" href="/users/922">Jimena Chiguano</a>, <a class="user active" href="/users/909">Joel Chonillo</a>, <a class="user active" href="/users/1720">Johan Hernandez</a>, <a class="user active" href="/users/793">Johanna Cartagena</a>, <a class="user active" href="/users/1604">John Quitora</a>, <a class="user active" href="/users/1049">Jonatan Rueda</a>, <a class="user active" href="/users/1722">Jonathan Ramirez</a>, <a class="user active" href="/users/1440">Jonathan Tomala</a>, <a class="user active" href="/users/925">Jonathan Veloz</a>, <a class="user active" href="/users/1073">Jonnathan Jimenez</a>, <a class="user active" href="/users/1066">Jorge Canal</a>, <a class="user active" href="/users/677">Jorge Fernández</a>, <a class="user active" href="/users/775">Jorge Ganchozo</a>, <a class="user active" href="/users/1392">Jorge Lomas</a>, <a class="user active" href="/users/1723">Jorge Quevedo</a>, <a class="user active" href="/users/1724">Jorge Traiana</a>, <a class="user active" href="/users/682">Jorge Zapata</a>, <a class="user active" href="/users/1725">Jose Chacon</a>, <a class="user active" href="/users/1056">Jose Guamani</a>, <a class="user active" href="/users/1565">Jose Ortiz</a>, <a class="user active" href="/users/1603">Josef Ortiz</a>, <a class="user active" href="/users/375">José Escobar</a>, <a class="user active" href="/users/36">José Mayanquer</a>, <a class="user active" href="/users/1213">José Molano</a>, <a class="user active" href="/users/520">José Zurita</a>, <a class="user active" href="/users/554">Juan Ruales</a>, <a class="user active" href="/users/74">Juan Sarzosa</a>, <a class="user active" href="/users/297">Juan Tagle</a>, <a class="user active" href="/users/1272">Juan Zamudio</a>, <a class="user active" href="/users/90">Judith Racines</a>, <a class="user active" href="/users/156">Jullissa Olmedo</a>, <a class="user active" href="/users/1726">Karel Marrero</a>, <a class="user active" href="/users/1617">Karen Verdesoto</a>, <a class="user active" href="/users/928">Katty Tamayo</a>, <a class="user active" href="/users/1547">Laura Davila</a>, <a class="user active" href="/users/780">Leslie Rosales</a>, <a class="user active" href="/users/314">Liliana Chango</a>, <a class="user active" href="/users/1767">Lina Almanza</a>, <a class="user active" href="/users/889">Lorena Regalado</a>, <a class="user active" href="/users/1057">Lucia Maldonado</a>, <a class="user active" href="/users/254">Luis  Hoyos</a>, <a class="user active" href="/users/791">Luis Calderón</a>, <a class="user active" href="/users/1217">Luis Castellanos</a>, <a class="user active" href="/users/1371">Luis Guachamin</a>, <a class="user active" href="/users/1051">Luis Ponce</a>, <a class="user active" href="/users/81">Manuel Freire</a>, <a class="user active" href="/users/341">Manuel Jimenez</a>, <a class="user active" href="/users/1727">Manuel Soto</a>, <a class="user active" href="/users/120">Marcelo Poveda</a>, <a class="user active" href="/users/107">Marco Díaz</a>, <a class="user active" href="/users/353">Marco Guañuna</a>, <a class="user active" href="/users/333">Marco Sanguino</a>, <a class="user active" href="/users/1023">Maria Soria</a>, <a class="user active" href="/users/782">Maribel Pérez</a>, <a class="user active" href="/users/421">Mariela Cabay</a>, <a class="user active" href="/users/1655">Mariflor Engronat</a>, <a class="user active" href="/users/1419">Maritza Rosero</a>, <a class="user active" href="/users/924">María Belén Arias</a>, <a class="user active" href="/users/93">Mauricio Gallardo</a>, <a class="user active" href="/users/271">Miguel Nuñez</a>, <a class="user active" href="/users/168">Miguel Pastuizaca</a>, <a class="user active" href="/users/1678">Miguel Pedraza</a>, <a class="user active" href="/users/279">Milton Custode</a>, <a class="user active" href="/users/231">Mireya Velastegui</a>, <a class="user active" href="/users/1369">Mitchell Gedler</a>, <a class="user active" href="/users/116">Myriam Dávila</a>, <a class="user active" href="/users/56">Máximo Suárez</a>, <a class="user active" href="/users/1882">Natalia Ortiz</a>, <a class="user active" href="/users/1840">Nathali Mejia</a>, <a class="user active" href="/users/1032">Nelson Trujillo</a>, <a class="user active" href="/users/47">Nicolay Estrella</a>, <a class="user active" href="/users/352">Nidia Silva</a>, <a class="user active" href="/users/735">Nolberto Vite</a>, <a class="user active" href="/users/1728">Orlando Molina</a>, <a class="user active" href="/users/384">Oscar Ayala</a>, <a class="user active" href="/users/1014">Oscar Cabrera</a>, <a class="user active" href="/users/18">Oscar Díaz</a>, <a class="user active" href="/users/199">Oscar Guaño</a>, <a class="user active" href="/users/1097">Oscar Jaramillo</a>, <a class="user active" href="/users/1108">Oscar Leon</a>, <a class="user active" href="/users/152">Oswaldo Ligua</a>, <a class="user active" href="/users/1170">Pablo Villamar</a>, <a class="user active" href="/users/1654">Patricio  Moreno</a>, <a class="user active" href="/users/1350">Patricio Samueza</a>, <a class="user active" href="/users/1706">Paul Alvarez</a>, <a class="user active" href="/users/181">Paul Borja</a>, <a class="user active" href="/users/1627">Paul Ortiz</a>, <a class="user active" href="/users/21">Paulina Quezada</a>, <a class="user active" href="/users/49">Paúl Clavijo</a>, <a class="user active" href="/users/702">Pedro Romero</a>, <a class="user active" href="/users/1315">Pedro Silva</a>, <a class="user active" href="/users/757">Pilar Chávez</a>, <a class="user active" href="/users/52">Publio Estupiñan</a>, <a class="user active" href="/users/1692">Rafael Andrade</a>, <a class="user active" href="/users/1381">Raul Naranjo</a>, <a class="user active" href="/users/1232">Rene Osorio</a>, <a class="user active" href="/users/182">René Alcocer</a>, <a class="user active" href="/users/1917">Ricardo Lopez</a>, <a class="user active" href="/users/1729">Ricardo Maestre</a>, <a class="user active" href="/users/23">Richard Trujillo</a>, <a class="user active" href="/users/99">Rodrigo Camino</a>, <a class="user active" href="/users/171">Rodrigo Garcés</a>, <a class="user active" href="/users/76">Sandro Soto</a>, <a class="user active" href="/users/53">Sandro Vallejo</a>, <a class="user active" href="/users/130">Santiago Gavilanes</a>, <a class="user active" href="/users/1239">Santiago Mosquera</a>, <a class="user active" href="/users/422">Sergio Chancay</a>, <a class="user active" href="/users/1050">Sonia Rojas</a>, <a class="user active" href="/users/999">Stephanie Flores</a>, <a class="user active" href="/users/207">Susana Paredes</a>, <a class="user active" href="/users/650">Sylvia León</a>, <a class="user active" href="/users/943">Tania Baidal</a>, <a class="user active" href="/users/803">Tania Suarez</a>, <a class="user active" href="/users/1149">Thomas Brown</a>, <a class="user active" href="/users/1281">Usuario Licencia</a>, <a class="user active" href="/users/340">Valeria Torres</a>, <a class="user active" href="/users/316">Verónica Burbano</a>, <a class="user active" href="/users/26">Verónica Chiliquinga</a>, <a class="user active" href="/users/313">Verónica Morejón</a>, <a class="user active" href="/users/85">Victoria Brito</a>, <a class="user active" href="/users/508">Vinicio Díaz</a>, <a class="user active" href="/users/91">Viviana Arias</a>, <a class="user active" href="/users/253">Viviana Solórzano</a>, <a class="user active" href="/users/910">Wendy Sanchez</a>, <a class="user active" href="/users/411">William Bernal</a>, <a class="user active" href="/users/1045">Wilson Simbana</a>, <a class="user active" href="/users/367">Wladimir Baez</a>, <a class="user active" href="/users/519">Xavier Almache</a>, <a class="user active" href="/users/201">Xavier Hurtado</a>, <a class="user active" href="/users/1058">Xavier Pazmino</a>, <a class="user active" href="/users/29">Ximena Fernández</a>, <a class="user active" href="/users/1730">Yair Panqueva</a>, <a class="user active" href="/users/1163">Yessenia Meneses</a>, <a class="user active" href="/users/656">Yessenia Pacheco</a>, <a class="user active" href="/users/1731">Yolimar Rios</a>, <a class="user active" href="/users/304">Yuri Cantos</a></p>
+      <p><span class="label">HD Asignador :</span> <a class="user active" href="/users/711">Administración Ambientes</a>, <a class="user active" href="/users/740">Alberto Ruiz</a>, <a class="user active" href="/users/401">Alex Ponce</a>, <a class="user active" href="/users/159">Alexander Balladares</a>, <a class="user active" href="/users/9">Carlos  Pullupaxi</a>, <a class="user active" href="/users/829">Edgar Veloso</a>, <a class="user active" href="/users/779">Germán Vanegas</a>, <a class="user active" href="/users/1214">Giovanny Avila</a>, <a class="user active" href="/users/1275">Klever Guerra</a>, <a class="user active" href="/users/254">Luis  Hoyos</a>, <a class="user active" href="/users/1062">Mario Betancourt</a>, <a class="user active" href="/users/920">Sebastián Mafla</a></p>
+      <p><span class="label">HD Técnico:</span> <a class="user active" href="/users/711">Administración Ambientes</a>, <a class="user active" href="/users/740">Alberto Ruiz</a>, <a class="user active" href="/users/401">Alex Ponce</a>, <a class="user active" href="/users/159">Alexander Balladares</a>, <a class="user active" href="/users/9">Carlos  Pullupaxi</a>, <a class="user active" href="/users/829">Edgar Veloso</a>, <a class="user active" href="/users/779">Germán Vanegas</a>, <a class="user active" href="/users/1214">Giovanny Avila</a>, <a class="user active" href="/users/41">Grupo Catalogación</a>, <a class="user active" href="/users/1275">Klever Guerra</a>, <a class="user active" href="/users/254">Luis  Hoyos</a>, <a class="user active" href="/users/1062">Mario Betancourt</a>, <a class="user active" href="/users/920">Sebastián Mafla</a></p>
+      <p><span class="label">HD Cierre de Casos:</span> <a class="user active" href="/users/254">Luis  Hoyos</a></p>
+      <p><span class="label">Cambio de Estados:</span> <a class="user active" href="/users/90">Judith Racines</a>, <a class="user active" href="/users/556">Redmine Administrator</a></p>
+      <p><span class="label">Consultar Peticiones:</span> <a class="user active" href="/users/876">Alejandro Simonet</a>, <a class="user active" href="/users/3">Alfonso Duque</a>, <a class="user active" href="/users/460">Fernando Sánchez</a>, <a class="user active" href="/users/383">Luis Segovia</a>, <a class="user active" href="/users/116">Myriam Dávila</a>, <a class="user active" href="/users/203">Omar Díaz</a>, <a class="user active" href="/users/1097">Oscar Jaramillo</a>, <a class="user active" href="/users/181">Paul Borja</a>, <a class="user active" href="/users/87">Sandra Mora</a>, <a class="user active" href="/users/1642">Stella Valderrama</a>, <a class="user active" href="/users/228">Usuario Consulta</a>, <a class="user active" href="/users/5">Wendy Sigcha</a>, <a class="user active" href="/users/656">Yessenia Pacheco</a></p>
+      <p><span class="label">Modificar Peticiones Cerradas:</span> <a class="user active" href="/users/254">Luis  Hoyos</a>, <a class="user active" href="/users/116">Myriam Dávila</a></p>
+      <p><span class="label">Seguimiento:</span> <a class="user active" href="/users/116">Myriam Dávila</a></p>
+      <p><span class="label">Modificar Fechas:</span> <a class="user active" href="/users/254">Luis  Hoyos</a>, <a class="user active" href="/users/116">Myriam Dávila</a></p>
+  </div>
+
+
+
+
+  
+</div>
+
+
+
+
+          <link rel="stylesheet" media="screen" href="/plugin_assets/sidebar_hide/stylesheets/sidebar_hide.css?1546844892" />
+<script src="/plugin_assets/sidebar_hide/javascripts/sidebar_hide.js?1546844892"></script>
+
+
+        <div style="clear:both;"></div>
+    </div>
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Cargando...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+<div id="footer">
+  <div class="bgl"><div class="bgr">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> &copy; 2006-2017 Jean-Philippe Lang
+    </div><div class="bgr">
+    Refactored by <a href="http://www.cobiscorp.com">Cobis</a> &copy; 2010-2019 Support Center
+    </div></div>
+</div>
+</div>
+</div>
+ 
+</body>
+</html>

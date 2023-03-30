@@ -1,0 +1,28 @@
+.btn {
+    &.btn-primary {
+        &:disabled {
+            background: @border-color;
+            border: 1px solid @border-color;
+        }
+    }
+    &.btn-default {
+        background-color: @background-color;
+        border-color: @background-color-buttons;
+        color: @background-color-buttons;
+        &:hover,
+        &:focus {
+            background-color: @background-color-buttons;
+            color: @background-color;
+        }
+    }
+    &.btn-primary {
+        background-color: @background-color-buttons;
+        border-color: @background-color-buttons;
+        color: @background-color;
+        &:hover,
+        &:focus {
+            background-color: @background-color-buttons-primary-hover;
+            border-color: @background-color-buttons-primary-hover;
+        }
+    }
+}

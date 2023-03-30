@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Principios - Guía de estilo Cobis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../styles/theme.css" rel="stylesheet" />
+  <link href="style-guide.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller" data-spy="scroll" data-target="#toc">
+  <nav class="cb-globalnav navbar navbar-fixed-top navbar-inverse">
+    <div class="container-fluid cb-flex">
+      <div class="navbar-brand" href="#"><img src="images/logo.png" /></div>
+      <ul class="nav navbar-nav cb-grow">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="active"><a href="standards.html">Principios</a></li>
+        <li><a href="components.html">Componentes</a></li>
+        <li><a href="icons.html">Íconos</a></li>
+        <li><a href="resources.html">Recursos</a></li>
+        <li><div class="label label-danger" style="margin-left: 40px; margin-top: 18px; display: block;">Versión preliminar</div></li>
+      </ul>
+      <a href="../views/container.html" target="_blank" class="btn btn-primary navbar-btn">Abrir prototipo <span class="fa fa-angle-double-right"></span></a>
+    </div>
+  </nav>
+  <div id="toc" class="cb-sidebar">
+    <ul>
+      <li><a href="#structure">Estructura de contenido</a></li>
+      <ul>
+        <li><a href="#pages">Páginas</a></li>
+        <li><a href="#forms">Formularios</a></li>
+      </ul>
+      <li><a href="#margins">Márgenes y espacios</a></li>
+      <li><a href="#messages">Mensajes</a></li>
+      <ul>
+        <li><a href="#messages-popup">Emergentes</a></li>
+        <li><a href="#notifications">Notificaciones</a></li>
+        <li><a href="#messages-contextual">Contextuales</a></li>
+      </ul>
+      <li><a href="#validations">Validaciones</a></li>
+      <ul>
+        <li><a href="#validations-required">Campos mandatorios</a></li>
+        <li><a href="#validations-errors">Errores en campos</a></li>
+        <li><a href="#validations-group-errors">Errores en grupos</a></li>
+      </ul>
+      <li><a href="#lenguage">Lenguaje</a></li>
+      <ul>
+        <li><a href="#tone">Tono</a></li>
+        <li><a href="#style">Estilo</a></li>
+      </ul>
+      <li><a href="#customize">Personalización</a></li>
+    </ul>
+  </div>
+
+  <div class="cb-content">
+    <h1>Principios de diseño</h1>
+    <h2 id="structure"><a href="#structure" class="cb-anchor"><span class="fa fa-link"></span></a>Estructura de contenido</h2>
+    <p>Un buen diseño de contenidos es consistente y coherente, para que los usuarios puedan confiar e intuir como interactuar con él. Hay que prestar atención a los detalles.</p>
+    <h3 id="pages"><a href="#pages" class="cb-anchor"><span class="fa fa-link"></span></a>Páginas</h3>
+    <p>Las páginas básicas tienen 3 elementos principales:</p>
+    <ol>
+      <li><strong>Breadcrumb</strong>, es una pista visual para indicar al usuario que está interactuando con una jerarquía de páginas, no se recomienda usarlo si no existe una navegación entre multiples páginas y por tanto la primera pantalla de la jerarquía no debe incluirlo tampoco.</li>
+      <li><strong>Cuerpo del formulario</strong>, es el contenido principal con el que va a interactuar el usuario.</li>
+      <li><strong>Barra de control</strong>, son las opciones principales de una página, una de las opciones más comunes es "Guardar".</li>
+    </ol>
+    <p class="text-center"><img src="images/basic-form.png" class="img-responsive" style="margin:auto;" /></p>
+    <h3 id="forms"><a href="#forms" class="cb-anchor"><span class="fa fa-link"></span></a>Formularios</h3>
+    <p>Los formularios generalmente están compuestos con campos de ingreso que se disponen de izquierda a derecha y hacia abajo, se recomienda usar la mejor cantidad de columnas posibles, un número adecuado está entre 1 a 3 columnas.</p>
+    <p class="text-center"><img src="images/form-direction.png" class="img-responsive" style="margin:auto;" /></p>
+    <p class="text-center"><img src="images/detail.png" class="img-responsive" style="margin:auto;" /></p>
+    <h2 id="margins"><a href="#margins" class="cb-anchor"><span class="fa fa-link"></span></a>Márgenes y espacios</h2>
+    <div>
+      <p>Ayudan a mantener el orden, agrupar contenido, mostrar una pista visual cuando existe jerarquía.</p>
+      <p>Para obtener los márgenes adecuados es necesario utilizar los contenedores disponibles, estos a través de los estilos se encargan de mantener los márgenes y espacios estándares.</p>
+      <p class="text-center"><img src="images/margins.png" /></p>
+    </div>
+    <h2 id="messages"><a href="#messages" class="cb-anchor"><span class="fa fa-link"></span></a>Mensajes</h2>
+    <p>El propósito de los mensajes es mantener informado al usuario de las interacciones que hace con la interfaz, dependiendo de la severidad o el propósito existen 3 tipos:</p>
+    <div>
+      <h3 id="messages-popup"><a href="#messages-popup" class="cb-anchor"><span class="fa fa-link"></span></a>Emergentes</h3>
+      <p>​Los mensajes emergentes se muestran en pantalla de forma modal, es decir, no permiten interactuar con otro elemento de pantalla mientras no se <strong>realice una acción sobre el mensaje</strong>.</p>
+      <div class="row text-center">
+        <div class="col-sm-6">
+          <h4>Alerta</h4>
+          <p><img src="images/messages-alert.png" style="height:195px; width:332px"></p>
+        </div>
+        <div class="col-sm-6">
+          <h4>Confirmación</h4>
+          <p><img src="images/messages-confirm.png" style="height:195px; width:332px"></p>
+        </div>
+      </div>
+      <h3 id="notifications"><a href="#notifications" class="cb-anchor"><span class="fa fa-link"></span></a>Notificaciones</h3>
+      <p>Las notificaciones son mensajes no intrusivos que sirven para informar de alguna acción realizada por el usuario que <strong>no requiere interacción</strong>.</p>
+      <div class="row text-center">
+        <div class="col-sm-4">
+          <h4>Información</h4>
+          <p><img src="images/notification-info.png" /></p>
+        </div>
+        <div class="col-sm-4">
+          <h4>Exito</h4>
+          <p><img src="images/notification-success.png" /></p>
+        </div>
+        <div class="col-sm-4">
+          <h4>Error</h4>
+          <p><img src="images/notification-error.png" /></p>
+        </div>
+      </div>
+
+      <h3 id="messages-contextual"><a href="#messages-contextual" class="cb-anchor"><span class="fa fa-link"></span></a>Contextuales</h3>
+      <p>​Los mensajes contextuales se muestran en pantalla y permanecen mientras el usuario no los cierre, sin embargo, no bloquean la interacción con otros elementos.</p>
+      <p class="text-center"><img src="images/messages-contextual.png" style="height:288px; width:415px"></p>
+    </div>
+    <h2 id="validations"><a href="#validations" class="cb-anchor"><span class="fa fa-link"></span></a>Validaciones</h2>
+    <div>
+      <p>Para asegurar la integridad de los datos ingresados por el usuario se debe aplicar métodos de validación en cliente (esto no reemplaza la validación en el servidor).</p>
+      <h3 id="validations-required"><a href="#validations-required" class="cb-anchor"><span class="fa fa-link"></span></a>Campos mandatorios</h3>
+      <p>Lo primero que se debe validar son los campos mandatorios para hacer un envio al servidor, estos se los identifica con un <span style="color:#FF0000"><strong>*</strong></span> de color rojo junto a la etiqueta del campo. Se usa la clase
+        <strong>cb-required </strong>en el form-group del control y el atributo <strong>required</strong> en el control.</p>
+      <p class="text-center"><img src="images/required.png" style="height:165px; width:322px"></p>
+      <h3 id="validations-errors"><a href="#validations-errors" class="cb-anchor"><span class="fa fa-link"></span></a>Errores en campos</h3>
+      <p>
+        Previo al envío de un formulario al servidor se validan todos los campos y se muestran en rojo los que no han pasado la validación, al tomar el foco un campo se muestra un mensaje que indica porque no paso la validación.</p>
+      <div class="row text-center">
+        <div class="col-sm-6">
+          <img src="images/validation1.png" style="height:165px; width:322px"></div>
+        <div class="col-sm-6">
+          <img src="images/validation2.png" style="height:165px; width:322px"></div>
+      </div>
+      <h3 id="validations-group-errors"><a href="#validations-group-errors" class="cb-anchor"><span class="fa fa-link"></span></a>Errores en grupos</h3>
+      <p>
+        En los casos que se usen contenedores con campos ocultos, como el caso de <a href="http://localhost/dropbox/cobis-prototype/views/tabstrip-validation-grouping.html" class="ext" target="_blank">Tabstrip<span class="ext"><span class="element-invisible"> (link is external)</span></span></a>,
+        <a href="http://localhost/dropbox/cobis-prototype/views/collapsible-validation.html" class="ext" target="_blank">Collapsible<span class="ext"><span class="element-invisible"> (link is external)</span></span>
+              </a>, etc. Se muestra una pista visual que indique en donde se encuentran los errores.</p>
+      <p class="text-center"><img src="images/validation-tabstrip.png" style="height:146px; width:498px"></p>
+    </div>
+    <h2 id="lenguage"><a href="#lenguage" class="cb-anchor"><span class="fa fa-link"></span></a>Lenguaje</h2>
+    <div>
+      <span style="font-size:16px">El lenguaje y la terminología que se usa para transmitir mensajes es un componente importante de la experiencia de usuario, que tiene la misma importancia que la lógica del negocio, estética, interacción del usuario, etc.</span></p>
+      <h3>Errores comunes en el uso del lenguaje</h3>
+      <ul>
+        <li>El uso excesivo de <strong>terminología y jerga informática</strong>, que muchos usuarios no entienden o malinterpretan.</li>
+        <li>Uso <strong>inconsistente </strong>de la terminología.</li>
+      </ul>
+      <p>Los elementos comunes se los debe de llamar de la misma forma siempre, por ejemplo: Si utilizamos el término Guardar para indicar la acción de enviar datos a la base de datos para ser almacenados, ese término debe ser constante y no llamarlo a veces
+        Guardar, a veces Transmitir, o a veces Salvar a pesar que la acción es idéntica en los tres casos.</p>
+      <ul>
+        <li><strong>Abreviaciones indecifrables</strong>, esta práctica suele ser más común sobre todo en el lenguaje español, y generalmente aplicada por salvar espacio, muchas veces innecesariamente, por ejemplo: Fecha de ingreso a inventario, la forma
+          incorrecta sería: Fec. ing. inv., la correcta: Ingreso inventario.</li>
+      </ul>
+      <p>La regla general es evitar abreviaturas, sin embargo, en caso de requerirlo la forma correcta es usar la etiqueta de abreviatura junto con un tooltip que indique el texto completo.</p>
+      <p class="text-center"><img src="images/abreviaturas.png" style="height:119px; width:470px"></p>
+
+      <p>Es imperativo la atención a la calidad del mensaje, incluyendo el tono del texto, teniendo en cuenta que el lenguaje mismo es un ingrediente importante en la satisfacción total del usuario, llegando a usuarios con diferentes niveles de conocimientos
+        técnicos, especialmente los nuevos usuarios.</p>
+      <h3>Etiquetas estándar para operaciones CRUD</h3>
+      <p>Las operaciones CRUD son las más comunes, y por estándar vamos a usar siempre los siguientes términos:</p>
+      <ul>
+        <li>Agregar (Create)</li>
+        <li>Editar (Update)</li>
+        <li>Eliminar (Delete)</li>
+      </ul>
+      <p class="text-center"><img src="images/crud_toolbar.png" style="height:44px; width:241px"></p>
+      <h2>Etiquetas estándar para ventanas popup</h2>
+      <p>​Un popup puede ser de edición o consulta, en el primer caso vamos a utilizar los siguientes términos para las acciones principales: </p>
+      <ul>
+        <li>Cancelar</li>
+        <li>Aceptar</li>
+      </ul>
+      <p class="text-center"><img src="images/popup-buttons1.png" style="height:106px; width:255px"></p>
+      <p>Y en el caso del popup de consulta, vamos a usar: </p>
+      <ul>
+        <li>Cerrar</li>
+      </ul>
+      <p class="text-center"><img src="images/popup-buttons2.png" style="height:106px; width:255px"></p>
+    </div>
+    <h2 id="customize"><a href="#customize" class="cb-anchor"><span class="fa fa-link"></span></a>Personalización</h2>
+    <div>
+      <p>Es el espacio por el cual se desenvuelve el usuario y hace todas sus actividades dentro de la plataforma. El entorno de Cobis tiene un diseño responsivo para que se adapte al tamaño de distintos dispositivos.</p>
+      <p class="text-center"><img src="images/layout.png" /></p>
+      <p>Como elemento de personalización del entorno de trabajo se ha previsto que se pueda utilizar el <a href="http://es.wikipedia.org/wiki/Isotipo_(dise%C3%B1o)" target="_blank" class="ext">Isotipo<span class="ext"><span class="element-invisible"> (link is external)</span></span></a>        (la ​parte icónica o más reconocible de una marca) de la empresa en la parte superior izquierda de la interfaz, el tamaño de la imagen que se puede utilizar es de 32x32 píxeles. </p>
+      <p class="text-center"><img src="images/isotipo.png" style="height:326px; width:485px"></p>
+    </div>
+    <script>
+      var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="style-guide" src="../lib/require/require.js"></script>
+</body>
+
+</html>

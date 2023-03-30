@@ -1,0 +1,5 @@
+[
+    {
+        "id":1, "description": "PESO COLOMBIANO", "balance":1030000.00, "max":123000, "min": 20000, "type":"Mandatorio"
+    }
+]

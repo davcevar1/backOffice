@@ -1,0 +1,81 @@
+[{
+    "color2": "rgb(142, 188, 0)",
+    "channel": "Internet Banking",
+    "profile": "Perfil 1",
+    "active": 300,
+    "blocked": 32,
+    "canceled": 15,
+    "disabled": 9,
+    "removed": 3
+  },
+  {
+      "color2": "rgb(142, 188, 0)",
+      "channel": "Internet Banking",
+      "profile": "Perfil 2",
+      "active": 123,
+      "blocked": 45,
+      "canceled": 23,
+      "disabled": 8,
+      "removed": 1
+    },
+  {
+    "color2": "rgb(255, 105, 0)",
+    "channel": "Banca Móvil",
+    "profile": "Perfil 3",
+    "active": 200,
+    "blocked": 20,
+    "canceled": 12,
+    "disabled": 7,
+    "removed": 4
+  },
+  {
+    "color2": "rgb(255, 105, 0)",
+    "channel": "Banca Móvil",
+    "profile": "Perfil 4",
+    "active": 123,
+    "blocked": 34,
+    "canceled": 2,
+    "disabled": 5,
+    "removed": 4
+  },
+  {
+    "color2": "rgb(37, 160, 218)",
+    "channel": "Cash",
+    "profile": "Perfil 5",
+    "active": 100,
+    "blocked": 35,
+    "canceled": 11,
+    "disabled": 11,
+    "removed": 5
+  },
+  {
+    "color2": "rgb(37, 160, 218)",
+    "channel": "Cash",
+    "profile": "Perfil 5",
+    "active": 34,
+    "blocked": 12,
+    "canceled": 5,
+    "disabled": 6,
+    "removed": 5
+  },
+  {
+    "color2": "rgb(48, 155, 70)",
+    "channel": "Chatbot",
+    "profile": "Perfil 6",
+    "active": 127,
+    "blocked": 12,
+    "canceled": 56,
+    "disabled": 3,
+    "removed": 2
+  },
+  {
+    "color2": "rgb(48, 155, 70)",
+    "channel": "Chatbot",
+    "profile": "Perfil 6",
+    "active": 23,
+    "blocked": 56,
+    "canceled": 12,
+    "disabled": 4,
+    "removed": 2
+  }
+]

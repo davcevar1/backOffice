@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-form-header cb-no-margin" ng-include="'../shared/header.html'"></div>
+    <div class="cb-view-container cb-group-layout container" style="padding-top: 30px;max-width: 500px;">
+      <div class="cb-group cb-group-simple">
+        <div class="form-horizontal">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Cuenta</div>
+                <div class="col-sm-8 cb-control">
+                  <input type="text" kendo-masked-text-box k-mask="'0-000-00-00000-0'" ng-model="saveDeposit.accountNumber" ng-blur="fillName(saveDeposit)" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Nombre</div>
+                <div class="col-sm-8 cb-control">
+                  <input type="text" class="form-control" disabled ng-model="saveDeposit.accountName" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Moneda</div>
+                <div class="col-sm-8 cb-control">
+                  <div class="cb-flex cb-gutters">
+                    <div class="cb-grow">
+                      <select class="form-control" ng-model="saveDeposit.currency" style="min-width:120px;">
+                                                <option value="USD">DOLAR</option>
+                                                <option value="BOL">BOLIVIANOS</option>
+                                            </select>
+                    </div>
+                    <div class="cb-grow" ng-if="saveDeposit.currency=='USD'">
+                      <input type="text" class="form-control text-right" value="6,88" disabled />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Efectivo</div>
+                <div class="col-sm-8 cb-control">
+                  <div class="cb-flex cb-gutters">
+                    <div class="cb-grow">
+                      <input type="text" class="text-right" kendo-numeric-text-box k-ng-model="saveDeposit.cash" k-format="c0" />
+                    </div>
+                    <div class="cb-grow" ng-if="saveDeposit.currency=='USD'">
+                      <input type="text" class="form-control text-right" value="{{ saveDeposit.cash? saveDeposit.cash*6.88 : '' }}" disabled />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Cheques propios</div>
+                <div class="col-sm-8 cb-control">
+                  <div class="cb-flex cb-gutters">
+                    <div class="cb-grow">
+                      <input type="text" class="text-right" kendo-numeric-text-box k-ng-model="saveDeposit.checkOwn" k-format="c0" />
+                    </div>
+                    <div class="cb-grow" ng-if="saveDeposit.currency=='USD'">
+                      <input type="text" class="form-control text-right" value="{{ saveDeposit.checkOwn? saveDeposit.checkOwn*6.88 : '' }}" disabled />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Cheques locales</div>
+                <div class="col-sm-8 cb-control">
+                  <div class="cb-flex cb-gutters">
+                    <div class="cb-grow">
+                      <input type="text" class="text-right" kendo-numeric-text-box k-ng-model="saveDeposit.checkOther" k-format="c0" />
+                    </div>
+                    <div class="cb-grow" ng-if="saveDeposit.currency=='USD'">
+                      <input type="text" class="form-control text-right" value="{{ saveDeposit.checkOther? saveDeposit.checkOther*6.88 : '' }}" disabled />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Cheques exterior</div>
+                <div class="col-sm-8 cb-control">
+                  <div class="cb-flex cb-gutters">
+                    <div class="cb-grow">
+                      <input type="text" class="text-right" kendo-numeric-text-box k-ng-model="saveDeposit.transfer" k-format="c0" />
+                    </div>
+                    <div class="cb-grow" ng-if="saveDeposit.currency=='USD'">
+                      <input type="text" class="form-control text-right" value="{{ saveDeposit.transfer? saveDeposit.transfer*6.88 : '' }}" disabled />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Total de dep&oacute;sito</div>
+                <div class="col-sm-8 cb-control">
+                  <div class="cb-flex cb-gutters">
+                    <div class="cb-grow">
+                      <input type="text" class="text-right form-control" disabled ng-model="saveDeposit.totalDeposit" />
+                    </div>
+                    <div class="cb-grow" ng-if="saveDeposit.currency=='USD'">
+                      <input type="text" class="form-control text-right" value="{{ saveDeposit.totalDepositConverted }}" disabled />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div class="col-sm-4 control-label">Referencia</div>
+                <div class="col-sm-8 cb-control">
+                  <input type="text" class="form-control" ng-model="saveDeposit.number" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cb-navbar cb-navbar-bottom">
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <button class="btn btn-primary navbar-btn" ng-click="submitSaveDeposit()">Guardar</button>
+        <button class="btn btn-default navbar-btn" ng-click="resetSaveDeposit()">Limpiar</button>
+        <button class="btn btn-default navbar-btn" ng-click="showLicitud()">Licitud</button>
+        <button class="btn btn-default navbar-btn" ng-click="showFirmas()">Firmas</button>
+      </nav>
+    </div>
+  </div>
+
+  <div id="licitud" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Licitud de fondos</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <div class="form-vertical">
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <div class="control-label">Fecha</div>
+                    <div class="cb-control">
+                      <div class="form-control-static">
+                        2018-03-31
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <div class="control-label">Oficina</div>
+                    <div class="cb-control">
+                      <div class="form-control-static">
+                          MATRIZ (QUITO)
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <div class="control-label">Titular</div>
+                    <div class="cb-control">
+                      <div class="form-control-static">
+                          CUEVA CUEVA FULCIO ALEJANDRO
+                          <div class="btn-group">
+                            <button class="btn btn-link" data-toggle="dropdown"><span class="fa fa-info-circle"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right" style="padding:10px 15px; min-width:300px;">
+                              <li>
+                                <div class="cb-flex" style="border-bottom: 1px solid #ddd; padding-bottom:5px; margin-bottom:5px;">
+                                  <strong class="cb-grow" style="padding-right:10px;">Identificación:</strong>
+                                  <div>1234567890 (Cédula)</div>
+                                </div>
+                                <div class="cb-flex" style="border-bottom: 1px solid #ddd; padding-bottom:5px; margin-bottom:5px;">
+                                  <strong class="cb-grow" style="padding-right:10px;">País:</strong>
+                                  <div>ECUADOR</div>
+                                </div>
+                                <div class="cb-flex" style="border-bottom: 1px solid #ddd; padding-bottom:5px; margin-bottom:5px;">
+                                  <strong class="cb-grow" style="padding-right:10px;">Provincia:</strong>
+                                  <div>PICHINCHA</div>
+                                </div>
+                                <div class="cb-flex" style="border-bottom: 1px solid #ddd; padding-bottom:5px; margin-bottom:5px;">
+                                  <strong class="cb-grow" style="padding-right:10px;">Cantón:</strong>
+                                  <div>QUITO</div>
+                                </div>
+                                <div class="cb-flex" style="border-bottom: 1px solid #ddd; padding-bottom:5px; margin-bottom:5px;">
+                                  <strong class="cb-grow" style="padding-right:10px;">Parroquia:</strong>
+                                  <div>CHILLOGALLO</div>
+                                </div>
+                                <div class="cb-flex" style="border-bottom: 1px solid #ddd; padding-bottom:5px; margin-bottom:5px;">
+                                  <strong class="cb-grow" style="padding-right:10px;">Dirección:</strong>
+                                  <div>LUIS FELIPE BORJA Y VICENTE SOLANO, CONJUNTO VALLE ALTO CASA #10</div>
+                                </div>
+                                <div class="cb-flex" style="border-bottom: 1px solid #ddd; padding-bottom:5px; margin-bottom:5px;">
+                                  <strong class="cb-grow" style="padding-right:10px;">Teléfono:</strong>
+                                  <div>0987654325</div>
+                                </div>
+                                <div class="cb-flex" style="border-bottom: 1px solid #ddd; padding-bottom:5px; margin-bottom:5px;">
+                                  <strong class="cb-grow" style="padding-right:10px;">Actividad económica:</strong>
+                                  <div>JUBILADO</div>
+                                </div>
+                                <div class="cb-flex" style="border-bottom: 1px solid #ddd; padding-bottom:5px; margin-bottom:5px;">
+                                  <strong class="cb-grow" style="padding-right:10px;">Profesión:</strong>
+                                  <div>PENSIONADO</div>
+                                </div>
+                                <div class="cb-flex">
+                                  <strong class="cb-grow" style="padding-right:10px;">Ocupación:</strong>
+                                  <div>SEGURIDAD PUBLICA</div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <div class="control-label"># Formulario</div>
+                    <div class="cb-control">
+                      <div class="form-control-static">
+                          32456
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <div class="control-label">Tipo de transacción</div>
+                    <div class="cb-control">
+                      <div class="form-control-static">
+                          DEPÓSITO
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <div class="control-label"># Cuenta o inversión</div>
+                    <div class="cb-control">
+                      <div class="form-control-static">
+                          40155551013
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <div class="control-label">Valor acumulado</div>
+                    <div class="cb-control">
+                      <div class="form-control-static">
+                          $0.00 USD
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <div class="control-label">Valor transacción</div>
+                    <div class="cb-control">
+                      <div class="form-control-static">
+                          $500.00 USD
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </fieldset>
+          <hr style="margin-top:0;" />
+          <fieldset class="cb-group cb-group-simple">
+            <div class="form-vertical">
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Identificación</div>
+                    <div class="cb-control cb-flex cb-gutters">
+                      <div>
+                        <select class="form-control">
+                          <option></option>
+                          <option>Cédula</option>
+                          <option>Pasaporte</option>
+                        </select>
+                      </div>
+                      <div class="cb-grow">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Nombres</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Apellidos</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Dirección</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Teléfono</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Ciudad</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Actividad económica</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Profesión</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="control-label">Parentesco</div>
+                    <div class="cb-control">
+                      <select class="form-control"></select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="control-label">Los fondos provienen de</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="control-label">Los fondos serán usando en</div>
+                    <div class="cb-control">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Imprimir</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="firmas" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Verificación de firmas</h4>
+        </div>
+        <div class="modal-body">
+          <fieldset class="cb-group cb-group-simple" style="margin:20px;">
+            <div class="row cb-flex">
+              <div class="cb-flex" ng-class="{'col-sm-4': currentSignature!=signature, 'col-sm-12': currentSignature==signature}" ng-if="!currentSignature || currentSignature==signature" ng-repeat="signature in signatures" ng-click="toggleCurrentSignature(signature)">
+                <div class="panel panel-default cb-flex cb-column">
+                  <div class="panel-body cb-grow cb-flex cb-middle cb-center">
+                    <img ng-src="{{ signature.url }}" class="img-responsive" />
+                  </div>
+                  <div class="panel-footer text-center">{{ signature.name }}</div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="cb-group cb-group-simple">
+            <legend>Condiciones</legend>
+            <div>
+              <kendo-grid options="condiciones"></kendo-grid>
+            </div>
+          </fieldset>
+          <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+            <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+              <button class="btn btn-primary navbar-btn" data-dismiss="modal">Cerrar</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/x-kendo-template" id="detail-template">
+    <kendo-grid options="reversosParametros"></kendo-grid>
+  </script>
+
+  <script>
+    var librariesUrl = '../../lib/',
+      savingAccount = true;
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="caja" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

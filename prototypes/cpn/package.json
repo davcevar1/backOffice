@@ -1,0 +1,16 @@
+{
+  "name": "cpn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "home.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Juan Carlos Altamirano",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "3.4.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.4.1"
+  }
+}

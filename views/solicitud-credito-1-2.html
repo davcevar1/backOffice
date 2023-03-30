@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Ingreso</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../styles/theme.css" rel="stylesheet" />
+  <style>
+    .input-group-btn .btn {
+      line-height: 20px;
+    }
+  </style>
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view">
+    <div class="cb-toolbar cb-toolbar-top">
+      <div class="cb-toolbar-content">
+        <div id="task-title" class="cb-grow cb-text-ellipsis">
+          <span id="task-badge" class="label label-default cb-text-sm ng-binding" title="Codigo">ALOAN.1.08.003688</span>
+          <span title="Proceso">AGILE LOAN</span>
+          <span title="Version">(Version 10) / </span>
+          <span title="Tarea">CHECK INFORMATION</span>
+        </div>
+        <div class="hidden-xs">
+          <button class="btn btn-default"><span>Observations</span></button>
+          <button class="btn btn-default"><span>Requirements</span></button>
+          <div class="btn-group">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+							<span>Actions</span> <span class="caret"></span>
+						</button>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="#"> OK </a></li>
+              <li><a href="#"> Return </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="hidden-sm hidden-md hidden-lg">
+          <div class="btn-group">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+							<span class="fa fa-ellipsis-v"></span>
+						</button>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li class="dropdown-header">More information</li>
+              <li><a href="#">Observations</a></li>
+              <li><a href="#">Requirements</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Actions</li>
+              <li><a href="#"> OK </a></li>
+              <li><a href="#"> Return </a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cb-view-container-root cb-view-container cb-group-layout">
+      <div class="cb-form-header">
+        <div class="pull-right">
+          <button class="btn btn-default"><span class="fa fa-print"></span> <span class="hidden-xs">Imprimir</span></button>
+        </div>
+        <div class="cb-group cb-group-simple">
+          <div class="cb-text-xl">Aguas Munoz Betty Jeanneth</div>
+          <div>
+            <span class="control-label">Trámite:</span> 02154000020
+            <span class="control-label">Tipo producto:</span> Crédito automotriz
+            <span class="control-label">Monto solicitado:</span> $20,000.00 USD
+            <span class="control-label">Cuota solicitada:</span> 36 meses
+          </div>
+          <div>
+            <span class="control-label">Oficina:</span> Sucursal Sucre
+            <span class="control-label">Oficial:</span> Jose Martinez
+            <span class="control-label">Fecha de inicio:</span> 12/12/2015
+          </div>
+        </div>
+      </div>
+      <div class="cb-view-container cb-group-layout">
+        <fieldset class="cb-group cb-group-tabbed-v">
+          <div>
+            <div class="row">
+              <div class="col-tab-items col-sm-2">
+                <ul class="nav nav-pills nav-stacked cb-nav-responsive">
+                  <li class="active"><a href="#info" data-toggle="tab">Información General</a></li>
+                  <li><a href="#adicional" data-toggle="tab">Información Adicional</a></li>
+                  <li><a href="#deudores" data-toggle="tab">Deudores</a></li>
+                  <li><a href="#operaciones" data-toggle="tab">Operaciones</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-10">
+                <div class="tab-content">
+                  <div id="info" class="tab-pane active">
+                    <fieldset class="cb-group cb-group-simple">
+                      <div>
+                        <div class="form-vertical">
+                          <div class="row">
+                            <div class="col-sm-6 col-md-4">
+                              <div class="form-group cb-required">
+                                <div class="control-label">Oficina</div>
+                                <div class="cb-control">
+                                  <div class="input-group">
+                                    <input type="text" class="form-control" />
+                                    <span class="input-group-btn">
+																			<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                              <div class="form-group cb-required">
+                                <div class="control-label">Línea de crédito</div>
+                                <div class="cb-control">
+                                  <div class="input-group">
+                                    <input type="text" class="form-control" />
+                                    <span class="input-group-btn">
+																			<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                              <div class="form-group cb-required">
+                                <div class="control-label">Sector del Crédito</div>
+                                <div class="cb-control">
+                                  <div class="input-group">
+                                    <input type="text" class="form-control" />
+                                    <span class="input-group-btn">
+																			<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                              <div class="form-group cb-required">
+                                <div class="control-label">Destino Financiero</div>
+                                <div class="cb-control">
+                                  <div class="input-group">
+                                    <input type="text" class="form-control" />
+                                    <span class="input-group-btn">
+																			<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                              <div class="form-group cb-required">
+                                <div class="control-label">Destino Económico</div>
+                                <div class="cb-control">
+                                  <div class="input-group">
+                                    <input type="text" class="form-control" />
+                                    <span class="input-group-btn">
+																			<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                              <div class="form-group cb-required">
+                                <div class="control-label">Destino Geográfico</div>
+                                <div class="cb-control">
+                                  <div class="input-group">
+                                    <input type="text" class="form-control" />
+                                    <span class="input-group-btn">
+																			<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-12">
+                              <hr />
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                              <div class="form-group cb-required">
+                                <div class="control-label">Moneda</div>
+                                <div class="cb-control">
+                                  <select class="form-control">
+																		<option>-- Seleccione --</option>
+																		<option>USD</option>
+																		<option>EUR</option>
+																	</select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                              <div class="form-group cb-required">
+                                <div class="control-label">Monto solicitado</div>
+                                <div class="cb-control">
+                                  <div class="input-group">
+                                    <input type="text" class="form-control" />
+                                    <span class="input-group-addon">USD</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                              <div class="form-group cb-required">
+                                <div class="control-label">Cuota solicitado</div>
+                                <div class="cb-control">
+                                  <div class="input-group">
+                                    <input type="text" class="form-control" />
+                                    <span class="input-group-addon">USD</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                              <div class="form-group cb-required">
+                                <div class="control-label">Plazo solicitado</div>
+                                <div class="cb-control">
+                                  <div class="input-group">
+                                    <input type="number" class="form-control" />
+                                    <div class="input-group-btn" title="Frecuencia de pago">
+                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Meses <span class="caret"></span></button>
+                                      <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="#">Días</a></li>
+                                        <li><a href="#">Meses</a></li>
+                                        <li><a href="#">Trimestres</a></li>
+                                        <li><a href="#">Semestres</a></li>
+                                        <li><a href="#">Años</a></li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-12">
+                              <hr />
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                              <div class="form-group cb-required">
+                                <div class="control-label">Doble alícuota</div>
+                                <div class="cb-control">
+                                  <div class="radio">
+                                    <label>
+																		<input type="radio" name="alicuota" value="-1" checked ng-model="info.alicuota"> No aplica
+																	  </label>
+                                  </div>
+                                  <div class="radio">
+                                    <label>
+																		<input type="radio" name="alicuota" value="1" ng-model="info.alicuota"> Si
+																	  </label>
+                                  </div>
+                                  <div class="radio">
+                                    <label>
+																		<input type="radio" name="alicuota" value="0" ng-model="info.alicuota"> No
+																	  </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-md-8">
+                              <div class="row" ng-if="info.alicuota && info.alicuota!=-1">
+                                <div class="col-sm-6 col-md-6">
+                                  <div class="form-group cb-required">
+                                    <div class="control-label">Cuenta Certificados</div>
+                                    <div class="cb-control">
+                                      <select class="form-control"></select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                  <div class="form-group cb-required">
+                                    <div class="control-label">Alicuota Certificados</div>
+                                    <div class="cb-control">
+                                      <select class="form-control"></select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                  <div class="form-group cb-required">
+                                    <div class="control-label">Cuenta de Ahorros</div>
+                                    <div class="cb-control">
+                                      <select class="form-control"></select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6" ng-if="info.alicuota!=0">
+                                  <div class="form-group cb-required">
+                                    <div class="control-label">Alicuota Ahorros</div>
+                                    <div class="cb-control">
+                                      <select class="form-control"></select>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <div id="adicional">
+                  </div>
+                  <div id="operaciones">
+                  </div>
+                  <div id="deudores" class="tab-pane">
+                    <kendo-grid options="deudoresOptions"></kendo-grid>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="cb-wizard">
+      <div class="cb-wizard-content">
+        <div class="container-fluid">
+          <div class="cb-flex">
+            <div class="cb-wizard-dropdown btn-group dropup cb-grow hidden-sm hidden-md hidden-lg">
+              <button class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
+								<span>Instrucciones desembolso</span> <span class="caret"></span>
+							</button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Ingreso</a></li>
+                <li><a href="#">Negociación</a></li>
+                <li><a href="#">Garantías</a></li>
+                <li class="disabled"><a href="#">Instrucciones desembolso</a></li>
+                <li class="disabled"><a href="#">Informacion cliente</a></li>
+                <li class="disabled"><a href="#">Direcciones y teléfonos</a></li>
+                <li class="disabled"><a href="#">Estado financiero</a></li>
+              </ul>
+            </div>
+            <div class="cb-wizard-nav cb-flex cb-bottom hidden-xs">
+              <div ng-show="wizardScrollLeft">
+                <a href="#" class="btn btn-link" data-slide="prev"><span class="fa fa-angle-left"></span></a>
+              </div>
+              <div class="cb-flex cb-grow cb-bottom cb-wizard-steps">
+                <div class="cb-wizard-step cb-active"><button class="btn btn-default btn-block">Ingreso</button></div>
+                <div class="cb-wizard-step"><button class="btn btn-default btn-block" disabled="true">Negociación</button></div>
+                <div class="cb-wizard-step"><button class="btn btn-default btn-block" disabled="true">Garantías</button></div>
+                <div class="cb-wizard-step"><button class="btn btn-default btn-block" disabled="true">Instrucciones desembolso</button></div>
+                <div class="cb-wizard-step"><button class="btn btn-default btn-block" disabled="true">Informacion cliente</button></div>
+                <div class="cb-wizard-step"><button class="btn btn-default btn-block" disabled="true">Direcciones y teléfonos</a></div>
+								<div class="cb-wizard-step"><button class="btn btn-default btn-block" disabled="true">Estado financiero</a></div>
+							</div>
+							<div ng-show="wizardScrollRight">
+								<a href="#" class="btn btn-link" data-slide="next"><span class="fa fa-angle-right"></span></a>
+							</div>
+						</div>
+						<div class="cb-actions cb-grow-sm-down">
+                            <div class="btn-group btn-block dropup">
+							  <a href="solicitud-credito-2-2.html" class="btn btn-primary">Continuar</a>
+							  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+							  </button>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#">Guardar temporalmente</a></li>
+                    <li><a href="#">Imprimir</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cb-view-loading cb-hidden">
+        <div class="cb-view-loading-icon"></div>
+      </div>
+    </div>
+  </div>
+  <script type="text/x-kendo-template" id="template">
+    <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button><button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Editar</button><button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+  </script>
+
+  <script type="text/x-kendo-template" id="amortizacion2">
+    <button class="btn btn-default"><span class="fa fa-calculator"></span> Calcular</button>
+  </script>
+
+  <script type="text/x-kendo-template" id="polizaTools">
+    <button ng-click="addPoliza()" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button><button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Editar</button><button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+  </script>
+
+  <script>
+    var librariesUrl = '../lib/';
+  </script>
+  <script src="../lib/require.config.js"></script>
+  <script data-main="solicitud-credito" src="../lib/require/require.js"></script>
+</body>
+
+</html>

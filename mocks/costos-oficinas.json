@@ -1,0 +1,11 @@
+[
+  {"name": "Oficina 1", "group": "General"},
+  {"name": "Oficina 2", "group": "General"},
+  {"name": "Oficina 3", "group": "Costos sierra"},
+  {"name": "Oficina 4", "group": "General"},
+  {"name": "Oficina 5", "group": "General"},
+  {"name": "Oficina 6", "group": "General"},
+  {"name": "Oficina 7", "group": "General"},
+  {"name": "Oficina 8", "group": "General"},
+  {"name": "Oficina 9", "group": "General"}
+]

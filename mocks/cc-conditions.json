@@ -1,0 +1,5 @@
+[
+  {"owners":"José Morales, Martín Morales", "min": 500, "max": 10000, "status": "Vigente"},
+  {"owners":"Marta Villavicencio", "min": 0, "max": 300, "status": "No vigente"},
+  {"owners":"Marta Villavicencio", "min": 0, "max": 1000, "status": "Expirada"}
+]

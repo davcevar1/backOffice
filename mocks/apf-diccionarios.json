@@ -1,0 +1,7 @@
+[
+  {"id":1, "name": "Parametros Generales", "productGroup": true, "level4": false, "product": false, "position":1},
+  {"id":2, "name": "Rubros", "productGroup": false, "level4": false, "product": false, "position":2},
+  {"id":3, "name": "Datos Reestructuración", "productGroup": false, "level4": false, "product": false, "position":3},
+  {"id":4, "name": "Impresión de Documentos", "productGroup": false, "level4": false, "product": false, "position":4},
+  {"id":5, "name": "Tipos de Plazos", "productGroup": false, "level4": false, "product": false, "position":5}
+]

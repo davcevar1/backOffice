@@ -1,0 +1,14 @@
+[
+    {
+        "idLevel": 1,
+        "level": "NIVEL 1",
+        "currency": 0,
+        "transactionNumber": "25067",
+        "transactionDescription": "PAGO PARA SERVICIOS BANCARIOS",
+        "min": 9999,
+        "max": 99999,
+        "radACcount": "I",
+        "online": 4,
+        "secuential": 5
+    }
+]

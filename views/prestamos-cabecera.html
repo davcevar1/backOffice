@@ -1,0 +1,47 @@
+<div class="cb-flex cb-middle">
+    <div class="cb-grow">
+        <div title="# de prestamo">{{ header.secondaryText }}</div>
+        <div class="cb-text-xl">{{ header.primaryText }}</div>
+        <div class="cb-flex cb-gutters">
+            <div ng-repeat="field in header.fields | filter:{opened:true}">
+                <div>{{ field.value }}</div>
+                <div class="small control-label">{{ field.label }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="cb-flex cb-gutters">
+        <div class="btn-group" ng-if="(header.fields | filter:{opened:false}).length>0">
+            <button id="more-info" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="Más información"><span class="fa fa-info-circle"></span></button>
+            <ul class="dropdown-menu dropdown-menu-right" style="color:#333;" ng-style="{width:header.moreInfoWidth? header.moreInfoWidth : 200}">
+                <li style="padding:10px;" class="text-muted">Más información</li>
+                <table class="table" style="margin:0;">
+                    <tbody>
+                        <tr ng-repeat="field in header.fields | filter:{opened:false}">
+                            <th class="cb-no-wrap">{{ field.label }}</th>
+                            <td>{{ field.value }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ul>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-default" ng-repeat="action in header.actions | filter:{opened:true}" ng-click="action.click()"> <span ng-if="action.iconClass" class="{{ action.iconClass }}"></span> {{ action.label }}</button>
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" ng-if="(header.actions | filter:{opened:false}).length>0"><span class="fa fa-angle-down"></span></button>
+            <ul class="dropdown-menu dropdown-menu-right" ng-if="(header.actions | filter:{opened:false}).length>0">
+                <li ng-repeat="action in header.actions | filter:{opened:false}"><a href="javascript://" ng-click="action.click()">{{ action.label }}</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="info" class="hidden">
+    <div style="margin-left: -15px; margin-right: -15px; margin-top: -10px; color:#333;">
+        <table class="table" style="margin:0;">
+            <tbody>
+                <tr ng-repeat="field in header.fields | filter:{opened:false}">
+                    <th class="cb-no-wrap">{{ field.label }}</th>
+                    <td>{{ field.value }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

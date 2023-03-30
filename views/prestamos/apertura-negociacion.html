@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view" ng-init="editable=true; create=true;">
+    <div class="cb-viewport cb-flex cb-column">
+      <div class="cb-form-header cb-no-margin">
+        <div class="cb-flex">
+          <div class="cb-grow">
+            <div class="cb-text-xl">Tapia Andrade Viviana María (Principal)</div>
+          </div>
+          <div class="cb-actions">
+            <button class="btn btn-default" title="Imprimir"><span class="fa fa-print"></span></button>
+            <div class="btn-group">
+              <button id="more-info" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="Más información"><span class="fa fa-info-circle"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right" style="color:#333; max-height:300px; overflow: auto;">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th colspan="2">Más información</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="ng-scope">
+                      <th class="cb-no-wrap ng-binding">Ciclo</th>
+                      <td class="cb-no-wrap">Cada fin de mes</td>
+                    </tr>
+                    <tr class="ng-scope">
+                      <th class="cb-no-wrap ng-binding">Tipo promedio</th>
+                      <td class="ng-binding">---</td>
+                    </tr>
+                    <tr class="ng-scope">
+                      <th class="cb-no-wrap ng-binding">Tipo capitalización</th>
+                      <td class="ng-binding">2</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid cb-scrollable" style="padding:30px;">
+        <div ng-include="'includes/negociacion.html'"></div>
+      </div>
+      <div class="cb-wizard">
+        <div class="cb-wizard-content">
+          <div class="container-fluid">
+            <div class="cb-flex">
+              <div class="cb-wizard-dropdown btn-group dropup cb-grow hidden-sm hidden-md hidden-lg">
+                <button class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
+                <span>Instrucciones desembolso</span> <span class="caret"></span>
+              </button>
+                <ul class="dropdown-menu">
+                  <li><a href="apertura.html">Deudores</a></li>
+                  <li><a href="apertura-negociacion.html">Negociación</a></li>
+                  <li><a href="apertura-rubros">Rubros</a></li>
+                </ul>
+              </div>
+              <div class="cb-wizard-nav cb-flex cb-grow cb-bottom hidden-xs">
+                <div ng-show="wizardScrollLeft">
+                  <a href="#" class="btn btn-link" data-slide="prev"><span class="fa fa-angle-left"></span></a>
+                </div>
+                <div class="cb-flex cb-grow cb-bottom cb-wizard-steps">
+                  <div class="cb-wizard-step"><a href="apertura.html" class="btn btn-default btn-block">Deudores</a></div>
+                  <div class="cb-wizard-step cb-active"><button class="btn btn-default btn-block">Negociación</button></div>
+                  <div class="cb-wizard-step"><button class="btn btn-default btn-block" disabled="true">Rubros</button></div>
+                </div>
+                <div ng-show="wizardScrollRight">
+                  <a href="#" class="btn btn-link" data-slide="next"><span class="fa fa-angle-right"></span></a>
+                </div>
+              </div>
+              <div class="cb-actions cb-grow-sm-down">
+                <button ng-click="finish()" class="btn btn-primary" style="min-width:200px;">Continuar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="prestamos" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

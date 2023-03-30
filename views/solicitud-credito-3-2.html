@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Garantías</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+    <style>
+		.input-group-btn .btn {
+			line-height: 20px;
+		}
+	</style>
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-toolbar cb-toolbar-top">
+            <div class="cb-toolbar-content">
+                <div id="task-title" class="cb-grow cb-text-ellipsis">
+                    <span id="task-badge" class="label label-default cb-text-sm">234523452444</span> Proceso / Tarea (Versión 4)
+                </div>
+                <div>
+                    <button class="btn btn-default">Observaciones</button>
+                    <button class="btn btn-default">Requerimientos</button>
+                    <div class="btn-group">
+                        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Acciones <span class="caret"></span></button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#">Opcion 1</a></li>
+                            <li><a href="#">Opcion 2</a></li>
+                            <li><a href="#">Opcion 3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+        </div>
+		<div class="cb-view-container-root cb-view-container cb-group-layout">
+            <div class="cb-form-header">
+                <div class="pull-right">
+                    <button class="btn btn-default"><span class="fa fa-print"></span> Imprimir</button>
+                </div>
+                <div class="cb-group cb-group-simple">
+                    <div class="cb-text-xl">Aguas Munoz Betty Jeanneth</div> 
+                    <div>
+                        <span class="control-label">Trámite:</span> 02154000020
+                        <span class="control-label">Tipo producto:</span> Crédito automotriz
+                        <span class="control-label">Monto solicitado:</span> $20,000.00 USD
+                        <span class="control-label">Cuota solicitada:</span> 36 meses
+                    </div>
+                    <div>
+                        <span class="control-label">Oficina:</span> Sucursal Sucre
+                        <span class="control-label">Oficial:</span> Jose Martinez
+                        <span class="control-label">Fecha de inicio:</span> 12/12/2015
+                    </div>
+                </div>
+			</div>
+			<div class="cb-view-container cb-group-layout container-fluid">
+				<div class="btn-toolbar cb-gap-bottom">
+					<button class="btn btn-default" data-toggle="modal" data-target="#garantia"><span class="glyphicon glyphicon-plus"></span> Agregar</button>
+					<button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+					<button class="btn btn-default"><span class="fa fa-search"></span> Buscar</button>
+				</div>
+			
+                <fieldset class="cb-group cb-group-simple">
+					<legend>Personal</legend>
+                    <div>
+						<kendo-grid options="garantiasPersonalOptions"></kendo-grid> 
+					</div>
+                </fieldset>
+				<fieldset class="cb-group cb-group-simple">
+					<legend>Otras</legend>
+                    <div>
+						<kendo-grid options="garantiasOtrasOptions"></kendo-grid> 
+					</div>
+                </fieldset>
+            </div>    
+		</div>
+        <div class="cb-wizard">
+            <div class="cb-wizard-content">
+                <div class="container-fluid">
+                    <div class="cb-wizard-row">
+						<div ng-show="wizardScrollLeft">
+                            <a href="#" class="btn btn-link" data-slide="prev"><span class="fa fa-angle-left"></span></a>
+                        </div>
+						<div class="cb-steps" style="overflow:hidden;">
+							<div class="cb-step"><a href="solicitud-credito-1-2.html" class="btn btn-default btn-block">Ingreso</a></div>
+							<div class="cb-step"><a href="solicitud-credito-2-2.html" class="btn btn-default btn-block">Negociación</a></div>
+							<div class="cb-step cb-active"><button class="btn btn-default btn-block">Garantías</button></div>
+							<div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Instrucciones desembolso</button></div>
+                            <div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Informacion cliente</button></div>
+							<div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Direcciones y teléfonos</a></div>
+							<div class="cb-step"><button class="btn btn-default btn-block" disabled="true">Estado financiero</a></div>
+						</div>
+						<div ng-show="wizardScrollRight">
+                            <a href="#" class="btn btn-link" data-slide="next"><span class="fa fa-angle-right"></span></a>
+                        </div>
+						<div class="cb-actions">
+                            <div class="btn-group btn-block dropup">
+							  <a href="solicitud-credito-4-2.html" class="btn btn-primary">Continuar</a>
+							  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu dropdown-menu-right">
+								<li><a href="#">Guardar temporalmente</a></li>
+								<li><a href="#">Imprimir</a></li>
+							  </ul>
+							</div>
+                        </div>
+                    </div>    
+                </div>    
+            </div>	
+        </div>
+        <div class="cb-view-loading cb-hidden"> 
+            <div class="cb-view-loading-icon"></div> 
+        </div>
+    </div>
+	
+	<div id="garantia" class="modal fade" tabindex="-1" role="dialog">
+	  <div class="modal-dialog modal-lg">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title">Garantía</h4>
+		  </div>
+		  <div class="modal-body">
+			<style>
+				.k-tabstrip.k-widget {
+					border:0;
+				}
+				.k-tabstrip > .k-tabstrip-items {
+					margin-top:0;
+				}
+				.k-tabstrip > .k-tabstrip-items .k-state-active {
+					border-top-color: transparent;
+				}
+			</style>
+              <div class="cb-flex" style="margin:-15px;">
+			<div style="width:220px; overflow-y:auto; border-right: 1px solid #b3b3b3; padding-left:10px;">
+				<div kendo-tree-view="tree" k-data-source="treeData"></div>
+			</div>
+			<div class="cb-grow">
+				<div kendo-tab-strip>
+					<ul>
+						<li class="k-state-active">
+							<a href="#">General</a>
+						</li>
+						<li>
+							<a href="#">Situación/Clase</a>
+						</li>
+						<li>
+							<a href="#">Localización</a>
+						</li>
+						<li>
+							<a href="#">Adicional</a>
+						</li>
+						<li>
+							<a href="#">Pólizas</a>
+						</li>
+					</ul>
+					<div>
+						<fieldset class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<div class="control-label">Cliente</div>
+									<div class="cb-control">
+										<div class="list-group" style="margin-bottom:5px;">
+											<div class="list-group-item" style="padding:5px; background:#f5f5f5;">
+												<button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button>
+												<button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+											</div>
+											<div class="list-group-item">
+												<div>Aguas Munoz Betty Jeanneth</div>
+											</div>
+											<div class="list-group-item">
+												<div>Aguas Munoz Alberto</div>
+											</div>
+										</div>
+									</div>									
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<div class="control-label"># Documento</div>
+									<div class="cb-control"><input type="text" class="form-control" /></div>
+								</div>
+							</div>	
+							<div class="col-xs-6">
+								<div class="form-group">
+									<div class="control-label">
+										Constitución
+									</div>
+									<div class="cb-control">
+										<input type="date" class="form-control" />
+									</div>
+								</div>
+							</div>	
+							<div class="col-xs-6">
+								<div class="form-group">
+									<div class="control-label">Moneda</div>
+									<div class="cb-control"><select class="form-control"></select></div>
+								</div>
+							</div>	
+							<div class="col-xs-6">	
+								<div class="form-group">
+									<div class="control-label">Fuente valor</div>
+									<div class="cb-control"><select class="form-control"></select></div>
+								</div>
+							</div>	
+							<div class="col-xs-6">	
+								<div class="form-group">
+									<div class="control-label">Valor inicial</div>
+									<div class="cb-control"><input type="number" class="form-control" /></div>
+								</div>
+							</div>	
+							<div class="col-xs-6">	
+								<div class="form-group">
+									<div class="control-label">Valor avaluo</div>
+									<div class="cb-control"><input type="number" class="form-control" /></div>
+								</div>
+							</div>	
+							<div class="col-xs-6">	
+								<div class="form-group">
+									<div class="control-label">Cobertura</div>
+									<div class="cb-control"><select class="form-control"></select></div>
+								</div>
+							</div>	
+							<div class="col-xs-6">	
+								<div class="form-group">
+									<div class="control-label">Garante</div>
+									<div class="cb-control">
+										<div class="input-group">
+											<input type="text" class="form-control" />
+											<span class="input-group-btn">
+												<button class="btn btn-default dropdown-toggle"><span class="fa fa-bars"></span></button>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>	
+							<div class="col-xs-6">	
+								<div class="form-group">
+									<div class="control-label">Plazo fijo</div>
+									<div class="cb-control"><select class="form-control"></select></div>
+								</div>
+							</div>
+						</fieldset>
+						<fieldset class="row">
+							<div class="col-xs-6">
+								<div class="form-group">
+									<div class="control-label">
+                                        Descripción
+                                    </div>
+                                    <div class="cb-control">
+										<textarea class="form-control"></textarea>
+									</div>	
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+                                    <div class="control-label">
+                                        Instrucción
+                                    </div>
+                                    <div class="cb-control">
+                                        <textarea class="form-control"></textarea>
+                                    </div>
+                                </div>
+							</div>
+						</fieldset>
+					</div>
+					<div>
+						<div class="row">
+							<div class="col-xs-4">
+								<div class="form-group">
+									<div class="control-label">Clase</div>
+									<div class="cb-control">
+										<div class="radio">
+										  <label>
+											<input type="radio" name="clase"> Abierta
+										  </label>
+										</div>
+										<div class="radio">
+										  <label>
+											<input type="radio" name="clase"> Cerrada
+										  </label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="control-label">Suficiencia legal</div>
+									<div class="cb-control">
+										<div class="radio">
+										  <label>
+											<input type="radio" name="suficiencia"> Si
+										  </label>
+										</div>
+										<div class="radio">
+										  <label>
+											<input type="radio" name="suficiencia"> No
+										  </label>
+										</div>
+										<div class="radio">
+										  <label>
+											<input type="radio" name="suficiencia"> No aplica
+										  </label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="control-label">Adecuada</div>
+									<div class="cb-control">
+										<div class="radio">
+										  <label>
+											<input type="radio" name="adecuada"> Si
+										  </label>
+										</div>
+										<div class="radio">
+										  <label>
+											<input type="radio" name="adecuada"> No
+										  </label>
+										</div>
+										<div class="radio">
+										  <label>
+											<input type="radio" name="adecuada"> No aplica
+										  </label>
+										</div>
+									</div>
+								</div>
+							</div>	
+							<div class="col-xs-4">
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" name="compartida" ng-model="garantia.shared"> Compartida
+                                      </label>
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-if="garantia.shared">
+                                    <div class="control-label">
+                                        Valor inicial total
+                                    </div>
+                                    <div class="cb-control">
+                                        <input type="number" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" name="compartida" ng-model="garantia.juditial"> Cobranza judicial
+                                      </label>
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-if="garantia.juditial">
+                                    <div class="control-label">
+                                        Retiro
+                                    </div>
+                                    <div class="cb-control">
+                                        <input type="date" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-if="garantia.juditial">
+                                    <div class="control-label">
+                                        Devolución
+                                    </div>
+                                    <div class="cb-control">
+                                        <input type="date" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">    
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" name="compartida"> Fondo garantía
+                                      </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">    
+                                    <div class="checkbox">
+                                      <label>
+                                        <input type="checkbox" name="compartida" ng-model="garantia.inspect"> Inspeccionar
+                                      </label>
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-if="garantia.inspect">
+                                    <div class="control-label">
+                                        Periocidad
+                                    </div>
+                                    <div class="cb-control">
+                                        <div class="input-group">
+											<input type="text" class="form-control" />
+											<span class="input-group-btn">
+												<button class="btn btn-default dropdown-toggle"><span class="fa fa-bars"></span></button>
+											</span>
+										</div>
+                                    </div>
+                                </div>
+							</div>
+						</div>
+					</div>
+					<div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="control-label">
+                                        Provincia
+                                    </div>
+                                    <div class="cb-control">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label">
+                                        Ciudad
+                                    </div>
+                                    <div class="cb-control">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label">
+                                        Dirección
+                                    </div>
+                                    <div class="cb-control">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="control-label">
+                                        Teléfono
+                                    </div>
+                                    <div class="cb-control">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label">
+                                        Almacenera
+                                    </div>
+                                    <div class="cb-control">
+                                        <select class="form-control"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label">
+                                        Depositario
+                                    </div>
+                                    <div class="cb-control">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					<div>
+                        <kendo-grid options="fieldsOptions"></kendo-grid> 
+                    </div>
+					<div>
+                        <kendo-grid options="polizasOptions"></kendo-grid>
+                    </div>
+				</div>
+			</div>
+              </div>
+              <div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+                    <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+                        <button class="btn btn-primary navbar-btn">Aceptar</button>
+                        <button class="btn btn-default navbar-btn">Cancelar</button>
+                    </nav>
+                </div>
+		  </div>
+		</div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+	<div id="poliza" class="modal fade" tabindex="-1" role="dialog">
+	  <div class="modal-dialog modal-md">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title">Póliza</h4>
+		  </div>
+		  <div class="modal-body">
+				<form>
+					<fieldset class="row">
+						<div class="col-xs-6">
+							<div class="form-group">
+								<div class="control-label">Número de póliza</div>
+								<div class="cb-control">
+									<input type="text" class="form-control" />
+								</div>									
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<div class="control-label">Aseguradora</div>
+								<div class="cb-control">
+									<input type="text" class="form-control" />
+								</div>									
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<div class="control-label">Tipo de póliza</div>
+								<div class="cb-control">
+									<input type="text" class="form-control" />
+								</div>									
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<div class="control-label">Descripción/Cobertura</div>
+								<div class="cb-control">
+									<input type="text" class="form-control" />
+								</div>									
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<div class="control-label">Moneda</div>
+								<div class="cb-control">
+									<input type="text" class="form-control" />
+								</div>									
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<div class="control-label">Valor póliza</div>
+								<div class="cb-control">
+									<input type="text" class="form-control" />
+								</div>									
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<div class="control-label">Valor endoso</div>
+								<div class="cb-control">
+									<input type="text" class="form-control" />
+								</div>									
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<div class="control-label">Estado</div>
+								<div class="cb-control">
+									<input type="text" class="form-control" />
+								</div>									
+							</div>
+						</div>
+					</fieldset>	
+				</form>	
+				<div class="cb-navbar cb-navbar-bottom" style="margin-bottom: -15px;">
+                    <nav class="navbar navbar-default navbar-fixed-bottom" style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+                        <button class="btn btn-primary navbar-btn">Aceptar</button>
+                        <button class="btn btn-default navbar-btn">Cancelar</button>
+                    </nav>
+                </div>
+		  </div>
+		</div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+	<script type="text/x-kendo-template" id="template">
+        <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button><button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Editar</button><button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+    </script>
+	
+	<script type="text/x-kendo-template" id="polizaTools">
+        <button ng-click="addPoliza()" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar</button><button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Editar</button><button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
+    </script>
+	
+	<script type="text/x-kendo-template" id="amortizacion2">
+        <button class="btn btn-default"><span class="fa fa-calculator"></span> Calcular</button>
+    </script>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="solicitud-credito" src="../lib/require/require.js"></script>
+</body>
+
+</html>

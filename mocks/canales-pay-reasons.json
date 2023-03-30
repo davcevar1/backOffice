@@ -1,0 +1,30 @@
+[
+  {
+    "type": "Rubro",
+    "code": "TRT",
+    "product": "CUENTA DE AHORROS",
+    "cause": "106 - NOTA DE DEBITO COMUN",
+    "type2": "Crédito"
+  },
+  {
+    "type": "Rubro",
+    "code": "TRT",
+    "product": "CUENTA DE AHORROS",
+    "cause": "106 - NOTA DE DEBITO COMUN",
+    "type2": "Crédito"
+  },
+  {
+    "type": "Rubro",
+    "code": "TRT",
+    "product": "CUENTA DE AHORROS",
+    "cause": "106 - NOTA DE DEBITO COMUN",
+    "type2": "Crédito"
+  },
+  {
+    "type": "Rubro",
+    "code": "TRT",
+    "product": "CUENTA DE AHORROS",
+    "cause": "106 - NOTA DE DEBITO COMUN",
+    "type2": "Crédito"
+  }
+]

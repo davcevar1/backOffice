@@ -1,0 +1,79 @@
+[{
+    "type": "User interaction",
+    "name": "Customer reject loan proposal",
+    "value": "Y",
+    "user": "customer",
+    "date": "04/05/2019",
+    "message": "USER COMMENTS: The conditions are not favorable"
+  },
+  {
+      "type": "Notification",
+      "name": "Loan application approved sent",
+      "value": "Y",
+      "user": "mainstreet",
+      "date": "04/05/2019",
+      "links": [{
+        "label": "Email sent",
+        "url": "http://files.factor.ec/cobiscorp/cobis-mainstreet-ui/prototype/files/loan-request-email-accept-split.pdf"
+      }]
+    },
+  {
+    "type": "Rule Validation",
+    "name": "Revenue validation success",
+    "value": "Y",
+    "user": "mainstreet",
+    "date": "04/04/2019"
+  },
+  {
+    "type": "Rule Validation",
+    "name": "Paydex validation success",
+    "value": "Y",
+    "user": "mainstreet",
+    "date": "04/03/2019"
+  },
+  {
+    "type": "Rule Validation",
+    "name": "Credit Score validation success",
+    "value": "Y",
+    "user": "mainstreet",
+    "date": "04/02/2019"
+  },
+  {
+    "type": "Manual Validation",
+    "name": "OFAC list require manual validation",
+    "value": "R",
+    "user": "cromero",
+    "date": "04/01/2019",
+    "message": "VALUE/S EVALUATED: State: California, RESULT: REQUIRES MANUAL VALIDATION"
+  },
+  {
+    "type": "Rule Validation",
+    "name": "Legal informacion validation success",
+    "value": "Y",
+    "user": "mainstreet",
+    "date": "03/31/2019"
+  },
+  {
+    "type": "Manual Validation",
+    "name": "Incorporated State require manual validation",
+    "value": "R",
+    "user": "cromero",
+    "date": "03/28/2019",
+    "message": "VALUE/S EVALUATED: State: California"
+  },
+  {
+    "type": "Rule Validation",
+    "name": "Margin Rate Rule Executed",
+    "value": "Y",
+    "user": "mainstreet",
+    "date": "03/25/2019",
+    "message": "VALUE/S EVALUATED: Rate: 23.5, RESULT: DENIED"
+  },
+  {
+    "type": "User interaction",
+    "name": "Loan application submitted",
+    "value": "Y",
+    "user": "customer",
+    "date": "03/25/2019"
+  }
+]

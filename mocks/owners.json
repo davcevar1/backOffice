@@ -1,0 +1,5 @@
+[
+	{"lastName":"Aguirre", "firstName":"Frank", "middleName":"Junior", "position": "CEO", "percentage": "20%", "person": "Persona física", "type": "Cotitular", "scn":"12-456231", "ownership":"50%"},
+	{"lastName":"Torres", "firstName":"Juan", "middleName":"Alberto", "position": "CTO", "percentage": "40%", "person": "Persona física", "type": "Cotitular", "scn":"78-546555", "ownership":"50%"},
+	{"lastName":"Garces", "firstName":"José", "middleName":"Alberto", "position": "Director", "percentage": "40%", "person": "Persona jurídica", "type": "Representante legal", "scn":"78-546555", "ownership":"50%"}
+]

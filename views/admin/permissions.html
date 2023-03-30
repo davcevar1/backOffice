@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme.css" rel="stylesheet" />
+  <style>
+    .k-detail-row > td {
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body ng-controller="controller">
+  <div class="cb-view" ng-init="editable=true; create=true;">
+    <div class="cb-viewport cb-flex cb-column" style="background:transparent;">
+      <div class="cb-scrollable cb-grow">
+        <div class="container" style="padding:30px;">
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <div class="form-vertical">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <div class="control-label">Nombre</div>
+                      <div class="cb-control">
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="cb-group cb-group-simple cb-group-flex">
+            <div>
+              <kendo-grid options="features"></kendo-grid>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/x-kendo-template" id="transactions">
+    <div class="cb-flex cb-gutters-tiny" style="padding-top:8px; padding-right:8px; padding-bottom:8px;">
+      <div class="form-group cb-grow" style="margin-bottom:0;">
+        <input type="text" kendo-combo-box options="transactions3" />
+      </div>
+      <div>
+        <button class="btn btn-default"><span class="fa fa-plus"></span> Agregar</button>
+      </div>
+    </div>
+    <kendo-grid options="transactions2" class="cb-grid-no-header"></kendo-grid>
+  </script>
+
+  <div ng-include="'includes/popups.html'"></div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

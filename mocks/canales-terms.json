@@ -1,0 +1,25 @@
+[{
+    "title": "Contrato de Servicios 1",
+    "channel": "BANCA MOVIL",
+    "type": "TODOS",
+    "status": "Vigente",
+    "date_start": "10/12/2017",
+    "date_end": "11/12/2017"
+  },
+  {
+    "title": "Contrato de Servicios 2",
+    "channel": "BANCA MOVIL",
+    "type": "TODOS",
+    "status": "Vigente",
+    "date_start": "10/12/2017",
+    "date_end": "11/12/2017"
+  },
+  {
+    "title": "Contrato de Servicios 3",
+    "channel": "BANCA MOVIL",
+    "type": "TODOS",
+    "status": "No vigente",
+    "date_start": "10/12/2017",
+    "date_end": "11/12/2017"
+  }
+]

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-view">
+        <div class="cb-view-container-root cb-view-container cb-group-layout container">
+			<fieldset class="cb-group cb-group-simple cb-group-editable cb-no-margin">
+				<legend>Datos Personales</legend>
+				<button class="btn btn-default btn-sm cb-btn-edit"><span class="fa fa-pencil"></span></button>
+				<div>
+					<div class="form-vertical">
+						<div class="row">
+							<div class="col-xs-4">
+								<div class="form-group cb-required">
+									<div class="control-label">Nombre completo</div>
+									<div class="cb-control">
+										<input type="text" class="form-control" />
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group cb-required">
+									<div class="control-label">Apellido paterno</div>
+									<div class="cb-control">
+										<input type="text" class="form-control" />
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group cb-required">
+									<div class="control-label">Apellido materno</div>
+									<div class="cb-control">
+										<input type="text" class="form-control" />
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group cb-required">
+									<div class="control-label">Cedula de identidad</div>
+									<div class="cb-control">
+										<input type="text" class="form-control" />
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group cb-required">
+									<div class="control-label">Pasaporte</div>
+									<div class="cb-control">
+										<input type="text" class="form-control" />
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group cb-required">
+									<div class="control-label">Email</div>
+									<div class="cb-control">
+										<input type="text" class="form-control" />
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group">
+									<div class="control-label">Género</div>
+									<div class="cb-control">
+										<select class="form-control">
+											<option></option>
+											<option>Masculino</option>
+											<option>Femenino</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group">
+									<div class="control-label">Fecha de nacimiento</div>
+									<div class="cb-control">
+										<input type="text" kendo-datepicker class="form-control" />
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group">
+									<div class="control-label">Nacionalidad</div>
+									<div class="cb-control">
+										<div class="input-group">
+											<input type="text" class="form-control" />
+											<span class="input-group-btn">
+												<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group">
+									<div class="control-label">Años de residencia</div>
+									<div class="cb-control">
+										<div class="input-group">
+											<input type="number" class="form-control" />
+											<span class="input-group-addon">
+												Años
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group">
+									<div class="control-label">Estado civil</div>
+									<div class="cb-control">
+										<div class="input-group">
+											<input type="text" class="form-control" />
+											<span class="input-group-btn">
+												<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group cb-required">
+									<div class="control-label"># de cargas familiares</div>
+									<div class="cb-control">
+										<input type="number" class="form-control" />
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group">
+									<div class="control-label">Nivel de educación</div>
+									<div class="cb-control">
+										<div class="input-group">
+											<input type="text" class="form-control" />
+											<span class="input-group-btn">
+												<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group">
+									<div class="control-label">Tipo de persona</div>
+									<div class="cb-control">
+										<div class="input-group">
+											<input type="text" class="form-control" />
+											<span class="input-group-btn">
+												<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group">
+									<div class="control-label">Calificación de riesgo</div>
+									<div class="cb-control">
+										<div class="input-group">
+											<input type="text" class="form-control" />
+											<span class="input-group-btn">
+												<button class="btn btn-default"><span class="fa fa-bars"></span></button>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>    
+			</fieldset>
+		</div>	
+        <div class="cb-view-loading cb-hidden">
+            <div class="cb-view-loading-icon"></div>
+        </div>
+    </div>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="control" src="../lib/require/require.js"></script>
+</body>
+
+</html>

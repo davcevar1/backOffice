@@ -1,0 +1,13 @@
+[
+  {
+      "type": "Notification",
+      "name": "Loan application approved sent",
+      "value": "Y",
+      "user": "mainstreet",
+      "date": "04/05/2019",
+      "links": [{
+        "label": "Email sent",
+        "url": "http://files.factor.ec/cobiscorp/cobis-mainstreet-ui/prototype/files/loan-request-email-accept-split.pdf"
+      }]
+    }
+]

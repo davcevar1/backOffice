@@ -1,0 +1,364 @@
+<fieldset class="cb-group cb-group-simple">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group cb-required">
+                <div class="control-label">Denominación o Razón Social</div>
+                <div class="cb-control">
+                    <input class="form-control" type="text" ng-model="business.businessName" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Giro / Objeto Social</div>
+                <div class="cb-control">
+                    <select kendo-combo-box>
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Registro Federal de Contribuyentes (Homoclave)</div>
+                <div class="cb-control"><input type="text" class="form-control" /></div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Actividad u Objeto Social</div>
+                <div class="cb-control"><input type="text" class="form-control" /></div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Fecha de Constitución</div>
+                <div class="cb-control"><input type="text" class="form-control" /></div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Número de Escritura Constitutiva</div>
+                <div class="cb-control"><input type="text" class="form-control" /></div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">País de Constitución</div>
+                <div class="cb-control">
+                    <select kendo-combo-box>
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Nombre de Notario</div>
+                <div class="cb-control"><input type="text" class="form-control" /></div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Número de Inscripción en el Registro Público de la Propiedad y
+                    Comercio
+                </div>
+                <div class="cb-control"><input type="text" class="form-control" /></div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Telefono Celular</div>
+                <div class="cb-control">
+                    <input type="text" class="form-control" required />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Correo Electrónico</div>
+                <div class="cb-control">
+                    <input type="text" class="form-control" required />
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>
+<fieldset class="cb-group cb-group-simple">
+    <legend>Domicilio Particular</legend>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Calle</div>
+                <div class="cb-control">
+                    <input type="text" class="form-control" required />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">No. Exterior</div>
+                <div class="cb-control">
+                    <input type="text" class="form-control" required />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">No. Interior</div>
+                <div class="cb-control">
+                    <input type="text" class="form-control" required />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Código postal</div>
+                <div class="cb-control">
+                    <input type="text" class="form-control" required />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Colonia/Barrio</div>
+                <div class="cb-control">
+                    <input type="text" class="form-control" required />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Municipio./Del.</div>
+                <div class="cb-control">
+                    <input type="text" class="form-control" required />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Ciudad</div>
+                <div class="cb-control">
+                    <input type="text" class="form-control" required />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Estado</div>
+                <div class="cb-control">
+                    <input type="text" class="form-control" required />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="control-label">Telefono con lada del domicilio</div>
+                <div class="cb-control">
+                    <input type="text" class="form-control" required />
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>
+<fieldset class="cb-group cb-group-simple cb-group-flex">
+    <legend>Información adicional</legend>
+    <div>
+        <div class="form-vertical">
+            <div class="row" style="align-items: flex-end;">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">Algún accionista, directivo, representante legal o inversionista ha
+                            desempeñado en los últimos 12 meses un cargo que implique funciones públicas destacadas en
+                            el país o el extranjero?</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">En caso afirmativo indicar:</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">No. Interior</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">¿Es residente de OTRO País, contribuyente o accionista en una empresa
+                            de otro País?</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">En caso de responder Si, ¿Cuál es su número de identificación
+                            fiscal?:</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">PAIS O PAISES QUE LO ASIGNARON</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">¿Cuál es el importe inical que será depositado en esta cuenta?:</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">ORIGEN DE LOS RECURSOS</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">¿Piensa Incrementar su Inversión en forma Mensual?, Monto</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">¿Piensa Realizar Retiros Mensuales?</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">Monto</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">¿Es usted el propietario real de los recursos?</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">En caso de responder no, ¿de quién es?</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">¿Es usted el proveedor de los recursos?</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">En caso de responder no, ¿de quién es?</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">¿Usted ha ocupado un cargo político durante los últimos 12 meses?
+                        </div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">¿Qué cargo?</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">¿Tiene relación de parentesco con algún político activo o que haya
+                            ejercido en los últimos 12 meses?</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">Nombre del Funcionario</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">Parentesco</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">¿Es residente de otro país, contribuyente o accionista en una empresa
+                            de otro país?</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">En caso de responder Si, ¿Cuál es su número de identificación fiscal?
+                        </div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="control-label">País o países que lo asignaron</div>
+                        <div class="cb-control">
+                            <input type="text" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>

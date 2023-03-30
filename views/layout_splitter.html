@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-viewport">
+        <div kendo-splitter k-panes="[{size:'400px', collapsible:true}, {}]">
+            <div>
+                Navegacion
+            </div>
+            <div>
+                <div class="cb-breadcrumb"> 
+                    <ol class="breadcrumb"> 
+                        <li>Inicio</li> 
+                    </ol> 
+                </div>
+                <div class="cb-view-container-root container-fluid">
+                    <div class="cb-view-container cb-group-layout">
+                        <div class="cb-group cb-group-simple"> 
+                         <div class="form-vertical"> 
+                          <div class="row cb-col-container"> 
+                           <div class="col-xs-12"> 
+                            <div class="form-group"> 
+                             <label class="control-label">Nombres</label> 
+                             <div class="cb-control"> 
+                              <input type="text" class="form-control" /> 
+                             </div> 
+                            </div> 
+                           </div> 
+                           <div class="col-xs-12"> 
+                            <div class="form-group"> 
+                             <label class="control-label">Apellidos</label> 
+                             <div class="cb-control"> 
+                              <input type="text" class="form-control" /> 
+                             </div> 
+                            </div> 
+                           </div> 
+                              <div class="col-xs-12"> 
+                            <div class="form-group"> 
+                             <label class="control-label">Apellidos</label> 
+                             <div class="cb-control"> 
+                              <input type="text" class="form-control" /> 
+                             </div> 
+                            </div> 
+                           </div> 
+                              <div class="col-xs-12"> 
+                            <div class="form-group"> 
+                             <label class="control-label">Apellidos</label> 
+                             <div class="cb-control"> 
+                              <input type="text" class="form-control" /> 
+                             </div> 
+                            </div> 
+                           </div> 
+                              <div class="col-xs-12"> 
+                            <div class="form-group"> 
+                             <label class="control-label">Apellidos</label> 
+                             <div class="cb-control"> 
+                              <input type="text" class="form-control" /> 
+                             </div> 
+                            </div> 
+                           </div> 
+                          </div> 
+                         </div> 
+                        </div>	
+                    </div>
+                </div>
+                <div class="cb-navbar-placeholder cb-navbar-bottom"> 
+                    <nav class="navbar navbar-default navbar-fixed-bottom"> 
+                        <button class="btn btn-primary navbar-btn">Aceptar</button> 
+                        <button class="btn btn-default navbar-btn">Cancelar</button> 
+                    </nav> 
+                </div>
+            </div>    
+        </div>
+    </div>
+    
+    <div class="cb-view-loading cb-view-loading-preload" ng-class="{'hidden':initialized}">
+        <div class="cb-view-loading-icon"></div>
+    </div>
+    
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="layout_splitter" src="../lib/require/require.js"></script>
+</body>
+
+</html>

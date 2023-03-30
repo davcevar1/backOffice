@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme-fie.css" rel="stylesheet" />
+  <style>
+    ng-cloak {
+      display: none;
+    }
+
+    body {
+      border-left: 2px solid #F70075;
+      background-color: #D4DDE6;
+      margin: 0;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    h1 {
+      color: #3142A0;
+      font-size: 20px;
+      margin: 0;
+      margin-bottom: 12px;
+      padding-top: 12px;
+    }
+
+    .cb-group-simple {
+      background: #FFF;
+      border-radius: 5px;
+      padding: 12px;
+    }
+  </style>
+</head>
+
+<body ng-controller="controller">
+  <h1>Servicios de Recaudación</h1>
+  <div class="cb-group cb-group-simple">
+    <ul class="cb-steps">
+        <li class="active">Ingreso</li>
+        <li class="active">Verificación</li>
+        <li class="active">Confirmación</li>
+    </ul>
+    <fieldset class="cb-group cb-group-simple cb-group-flex">
+      <div>
+        <div class="form-vertical">
+          <div class="row">
+            <div class="col-sm-12" style="width: 100%;">
+              <div class="text-center small" style="margin-top:12px; margin-bottom:12px;">Transacción enviada con éxito, para verificar la operación por favor seleccione la opción de consulta de Recaudación de Servicios.</div>
+              <fieldset class="cb-group cb-group-simple" style="margin: 0; padding: 0; border: 1px solid #ccc; border-radius: 2px;">
+                <div>
+                  <div kendo-grid="servicesGrid" options="amounts3" class="cb-grid-no-header" style="margin-bottom: 0 !important;"></div>
+                </div>
+              </fieldset>
+              <fieldset class="cb-group cb-group-simple" style="margin: 0; padding: 0;">
+                <legend>Rubros</legend>
+                <div>
+                  <div kendo-grid="servicesGrid" options="amounts4" class="cb-grid-no-header" style="margin-bottom: 0 !important; border: 1px solid #ccc; border-radius: 2px;"></div>
+                </div>
+              </fieldset>
+              <div class="text-center small" style="margin-top:12px; margin-bottom:12px;">La afiliación se ha realizado de forma correcta.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <div class="text-center" style="margin-top:12px;">
+    <a href="pagos.html" class="btn btn-default">Nuevo Pago</a>
+    <a href="#" class="btn btn-default">Consulta de Últimos Movimientos</a>
+  </div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+</body>
+
+</html>

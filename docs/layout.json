@@ -1,0 +1,395 @@
+{
+    "components": [
+        {
+            "name": "cb-view",
+            "children": [
+                {
+                    "class": "cb-navbar cb-navbar-top"
+                },
+                {
+                    "class": "cb-breadcrumb"
+                },
+                {
+                    "class": "cb-view-container-root",
+                    "comment": "el nombre adecuado seria cb-content"
+                },
+                {
+                    "class": "cb-navbar cb-navbar-bottom"
+                }
+            ]
+        },
+        {
+            "name": "cb-navbar",
+            "modifiers": [
+                "cb-navbar-top",
+                "cb-navbar-clear-top",
+                "cb-navbar-bottom"
+            ],
+            "children": [
+                {
+                    "class": "navbar",
+                    "children": [
+                        {
+                            "class": "navbar-btn btn",
+                            "optionalClass": [
+                                "btn-default",
+                                "btn-primary"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "cb-breadcrumb",
+            "children": [
+                {
+                    "tagName": "ul",
+                    "class": "breadcrumb",
+                    "children": [
+                        {
+                            "tagName": "li"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "cb-view-container-root",
+            "class": "cb-view-container cb-group-layout",
+            "optionalClass": [
+                "container",
+                "container-fluid"
+            ]
+        },
+        {
+            "class": [
+                "form-vertical",
+                "form-horizontal"
+            ],
+            "children": [
+                {
+                    "class": "row",
+                    "children": [
+                        {
+                            "class": "col-*",
+                            "children": [
+                                {
+                                    "class": "form-group"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "class": "cb-form-header",
+            "children": [
+                {
+                    "class": "cb-breadcrumb"
+                },
+                {
+                    "class": [
+                        "cb-view-container",
+                        "cb-group"
+                    ]
+                }
+            ]
+        },
+        {
+            "tagName": [
+                "div",
+                "fieldset"
+            ],
+            "class": [
+                "cb-group",
+                "cb-view-container"
+            ],
+            "typeClass": [
+                {
+                    "class": [
+                        "container",
+                        "container-fluid"
+                    ],
+                    "selector":"&.cb-view-container"
+                }
+            ],
+            "optionalClass": [
+                "cb-view-container-root",
+                "cb-no-margin"
+            ],
+            "children": [
+                {
+                    "tagName": "div",
+                    "children": [
+                        {
+                            "tagName": "h2"
+                        },
+                        {
+                            "tagName": "h3"
+                        },
+                        {
+                            "selector": "fieldset > &",
+                            "tagName": "legend",
+                            "children": [
+                                {
+                                    "tagName": "span",
+                                    "class": "cb-validation",
+                                    "typeClass": [
+                                        "cb-validation-none",
+                                        "cb-validation-success",
+                                        "cb-validation-fail"
+                                    ]
+                                },
+                                {
+                                    "tagName": "span",
+                                    "class": "cb-title"
+                                }
+                            ],
+                            "comment": "Se debe incluir en el caso de que se use el grupo con titulo"
+                        },
+                        {
+                            "class": [
+                                "form-vertical",
+                                "form-horizontal",
+                                "cb-group",
+                                "cb-view-container"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "componentClass": [
+                "cb-group",
+                "cb-view-container"
+            ],
+            "typeClass": "cb-group-simple",
+            "optionalClass": "cb-group-flex",
+            "children": {
+                "class": [
+                    "form-horizontal",
+                    "form-vertical"
+                ]
+            }
+        },
+        {
+            "componentClass": [
+                "cb-group",
+                "cb-view-container"
+            ],
+            "typeClass": "cb-group-tabbed-v",
+            "children": [
+                {
+                    "class": "row",
+                    "children": [
+                        {
+                            "selector": "[class*='col-']",
+                            "typeClass": "cb-tab-items",
+                            "children": [
+                                {
+                                    "tagName": "ul",
+                                    "class": "nav",
+                                    "typeClass": "nav-pills",
+                                    "optionalClass": "nav-stacked",
+                                    "children": [
+                                        {
+                                            "tagName": "li",
+                                            "children": [
+                                                {
+                                                    "tagName": "a"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "selector": "[class*='col-']",
+                            "typeClass": "cb-tab-content"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "componentClass": [
+                "cb-group",
+                "cb-view-container"
+            ],
+            "typeClass": "cb-group-tabbed-h",
+            "children": [
+                {
+                    "class": "k-tabstrip-wrapper",
+                    "runtime": true,
+                    "children": [
+                        {
+                            "class": "k-tabstrip",
+                            "runtime": true,
+                            "children": [
+                                {
+                                    "class": "k-tabstrip-items",
+                                    "runtime": true,
+                                    "children": [
+                                        {
+                                            "class": "k-item",
+                                            "children": [
+                                                {
+                                                    "class": "cb-icon"
+                                                },
+                                                {
+                                                    "class": "cb-title"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "runtimeClass": "k-content"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "componentClass": [
+                "cb-group",
+                "cb-view-container"
+            ],
+            "typeClass": [
+                "cb-group-collapsible",
+                "cb-group-accordion"
+            ],
+            "children": [
+                {
+                    "class": "k-panelbar",
+                    "runtime": true,
+                    "children": [
+                        {
+                            "class": "k-item",
+                            "runtime": true,
+                            "children": [
+                                {
+                                    "class": "k-header",
+                                    "runtime": true
+                                },
+                                {
+                                    "class": "k-content",
+                                    "runtime": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "componentClass": [
+                "cb-group",
+                "cb-view-container"
+            ],
+            "typeClass": "cb-group-layout"
+        },
+        {
+            "componentClass": [
+                "cb-group",
+                "cb-view-container"
+            ],
+            "typeClass": "cb-group-html-section"
+        },
+        {
+            "class": "form-group",
+            "optionalClass": [
+                "cb-no-label",
+                "cb-required"
+            ],
+            "children": [
+                {
+                    "class": "control-label"
+                },
+                {
+                    "class": "cb-control"
+                }
+            ]
+        },
+        {
+            "class": "cb-viewport",
+            "comment": "Solo puede haber 1 viewport visible por pagina",
+            "children": [
+                {
+                    "class": "k-splitter"
+                }
+            ]
+        },
+        {
+            "class": "cb-view-loading",
+            "optionalClass": "cb-hidden",
+            "selector": "body > &",
+            "children": [
+                {
+                    "class": "cb-view-loading-icon"
+                }
+            ]
+        },
+        {
+            "tagName": [
+                "div",
+                "label"
+            ],
+            "class": "control-label"
+        },
+        {
+            "class": "cb-row-image-button"
+        },
+        {
+            "class": "cb-row-button"
+        },
+        {
+            "class": "cb-nav-count"
+        },
+        {
+            "class": "cb-messagebox"
+        },
+        {
+            "class": "cb-panel-list",
+            "children": [
+                {
+                    "class": "panel"
+                }
+            ]
+        },
+        {
+            "class": "cb-toolbar",
+            "children": [
+                {
+                    "tagName": "div"
+                }
+            ]
+        },
+        {
+            "nameClass": "cb-flex",
+            "optionalClass": [
+                "cb-center",
+                "cb-middle",
+                "cb-gutters",
+                "cb-wrap"
+            ],
+            "children": [
+                {
+                    "tagName": "div",
+                    "optionalClass": [
+                        "cb-grow",
+                        "cb-grow-sm",
+                        "cb-grow-md",
+                        "cb-grow-lg"
+                    ]
+                }
+            ]
+        }
+    ]
+}

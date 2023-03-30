@@ -1,0 +1,40 @@
+/* HELPERS TEXT */
+.cb-text-xs {
+  font-size: 11px;
+}
+.cb-text-sm {
+  font-size: 12px;
+}
+.cb-text-md {
+  font-size: 14px;
+}
+.cb-text-lg {
+  font-size: 18px;
+}
+.cb-text-xl {
+  font-size: 22px;
+}
+.cb-text-capitalize {
+  text-transform: capitalize;
+}
+.cb-text-red,
+.cb-text-red a {
+  color: #d1021b;
+}
+.cb-text-green,
+.cb-text-green a {
+  color: #4dc076;
+}
+.cb-text-orange,
+.cb-text-orange a {
+  color: #f6ae39;
+}
+.cb-text-grey,
+.cb-text-grey a {
+  color: #d8d8d8;
+}
+.cb-text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

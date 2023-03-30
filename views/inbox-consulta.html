@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Consulta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../styles/theme.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="controller">
+    <div class="cb-viewport">
+        <div kendo-splitter k-panes="[{size:'400px', collapsible:true}, {}]">
+            <div>
+                <nav class="navbar navbar-default navbar-static-top cb-no-margin cb-no-wrap">
+                    <div class="container-fluid">
+                        <button class="btn btn-default btn-sm navbar-btn"><span class="glyphicon glyphicon-filter"></span> Filtrar</button>
+						<button class="btn btn-default btn-sm navbar-btn"><span class="glyphicon glyphicon-refresh"></span> Refrescar</button>
+						<button class="btn btn-default btn-sm navbar-btn"><span class="glyphicon glyphicon-print"></span> Imprimir</button>
+						<div class="btn-group navbar-btn">
+							<button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" title="Ordenado"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span> <span class="caret"></span></button>
+							<ul class="dropdown-menu dropdown-menu-right">
+								<li class="active"><a href="#">Por fecha</a></li>
+								<li><a href="#">Por tipo</a></li>
+								<li><a href="#">Por vencimiento</a></li>
+							</ul>
+						</div>
+                    </div>
+                </nav>
+				<div kendo-list-view k-data-source="messages" k-selectable="true">
+					<div k-template class="cb-listview-item cb-text-capitalize">
+						<span ng-if="dataItem.status=='EJE'" class="glyphicon glyphicon-play-circle cb-text-orange pull-left" title="Ejecutandose" style="margin-right:5px;"></span>
+						<span ng-if="dataItem.status=='SUS'" class="glyphicon glyphicon-record cb-text-grey pull-left" title="Suspendido" style="margin-right:5px;"></span>
+						<span ng-if="dataItem.status=='TER'" class="glyphicon glyphicon-ok-circle cb-text-green pull-left" title="Terminado" style="margin-right:5px;"></span>
+						<span ng-if="dataItem.status=='CAN'" class="glyphicon glyphicon-remove-circle cb-text-red pull-left" title="Cancelado" style="margin-right:5px;"></span>
+						<div style="overflow:hidden;">
+							<div>{{ dataItem.code }} - {{ dataItem.process.toLowerCase() }} / {{ dataItem.task.toLowerCase() }}</div>
+							<div><small class="text-muted">{{ dataItem.customer.toLowerCase() }}</small></div>
+							<div><small class="text-muted">{{ dataItem.date }}</small></div>
+						</div>
+					</div>
+				</div>
+            </div> 
+            <div>
+				<div kendo-tab-strip>
+					<ul>
+						<li class="k-state-active">
+							<a href="#">Histórico</a>
+						</li>
+						<li>
+							<a href="#">Observaciones</a>
+						</li>
+						<li>
+							<a href="#">Gráfico</a>
+						</li>
+						<li>
+							<a href="#">Información adicional</a>
+						</li>
+						<li>
+							<a href="#">Requisito</a>
+						</li>
+					</ul>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+            </div>    
+        </div>
+    </div>
+    
+    <script type="text/x-kendo-angular-template" id="template">
+    </script>
+    
+    <div class="cb-view-loading cb-view-loading-preload" ng-class="{'hidden':initialized}">
+        <div class="cb-view-loading-icon"></div>
+    </div>
+
+    <script>
+        var librariesUrl = '../lib/';
+    </script>
+    <script src="../lib/require.config.js"></script>
+    <script data-main="inbox-consulta" src="../lib/require/require.js"></script>
+</body>
+
+</html>
