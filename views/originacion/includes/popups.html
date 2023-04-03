@@ -633,10 +633,13 @@
           <kendo-grid options="bankAccounts" style="margin-bottom:20px;"></kendo-grid>
         </fieldset>
         <fieldset class="cb-group cb-group-simple" ng-if="owner.ownershipPercentage>10">
-          <legend>Employment information</legend>
+        <details>
+          <summary>Employment information</summary>
           <div class="row">
+            
             <div class="col-sm-4">
               <div class="form-group cb-required">
+              
                 <label class="control-label">Type of Employment</label>
                 <div class="small text-muted">Check all that apply</div>
                 <div class="cb-control">
@@ -746,13 +749,16 @@
               <button type="button" class="btn btn-default" ng-if="!owner.businessNames || owner.businessNames.length<3" ng-click="addBusinessName(owner)"><span class="fa fa-plus"></span> Add additional</button>
             </div>
           </div>
+          </details>
         </fieldset>
         <fieldset class="cb-group cb-group-simple" ng-if="owner.ownershipPercentage>10">
           <hr />
           <div class="row">
+            <details>
+              <summary class="control-label">Source of income</summary>
             <div class="col-sm-4">
               <div class="form-group cb-required">
-                <label class="control-label">Source of income</label>
+                <summary class="control-label">Source of income</summary>
                 <div class="small text-muted">Check all that apply</div>
                 <div class="cb-control">
                   <div class="checkbox">
@@ -892,10 +898,12 @@
                 </div>
               </div>
             </div>
+            </details>
           </div>
         </fieldset>
         <fieldset class="cb-group cb-group-simple" ng-if="owner.ownershipPercentage>10">
-          <legend>Security Questions</legend>
+          <details>
+          <summary>Security Questions</summary>
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group wf-required">
@@ -953,6 +961,7 @@
               </div>
             </div>
           </div>
+          </details>
         </fieldset>
         <hr />
         <div class="form-group">
@@ -960,6 +969,243 @@
           <div class="cb-control">
             <textarea class="form-control"></textarea>
           </div>
+        </div>
+        <div class="list-group">
+          <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}" class="list-group-item">
+            <div class="cb-flex cb-gutters cb-middle">
+              <div>
+                <span class="fa fa-circle" title="Verified" ng-style="{'opacity' : !document.status ? 0.4 : 1}" ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
+                  style="opacity: 0.4;"></span>
+              </div>
+              <div>
+                <span class="fa fa-file-text-o fa-2x"></span>
+              </div>
+              <div class="cb-grow">
+                <strong>State ID Card or Driver´s License</strong>
+                <div class="small text-muted">1 file uploaded</div>
+              </div>
+            </div>
+          </a>
+          <div class="list-group-item panel-group" style="margin-bottom:-1px; border-top-color: #FFF; padding:15px;" ng-show="step>=11">
+            <ul kendo-panel-bar class="cb-collapsible">
+              <li class="k-state-active">
+                W-2 Income
+                <div>
+                  <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                      <div class="form-group">
+                        <div class="control-label">W-2 Income - Wages, Salaries, Tips, etc.</div>
+                        <div class="cb-control">
+                          <div class="form-control cb-no-border">$567,708</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="k-state-active">
+                Schedule C - Sole Proprietor Profit or Loss
+                <div>
+                  <div class="row">
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Net Profit or Loss</div>
+                        <div class="cb-control">
+                          <input type="number" kendo-numerictextbox ng-show="step<11" />
+                          <div class="form-control cb-no-border" ng-show="step>=11">$5,678</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Other Income or Loss</div>
+                        <div class="cb-control">
+                          <input type="number" kendo-numerictextbox ng-show="step<11" />
+                          <div class="form-control cb-no-border" ng-show="step>=11">$4,567</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Depletion</div>
+                        <div class="cb-control">
+                          <input type="number" kendo-numerictextbox ng-show="step<11" />
+                          <div class="form-control cb-no-border" ng-show="step>=11">$54,344</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Depreciation</div>
+                        <div class="cb-control">
+                          <input type="number" kendo-numerictextbox ng-show="step<11" />
+                          <div class="form-control cb-no-border" ng-show="step>=11">$0,00</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Meals &amp; Entertainment Exclusion</div>
+                        <div class="cb-control">
+                          <input type="number" kendo-numerictextbox ng-show="step<11" />
+                          <div class="form-control cb-no-border" ng-show="step>=11">$23,456</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Amortization or Casualty Loss</div>
+                        <div class="cb-control">
+                          <input type="number" kendo-numerictextbox ng-show="step<11" />
+                          <div class="form-control cb-no-border" ng-show="step>=11">$3,456</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Business Use of Home</div>
+                        <div class="cb-control">
+                          <input type="number" kendo-numerictextbox ng-show="step<11" />
+                          <div class="form-control cb-no-border" ng-show="step>=11">$5,777</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="k-state-active">
+                Schedule D - Capital Gains and Losses
+                <div>
+                  <div class="row">
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Capital Gains and Losses</div>
+                        <div class="cb-control">
+                          <div class="form-control cb-no-border" ng-show="step>=11">$34,567</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="k-state-active">
+                Schedule E - Supplemental Income and Loss
+                <div>
+                  <div class="row">
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Gross Rental Income</div>
+                        <div class="cb-control">
+                          <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Total Expenses</div>
+                        <div class="cb-control">
+                          <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Depreciation</div>
+                        <div class="cb-control">
+                          <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Amortization or Casualty Loss</div>
+                        <div class="cb-control">
+                          <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Mortgage Interest Paid to Banks</div>
+                        <div class="cb-control">
+                          <div class="form-control cb-no-border" ng-show="step>=11">$45,000</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="k-state-active">
+                Partnership K-1
+                <div>
+                  <div class="row">
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Ordinary Income or Loss</div>
+                        <div class="cb-control">
+                          <div class="form-control cb-no-border" ng-show="step>=11">$34,090</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Net Rental Real Estate Income Loss</div>
+                        <div class="cb-control">
+                          <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Guaranteed Payments to Partner</div>
+                        <div class="cb-control">
+                          <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="k-state-active">
+                S Corporation Schedule K-1
+                <div>
+                  <div class="row">
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Ordinary Income or Loss</div>
+                        <div class="cb-control">
+                          <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                      <div class="form-group">
+                        <div class="control-label">Net Rental Real Estate Income Loss</div>
+                        <div class="cb-control">
+                          <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}" class="list-group-item">
+            <div class="cb-flex cb-gutters cb-middle">
+              <div>
+                <span class="fa fa-circle" title="Verified" ng-style="{'opacity' : !document.status ? 0.4 : 1}" ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
+                  style="opacity: 0.4;"></span>
+              </div>
+              <div>
+                <span class="fa fa-file-text-o fa-2x"></span>
+              </div>
+              <div class="cb-grow">
+                <strong>Social Security Card or Passport</strong>
+                <div class="small text-muted">1 file uploaded</div>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
       <div class="modal-footer">
