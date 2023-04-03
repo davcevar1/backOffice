@@ -1148,6 +1148,23 @@
                           <div class="cb-footer-label cb-no-wrap">Decision Logic</div>
                         </div>
                         <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-flex cb-grow">
+                            <a href="#report-decision-logic" data-toggle="modal" class="cb-flex cb-grow cb-center cb-middle cb-indicator-value text-danger" style="font-weight:bold; min-width:64px; display:inline-block;" title="{{ decisionLogicBalance | currency }}">{{ decisionLogicBalance | abbrNumber }}</a>
+                            <div class="cb-flex cb-column cb-indicator-aside">
+                              <div class="cb-flex cb-middle cb-gutters-tiny cb-grow">
+                                <div>${{ decisionLogic.debits | abbrNumber }}</div>
+                                <div class="small text-muted">Debits</div>
+                              </div>
+                              <div class="cb-flex cb-middle cb-gutters-tiny cb-grow">
+                                <div>${{ decisionLogic.credits | abbrNumber }}</div>
+                                <div class="small text-muted">Credits</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="cb-rule-alert"></div>
+                          <div class="cb-footer-label cb-no-wrap">Google</div>
+                        </div>
+                        <div class="cb-indicator cb-flex cb-column">
                           <div class="cb-flex cb-grow cb-center cb-middle cb-indicator-text">
                             <a href="#report-ofac" data-toggle="modal" class="cb-text-ellipsis text-danger" style="font-weight:bold; min-width:64px; display:inline-block;">Records<br> found</a>
                           </div>
@@ -1204,6 +1221,23 @@
                           </div>
                           <div class="cb-rule-alert"></div>
                           <div class="cb-footer-label cb-no-wrap">Decision Logic</div>
+                        </div>
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-flex cb-grow">
+                            <a href="#report-decision-logic" data-toggle="modal" class="cb-flex cb-grow cb-center cb-middle cb-indicator-value text-danger" style="font-weight:bold; min-width:64px; display:inline-block;" title="{{ decisionLogicBalance | currency }}">{{ decisionLogicBalance | abbrNumber }}</a>
+                            <div class="cb-flex cb-column cb-indicator-aside">
+                              <div class="cb-flex cb-middle cb-gutters-tiny cb-grow">
+                                <div>${{ decisionLogic.debits | abbrNumber }}</div>
+                                <div class="small text-muted">Debits</div>
+                              </div>
+                              <div class="cb-flex cb-middle cb-gutters-tiny cb-grow">
+                                <div>${{ decisionLogic.credits | abbrNumber }}</div>
+                                <div class="small text-muted">Credits</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="cb-rule-alert"></div>
+                          <div class="cb-footer-label cb-no-wrap">Google</div>
                         </div>
                         <div class="cb-indicator cb-flex cb-column">
                           <div class="cb-flex cb-grow cb-center cb-middle cb-indicator-text">
@@ -1471,6 +1505,7 @@
                       </a>
                     </div>
                   </li>
+                  <!--
                   <li class="k-state-active">
                     Frank Morris
                     <div class="list-group">
@@ -1951,6 +1986,7 @@
                       </a>
                     </div>
                   </li>
+                -->
                 </ul>
               </div>
             </div>
