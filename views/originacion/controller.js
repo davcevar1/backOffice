@@ -1,6 +1,7 @@
 require.config(requireConfig);
 define(function(require) {
   'use strict';
+ 
 
   // Importación de módulos AMD
   var angular = require('angular'),
@@ -661,6 +662,7 @@ define(function(require) {
         $scope.activate();
       }
     ]);
+    
 
   //Inicializa angular
   angular.bootstrap(document, ['app']);

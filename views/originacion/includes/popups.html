@@ -752,13 +752,15 @@
           </details>
         </fieldset>
         <fieldset class="cb-group cb-group-simple" ng-if="owner.ownershipPercentage>10">
+          <details>
+            <summary>Source of incomes</summary>
           <hr />
+          
           <div class="row">
-            <details>
-              <summary class="control-label">Source of income</summary>
+            
             <div class="col-sm-4">
               <div class="form-group cb-required">
-                <summary class="control-label">Source of income</summary>
+                <label class="control-label">Source of income</label>
                 <div class="small text-muted">Check all that apply</div>
                 <div class="cb-control">
                   <div class="checkbox">
@@ -898,8 +900,9 @@
                 </div>
               </div>
             </div>
-            </details>
+            
           </div>
+        </details>
         </fieldset>
         <fieldset class="cb-group cb-group-simple" ng-if="owner.ownershipPercentage>10">
           <details>
