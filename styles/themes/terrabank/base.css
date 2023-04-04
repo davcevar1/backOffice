@@ -3640,7 +3640,7 @@ body > .cb-view > .cb-breadcrumb > .breadcrumb {
 .cb-view-container.cb-group-collapsible > .k-panelbar .k-panelbar-expand,
 .cb-group.cb-group-collapsible > .k-panelbar .k-panelbar-expand {
   position: relative;
-  top:0px;
+  top:1px;
   right: initial;
   margin-top: 0;
 }
