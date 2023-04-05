@@ -165,7 +165,7 @@ function descargarZIP2() {
   zip.generateAsync({ type: "blob" }).then(function (contenido) {
     const archivo = document.createElement("a");
     archivo.href = URL.createObjectURL(contenido);
-    archivo.download = "US-Company.Co-020320231045";
+    archivo.download = "US-CompanyCo-020320231045";
     archivo.click();
   });
 }
