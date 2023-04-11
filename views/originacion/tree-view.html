@@ -24,11 +24,18 @@
       <div>
         <kendo-tree-view k-data-source="productos" />
       </div>
-      <button ng-click="agregarPadre()">Agregar padre</button>
-<button ng-click="agregarHijo()">Agregar hijo</button>
-<button ng-click="agregarHijoDeHijo()">Agregar hijo de hijo</button>
-
-      
+      <div>
+        <div class="cb-view-container-root container-fluid">
+          <div class="alert alert-info">Arrastre los registros para reordenar</div>
+          <div kendo-grid="diccionariosGrid" options="diccionarios"></div>
+        </div>
+        <div class="cb-navbar-placeholder cb-navbar-bottom">
+          <nav class="navbar navbar-default navbar-fixed-bottom">
+            <button class="btn btn-primary navbar-btn" ng-click="submitCaja()">Aceptar</button>
+            <button class="btn btn-default navbar-btn" ng-click="view='cajas'">Cancelar</button>
+          </nav>
+        </div>
+      </div>
     </div>
   </div>
   <script>
