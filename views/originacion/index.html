@@ -1268,7 +1268,7 @@ function descargarZIP2() {
                             <div class="text-muted cb-text-ellipsis" >Records<br />Not Found</div>
                           </div>
                           <div class="cb-rule-alert cb-rule-alert-good"></div>
-                          <a href="https://www.tu-enlace.com" class="cb-footer-label text-success">OAFC</a>
+                          <a href="https://www.tu-enlace.com" class="cb-footer-label text-success">OFAC</a>
                         </div>
                         <div class="cb-indicator cb-flex cb-column">
                           <div class="cb-flex cb-grow cb-center cb-middle cb-indicator-text">
@@ -2374,9 +2374,15 @@ function descargarZIP2() {
                           </div>
                         </div>
                       </a>
+                      
                     </div>
                   </li>
                 </ul>
+                <div style="align-items: center;">
+                  <button ng-show="owner.relationship=='Personal'" class="btn btn-primary navbar-btn" onclick="descargarZIP()">Download Folder</button>
+                   <button ng-show="owner.relationship=='Business'" class="btn btn-primary navbar-btn" onclick="descargarZIP2()">Download Folder</button>
+        
+                </div>
               </div>
             </div>
           </div>
@@ -2384,9 +2390,10 @@ function descargarZIP2() {
       </div>
       <div class="cb-navbar cb-navbar-bottom">
         <nav class="navbar navbar-default navbar-fixed-bottom">  
-          <!-- <button class="btn btn-primary navbar-btn" data-dismiss="modal" ng-click="edit()">Save</button>-->
+          <!-- <button class="btn btn-primary navbar-btn" data-dismiss="modal" ng-click="edit()">Save</button>
           <button ng-show="owner.relationship=='Personal'" class="btn btn-primary navbar-btn" onclick="descargarZIP()">Download Folder</button>
           <button ng-show="owner.relationship=='Business'" class="btn btn-primary navbar-btn" onclick="descargarZIP2()">Download Folder</button>
+          -->
         </nav>
       </div>
     </div>
