@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mi aplicación con AngularJS</title>
+  <!-- cargar archivos de estilo y librerías necesarias -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/dropzone.min.css">
+</head>
+<body ng-app="miApp">
+
+  <!-- contenido de la página -->
+  <div class="container" ng-controller="miControlador">
+    <button class="btn btn-primary" ng-click="openPopup()">Abrir Popup</button>
+  </div>
+
+  <!-- plantilla para el popup -->
+  <script type="text/ng-template" id="mi-popup.html">
+    <div class="modal-header">
+      <h3 class="modal-title">Título del Popup</h3>
+    </div>
+    <div class="modal-body">
+      <form action="/file-upload" class="dropzone" id="my-awesome-dropzone">
+        <input type="file" name="file" />
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" ng-click="closePopup()">Cerrar</button>
+    </div>
+  </script>
+
+  <!-- cargar librerías y archivos de scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular-animate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.6/ui-bootstrap-tpls.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/dropzone.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-file-upload/12.2.13/ng-file-upload.min.js"></script>
+
+  <!-- archivo JavaScript para el controlador -->
+  <script>
+   angular.module('miApp', ['ui.bootstrap', 'ngFileUpload'])
+
+.controller('miControlador', function ($scope, $uibModal, Upload) {
+
+  // función para abrir el popup
+  $scope.openPopup = function () {
+    var modalInstance = $uibModal.open({
+      templateUrl: 'mi-popup.html', // archivo HTML para el contenido del popup
+      controller: 'miPopupCtrl', // controlador para el popup
+      size: 'sm' // tamaño del popup
+    });
+  };
+})
+
+.controller('miPopupCtrl', function ($scope, $uibModalInstance, Upload) {
+
+  // función para cerrar el popup
+  $scope.closePopup = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
+
+  // inicializar Dropzone.js dentro del ciclo de vida de AngularJS
+  angular.element(document).ready(function () {
+    var dropzone = new Dropzone("#my-awesome-dropzone", {
+      url: "/file-upload"
+    });
+
+    // manejar el evento de subida de archivo
+    dropzone.on("sending", function (file, xhr, formData) {
+      formData.append("file", file);
+    });
+
+    // manejar el evento de éxito de subida de archivo
+    dropzone.on("success", function (file, response) {
+      console.log(response);
+    });
+  });
+});
+</script>
