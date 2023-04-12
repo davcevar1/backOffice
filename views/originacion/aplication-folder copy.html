@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link href="../../styles/theme-terrabank.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
 
   <style>
 
@@ -173,24 +173,21 @@ function descargarZIP2() {
   });
 }
 
-//Script para dropzone
 
-  // Configurar instancia de Dropzone
-  Dropzone.options.myDropzone = {
-    paramName: "file", // Nombre del archivo que se enviará al servidor
-    maxFilesize: 2, // Tamaño máximo del archivo en MB
-    maxFiles: 10, // Cantidad máxima de archivos que se pueden cargar
-    acceptedFiles: ".jpeg,.jpg,.png,.gif", // Tipos de archivos permitidos
-    init: function() {
-      this.on("addedfile", function(file) {
-        console.log("Archivo agregado: ", file);
-      });
-      this.on("complete", function(file) {
-        console.log("Carga completa: ", file);
-      });
-    }
-  };
+// If you are using JavaScript/ECMAScript modules:
+import Dropzone from "dropzone";
 
+// If you are using CommonJS modules:
+const { Dropzone } = require("dropzone");
+
+// If you are using an older version than Dropzone 6.0.0,
+// then you need to disabled the autoDiscover behaviour here:
+Dropzone.autoDiscover = false;
+
+let myDropzone = new Dropzone("#my-form");
+myDropzone.on("addedfile", file => {
+  console.log(`File added: ${file.name}`);
+});     
 
   </script>
 </head>
@@ -257,7 +254,11 @@ function descargarZIP2() {
               <div class="alert alert-info" ng-if="step==10">Please check each file and fill in the requested fields in each document.</div>
               <div class="cb-group cb-group-collapsible">
 
-                <div id="myDropzone" class="dropzone"></div>
+                <form action="/file-upload"
+                    class="dropzone"
+                    id="my-awesome-dropzone">
+                </form>
+                <input type="file" name="file" />
 
                 <ul kendo-panel-bar>
                   <li class="k-state-active" ng-show="owner.relationship=='Business'">
