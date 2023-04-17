@@ -125,6 +125,140 @@
       display: inline-block;
     }
 </style>
+<style>
+  a.panel-heading:hover,
+  a.panel-heading:active,
+  a.panel-heading:focus {
+    text-decoration: none;
+    background-color: #eee;
+  }
+
+  @media (max-width: 500px) {
+    .cb-transactions .cb-description {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 125px;
+    }
+  }
+
+  .dropzone {
+    border: 0;
+    min-height: 0;
+  }
+  .dropzone:hover {
+    background-color:#f5f5f5;
+  }
+
+  .dropzone .dz-preview .dz-details .dz-size span {
+    background: transparent;
+  }
+
+  .dropzone .dz-preview .dz-details .dz-filename span {
+    padding: 0;
+    background: transparent;
+  }
+
+  .dropzone .dz-preview:not(.dz-processing) .dz-progress {
+    display: none;
+  }
+
+  .dropzone .dz-preview .dz-remove {
+    bottom: 10px;
+    position: absolute;
+    z-index: 21;
+    text-align: center;
+    width: 100%;
+  }
+
+  .dropzone.dz-drag-hover {
+    border-color: #23527c;
+    z-index: 2;
+  }
+
+  .dropzone.dz-started .cb-note {
+    display: none;
+  }
+
+  #uploading .list-group {
+    overflow: auto;
+    max-height: calc(100vh - 170px);
+    margin: 0;
+  }
+  #uploading .modal-footer {
+    display: none;
+  }
+  #uploading.cb-error .list-group {
+    max-height: calc(100vh - 190px);
+  }
+  #uploading.cb-error .modal-footer {
+    display: block;
+  }
+  #uploading .list-group-item {
+    overflow: hidden;
+    border: 0;
+  }
+  #uploading .list-group-item .progress {
+    transition: height .2s, margin .2s;
+    height: 4px;
+    margin-bottom: 4px;
+    opacity: 1;
+  }
+  #uploading .list-group-item .cb-status {
+    transition: all .1s ease-in;
+    margin-right: -30px;
+    opacity: 0;
+  }
+  #uploading .list-group-item.cb-error {
+    color: #a94442;
+    background-color: #f2dede;
+  }
+  #uploading .list-group-item.cb-error .cb-status .fa-check-circle,
+  #uploading .list-group-item.cb-finished .cb-status .fa-times-circle {
+    display: none;
+  }
+  #uploading .list-group-item.cb-error .cb-status,
+  #uploading .list-group-item.cb-finished .cb-status {
+    margin-right: 0;
+    opacity: 1;
+  }
+  #uploading .list-group-item.cb-error .progress,
+  #uploading .list-group-item.cb-finished .progress {
+    height: 0;
+    margin: 0;
+    opacity: 0;
+  }
+  #uploading .list-group-item.cb-error .cb-status .fa-times-circle,
+  #uploading .list-group-item.cb-finished .cb-status .fa-check-circle {
+    display: block;
+  }
+  .cb-error-label {
+    overflow: hidden;
+    transition: max-height .2s ease-in;
+    max-height: 0;
+  }
+  .cb-file-size {
+    overflow: hidden;
+    transition: max-height .2s ease-in;
+    max-height: 20px;
+  }
+  .cb-icon {
+    transition: color .3s;
+  }
+  #uploading .list-group-item.cb-error .cb-error-label {
+    max-height: 20px;
+  }
+  #uploading .list-group-item.cb-error .cb-file-size {
+    max-height: 0;
+  }
+  #uploading .list-group-item.cb-error .cb-icon {
+    color: #a94442;
+  }
+  #fields {
+    border-left: 1px solid #e5e5e5;
+  }
+</style>
+  <link href="../../lib/misc/dropzone.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
   <script>
   function descargarZIP() {
@@ -229,6 +363,42 @@ function descargarZIP2() {
               </a>
             </li>
           </ul>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">Jennifer Thompson</div>
+            <div class="list-group">
+              <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1, upload:false}" class="list-group-item">
+                <div class="cb-flex cb-gutters cb-middle">
+                  <div>
+                    <span class="fa fa-circle" title="Verified" ng-style="{'opacity' : !document.status ? 0.4 : 1}" ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
+                      style="opacity: 0.4;"></span>
+                  </div>
+                  <div>
+                    <span class="fa fa-file-text-o fa-2x"></span>
+                  </div>
+                  <div class="cb-grow">
+                    <strong>Two Years of Tax Returns</strong>
+                    <div class="small text-muted">2 files uploaded</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1, upload:false, creditReport: true}" class="list-group-item">
+              <div class="cb-flex cb-gutters cb-middle">
+                <div>
+                  <span class="fa fa-circle" title="Verified" ng-style="{'opacity' : !document.status ? 0.4 : 1}" ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
+                    style="opacity: 0.4;"></span>
+                </div>
+                <div>
+                  <span class="fa fa-file-text-o fa-2x"></span>
+                </div>
+                <div class="cb-grow">
+                  <strong>Credit report</strong>
+                  <div class="small text-muted">1 files uploaded</div>
+                </div>
+              </div>
+            </a>
+          </div>
           
           <div class="doc-review cb-grow cb-scrollable">
             <div class="container">

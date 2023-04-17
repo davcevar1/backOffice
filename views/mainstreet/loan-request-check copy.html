@@ -356,10 +356,810 @@
               </a>
             </li>
           </ul>
-          
-         
-          
-          
+          <div class="conditions cb-grow cb-scrollable">
+            <div class="alert alert-warning" style="padding: 5px 10px;">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <div class="cb-flex cb-middle">
+                <span class="fa fa-warning" style="margin-right: 5px;"></span> There are validations that require your attention. <button class="btn btn-link" style="padding:0; margin-left:10px;" ng-click="viewValidations()">View more</button>
+              </div>
+            </div>
+            <div class="well" ng-show="!vm.editable">
+              <div class="form-group cb-required" style="margin:0;">
+                <div class="control-label">Confirm acceptance of credit line:</div>
+                <div class="cb-control cb-flex cb-gutters">
+                  <div>
+                    <div class="radio" style="max-width:300px; margin-bottom:0;">
+                      <label>
+                        <input type="radio" name="loanconfirm">
+                        <div>Bank</div>
+                        <div class="small text-muted">A bank official should contact the client and confirm the acceptance of the loan line.</div>
+                      </label>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="radio" style="max-width:300px; margin-bottom:0;">
+                      <label>
+                        <input type="radio" name="loanconfirm">
+                        <div>Customer</div>
+                        <div class="small text-muted">The customer will receive a notification with which they can confirm the acceptance of the loan.</div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" ng-show="!vm.editable">
+              <label for="origination-fee">Origination Fee</label>
+              <textarea id="origination-fee" rows="2" class="form-control" maxlength="1000"></textarea>
+            </div>
+            <div class="cb-group cb-group-collapsible">
+              <ul kendo-panel-bar>
+                <li class="k-state-active">
+                  Loan Amortization/Principal &amp; Interest (P&amp;I)
+                  <div style="padding: 0; margin-top: -1px;">
+                    <table class="table table-bordered">
+                      <tbody>
+                        <tr>
+                          <td>Loan Amount</td>
+                          <td style="width: 30%;" class="text-right">
+                            <div class="form-group" style="margin:-7px;" ng-show="vm.editable">
+                              <input type="number" kendo-numeric-text-box k-spinners="false" k-ng-model="request.amount" />
+                            </div>
+                            <div ng-if="!vm.editable">{{ request.amount | currency }}</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Amortization Period (In years)</td>
+                          <td style="width: 30%;" class="text-right">
+                            <div class="form-group" style="margin:-7px;" ng-show="vm.editable">
+                              <input type="number" kendo-numeric-text-box k-spinners="false" k-ng-model="request.term" />
+                            </div>
+                            <div ng-if="!vm.editable">{{ request.term }} Years</div>
+                          </td>
+                        </tr>
+                        <!-- ngIf: vm.combinedRateEnabled -->
+                        <tr ng-if="vm.combinedRateEnabled" style="font-weight: bold" class="active ng-scope">
+                          <td colspan="2">Combined Rate</td>
+                        </tr><!-- end ngIf: vm.combinedRateEnabled -->
+                        <!-- ngIf: vm.combinedRateEnabled -->
+                        <tr ng-if="vm.combinedRateEnabled" class="ng-scope">
+                          <td>Prime Rate</td>
+                          <td style="width: 30%;" class="text-right">
+                            10.5%
+                          </td>
+                        </tr><!-- end ngIf: vm.combinedRateEnabled -->
+                        <!-- ngIf: vm.combinedRateEnabled -->
+                        <tr ng-if="vm.combinedRateEnabled" class="ng-scope">
+                          <td>Margin Rate</td>
+                          <td style="width: 30%;" class="text-right">
+                            <div class="form-group" style="margin:-7px;" ng-show="vm.editable">
+                              <input type="number" kendo-numeric-text-box k-spinners="false" k-ng-model="request.rate" />
+                            </div>
+                            <div ng-if="!vm.editable">{{ request.rate }}</div>
+                          </td>
+                        </tr><!-- end ngIf: vm.combinedRateEnabled -->
+                        <!-- ngIf: vm.combinedRateEnabled -->
+                        <tr ng-if="vm.combinedRateEnabled" class="ng-scope">
+                          <td style="font-weight: bold" class="text-right">Annual Interest Rate</td>
+                          <td style="width: 30%;" class="text-right">
+                            12%
+                          </td>
+                        </tr><!-- end ngIf: vm.combinedRateEnabled -->
+                        <!-- ngIf: !vm.combinedRateEnabled -->
+                        <tr>
+                          <td>Payments Per Year</td>
+                          <td style="width: 30%" class="text-right">12</td>
+                        </tr>
+                        <tr>
+                          <td>Payment (Monthly)</td>
+                          <td style="width: 30%" class="text-right">$2,158.93</td>
+                        </tr>
+                        <tr style="font-weight: bold;" class="active">
+                          <td>Payment (Annual)</td>
+                          <td style="width: 30%" class="text-right">$25,907.16</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+                <li class="k-state-active">
+                  Net Operating Income (NOI) Calculation
+                  <div style="padding: 0; margin-top: -1px;">
+                    <table class="table table-bordered">
+                      <tbody>
+                        <tr>
+                          <td>Annual Revenue</td>
+                          <td style="width: 30%;" class="text-right">
+                            <div class="form-group" style="margin:-7px;" ng-show="vm.editable">
+                              <input type="number" kendo-numeric-text-box k-spinners="false" k-ng-model="request.revenues" />
+                            </div>
+                            <div ng-if="!vm.editable">{{ request.revenues | currency }}</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Annual Cost of Goods Sold</td>
+                          <td style="width: 30%;" class="text-right">
+                            <div class="form-group" style="margin:-7px;" ng-show="vm.editable">
+                              <input type="number" kendo-numeric-text-box k-spinners="false" k-ng-model="request.cogs" />
+                            </div>
+                            <div ng-if="!vm.editable">{{ request.cogs | currency }}</div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Annual Operating Expenses</td>
+                          <td style="width: 30%;" class="text-right">
+                            <div class="form-group" style="margin:-7px;" ng-show="vm.editable">
+                              <input type="number" kendo-numeric-text-box k-spinners="false" k-ng-model="request.expenses" />
+                            </div>
+                            <div ng-if="!vm.editable">{{ request.expenses | currency }}</div>
+                          </td>
+                        </tr>
+                        <tr style="font-weight: bold" class="active">
+                          <td>Net Operating Income</td>
+                          <td style="width: 30%" class="text-right">$300,000.00</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+                <li class="k-state-active">
+                  Other Business Obligations
+                  <div style="padding: 0; margin-top: -1px;">
+                    <table class="table table-bordered">
+                      <tbody>
+                        <tr>
+                          <td>Other Monthly Business Obligations</td>
+                          <td style="width: 30%;" class="text-right">
+                            <div class="form-group" style="margin:-7px;" ng-show="vm.editable">
+                              <input type="number" kendo-numeric-text-box k-spinners="false" k-ng-model="request.otherMonthlyObligations" />
+                            </div>
+                            <div ng-if="!vm.editable">{{ request.otherMonthlyObligations | currency }}</div>
+                          </td>
+                        </tr>
+                        <tr style="font-weight: bold" class="active">
+                          <td>Other Business Obligations (Annual)</td>
+                          <td style="width: 30%" class="text-right">$0.00</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </li>
+                <li class="k-state-active">
+                  Debt Service Coverage Ratio (DSCR) Calculation
+                  <div style="padding: 0; margin-top: -1px;">
+                    <table class="table table-bordered">
+                      <tbody>
+                        <tr>
+                          <td>Annual Debt Service Amount (Proposed Facility)</td>
+                          <td style="width: 30%;" class="text-right">
+                            $25,907.16
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Other Business Obligations (Annual)</td>
+                          <td style="width: 30%;" class="text-right">
+                            $0.00
+                          </td>
+                        </tr>
+                        <tr style="font-weight: bold" class="active">
+                          <td>DSCR</td>
+                          <td style="width: 30%" class="text-right">11.580</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </li>
+                <li class="k-state-active">
+                  3-Months Bank Statement Review
+                  <div style="padding: 0; margin-top: -1px;">
+                    <table class="table table-bordered">
+                      <tbody>
+                        <tr>
+                          <td>Annualized Total Deposits</td>
+                          <td style="width: 30%;" class="text-right">
+                            $0.00
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Annual Revenues</td>
+                          <td style="width: 30%;" class="text-right">
+                            $500,000.00
+                          </td>
+                        </tr>
+                        <tr style="font-weight: bold" class="active">
+                          <td>60% of Annual Revenues</td>
+                          <td style="width: 30%" class="text-right">$300,000.00</td>
+                        </tr>
+                      </tbody>
+                    </table><!-- end ngIf: vm.combinedInformation -->
+                  </div>
+                </li>
+                <li class="k-state-active">
+                  Combined Cash Flow Formulas
+                  <div style="padding: 0; margin-top: -1px;">
+                    <table class="table table-bordered">
+                      <tbody>
+                        <tr>
+                          <td>Borrower's Income</td>
+                          <td style="width: 30%;" class="text-right">
+                            $300,000.00
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Owner's Cash Flow Before Debt Service</td>
+                          <td style="width: 30%;" class="text-right">
+                            $0.00
+                          </td>
+                        </tr>
+                        <tr style="font-weight: bold" class="text-right">
+                          <td>Total Combined Cash Flow</td>
+                          <td style="width: 30%">$300,000.00</td>
+                        </tr>
+                        <tr style="font-weight: bold" class="active">
+                          <td colspan="2">Less</td>
+                        </tr>
+                        <tr>
+                          <td>Proposed Facility Annual Debt Service</td>
+                          <td style="width: 30%;" class="text-right">
+                            $25,907.16
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Other Annual Business Obligations</td>
+                          <td style="width: 30%;" class="text-right">
+                            $0.00
+                          </td>
+                        </tr>
+                        <tr style="font-weight: bold" class="active">
+                          <td colspan="2">Owner's Total Personal Debt Service Per CBI</td>
+                        </tr>
+                        <tr>
+                          <td>Total Open Monthly Payments</td>
+                          <td style="width: 30%;" class="text-right">
+                            $1,691.00
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Total Open Payments x 12</td>
+                          <td style="width: 30%;" class="text-right">
+                            $20,292.00
+                          </td>
+                        </tr>
+                        <tr style="font-weight: bold" class="text-right">
+                          <td>Total Combined Debt Service</td>
+                          <td style="width: 30%">$46,199.16</td>
+                        </tr>
+                        <tr>
+                          <td>Cash Surplus (Deficit)</td>
+                          <td style="width: 30%;" class="text-right">
+                            $253,800.84
+                          </td>
+                        </tr>
+                        <tr style="font-weight: bold" class="text-right">
+                          <td>Combined DSCR</td>
+                          <td style="width: 30%">6.494</td>
+                        </tr>
+                      </tbody>
+                    </table><!-- end ngIf: vm.combinedInformation -->
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="business cb-grow cb-scrollable">
+            <div class="container">
+              <div class="cb-group cb-group-simple">
+                <div>
+                  <div class="form-vertical">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <label title="FEI/EIN #" class="control-label">FEI/EIN #</label>
+                          <div class="cb-control">
+                            <input type="text" placeholder="00-0000000" class="form-control" autocomplete="off">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <label title="Date" class="control-label">Date</label>
+                          <div class="cb-control">
+                            <input type="date" kendo-datepicker />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <label title="Status" class="control-label">Status</label>
+                          <div class="cb-control">
+                            <select class="form-control">
+                              <option></option>
+                              <option>ACTIVE</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" ng-show="step>10">
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <label title="FEI/EIN #" class="control-label">FEI/EIN #</label>
+                          <div class="cb-control">
+                            <div class="form-control cb-no-border">12-4562121</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <label title="Date" class="control-label">Date Filed</label>
+                          <div class="cb-control">
+                            <div class="form-control cb-no-border">12/12/2001</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group cb-required">
+                          <label title="Status" class="control-label">Status</label>
+                          <div class="cb-control">
+                            <div class="form-control cb-no-border">ACTIVE</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">Loan Amount Request</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        $45,001 - $55,000
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">Years in Business</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        6 - 10 Years
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">Annual Revenue</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        $500,001 - $1,000,000
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">Annual Expenses</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        Less than $100,000
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">Email</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        john.doe@store1.com
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">Business Name</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        My Business
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">Doing Business As (DBA)</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        &nbsp;
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">Phone Number</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        (908) 456 5847
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">Website</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        http://www.store1.com
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">Purpose of the Loan</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        Working Capital
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">Type of Business Entity</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        Sole Propietor
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">State of Organization</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        District of Columbia
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">Address</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        345 Main Street
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">City</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        Columbia
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">State</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        South Carolina
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">ZIP Code</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        South Carolina
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label title="Loan Amount Request" class="control-label">Tax ID</label>
+                    <div class="cb-control">
+                      <div class="form-control cb-no-border">
+                        12-4562121
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <hr />
+                  <div class="form-group">
+                    <div class="control-label">Do you want to invite the applicant to open a Business Checking Account?</div>
+                    <div class="cb-control cb-flex cb-column cb-gutters">
+                      <div style="margin-top: 10px;">Share following link by email, click to copy to clipboard:</div>
+                      <a href="#" target="_blank" title="Copy to clipboard" ng-click="copyToClipboard($event)" style="white-space: nowrap; max-width: 70vw; overflow: hidden; text-overflow: ellipsis; font-size: 16px;">https://terraworks.terrabank.com/loan-application?token=YWI5YTRkOTQ0ZDdkNzY4N2NiNGRjMDJkYzIyOGRmNDM1Yzk5OTZmNTNiZmE4MzRlOGE0YTdlY2M5ZjQ5ZDdhOQ</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="owners cb-grow cb-scrollable">
+            <div class="container">
+              <fieldset class="cb-group cb-group-simple">
+                <legend>Owners</legend>
+                <div class="table-responsive">
+                  <kendo-grid options="owners"></kendo-grid>
+                </div>
+              </fieldset>
+              <fieldset class="cb-group cb-group-simple">
+                <legend>Guarantors</legend>
+                <div class="table-responsive">
+                  <kendo-grid options="guarantors"></kendo-grid>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="indicators cb-grow cb-scrollable">
+            <div class="container">
+              <div class="text-right small">
+                <span style="margin-right:20px;">Legend:</span>
+                <span class="text-muted" style="margin-right:20px;"><span class="cb-icon cb-nodata"></span> No records found</span>
+                <span class="text-danger"><span class="fa fa-search"></span> Records found</span>
+              </div>
+              <div class="cb-group cb-group-collapsible">
+                <ul kendo-panel-bar>
+                  <li class="k-state-active" ng-show="owner.relationship=='Business'">
+                    Frank's Auto Repair Inc.
+                    <div>
+                      <div class="cb-flex-sm-up cb-wrap cb-gutters">
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-lexis-nexis cb-flex cb-grow cb-column-2 small">
+                            <a href="#report-bankruptcy" data-toggle="modal" class="cb-indicator-text text-danger" style="font-weight:bold;">
+                              <span class="fa fa-search"></span> Bankrupcy
+                            </a>
+                            <a href="#report-liens" data-toggle="modal" class="cb-indicator-text text-danger" style="font-weight:bold;">
+                              <span class="fa fa-search"></span> Liens
+                            </a>
+                            <a href="#report-foreclosure" data-toggle="modal" class="cb-indicator-text text-danger" style="font-weight:bold;">
+                              <span class="fa fa-search"></span> Foreclosure
+                            </a>
+                            <a href="#report-ucc" data-toggle="modal" class="cb-indicator-text text-danger" style="font-weight:bold;">
+                              <span class="fa fa-search"></span> UCC
+                            </a>
+                          </div>
+                          <div class="cb-rule-alert cb-rule-alert-bad"></div>
+                          <div class="cb-footer-label text-danger">
+                            Lexis Nexis
+                          </div>
+                        </div>
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-flex cb-grow">
+                            <a href="#report-decision-logic" data-toggle="modal" class="cb-flex cb-grow cb-center cb-middle cb-indicator-value text-danger" style="font-weight:bold; min-width:64px; display:inline-block;" title="{{ decisionLogicBalance | currency }}">{{ decisionLogicBalance | abbrNumber }}</a>
+                            <div class="cb-flex cb-column cb-indicator-aside">
+                              <div class="cb-flex cb-middle cb-gutters-tiny cb-grow">
+                                <div>${{ decisionLogic.debits | abbrNumber }}</div>
+                                <div class="small text-muted">Debits</div>
+                              </div>
+                              <div class="cb-flex cb-middle cb-gutters-tiny cb-grow">
+                                <div>${{ decisionLogic.credits | abbrNumber }}</div>
+                                <div class="small text-muted">Credits</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="cb-rule-alert"></div>
+                          <div class="cb-footer-label cb-no-wrap">
+                            Decision Logic
+                          </div>
+                        </div>
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-flex cb-grow cb-center cb-middle cb-indicator-text">
+                            <div class="text-muted cb-text-ellipsis">No records<br />found</div>
+                          </div>
+                          <div class="cb-rule-alert cb-rule-alert-good"></div>
+                          <div class="cb-footer-label text-success">OFAC</div>
+                        </div>
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-flex cb-grow cb-center cb-middle cb-indicator-text">
+                            <div class="text-muted cb-text-ellipsis">No records<br />found</div>
+                          </div>
+                          <div class="cb-rule-alert cb-rule-alert-good"></div>
+                          <div class="cb-footer-label text-success">BizChex</div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="k-state-active">
+                    Jennifer Thompson
+                    <div>
+                      <div class="cb-flex-sm-up cb-gutters">
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-lexis-nexis cb-flex cb-grow cb-column-2 small">
+                            <div class="cb-indicator-text text-muted">
+                              <span class="cb-icon cb-nodata"></span> Bankrupcy
+                            </div>
+                            <a href="#report-liens" data-toggle="modal" class="cb-indicator-text text-danger" style="font-weight:bold;">
+                              <span class="fa fa-search"></span> Liens
+                            </a>
+                            <div class="cb-indicator-text text-muted">
+                              <span class="cb-icon cb-nodata"></span> Legal Claims
+                            </div>
+                            <div class="cb-indicator-text text-muted">
+                              <span class="cb-icon cb-nodata"></span> Criminal
+                            </div>
+                          </div>
+                          <div class="cb-rule-alert cb-rule-alert-fair"></div>
+                          <div class="cb-footer-label text-warning">
+                            Lexis Nexis
+                          </div>
+                        </div>
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-flex cb-grow">
+                            <a href="#report-decision-logic" data-toggle="modal" class="cb-flex cb-grow cb-center cb-middle cb-indicator-value text-danger" style="font-weight:bold; min-width:64px; display:inline-block;" title="{{ decisionLogicBalance | currency }}">{{ decisionLogicBalance | abbrNumber }}</a>
+                            <div class="cb-flex cb-column cb-indicator-aside">
+                              <div class="cb-flex cb-middle cb-gutters-tiny cb-grow">
+                                <div>${{ decisionLogic.debits | abbrNumber }}</div>
+                                <div class="small text-muted">Debits</div>
+                              </div>
+                              <div class="cb-flex cb-middle cb-gutters-tiny cb-grow">
+                                <div>${{ decisionLogic.credits | abbrNumber }}</div>
+                                <div class="small text-muted">Credits</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="cb-rule-alert"></div>
+                          <div class="cb-footer-label cb-no-wrap">
+                            Decision Logic
+                          </div>
+                        </div>
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-flex cb-grow cb-center cb-middle cb-indicator-text">
+                            <div class="text-muted cb-text-ellipsis">No records<br />found</div>
+                          </div>
+                          <div class="cb-rule-alert cb-rule-alert-good"></div>
+                          <div class="cb-footer-label text-success">OFAC</div>
+                        </div>
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-flex cb-grow cb-center cb-middle cb-indicator-text">
+                            <div class="text-muted cb-text-ellipsis">No records<br />found</div>
+                          </div>
+                          <div class="cb-rule-alert cb-rule-alert-good"></div>
+                          <div class="cb-footer-label text-success">ChexSystems</div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="k-state-active">
+                    Frank Morris
+                    <div>
+                      <div class="cb-flex-sm-up cb-gutters">
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-lexis-nexis cb-flex cb-grow cb-column-2 small">
+                            <div class="cb-indicator-text text-muted">
+                              <span class="cb-icon cb-nodata"></span> Bankrupcy
+                            </div>
+                            <div class="cb-indicator-text text-muted">
+                              <span class="cb-icon cb-nodata"></span> Liens
+                            </div>
+                            <div class="cb-indicator-text text-muted">
+                              <span class="cb-icon cb-nodata"></span> Legal Claims
+                            </div>
+                            <div class="cb-indicator-text text-muted">
+                              <span class="cb-icon cb-nodata"></span> Criminal
+                            </div>
+                          </div>
+                          <div class="cb-rule-alert cb-rule-alert-good"></div>
+                          <div class="cb-footer-label text-success">
+                            Lexis Nexis
+                          </div>
+                        </div>
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-flex cb-grow">
+                            <a href="#report-decision-logic" data-toggle="modal" class="cb-flex cb-grow cb-center cb-middle cb-indicator-value text-danger" style="font-weight:bold; min-width:64px; display:inline-block;" title="{{ decisionLogicBalance | currency }}">{{ decisionLogicBalance | abbrNumber }}</a>
+                            <div class="cb-flex cb-column cb-indicator-aside">
+                              <div class="cb-flex cb-middle cb-gutters-tiny cb-grow">
+                                <div>${{ decisionLogic.debits | abbrNumber }}</div>
+                                <div class="small text-muted">Debits</div>
+                              </div>
+                              <div class="cb-flex cb-middle cb-gutters-tiny cb-grow">
+                                <div>${{ decisionLogic.credits | abbrNumber }}</div>
+                                <div class="small text-muted">Credits</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="cb-rule-alert"></div>
+                          <div class="cb-footer-label cb-no-wrap">Decision Logic</div>
+                        </div>
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-flex cb-grow cb-center cb-middle cb-indicator-text">
+                            <a href="#report-ofac" data-toggle="modal" class="cb-text-ellipsis text-danger" style="font-weight:bold; min-width:64px; display:inline-block;">Records<br> found</a>
+                          </div>
+                          <div class="cb-rule-alert cb-rule-alert-bad"></div>
+                          <div class="cb-footer-label text-danger">OFAC</div>
+                        </div>
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-flex cb-grow cb-center cb-middle cb-indicator-text">
+                            <div class="text-muted cb-text-ellipsis">No records<br />found</div>
+                          </div>
+                          <div class="cb-rule-alert cb-rule-alert-good"></div>
+                          <div class="cb-footer-label text-success">ChexSystems</div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="k-state-active">
+                    John Johnson
+                    <div>
+                      <div class="cb-flex-sm-up cb-gutters">
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-lexis-nexis cb-flex cb-grow cb-column-2 small">
+                            <div class="cb-indicator-text text-muted">
+                              <span class="cb-icon cb-nodata"></span> Bankrupcy
+                            </div>
+                            <div class="cb-indicator-text text-muted">
+                              <span class="cb-icon cb-nodata"></span> Liens
+                            </div>
+                            <div class="cb-indicator-text text-muted">
+                              <span class="cb-icon cb-nodata"></span> Legal Claims
+                            </div>
+                            <div class="cb-indicator-text text-muted">
+                              <span class="cb-icon cb-nodata"></span> Criminal
+                            </div>
+                          </div>
+                          <div class="cb-rule-alert cb-rule-alert-good"></div>
+                          <div class="cb-footer-label text-success">
+                            Lexis Nexis
+                          </div>
+                        </div>
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-flex cb-grow">
+                            <a href="#report-decision-logic" data-toggle="modal" class="cb-flex cb-grow cb-center cb-middle cb-indicator-value text-danger" style="font-weight:bold; min-width:64px; display:inline-block;" title="{{ decisionLogicBalance | currency }}">{{ decisionLogicBalance | abbrNumber }}</a>
+                            <div class="cb-flex cb-column cb-indicator-aside">
+                              <div class="cb-flex cb-middle cb-gutters-tiny cb-grow">
+                                <div>${{ decisionLogic.debits | abbrNumber }}</div>
+                                <div class="small text-muted">Debits</div>
+                              </div>
+                              <div class="cb-flex cb-middle cb-gutters-tiny cb-grow">
+                                <div>${{ decisionLogic.credits | abbrNumber }}</div>
+                                <div class="small text-muted">Credits</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="cb-rule-alert"></div>
+                          <div class="cb-footer-label cb-no-wrap">Decision Logic</div>
+                        </div>
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-flex cb-grow cb-center cb-middle cb-indicator-text">
+                            <a href="#report-ofac" data-toggle="modal" class="cb-text-ellipsis text-danger" style="font-weight:bold; min-width:64px; display:inline-block;">Records<br> found</a>
+                          </div>
+                          <div class="cb-rule-alert cb-rule-alert-bad"></div>
+                          <div class="cb-footer-label text-danger">OFAC</div>
+                        </div>
+                        <div class="cb-indicator cb-flex cb-column">
+                          <div class="cb-flex cb-grow cb-center cb-middle cb-indicator-text">
+                            <div class="text-muted cb-text-ellipsis">No records<br />found</div>
+                          </div>
+                          <div class="cb-rule-alert cb-rule-alert-good"></div>
+                          <div class="cb-footer-label text-success">ChexSystems</div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
           <div class="doc-review cb-grow cb-scrollable">
             <div>
               <div class="cb-group cb-group-layout">
@@ -689,6 +1489,211 @@
                                   </div>
                                 </div>
                               </a>
+                              <div class="list-group-item panel-group" style="margin-bottom:-1px; border-top-color: #FFF; padding:15px;" ng-show="step>=11">
+                                <ul kendo-panel-bar class="cb-collapsible">
+                                  <li class="k-state-active">
+                                    W-2 Income
+                                    <div>
+                                      <div class="row">
+                                        <div class="col-md-4 col-sm-6">
+                                          <div class="form-group">
+                                            <div class="control-label">W-2 Income - Wages, Salaries, Tips, etc.</div>
+                                            <div class="cb-control">
+                                              <div class="form-control cb-no-border">$567,708</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li class="k-state-active">
+                                    Schedule C - Sole Proprietor Profit or Loss
+                                    <div>
+                                      <div class="row">
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Net Profit or Loss</div>
+                                            <div class="cb-control">
+                                              <input type="number" kendo-numerictextbox ng-show="step<11" />
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$5,678</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Other Income or Loss</div>
+                                            <div class="cb-control">
+                                              <input type="number" kendo-numerictextbox ng-show="step<11" />
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$4,567</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Depletion</div>
+                                            <div class="cb-control">
+                                              <input type="number" kendo-numerictextbox ng-show="step<11" />
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$54,344</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Depreciation</div>
+                                            <div class="cb-control">
+                                              <input type="number" kendo-numerictextbox ng-show="step<11" />
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$0,00</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Meals &amp; Entertainment Exclusion</div>
+                                            <div class="cb-control">
+                                              <input type="number" kendo-numerictextbox ng-show="step<11" />
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$23,456</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Amortization or Casualty Loss</div>
+                                            <div class="cb-control">
+                                              <input type="number" kendo-numerictextbox ng-show="step<11" />
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$3,456</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Business Use of Home</div>
+                                            <div class="cb-control">
+                                              <input type="number" kendo-numerictextbox ng-show="step<11" />
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$5,777</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li class="k-state-active">
+                                    Schedule D - Capital Gains and Losses
+                                    <div>
+                                      <div class="row">
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Capital Gains and Losses</div>
+                                            <div class="cb-control">
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$34,567</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li class="k-state-active">
+                                    Schedule E - Supplemental Income and Loss
+                                    <div>
+                                      <div class="row">
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Gross Rental Income</div>
+                                            <div class="cb-control">
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Total Expenses</div>
+                                            <div class="cb-control">
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Depreciation</div>
+                                            <div class="cb-control">
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Amortization or Casualty Loss</div>
+                                            <div class="cb-control">
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Mortgage Interest Paid to Banks</div>
+                                            <div class="cb-control">
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$45,000</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li class="k-state-active">
+                                    Partnership K-1
+                                    <div>
+                                      <div class="row">
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Ordinary Income or Loss</div>
+                                            <div class="cb-control">
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$34,090</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Net Rental Real Estate Income Loss</div>
+                                            <div class="cb-control">
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Guaranteed Payments to Partner</div>
+                                            <div class="cb-control">
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li class="k-state-active">
+                                    S Corporation Schedule K-1
+                                    <div>
+                                      <div class="row">
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Ordinary Income or Loss</div>
+                                            <div class="cb-control">
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                          <div class="form-group">
+                                            <div class="control-label">Net Rental Real Estate Income Loss</div>
+                                            <div class="cb-control">
+                                              <div class="form-control cb-no-border" ng-show="step>=11">$0.00</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
                             </div>
                             <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1, upload:false, creditReport: true}" class="list-group-item">
                               <div class="cb-flex cb-gutters cb-middle">
