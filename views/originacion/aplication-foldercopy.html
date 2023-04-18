@@ -128,6 +128,146 @@
       display: inline-block;
     }
 </style>
+<style>
+  a.panel-heading:hover,
+  a.panel-heading:active,
+  a.panel-heading:focus {
+    text-decoration: none;
+    background-color: #eee;
+  }
+
+  @media (max-width: 500px) {
+    .cb-transactions .cb-description {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 125px;
+    }
+  }
+
+  .dropzone {
+    border: 0;
+    min-height: 0;
+    background: #ebebeb;
+    border-radius: 2px;
+  }
+  .dropzone:hover {
+    background-color:#f5f5f5;
+  }
+
+  .dropzone .dz-preview .dz-details .dz-size span {
+    background: transparent;
+  }
+
+  .dropzone .dz-preview .dz-details .dz-filename span {
+    padding: 0;
+    background: transparent;
+  }
+
+  .dropzone .dz-preview:not(.dz-processing) .dz-progress {
+    display: none;
+  }
+
+  .dropzone .dz-preview .dz-remove {
+    bottom: 10px;
+    position: absolute;
+    z-index: 21;
+    text-align: center;
+    width: 100%;
+  }
+
+  .dropzone.dz-drag-hover {
+    border-color: #23527c;
+    z-index: 2;
+  }
+
+  .dropzone.dz-started .cb-note {
+    display: none;
+  }
+
+  #uploading .list-group {
+    overflow: auto;
+    max-height: calc(100vh - 170px);
+    margin: 0;
+  }
+  #uploading .modal-footer {
+    display: none;
+  }
+  #uploading.cb-error .list-group {
+    max-height: calc(100vh - 190px);
+  }
+  #uploading.cb-error .modal-footer {
+    display: block;
+  }
+  #uploading .list-group-item {
+    overflow: hidden;
+    border: 0;
+  }
+  #uploading .list-group-item .progress {
+    transition: height .2s, margin .2s;
+    height: 4px;
+    margin-bottom: 4px;
+    opacity: 1;
+  }
+  #uploading .list-group-item .cb-status {
+    transition: all .1s ease-in;
+    margin-right: -30px;
+    opacity: 0;
+  }
+  #uploading .list-group-item.cb-error {
+    color: #a94442;
+    background-color: #f2dede;
+  }
+  #uploading .list-group-item.cb-error .cb-status .fa-check-circle,
+  #uploading .list-group-item.cb-finished .cb-status .fa-times-circle {
+    display: none;
+  }
+  #uploading .list-group-item.cb-error .cb-status,
+  #uploading .list-group-item.cb-finished .cb-status {
+    margin-right: 0;
+    opacity: 1;
+  }
+  #uploading .list-group-item.cb-error .progress,
+  #uploading .list-group-item.cb-finished .progress {
+    height: 0;
+    margin: 0;
+    opacity: 0;
+  }
+  #uploading .list-group-item.cb-error .cb-status .fa-times-circle,
+  #uploading .list-group-item.cb-finished .cb-status .fa-check-circle {
+    display: block;
+  }
+  .cb-error-label {
+    overflow: hidden;
+    transition: max-height .2s ease-in;
+    max-height: 0;
+  }
+  .cb-file-size {
+    overflow: hidden;
+    transition: max-height .2s ease-in;
+    max-height: 20px;
+  }
+  .cb-icon {
+    transition: color .3s;
+  }
+  #uploading .list-group-item.cb-error .cb-error-label {
+    max-height: 20px;
+  }
+  #uploading .list-group-item.cb-error .cb-file-size {
+    max-height: 0;
+  }
+  #uploading .list-group-item.cb-error .cb-icon {
+    color: #a94442;
+  }
+  #fields {
+    border-left: 1px solid #e5e5e5;
+    
+  }
+  .dropzone .dz-preview .dz-remove {
+  display: block;
+}
+
+</style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
   <script>
   function descargarZIP() {
@@ -184,13 +324,32 @@ const { Dropzone } = require("dropzone");
 // then you need to disabled the autoDiscover behaviour here:
 Dropzone.autoDiscover = true;
 
-let myDropzone = new Dropzone("#my-form");
-myDropzone.on("addedfile", file => {
-  addRemoveLinks:true,
-  console.log(`File added: ${file.name}`);
+let myDropzone = new Dropzone("#my-awesome-dropzone", {
+  addRemoveLinks: true,
+  url: "/file-upload"
+});
 
- 
-});     
+myDropzone.on("addedfile", file => {
+  console.log(`File added: ${file.name}`);
+});
+
+myDropzone.on("removedfile", file => {
+  console.log(`File removed: ${file.name}`);
+});
+
+function eliminarArchivo(nombreArchivo) {
+  if (confirm(`¿Estás seguro de que deseas eliminar ${nombreArchivo}?`)) {
+    // Aquí puedes agregar el código para eliminar el archivo de tu sistema de archivos.
+    // Por ejemplo, si estás utilizando Node.js, podrías usar el módulo "fs" de la siguiente manera:
+    const fs = require('fs');
+    fs.unlinkSync(nombreArchivo);
+    
+    // Después de eliminar el archivo, puedes eliminar la card correspondiente de la lista:
+    const card = document.querySelector(`[data-nombre="${nombreArchivo}"]`);
+    card.parentNode.removeChild(card);
+  }
+}
+
 
   </script>
 </head>
@@ -261,6 +420,8 @@ myDropzone.on("addedfile", file => {
                     class="dropzone"
                     id="my-awesome-dropzone">
                 </form>
+                <form action="/file-upload" class="dropzone" id="my-awesome-dropzone"></form>
+
                 <input action="/file-upload" type="file" name="file" />
 
                 <form action="/file-upload" class="dropzone">
@@ -273,12 +434,36 @@ myDropzone.on("addedfile", file => {
                   <form action="/target" class="dropzone" id="my-great-dropzone"></form>
                 </div>
               </div>
+              <div class="list-group">
               <details>
+                <div class="cb-flex cb-gutters cb-middle">
+                  <div>
+                    <span class="fa fa-circle" title="Verified" ng-style="{'opacity' : !document.status ? 0.4 : 1}" ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
+                      style="opacity: 0.4;">
+                      <form action="/target" class="dropzone" id="my-great-dropzone"></form></span>
+                  </div>
                 <summary>Card</summary>
                 <!-- Formulario -->
-                <form action="/target" class="dropzone" id="my-great-dropzone"></form>
+               
               </details>
-              
+            </div>
+            <div class="list-group">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Archivo 1</h5>
+                  <p class="card-text">Este es un archivo PDF</p>
+                  <button class="btn btn-danger" onclick="eliminarArchivo('archivo1.pdf')">Eliminar</button>
+                </div>
+              </div>
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Archivo 2</h5>
+                  <p class="card-text">Este es un archivo PNG</p>
+                  <button class="btn btn-danger" onclick="eliminarArchivo('archivo2.png')" style="border-radius: 5px;">X</button>
+                </div>
+              </div>
+            </div>
+            
                 
 
                 <ul kendo-panel-bar>
@@ -415,7 +600,7 @@ myDropzone.on("addedfile", file => {
                   <li class="k-state-active">
                     Martina Flores
                     <div class="list-group">
-                      <a ng-href="#viewer" data-toggle="modal"  class="list-group-item">
+                      <div class="list-group-item">
                         <div class="cb-flex cb-gutters cb-middle">
                           <div>
                             <span class="fa fa-circle" title="Verified" ng-style="{'opacity' : !document.status ? 0.4 : 1}" ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
@@ -425,13 +610,38 @@ myDropzone.on("addedfile", file => {
                             <span class="image-pdf"></span>
                           </div>
                           <div class="cb-grow">
-                            <strong>US–TM--ABC Corporation, LLC.pdf</strong>
+                            
                             <details>
-                              <form action="/target" class="dropzone" id="my-great-dropzone"></form>
+                              <summary><strong>US–TM--ABC Corporation, LLC.pdf</strong></summary>
+                             <!-- <form action="/target" class="dropzone" id="my-great-dropzone"></form>-->
+                              <div style="display: flex; max-width: 800px;">
+                                <div style="margin-right: 10px;">
+                                  <div class="card mb-3">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Archivo 1</h5>
+                                      <p class="card-text">Este es un archivo PDF</p>
+                                      <button class="btn btn-danger" onclick="eliminarArchivo('archivo1.pdf')" style="border-radius: 5px; font-size: 7px;">Eliminar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div>
+                                  <div class="card mb-3">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Archivo 2</h5>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}">
+                                        <p class="card-text">Este es un archivo PDF</p>
+                                    </a>
+                                      <button class="btn btn-danger" onclick="eliminarArchivo('archivo2.png')" style="border-radius: 5px; font-size: 7px;">Eliminar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
                             </details>
                           </div>
+                          
                         </div>
-                      </a>
+                      </div>
                       <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}" class="list-group-item">
                         <div class="cb-flex cb-gutters cb-middle">
                           <div>
