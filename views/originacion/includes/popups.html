@@ -1297,6 +1297,7 @@
         </ul>
         <div class="cb-editor tab-content cb-flex">
           <div id="document" class="tab-pane active cb-grow" style="height:470px;">
+           
             <iframe src="libraries/pdfjs/web/viewer.html?file=../../../assets/Borrower_Paycheck_Protection_Program_App._3.31.2020.pdf" style="width:100%; height:100%; border:0;"></iframe>
           </div>
           <div id="fields" class="tab-pane cb-form cb-scrollable cb-grow" ng-if="docModal.creditReport">
@@ -1328,34 +1329,6 @@
                     <div>Business</div>
                   </a>
                 </h4>
-              </div>
-              <div id="personalTax1" class="panel-collapse collapse in">
-                <div class="panel-body">
-                  <div class="form-group cb-required">
-                    <div style="font-size: 12px" class="control-label">Business Legal Name</div>
-                    <div class="wf-control">
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group cb-required">
-                    <div style="font-size: 12px" class="control-label">Business TIN (EIN,SSN)</div>
-                    <div class="wf-control">
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group cb-required">
-                    <div style="font-size: 12px" class="control-label">Average Monthly Payroll</div>
-                    <div class="wf-control">
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group cb-required">
-                    <div style="font-size: 12px" class="control-label">X 2.5 equals Loan Amount</div>
-                    <div class="wf-control">
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             <!--
@@ -1471,57 +1444,7 @@
               </div>
             </div>
             -->
-            <div ng-if="docModal.value==2" style="padding: 15px;">
-              <div class="form-group">
-                <div class="control-label">Average balance statement 1</div>
-                <div class="cb-control">
-                  <input type="number" kendo-numerictextbox />
-                  <div class="form-control cb-no-border" ng-show="step>=11">$67,055</div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="control-label">Average balance statement 2</div>
-                <div class="cb-control">
-                  <input type="number" kendo-numerictextbox />
-                  <div class="form-control cb-no-border" ng-show="step>=11">$89,567</div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="control-label">Average balance statement 3</div>
-                <div class="cb-control">
-                  <input type="number" kendo-numerictextbox />
-                  <div class="form-control cb-no-border" ng-show="step>=11">$90,000</div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="control-label"># of overdrafts statement 1</div>
-                <div class="cb-control">
-                  <input type="number" kendo-numerictextbox />
-                  <div class="form-control cb-no-border" ng-show="step>=11">1</div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="control-label"># of overdrafts statement 2</div>
-                <div class="cb-control">
-                  <input type="number" kendo-numerictextbox />
-                  <div class="form-control cb-no-border" ng-show="step>=11">0</div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="control-label"># of overdrafts statement 3</div>
-                <div class="cb-control">
-                  <input type="number" kendo-numerictextbox />
-                  <div class="form-control cb-no-border" ng-show="step>=11">0</div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="control-label">Average balance</div>
-                <div class="cb-control">
-                  <input type="number" kendo-numerictextbox />
-                  <div class="form-control cb-no-border" ng-show="step>=11">$87,678</div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
