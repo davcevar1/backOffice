@@ -187,6 +187,8 @@ Dropzone.autoDiscover = false;
 let myDropzone = new Dropzone("#my-form");
 myDropzone.on("addedfile", file => {
   console.log(`File added: ${file.name}`);
+  addRemoveLinks:true;
+  acceptedFiles:'image/jpeg';
 });     
   Dropzone.discover();
 
@@ -267,8 +269,17 @@ myDropzone.on("addedfile", file => {
                     <input name="file" type="file" multiple />
                   </div>
                 </form>
+                <div class="list-group">
+                <div class="cb-flex cb-gutters cb-middle">
+                  <form action="/target" class="dropzone" id="my-great-dropzone"></form>
+                </div>
+              </div>
+              <details>
+                <summary>Card</summary>
+                <!-- Formulario -->
                 <form action="/target" class="dropzone" id="my-great-dropzone"></form>
-
+              </details>
+              
                 
 
                 <ul kendo-panel-bar>
@@ -286,6 +297,9 @@ myDropzone.on("addedfile", file => {
                           </div>
                           <div class="cb-grow">
                             <strong>Bussines-Signature Card.pdf</strong>
+                            <details>
+                              <form action="/target" class="dropzone" id="my-great-dropzone"></form>
+                            </details>
                             
                           </div>
                         </div>
@@ -301,7 +315,9 @@ myDropzone.on("addedfile", file => {
                           </div>
                           <div class="cb-grow">
                             <strong>Certificade of beneficial Owner.pdf</strong>
-                            
+                            <details>
+                              <form action="/target" class="dropzone" id="my-great-dropzone"></form>
+                            </details>
                           </div>
                         </div>
                       </a>
@@ -411,7 +427,9 @@ myDropzone.on("addedfile", file => {
                           </div>
                           <div class="cb-grow">
                             <strong>US–TM--ABC Corporation, LLC.pdf</strong>
-                            
+                            <details>
+                              <form action="/target" class="dropzone" id="my-great-dropzone"></form>
+                            </details>
                           </div>
                         </div>
                       </a>
