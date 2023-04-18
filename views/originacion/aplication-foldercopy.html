@@ -182,16 +182,15 @@ const { Dropzone } = require("dropzone");
 
 // If you are using an older version than Dropzone 6.0.0,
 // then you need to disabled the autoDiscover behaviour here:
-Dropzone.autoDiscover = false;
+Dropzone.autoDiscover = true;
 
 let myDropzone = new Dropzone("#my-form");
 myDropzone.on("addedfile", file => {
+  addRemoveLinks:true,
   console.log(`File added: ${file.name}`);
-  addRemoveLinks:true;
-  acceptedFiles:'image/jpeg';
-});     
-  Dropzone.discover();
 
+ 
+});     
 
   </script>
 </head>

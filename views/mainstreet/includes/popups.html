@@ -1181,6 +1181,7 @@
       </div>
       <div class="modal-body dropzone dz-clickable" ng-show="docModal.upload && filesUpload.step==1">
         <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+         <form action="/target" class="dropzone" id="my-great-dropzone"></form>
       </div>
       <div id="uploading" ng-if="docModal.upload && filesUpload.step==2">
         <ul class="list-group">
