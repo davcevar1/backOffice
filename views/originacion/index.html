@@ -6,6 +6,9 @@
   <title>Layout</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link href="../../styles/theme-terrabank.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
+
   <style>
 
   .image-pdf {
@@ -1329,7 +1332,7 @@ function descargarZIP2() {
                   <li class="k-state-active">
                     Martina Flores
                     <div class="list-group">
-                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}" class="list-group-item">
+                      <div class="list-group-item">
                         <div class="cb-flex cb-gutters cb-middle">
                           <div>
                             <span class="fa fa-circle" title="Verified" ng-style="{'opacity' : !document.status ? 0.4 : 1}" ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
@@ -1339,11 +1342,50 @@ function descargarZIP2() {
                             <span class="fa fa-file-text-o fa-2x"></span>
                           </div>
                           <div class="cb-grow">
-                            <strong>State ID Card or Driver´s License</strong>
-                            <div class="small text-muted">1 file uploaded</div>
+                            <details>
+                              <summary style="margin: 10px;"><strong>US–TM--ABC Corporation, LLC.pdf</strong><div class="small text-muted">1 file uploaded</div></summary>
+                             <!-- <form action="/target" class="dropzone" id="my-great-dropzone"></form>-->
+                              <div style="display: flex; max-width: 800px;">
+                                <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 2px;">
+                                  <div class="card mb-3">
+                                    <div class="card-body">
+                                      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
+                                        <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
+                                      </div>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}">
+                                        <p class="card-text">Este es un archivo PDF</p>
+                                      </a>
+                                      <button  class="btn btn-danger" onclick="eliminarArchivo('archivo1.pdf')" style="border-radius: 3px; font-size: 10px;">Eliminar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 2px;">
+                                  <div class="card mb-3">
+                                    <div class="card-body">
+                                      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
+                                        <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
+                                      </div>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}">
+                                        <p class="card-text">Este es un archivo PDF</p>
+                                      </a>
+                                      <button  class="btn btn-danger" onclick="eliminarArchivo('archivo1.pdf')" style="border-radius: 3px; font-size: 10px;">Eliminar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div >
+                                  <div class="card mb-3"  style=" align-items: center;">
+                                    <div class="card-body">
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1, upload:true}">
+                                        <button class="btn btn-danger" style="border-radius: 5px; font-size: 12px;">Upload Files</button>
+                                    </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </details>
                           </div>
                         </div>
-                      </a>
+                      </div>
                       <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}" class="list-group-item">
                         <div class="cb-flex cb-gutters cb-middle">
                           <div>
