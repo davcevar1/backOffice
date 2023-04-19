@@ -116,9 +116,10 @@ define(function(require) {
         }
         ///ojo
         $scope.eliminarDiv = function(event) {
-          var div = angular.element(event.target).closest('.card.mb-3');
+          var div = event.currentTarget.parentNode.parentNode.parentNode;
           div.remove();
-      };
+        };
+        
       
         $scope.agregarDiv = function() {
           var nuevoDiv = $('<div>')
