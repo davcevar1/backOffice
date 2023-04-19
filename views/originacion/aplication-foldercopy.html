@@ -354,6 +354,20 @@ $(document).ready(function() {
   $(".k-card").kendoCard();
 });
 
+function mostrarPopup() {
+  // Cargar contenido del archivo HTML usando AJAX
+  $.get("includes/popupDROPZ.html", function(data) {
+    // Agregar contenido al div dentro del popup
+    $("#popup").html(data);
+    // Mostrar popup utilizando jQuery UI
+    $("#popup").dialog({
+      modal: true,
+      width: 400,
+      height: 300,
+      title: "Título del popup"
+    });
+  });
+}
 
 
   </script>
@@ -439,6 +453,9 @@ $(document).ready(function() {
                   <form action="/target" class="dropzone" id="my-great-dropzone"></form>
                 </div>
               </div>
+              <button onclick="mostrarPopup()">Mostrar popup</button>
+
+              <div id="popup" style="display:none;"></div>
               <div class="list-group">
               <details>
                 <div class="cb-flex cb-gutters cb-middle">

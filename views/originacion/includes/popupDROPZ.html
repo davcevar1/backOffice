@@ -1,0 +1,28 @@
+<div class="cb-view-files modal-footer">
+        <div class="cb-flex-md-up">
+          <div class="cb-grow">
+            <div class="cb-flex cb-gutters-tiny cb-middle" >
+             
+              <div class="cb-flex cb-gutters cb-middle"ng-show="!docModal.upload">
+                <form action="/target" class="dropzone" id="my-great-dropzone"></form>
+              </div>
+              <div class="dropup" style="position: relative;">
+                <button class="btn btn-default" style="min-width: initial;" data-toggle="dropdown" title="Current file information"><span class="fa fa-info-circle"></span></button>
+                <ul class="dropdown-menu" style="color:#333; max-height:400px; overflow: auto;">
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="cb-flex cb-gutters-tiny cb-middle" ng-if="!docModal.upload">
+            <button type="button" class="btn btn-primary">Save</button>
+            <button class="btn btn-default">Reject</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+          <div class="cb-flex cb-gutters-tiny cb-middle" ng-if="docModal.upload">
+            
+            <button type="button" class="btn btn-primary" ng-click="agregarDiv()" ng-click="">Upload</button>
+            <button type="button" class="btn btn-default" ng-click="docModal.upload=null" ng-if="!docModal.disallowCancel">Cancel</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
