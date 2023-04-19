@@ -114,32 +114,28 @@ define(function(require) {
           $scope.documents.push({name:name, files: 0, editable:true, new: true});
           $scope.documentName = '';
         }
-        // Función para eliminar un div
-        function eliminarDiv() {
-          this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
-        }
-
-        // Función para agregar un nuevo div
-        function agregarDiv() {
-          // Crea un nuevo div con el mismo contenido que el original
-          var nuevoDiv = document.createElement("div");
-          nuevoDiv.innerHTML = '<div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 2px;">' +
-                              '  <div class="card mb-3">' +
-                              '    <div class="card-body">' +
-                              '      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">' +
-                              '        <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">' +
-                              '      </div>' +
-                              '      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:\'Two Years of Business Tax Returns\', value:1}">' +
-                              '        <p class="card-text">Este es un archivo PDF</p>' +
-                              '      </a>' +
-                              '      <button class="btn btn-danger" onclick="eliminarDiv.call(this)" style="border-radius: 3px; font-size: 10px;">Eliminar</button>' +
-                              '    </div>' +
-                              '  </div>' +
-                              '</div>';
-          
-          // Agrega el nuevo div al final del contenedor
-          document.getElementById("contenedor").appendChild(nuevoDiv);
-        }
+        $scope.eliminarDiv = function() {
+          var div = event.target.parentNode.parentNode.parentNode;
+          div.remove();
+        };
+        $scope.agregarDiv = function() {
+          var nuevoDiv = '<div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 2px;">'+
+                          '<div class="card mb-3">'+
+                            '<div class="card-body">'+
+                              '<div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">'+
+                                '<img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">'+
+                              '</div>'+
+                              '<a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:\'Two Years of Business Tax Returns\', value:1}">'+
+                                '<p class="card-text">Este es un archivo PDF</p>'+
+                              '</a>'+
+                              '<button class="btn btn-danger" ng-click="eliminarDiv()" style="border-radius: 3px; font-size: 10px;">Eliminar</button>'+
+                            '</div>'+
+                          '</div>'+
+                        '</div>';
+        
+          angular.element(document.getElementById('contenedorDivs')).append(nuevoDiv);
+        };
+        
         
         $scope.bankAccounts = {
           dataSource: {
