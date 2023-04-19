@@ -143,10 +143,11 @@ define(function(require) {
             });
             $scope.simulateUpload();
           }
-        $scope.eliminarDiv = function(event) {
-          var div = event.currentTarget.parentNode.parentNode.parentNode;
-          div.remove();
-        };
+          $scope.eliminarDiv = function(event) {
+            var div = event.currentTarget.parentNode.parentNode.parentNode;
+            div.remove();
+          };
+          
         
 
       
