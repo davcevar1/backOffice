@@ -403,25 +403,6 @@ $(document).ready(function() {
 
  
 
-  <script>
-    var librariesUrl = '../../lib/';
-  </script>
-  <!--<script src="views\originacion\zipdownload.js"></script>-->
-  <script src="../../lib/require.config.js"></script>
-  <script data-main="controller" src="../../lib/require/require.js"></script>
-
-  <script>
-    Dropzone.options.myGreatDropzone = { // camelized version of the `id`
-      paramName: "file", // The name that will be used to transfer the file
-      maxFilesize: 2, // MB
-      accept: function(file, done) {
-        if (file.name == "justinbieber.jpg") {
-          done("Naha, you don't.");
-        }
-        else { done(); }
-      }
-    };
-  </script>
 </body>
 
 </html>
