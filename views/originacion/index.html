@@ -1368,7 +1368,7 @@ function descargarZIP2() {
                                       <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}">
                                         <p class="card-text">Este es un archivo PDF</p>
                                       </a>
-                                      <button class="btn btn-danger" ng-click="eliminarDiv()"style="border-radius: 3px; font-size: 10px;">Eliminar</button>
+                                      <button class="btn btn-danger" ng-click="removeDiv($index)" style="border-radius: 3px; font-size: 10px;">Eliminar</button>
                                     </div>
                                   </div>
                                 </div>
@@ -1381,7 +1381,7 @@ function descargarZIP2() {
                                       <button class="btn btn-danger" style="border-radius: 5px; font-size: 12px;">Upload Files</button>
                                       
                                   </a>
-                                  <button class="btn btn-primary" ng-click="agregarDiv()">Agregar</button>
+                                  <button class="btn btn-primary" ng-click="addDiv()">Agregar</button>
                                   </div>
                                 </div>
                               </div>
