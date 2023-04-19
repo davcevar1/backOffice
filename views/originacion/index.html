@@ -1345,7 +1345,7 @@ function descargarZIP2() {
                             <details>
                               <summary style="margin: 10px;"><strong>US–TM--ABC Corporation, LLC.pdf</strong><div class="small text-muted">1 file uploaded</div></summary>
                              <!-- <form action="/target" class="dropzone" id="my-great-dropzone"></form>-->
-                              <div style="display: flex; max-width: 800px;">
+                              <div style="display: flex; max-width: 800px;" id="contenedorDivs">
                                 <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 2px;">
                                   <div class="card mb-3">
                                     <div class="card-body">
@@ -1377,6 +1377,7 @@ function descargarZIP2() {
                                     <div class="card-body">
                                       <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1, upload:true}">
                                         <button class="btn btn-danger" style="border-radius: 5px; font-size: 12px;">Upload Files</button>
+                                        <button class="btn btn-primary" ng-click="agregarDiv()">Agregar</button>
                                     </a>
                                     </div>
                                   </div>
