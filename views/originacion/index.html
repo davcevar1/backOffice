@@ -1359,13 +1359,13 @@ myDropzone.on("removedfile", file => {
                     Martina Flores
                     <div class="list-group">
                       <div class="list-group-item">
-                        <div class="cb-flex cb-gutters cb-middle">
+                        <div class="cb-flex cb-gutters cb-middle" style="align-items: flex-start;">
                           <div>
                             <span class="fa fa-circle" title="Verified" ng-style="{'opacity' : !document.status ? 0.4 : 1}" ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
-                              style="opacity: 0.4;"></span>
+                              style="opacity: 0.4; padding-top: 16px;"></span>
                           </div>
                           <div>
-                            <span class="fa fa-file-text-o fa-2x"></span>
+                            <span class="fa fa-file-text-o fa-2x" style="padding-top: 10px;"></span>
                           </div>
                           <div class="cb-grow">
                             <details>
@@ -1381,7 +1381,9 @@ myDropzone.on("removedfile", file => {
                                       <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}">
                                         <p class="card-text">Este es un archivo PDF</p>
                                       </a>
-                                      <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 10px;">Eliminar</button>
+                                      <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
+                                        <i class="fa fa-trash"></i> Delete
+                                      </button>
                                     </div>
                                   </div>
                                 </div>
@@ -1394,7 +1396,9 @@ myDropzone.on("removedfile", file => {
                                       <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}">
                                         <p class="card-text">Este es un archivo PDF</p>
                                       </a>
-                                      <button class="btn btn-danger" ng-click="eliminarDiv($event)"style="border-radius: 3px; font-size: 10px;">Eliminar</button>
+                                      <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
+                                        <i class="fa fa-trash"></i> Delete
+                                      </button>
                                     </div>
                                   </div>
                                 </div>
@@ -1404,7 +1408,7 @@ myDropzone.on("removedfile", file => {
                                 <div class="card mb-3"  style=" align-items: center; padding: 10px; margin-top: 10px; float:right">
                                   <div class="card-body">
                                     <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1, upload:true}">
-                                      <button class="btn btn-danger" style="border-radius: 5px; font-size: 12px;">Upload Files</button>
+                                      <button class="btn btn-danger" style="border-radius: 5px; font-size: 12px;">+ Upload Files</button>
                                      
                                   </a>
                                  <!-- <button class="btn btn-primary" ng-click="agregarDiv()">Agregar</button>-->
