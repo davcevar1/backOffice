@@ -129,63 +129,67 @@ define(function(require) {
           $scope.$on('$destroy', function() { myDropzone.destroy(); });
         */
           $scope.eliminarDiv = function(event) {
-                      var div = event.currentTarget.parentNode.parentNode.parentNode;
-                      div.remove();
-                    };
-      
-          $scope.agregarDiv = function() {
-          var nuevoDiv = $('<div>')
-              .css({
-                  "margin-right": "15px",
-                  "border": "1px solid #ddd",
-                  "padding": "15px",
-                  "border-radius": "2px"
-              })
-              .addClass('card mb-3')
-              .append($('<div>')
-                  .addClass('card-body')
-                  .append($('<div>')
-                      .css({
-                          "display": "flex",
-                          "justify-content": "center",
-                          "align-items": "center",
-                          "margin-bottom": "10px"
-                      })
-                      .append($('<img>')
-                          .attr({
-                              "src": "images/icon-pdf.png",
-                              "alt": "Imagen del archivo"
-                          })
-                          .css({
-                              "max-width": "100%",
-                              "max-height": "100%"
-                          })
-                      )
-                  )
-                  .append($('<a>')
-                      .attr({
-                          "ng-href": "#viewer",
-                          "data-toggle": "modal",
-                          "ng-click": "docModal={title:'Two Years of Business Tax Returns', value:1}"
-                      })
-                      .append($('<p>')
-                          .addClass('card-text')
-                          .text('Este es un archivo PDF')
-                      )
-                  )
-                  .append($('<button>')
-                      .addClass('btn btn-danger')
-                      .attr('ng-click', 'eliminarDiv($event)')
-                      .css({
-                          "border-radius": "3px",
-                          "font-size": "10px"
-                      })
-                      .text('Eliminar')
-                  )
-              );
-      
-          var element = angular.element(document.getElementById('contenedorDivs'));
-          element.append(nuevoDiv);
+            var div = event.currentTarget.parentNode.parentNode.parentNode;
+            div.remove();
+        };
+        
+        $scope.agregarDiv = function() {
+            var nuevoDiv = $('<div>')
+                .css({
+                    "margin-right": "15px",
+                    "border": "1px solid #ddd",
+                    "padding": "15px",
+                    "border-radius": "2px"
+                })
+                .addClass('card mb-3')
+                .append($('<div>')
+                    .addClass('card-body')
+                    .append($('<div>')
+                        .css({
+                            "display": "flex",
+                            "justify-content": "center",
+                            "align-items": "center",
+                            "margin-bottom": "10px"
+                        })
+                        .append($('<img>')
+                            .attr({
+                                "src": "images/icon-pdf.png",
+                                "alt": "Imagen del archivo"
+                            })
+                            .css({
+                                "max-width": "100%",
+                                "max-height": "100%"
+                            })
+                        )
+                    )
+                    .append($('<a>')
+                        .attr({
+                            "ng-href": "#viewer",
+                            "data-toggle": "modal",
+                            "ng-click": "docModal={title:'Two Years of Business Tax Returns', value:1}"
+                        })
+                        .append($('<p>')
+                            .addClass('card-text')
+                            .text('Este es un archivo PDF')
+                        )
+                    )
+                    .append($('<button>')
+                        .addClass('btn btn-danger')
+                        .css({
+                            "border-radius": "3px",
+                            "font-size": "10px"
+                        })
+                        .text('Eliminar')
+                        .on('click', function() {
+                            $(this).closest('.card').remove();
+                        })
+                    )
+                );
+        
+            var element = angular.element(document.getElementById('contenedorDivs'));
+            element.append(nuevoDiv);
+        
+        
       };
       $scope.documentos = [
         {id: 1, nombre: 'Documento 1', url: 'documento1.pdf'},
