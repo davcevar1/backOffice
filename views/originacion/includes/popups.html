@@ -1,27 +1,4 @@
-<sccript>
-  / If you are using JavaScript/ECMAScript modules:
-import Dropzone from "dropzone";
 
-// If you are using CommonJS modules:
-const { Dropzone } = require("dropzone");
-
-// If you are using an older version than Dropzone 6.0.0,
-// then you need to disabled the autoDiscover behaviour here:
-Dropzone.autoDiscover = true;
-
-let myDropzone = new Dropzone("#my-awesome-dropzone", {
-  addRemoveLinks: true,
-  url: "/file-upload"
-});
-
-myDropzone.on("addedfile", file => {
-  console.log(`File added: ${file.name}`);
-});
-
-myDropzone.on("removedfile", file => {
-  console.log(`File removed: ${file.name}`);
-});
-  </sccript>
 <div id="beneficiary" class="modal fade">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -1510,7 +1487,8 @@ myDropzone.on("removedfile", file => {
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
           <div class="cb-flex cb-gutters-tiny cb-middle" ng-if="docModal.upload">
-            <button type="button" class="btn btn-primary" ng-click="uploadFiles()">Upload</button>
+            
+            <button type="button" class="btn btn-primary" ng-click="agregarDiv()" ng-click="">Upload</button>
             <button type="button" class="btn btn-default" ng-click="docModal.upload=null" ng-if="!docModal.disallowCancel">Cancel</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
@@ -2291,4 +2269,28 @@ myDropzone.on("removedfile", file => {
       </div>
     </div>
   </div>
+  <sccript>
+    / If you are using JavaScript/ECMAScript modules:
+  import Dropzone from "dropzone";
+  
+  // If you are using CommonJS modules:
+  const { Dropzone } = require("dropzone");
+  
+  // If you are using an older version than Dropzone 6.0.0,
+  // then you need to disabled the autoDiscover behaviour here:
+  Dropzone.autoDiscover = true;
+  
+  let myDropzone = new Dropzone("#my-awesome-dropzone", {
+    addRemoveLinks: true,
+    url: "/file-upload"
+  });
+  
+  myDropzone.on("addedfile", file => {
+    console.log(`File added: ${file.name}`);
+  });
+  
+  myDropzone.on("removedfile", file => {
+    console.log(`File removed: ${file.name}`);
+  });
+    </sccript>
 </div>
