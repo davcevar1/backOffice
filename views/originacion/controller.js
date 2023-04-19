@@ -19,6 +19,7 @@ define(function(require) {
 
   // Importación no son módulos
   require('bootstrap');
+  require('misc/dropzone');
 
   var app = angular.module('app', ['kendo.directives'])
     .filter('nl2br', function($sce) {
@@ -115,11 +116,39 @@ define(function(require) {
           $scope.documentName = '';
         }
         ///ojo
+        Dropzone.autoDiscover = false;
+          $(".dropzone").dropzone({
+            url: "http://localhost",
+            uploadMultiple: true,
+            addRemoveLinks: true,
+            autoProcessQueue: false,
+            acceptedFiles: 'application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            init: function() {
+              this.on("error", function(file) {
+                if (!file.accepted) {
+                  this.removeFile(file);
+                  alert('Selected file has not a valid format.');
+                }
+              });
+            }
+          });
+          $scope.uploadFiles = function() {
+            var dropzones = $('.dropzone').map(function() {
+              return Dropzone.forElement(this);
+            }).toArray();
+            $scope.filesUpload.files = [];
+            dropzones.forEach(function(dropzone, dropzoneIndex) {
+              $scope.filesUpload.count += dropzone.files.length;
+              $scope.filesUpload.files = $scope.filesUpload.files.concat(dropzone.files);
+            });
+            $scope.simulateUpload();
+          }
         $scope.eliminarDiv = function(event) {
           var div = event.currentTarget.parentNode.parentNode.parentNode;
           div.remove();
         };
         
+
       
         $scope.agregarDiv = function() {
           var nuevoDiv = $('<div>')
