@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../../styles/theme-terrabank.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
+
+  <style>
+
+  .image-pdf {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      background-image: url('images/icon-pdf.png');
+      background-size: cover;
+    }
+
+    .cb-indicator {
+      background: #FFF;
+      border: 1px solid #CCC;
+      border-radius: 4px;
+      min-height: 80px;
+    }
+
+    .cb-indicator .cb-column-2 {
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+
+    .cb-indicator-value {
+      font-size: 20px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .cb-indicator-text {
+      padding: 5px 10px;
+      text-align: center;
+    }
+
+    .cb-indicator-aside {
+      background: #e8e7e7;
+    }
+
+    .cb-indicator-aside .cb-active {
+      background: #FFF;
+    }
+
+    .cb-indicator-aside .cb-score {
+      width: 16px;
+      height: 16px;
+    }
+
+    .cb-indicator-aside>div {
+      padding: 0 5px;
+    }
+
+    .cb-indicator-aside>div:first-child {
+      border-top-right-radius: 4px;
+    }
+
+    .cb-indicator-aside>div:last-child {
+      border-bottom-right-radius: 4px;
+    }
+
+    .cb-indicator>.cb-rule-alert {
+      background-color: #CCC;
+      border: 0;
+      border-radius: 0;
+      position: relative;
+      margin-left: -1px;
+      margin-right: -1px;
+      height: 3px;
+      padding: 0;
+    }
+
+    .cb-indicator>.cb-rule-alert.cb-rule-alert-good {
+      background-color: #009f3c;
+    }
+
+    .cb-indicator>.cb-rule-alert.cb-rule-alert-fair {
+      background-color: #ef9c00;
+    }
+
+    .cb-indicator>.cb-rule-alert.cb-rule-alert-bad {
+      background-color: #dc3912;
+    }
+
+    .cb-indicator .cb-footer-label {
+      font-size: 12px;
+      text-align: center;
+      padding: 3px 15px;
+    }
+
+    .cb-indicator a,
+    .cb-indicator div {
+      box-sizing: border-box;
+    }
+
+    .cb-lexis-nexis .cb-indicator-text {
+      text-align: left;
+    }
+
+    .doc-review .cb-group.cb-group-collapsible > .k-panelbar .list-group.k-content {
+      padding: 0;
+      margin-top: -1px;
+    }
+
+    .doc-review .list-group .list-group-item {
+      border-radius: 0;
+    }
+
+    @media (min-width: 768px) {
+      .cb-lexis-nexis {
+        max-width: 225px;
+      }
+    }
+
+    .cb-icon.cb-nodata {
+      width: 12px;
+      height: 12px;
+      background-image: url(images/icon-nodata.png);
+      display: inline-block;
+    }
+</style>
+<style>
+  a.panel-heading:hover,
+  a.panel-heading:active,
+  a.panel-heading:focus {
+    text-decoration: none;
+    background-color: #eee;
+  }
+
+  @media (max-width: 500px) {
+    .cb-transactions .cb-description {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 125px;
+    }
+  }
+
+  .dropzone {
+    border: 0;
+    min-height: 0;
+    background: #ebebeb;
+    border-radius: 2px;
+  }
+  .dropzone:hover {
+    background-color:#f5f5f5;
+  }
+
+  .dropzone .dz-preview .dz-details .dz-size span {
+    background: transparent;
+  }
+
+  .dropzone .dz-preview .dz-details .dz-filename span {
+    padding: 0;
+    background: transparent;
+  }
+
+  .dropzone .dz-preview:not(.dz-processing) .dz-progress {
+    display: none;
+  }
+
+  .dropzone .dz-preview .dz-remove {
+    bottom: 10px;
+    position: absolute;
+    z-index: 21;
+    text-align: center;
+    width: 100%;
+  }
+
+  .dropzone.dz-drag-hover {
+    border-color: #23527c;
+    z-index: 2;
+  }
+
+  .dropzone.dz-started .cb-note {
+    display: none;
+  }
+
+  #uploading .list-group {
+    overflow: auto;
+    max-height: calc(100vh - 170px);
+    margin: 0;
+  }
+  #uploading .modal-footer {
+    display: none;
+  }
+  #uploading.cb-error .list-group {
+    max-height: calc(100vh - 190px);
+  }
+  #uploading.cb-error .modal-footer {
+    display: block;
+  }
+  #uploading .list-group-item {
+    overflow: hidden;
+    border: 0;
+  }
+  #uploading .list-group-item .progress {
+    transition: height .2s, margin .2s;
+    height: 4px;
+    margin-bottom: 4px;
+    opacity: 1;
+  }
+  #uploading .list-group-item .cb-status {
+    transition: all .1s ease-in;
+    margin-right: -30px;
+    opacity: 0;
+  }
+  #uploading .list-group-item.cb-error {
+    color: #a94442;
+    background-color: #f2dede;
+  }
+  #uploading .list-group-item.cb-error .cb-status .fa-check-circle,
+  #uploading .list-group-item.cb-finished .cb-status .fa-times-circle {
+    display: none;
+  }
+  #uploading .list-group-item.cb-error .cb-status,
+  #uploading .list-group-item.cb-finished .cb-status {
+    margin-right: 0;
+    opacity: 1;
+  }
+  #uploading .list-group-item.cb-error .progress,
+  #uploading .list-group-item.cb-finished .progress {
+    height: 0;
+    margin: 0;
+    opacity: 0;
+  }
+  #uploading .list-group-item.cb-error .cb-status .fa-times-circle,
+  #uploading .list-group-item.cb-finished .cb-status .fa-check-circle {
+    display: block;
+  }
+  .cb-error-label {
+    overflow: hidden;
+    transition: max-height .2s ease-in;
+    max-height: 0;
+  }
+  .cb-file-size {
+    overflow: hidden;
+    transition: max-height .2s ease-in;
+    max-height: 20px;
+  }
+  .cb-icon {
+    transition: color .3s;
+  }
+  #uploading .list-group-item.cb-error .cb-error-label {
+    max-height: 20px;
+  }
+  #uploading .list-group-item.cb-error .cb-file-size {
+    max-height: 0;
+  }
+  #uploading .list-group-item.cb-error .cb-icon {
+    color: #a94442;
+  }
+  #fields {
+    border-left: 1px solid #e5e5e5;
+    
+  }
+  .dropzone .dz-preview .dz-remove {
+  display: block;
+}
+
+</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+  <script>
+  function descargarZIP() {
+  const zip = new JSZip();
+
+  zip.file("Account-Signature Card.pdf", "Contenido del archivo 1");
+  zip.file("Account-FTA.pdf", "Contenido del archivo 2");
+  zip.file("W8 Personal.pdf", "Contenido del archivo 3");
+  zip.file("W8 Suplement.pdf", "Contenido del archivo 4");
+  zip.file("Account-Service Request.pdf", "Contenido del archivo 5");
+  zip.file("Checklist-Personal Account_FILLABLE_Rev 2020-07.pdf", "Contenido del archivo 6");
+
+
+  zip.file("nebraska-drivers-license.pdf", "images/nebraska-drivers-license.pdf", { binary: true });
+
+  zip.generateAsync({ type: "blob" }).then(function (contenido) {
+    const archivo = document.createElement("a");
+    archivo.href = URL.createObjectURL(contenido);
+    archivo.download = "archivos.zip";
+    archivo.click();
+  });
+}
+function descargarZIP2() {
+  const zip = new JSZip();
+
+  zip.file("Business-Signature.pdf", "Contenido del archivo 1");
+  zip.file("Certificade of Beneficial Owner.pdf", "Contenido del archivo 2");
+  zip.file("Corp Solutions for LLC.pdf", "Contenido del archivo 3");
+  zip.file("CorporateResolution.pdf", "Contenido del archivo 4");
+  zip.file("FTA.pdf", "Contenido del archivo 5");
+  zip.file("Account-Service Request.pdf", "Contenido del archivo 6");
+  zip.file("US Mailing Support.pdf", "Contenido del archivo 7");
+  zip.file("W8 Business.pdf", "Contenido del archivo 8");
+  zip.file("Checklist-Business Account_FILLABLE_Rev2020-07.pdf", "Contenido del archivo 9");
+
+  zip.file("nebraska-drivers-license.pdf", "images/nebraska-drivers-license.pdf", { binary: true });
+
+  zip.generateAsync({ type: "blob" }).then(function (contenido) {
+    const archivo = document.createElement("a");
+    archivo.href = URL.createObjectURL(contenido);
+    archivo.download = "archivos.zip";
+    archivo.click();
+  });
+}
+
+
+// If you are using JavaScript/ECMAScript modules:
+import Dropzone from "dropzone";
+
+// If you are using CommonJS modules:
+const { Dropzone } = require("dropzone");
+
+// If you are using an older version than Dropzone 6.0.0,
+// then you need to disabled the autoDiscover behaviour here:
+Dropzone.autoDiscover = true;
+
+let myDropzone = new Dropzone("#my-awesome-dropzone", {
+  addRemoveLinks: true,
+  url: "/file-upload"
+});
+
+myDropzone.on("addedfile", file => {
+  console.log(`File added: ${file.name}`);
+});
+
+myDropzone.on("removedfile", file => {
+  console.log(`File removed: ${file.name}`);
+});
+
+function eliminarArchivo(nombreArchivo) {
+  if (confirm(`¿Estás seguro de que deseas eliminar ${nombreArchivo}?`)) {
+    // Aquí puedes agregar el código para eliminar el archivo de tu sistema de archivos.
+    // Por ejemplo, si estás utilizando Node.js, podrías usar el módulo "fs" de la siguiente manera:
+    const fs = require('fs');
+    fs.unlinkSync(nombreArchivo);
+    
+    // Después de eliminar el archivo, puedes eliminar la card correspondiente de la lista:
+    const card = document.querySelector(`[data-nombre="${nombreArchivo}"]`);
+    card.parentNode.removeChild(card);
+  }
+}
+
+$(document).ready(function() {
+  $(".k-card").kendoCard();
+});
+
+$(document).ready(function() {
+  $('#mostrar-popup').click(function() {
+    // Crea un div para el contenedor del popup
+    const popupContainer = $('<div>').css({
+      'position': 'fixed',
+      'top': '50%',
+      'left': '50%',
+      'transform': 'translate(-50%, -50%)',
+      'border': '1px solid black',
+      'background': 'white',
+      'padding': '10px'
+    });
+
+    // Crea un iframe para cargar el archivo HTML externo
+    const iframe = $('<iframe>').attr({
+      'src': 'popupDROPZ.html',
+      'width': '100%',
+      'height': '500px'
+    });
+
+    // Agrega el iframe al contenedor del popup
+    popupContainer.append(iframe);
+
+    // Agrega un botón de cerrar al contenedor del popup
+    const closeButton = $('<button>').text('Cerrar');
+    closeButton.click(function() {
+      popupContainer.remove();
+    });
+    popupContainer.append(closeButton);
+
+    // Agrega el contenedor del popup al cuerpo del documento HTML
+    $('body').append(popupContainer);
+  });
+});
+
+
+
+
+  </script>
+</head>
+
+
+<form action="/file-upload"
+                    class="dropzone"
+                    id="my-awesome-dropzone">
+</form>
+
+  <div ng-include="'includes/popups.html'"></div>
+  <div ng-include="'includes/templates.html'"></div>
+
+  <script>
+    var librariesUrl = '../../lib/';
+  </script>
+  <!--<script src="views\originacion\zipdownload.js"></script>-->
+  <script src="../../lib/require.config.js"></script>
+  <script data-main="controller" src="../../lib/require/require.js"></script>
+
+  <script>
+    Dropzone.options.myGreatDropzone = { // camelized version of the `id`
+      paramName: "file", // The name that will be used to transfer the file
+      maxFilesize: 2, // MB
+      accept: function(file, done) {
+        if (file.name == "justinbieber.jpg") {
+          done("Naha, you don't.");
+        }
+        else { done(); }
+      }
+    };
+  </script>
+</body>
+
+</html>
