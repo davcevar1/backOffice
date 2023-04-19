@@ -19,6 +19,7 @@ define(function(require) {
 
   // Importación no son módulos
   require('bootstrap');
+   require('misc/dropzone');
 
   var app = angular.module('app', ['kendo.directives'])
     .filter('nl2br', function($sce) {
@@ -81,6 +82,22 @@ define(function(require) {
             .then(function(response) {
               $scope.ucc = response.data.UCCSearch2ResponseEx.response.Records.Record;
             });
+            Dropzone.autoDiscover = false;
+          $(".dropzone").dropzone({
+            url: "http://localhost",
+            uploadMultiple: true,
+            addRemoveLinks: true,
+            autoProcessQueue: false,
+            acceptedFiles: 'application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            init: function() {
+              this.on("error", function(file) {
+                if (!file.accepted) {
+                  this.removeFile(file);
+                  alert('Selected file has not a valid format.');
+                }
+              });
+            }
+          });
           $scope.decisionLogic = {
             debits: 8808.68,
             credits: 8343.18
@@ -230,6 +247,17 @@ define(function(require) {
         $scope.removeItem = function(array, item) {
           array.splice(array.indexOf(item), 1);
         };
+        $scope.uploadFiles = function() {
+          var dropzones = $('.dropzone').map(function() {
+            return Dropzone.forElement(this);
+          }).toArray();
+          $scope.filesUpload.files = [];
+          dropzones.forEach(function(dropzone, dropzoneIndex) {
+            $scope.filesUpload.count += dropzone.files.length;
+            $scope.filesUpload.files = $scope.filesUpload.files.concat(dropzone.files);
+          });
+          $scope.simulateUpload();
+        }
         $scope.toggleDetail = function(type, item) {
           if (item.open) {
             item.open = false;
