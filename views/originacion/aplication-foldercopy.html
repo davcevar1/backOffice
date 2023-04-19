@@ -354,20 +354,42 @@ $(document).ready(function() {
   $(".k-card").kendoCard();
 });
 
-function mostrarPopup() {
-  // Cargar contenido del archivo HTML usando AJAX
-  $.get("includes/popupDROPZ.html", function(data) {
-    // Agregar contenido al div dentro del popup
-    $("#popup").html(data);
-    // Mostrar popup utilizando jQuery UI
-    $("#popup").dialog({
-      modal: true,
-      width: 400,
-      height: 300,
-      title: "Título del popup"
+$(document).ready(function() {
+  $('#mostrar-popup').click(function() {
+    // Crea un div para el contenedor del popup
+    const popupContainer = $('<div>').css({
+      'position': 'fixed',
+      'top': '50%',
+      'left': '50%',
+      'transform': 'translate(-50%, -50%)',
+      'border': '1px solid black',
+      'background': 'white',
+      'padding': '10px'
     });
+
+    // Crea un iframe para cargar el archivo HTML externo
+    const iframe = $('<iframe>').attr({
+      'src': 'popupDROPZ.html',
+      'width': '100%',
+      'height': '500px'
+    });
+
+    // Agrega el iframe al contenedor del popup
+    popupContainer.append(iframe);
+
+    // Agrega un botón de cerrar al contenedor del popup
+    const closeButton = $('<button>').text('Cerrar');
+    closeButton.click(function() {
+      popupContainer.remove();
+    });
+    popupContainer.append(closeButton);
+
+    // Agrega el contenedor del popup al cuerpo del documento HTML
+    $('body').append(popupContainer);
   });
-}
+});
+
+
 
 
   </script>
@@ -453,9 +475,11 @@ function mostrarPopup() {
                   <form action="/target" class="dropzone" id="my-great-dropzone"></form>
                 </div>
               </div>
-              <button onclick="mostrarPopup()">Mostrar popup</button>
+              <button id="mostrar-popup">Mostrar Popup</button>
 
-              <div id="popup" style="display:none;"></div>
+
+              
+
               <div class="list-group">
               <details>
                 <div class="cb-flex cb-gutters cb-middle">
