@@ -114,6 +114,11 @@ define(function(require) {
           $scope.documents.push({name:name, files: 0, editable:true, new: true});
           $scope.documentName = '';
         }
+        $scope.eliminarDiv = function() {
+          var div = event.target.parentNode.parentNode.parentNode;
+          div.remove();
+        };
+        
         $scope.bankAccounts = {
           dataSource: {
             data: [
