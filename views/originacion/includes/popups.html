@@ -1226,8 +1226,7 @@
         <h4 class="modal-title">{{ docModal.title }}</h4>
       </div>
       <div class="modal-body dropzone dz-clickable" ng-show="docModal.upload && filesUpload.step==1">
-        <div class="dz-default dz-message"><span><form action="/file-upload" class="dropzone dz-clickable ng-pristine ng-valid" id="my-awesome-dropzone">
-          <div class="dz-default dz-message"><button class="dz-button" type="button">Drop files here to upload</button></div></form></span></div>
+        <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
       </div>
       <div id="uploading" ng-if="docModal.upload && filesUpload.step==2">
         <ul class="list-group">
