@@ -202,6 +202,17 @@ define(function(require) {
         $scope.gotoSearch = function() {
           location.href = 'search.html';
         };
+        $scope.uploadFiles = function() {
+          var dropzones = $('.dropzone').map(function() {
+            return Dropzone.forElement(this);
+          }).toArray();
+          $scope.filesUpload.files = [];
+          dropzones.forEach(function(dropzone, dropzoneIndex) {
+            $scope.filesUpload.count += dropzone.files.length;
+            $scope.filesUpload.files = $scope.filesUpload.files.concat(dropzone.files);
+          });
+          $scope.simulateUpload();
+        }
         $scope.header = {
           primaryText: 'Jeniffer C, Thompson',
           secondaryText: '#ACCO.1.08.003688 - Personal',
