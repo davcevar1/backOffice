@@ -1250,7 +1250,6 @@ myDropzone.on("removedfile", file => {
         <h4 class="modal-title">{{ docModal.title }}</h4>
       </div>
       <div class="modal-body dropzone dz-clickable" ng-show="docModal.upload">
-        <div class="dz-default dz-message"><span><form action="/file-upload" class="dropzone" id="my-awesome-dropzone"></form></span></div>
         <div class="dz-default dz-message">
           <div class="dropZoneElement">
               <div class="textWrapper">
@@ -1259,9 +1258,7 @@ myDropzone.on("removedfile", file => {
               </div>
           </div>
       </div>
-      <div class="dz-default dz-message">
-        <form action="/target" class="dropzone dz-clickable ng-pristine ng-valid" id="my-great-dropzone"><div class="dz-default dz-message"><button class="dz-button" type="button">Drop files here to upload</button></div></form>
-      </div>
+      
       </div>
       <div id="uploading" ng-if="docModal.upload && filesUpload.step==2">
         <ul class="list-group">
