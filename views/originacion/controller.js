@@ -114,10 +114,12 @@ define(function(require) {
           $scope.documents.push({name:name, files: 0, editable:true, new: true});
           $scope.documentName = '';
         }
-        $scope.eliminarDiv = function() {
-          var div = event.target.parentNode.parentNode.parentNode;
+        ///ojo
+        $scope.eliminarDiv = function(event) {
+          var div = angular.element(event.target).closest('.card.mb-3');
           div.remove();
-        };
+      };
+      
         $scope.agregarDiv = function() {
           var nuevoDiv = $('<div>')
               .css({
@@ -172,7 +174,25 @@ define(function(require) {
           var element = angular.element(document.getElementById('contenedorDivs'));
           element.append(nuevoDiv);
       };
+      $scope.documentos = [
+        {id: 1, nombre: 'Documento 1', url: 'documento1.pdf'},
+        {id: 2, nombre: 'Documento 2', url: 'documento2.pdf'},
+        {id: 3, nombre: 'Documento 3', url: 'documento3.pdf'}
+      ];
       
+      $scope.abrirModal = function(documento) {
+        // Aquí abres la pantalla modal utilizando los datos del documento que recibes como parámetro
+        console.log('Abriendo modal para el documento:', documento);
+      };
+      
+      $scope.eliminarDocumento = function(documento) {
+        var index = $scope.documentos.indexOf(documento);
+        if (index !== -1) {
+          $scope.documentos.splice(index, 1);
+        }
+      };
+      
+      //OJO
         
         $scope.bankAccounts = {
           dataSource: {
