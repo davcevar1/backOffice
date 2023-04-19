@@ -149,6 +149,20 @@ define(function(require) {
             }
           ]
         };
+        Dropzone.autoDiscover = false;
+    var myDropzone = new Dropzone("#my-awesome-dropzone", {
+      addRemoveLinks: true,
+      url: "/file-upload"
+    });
+    
+    // Funciones de eventos de Dropzone
+    myDropzone.on("addedfile", function(file) {
+      console.log("File added: " + file.name);
+    });
+    
+    myDropzone.on("removedfile", function(file) {
+      console.log("File removed: " + file.name);
+    });
         $scope.contextMenuOptions = {
           filter: ".cb-menu-options",
           showOn: 'click',
