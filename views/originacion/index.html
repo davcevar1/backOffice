@@ -172,8 +172,33 @@ function descargarZIP2() {
     archivo.click();
   });
 }
+// If you are using JavaScript/ECMAScript modules:
+import Dropzone from "dropzone";
+
+// If you are using CommonJS modules:
+const { Dropzone } = require("dropzone");
+
+// If you are using an older version than Dropzone 6.0.0,
+// then you need to disabled the autoDiscover behaviour here:
+Dropzone.autoDiscover = true;
+
+let myDropzone = new Dropzone("#my-awesome-dropzone", {
+  addRemoveLinks: true,
+  url: "/file-upload"
+});
+
+myDropzone.on("addedfile", file => {
+  console.log(`File added: ${file.name}`);
+});
+
+myDropzone.on("removedfile", file => {
+  console.log(`File removed: ${file.name}`);
+});
+
 
   </script>
+  <script src="node_modules/dropzone/dist/dropzone.js"></script>
+  <link rel="stylesheet" href="node_modules/dropzone/dist/dropzone.css">
 </head>
 
 <body ng-controller="controller">
