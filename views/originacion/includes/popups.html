@@ -1457,7 +1457,7 @@
       <div class="cb-view-files modal-footer">
         <div class="cb-flex-md-up">
           <div class="cb-grow">
-            <div class="cb-flex cb-gutters-tiny cb-middle" ng-show="!docModal.upload">
+            <div class="cb-flex cb-gutters-tiny cb-middle" ng-show="docModal.upload">
               <button class="btn btn-default" style="min-width: initial;" ng-click="vm.previusDocument()" title="Previous"><span class="fa fa-arrow-left"></span></button>
               <span class="hidden-xs">1 <span>of</span> 2</span>
               <button class="btn btn-default" style="min-width: initial;" ng-click="vm.nextDocument()" title="Next"><span class="fa fa-arrow-right"></span></button>
@@ -1465,7 +1465,7 @@
                 <div class="hidden-sm hidden-md hidden-lg"><span class="fa fa-upload"></span></div>
                 <div class="hidden-xs">Upload more files</div>
               </button>
-              <div class="cb-flex cb-gutters cb-middle" ng-show="!docModal.upload">
+              <div class="cb-flex cb-gutters cb-middle" ng-show="docModal.upload">
                 <form action="/target" class="dropzone" id="my-great-dropzone"></form>
               </div>
               <div class="dropup" style="position: relative;">
