@@ -1,4 +1,27 @@
+<sccript>
+  / If you are using JavaScript/ECMAScript modules:
+import Dropzone from "dropzone";
 
+// If you are using CommonJS modules:
+const { Dropzone } = require("dropzone");
+
+// If you are using an older version than Dropzone 6.0.0,
+// then you need to disabled the autoDiscover behaviour here:
+Dropzone.autoDiscover = true;
+
+let myDropzone = new Dropzone("#my-awesome-dropzone", {
+  addRemoveLinks: true,
+  url: "/file-upload"
+});
+
+myDropzone.on("addedfile", file => {
+  console.log(`File added: ${file.name}`);
+});
+
+myDropzone.on("removedfile", file => {
+  console.log(`File removed: ${file.name}`);
+});
+  </sccript>
 <div id="beneficiary" class="modal fade">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -1226,9 +1249,9 @@
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title">{{ docModal.title }}</h4>
       </div>
-      <div class="modal-body dropzone dz-clickable" ng-show="docModal.upload && filesUpload.step =1">
+      <div class="modal-body dropzone dz-clickable" ng-show="docModal.upload && filesUpload.step=1">
         <div class="dz-default dz-message"><span><form action="/file-upload" class="dropzone" id="my-awesome-dropzone"></form></span></div>
-        <div><form action="/file-upload" class="dropzone" id="my-awesome-dropzone"></form></div>
+        <div class="dz-default dz-message"><span><form action="/file-upload" class="dropzone" id="my-awesome-dropzone"></form></span></div>
       </div>
       <div id="uploading" ng-if="docModal.upload && filesUpload.step==2">
         <ul class="list-group">
@@ -1465,9 +1488,6 @@
                 <div class="hidden-sm hidden-md hidden-lg"><span class="fa fa-upload"></span></div>
                 <div class="hidden-xs">Upload more files</div>
               </button>
-              <div class="cb-flex cb-gutters cb-middle" ng-show="docModal.upload">
-                <form action="/target" class="dropzone" id="my-great-dropzone"></form>
-              </div>
               <div class="dropup" style="position: relative;">
                 <button class="btn btn-default" style="min-width: initial;" data-toggle="dropdown" title="Current file information"><span class="fa fa-info-circle"></span></button>
                 <ul class="dropdown-menu" style="color:#333; max-height:400px; overflow: auto;">
@@ -2273,28 +2293,5 @@
       </div>
     </div>
   </div>
-  <sccript>
-    / If you are using JavaScript/ECMAScript modules:
-  import Dropzone from "dropzone";
   
-  // If you are using CommonJS modules:
-  const { Dropzone } = require("dropzone");
-  
-  // If you are using an older version than Dropzone 6.0.0,
-  // then you need to disabled the autoDiscover behaviour here:
-  Dropzone.autoDiscover = true;
-  
-  let myDropzone = new Dropzone("#my-awesome-dropzone", {
-    addRemoveLinks: true,
-    url: "/file-upload"
-  });
-  
-  myDropzone.on("addedfile", file => {
-    console.log(`File added: ${file.name}`);
-  });
-  
-  myDropzone.on("removedfile", file => {
-    console.log(`File removed: ${file.name}`);
-  });
-    </sccript>
 </div>
