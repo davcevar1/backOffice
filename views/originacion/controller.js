@@ -213,6 +213,10 @@ define(function(require) {
           });
           $scope.simulateUpload();
         }
+        $scope.eliminarDiv = function() {
+          var div = event.target.parentNode.parentNode.parentNode;
+          div.remove();
+        };
         $scope.header = {
           primaryText: 'Jeniffer C, Thompson',
           secondaryText: '#ACCO.1.08.003688 - Personal',
