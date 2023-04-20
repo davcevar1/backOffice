@@ -170,7 +170,7 @@ define(function(require) {
                         })
                         .append($('<p>')
                             .addClass('card-text')
-                            .text('Este es un archivo PDF')
+                            .text('StateIDCard.jpg')
                         )
                     )
                     .append($('<button>')
@@ -179,7 +179,8 @@ define(function(require) {
                             "border-radius": "3px",
                             "font-size": "10px"
                         })
-                        .text('Eliminar')
+                        .append('<i class="fa fa-trash"></i>')
+                        .text('Delete')
                         .on('click', function() {
                             $(this).closest('.card').remove();
                         })
