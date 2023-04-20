@@ -1067,6 +1067,11 @@ myDropzone.on("removedfile", file => {
                 <span style="margin-right:20px;">Legend:</span>
                 <span class="text-muted" style="margin-right:20px;"><span class="cb-icon cb-nodata"></span> No records found</span>
                 <span class="text-danger"><span class="fa fa-search"></span> Records found</span>
+                
+                  <a ng-href="#systems" data-toggle="modal" ng-click="docModal={title:'State ID Card or Driver's License', value:1, upload:true}">
+                    <button class="btn btn-danger" style="border-radius: 5px; font-size: 12px;">Run Systems</button>
+                  </a>
+                
               </div>
               <div class="cb-group cb-group-collapsible">
                 <ul kendo-panel-bar>
@@ -1326,11 +1331,6 @@ myDropzone.on("removedfile", file => {
                     </div>
                   </li>
                 </ul>
-              </div>
-              <div>
-                <a ng-href="#systems" data-toggle="modal" ng-click="docModal={title:'State ID Card or Driver's License', value:1, upload:true}">
-                  <button class="btn btn-danger" style="border-radius: 5px; font-size: 12px;">Run Systems</button>
-                </a>
               </div>
             </div>
           </div>
