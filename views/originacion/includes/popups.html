@@ -1245,10 +1245,10 @@ myDropzone.on("removedfile", file => {
 <div id="viewer" class="modal fade">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">{{ docModal.title }}</h4>
-      </div>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">{{ docModal.title }}</h4>
+        </div>
       <div class="modal-body dropzone dz-clickable" ng-show="docModal.upload">
         <div class="dz-default dz-message">
           <div class="dropZoneElement">
@@ -1655,14 +1655,44 @@ myDropzone.on("removedfile", file => {
   </div>
 </div>
 -->
-<!--Auqi comienza el de google-->
+<!--Aqui comienza el de Servicios-->
 <div id="systems" class="modal fade">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">{{ docModal.title }}</h4>
+      </div>
+      <div class="dz-default dz-message">
+        <div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="systems-options" value="systems-check"  /> Google
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="systems-options" value="systems-check" /> Lexis Nexis
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="systems-options" value="systems-check"  /> Ofac
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="systems-options" value="systems-check"  /> ChexSystems
+                </label>
+              </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+<!--Aqui termina el de Servicios-->
 <div id="reports" class="modal fade">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
