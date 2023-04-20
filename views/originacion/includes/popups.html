@@ -1255,7 +1255,7 @@ myDropzone.on("removedfile", file => {
           <!--<div class="textWrapper">
                   <p class="dropImageHereText">Drop file here to upload</p>
               </div>-->
-              <iframe src="dropzone.html" style="width: 100%; height: 500px;"></iframe>
+              <iframe src="dropzone.html" style="width: 100%; height: fit-content;"></iframe>
 
           </div>
       </div>
@@ -1482,9 +1482,7 @@ myDropzone.on("removedfile", file => {
           </div>-->
         </div>
       </div>
-      <div>
-        
-      </div>
+     
       <div class="cb-view-files modal-footer">
         <div class="cb-flex-md-up">
           <div class="cb-grow">
@@ -1521,7 +1519,7 @@ myDropzone.on("removedfile", file => {
           <div class="cb-flex cb-gutters-tiny cb-middle" ng-if="docModal.upload">
             
             <button type="button" class="btn btn-primary" ng-click="agregarDiv()" ng-click="">Upload</button>
-            <button type="button" class="btn btn-default" ng-click="docModal.upload=null" ng-if="!docModal.disallowCancel">Cancel</button>
+           <!-- <button type="button" class="btn btn-default" ng-click="docModal.upload=null" ng-if="!docModal.disallowCancel">Cancel</button>-->
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -1725,6 +1723,15 @@ myDropzone.on("removedfile", file => {
                   </fieldset>
               </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="cb-view-files modal-footer">
+    <div class="cb-flex-md-up">
+      <div class="cb-flex cb-gutters-tiny cb-middle" ng-if="docModal.upload">
+        <button type="button" class="btn btn-primary"  data-dismiss="modal">Run Systems</button>
+       <!-- <button type="button" class="btn btn-default" ng-click="docModal.upload=null" ng-if="!docModal.disallowCancel">Cancel</button>-->
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
