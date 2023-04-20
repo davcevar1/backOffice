@@ -1515,7 +1515,7 @@ myDropzone.on("removedfile", file => {
           </div>
           <div class="cb-flex cb-gutters-tiny cb-middle" ng-if="!docModal.upload">
             <button type="button" class="btn btn-primary">Save</button>
-            <button class="btn btn-default">Reject</button>
+            <button class="btn btn-default"data-dismiss="modal" ng-click="rejectELement()">Reject</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
           <div class="cb-flex cb-gutters-tiny cb-middle" ng-if="docModal.upload">
@@ -1666,12 +1666,12 @@ myDropzone.on("removedfile", file => {
       <div class="dz-default dz-message">
         <div>
           <div class="row">
-            <div class="col-sm-4" style="padding: 15px;">
+            <div class="col-sm-12" style="padding: 35px;">
               <div class="checkbox">
                 <label>
                   <input type="checkbox" name="systems-options" value="systems-check"  /> Jennifer Thompson
                 </label>
-                  <fieldset>
+                  <fieldset style="padding: 20px;">
                     <label>
                       <input type="checkbox" name="systems-options" value="systems-check" /> Lexis Nexis
                     </label>
@@ -1690,7 +1690,7 @@ myDropzone.on("removedfile", file => {
                 <label>
                   <input type="checkbox" name="systems-options" value="systems-check" /> Frank Morris
                 </label>
-                    <fieldset>
+                    <fieldset style="padding: 20px;">
                       <label>
                         <input type="checkbox" name="systems-options" value="systems-check" /> Lexis Nexis
                       </label>
@@ -1709,7 +1709,7 @@ myDropzone.on("removedfile", file => {
                 <label>
                   <input type="checkbox" name="systems-options" value="systems-check"  /> Jhon Jhonson
                 </label>
-                <fieldset>
+                <fieldset style="padding: 20px;">
                     <label>
                       <input type="checkbox" name="systems-options" value="systems-check" /> Lexis Nexis
                     </label>

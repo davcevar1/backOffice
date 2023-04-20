@@ -201,6 +201,10 @@ define(function(require) {
         // Aquí abres la pantalla modal utilizando los datos del documento que recibes como parámetro
         console.log('Abriendo modal para el documento:', documento);
       };
+      $scope.mostrarReject =true;
+      $scope.rejectELement = function(){
+        $scope.mostrarReject = !$scope.mostrarReject;
+      };
       
       $scope.eliminarDocumento = function(documento) {
         var index = $scope.documentos.indexOf(documento);
