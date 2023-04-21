@@ -1355,122 +1355,44 @@ myDropzone.on("removedfile", file => {
             </div>
           </div>
           
-          <div id="fields" class="tab-pane cb-form cb-scrollable cb-grow" ng-if="!docModal.creditReport">
-            <div class="panel panel-default" style="margin-bottom: -1px;">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordionFormType" href="#personalTax1">
-                    <div>Business</div>
-                  </a>
-                </h4>
-              </div>
-            </div>
-          
-            <div class="panel panel-default" style="margin-bottom: -1px;">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordionFormType" href="#personalTax2">
-                    <div>Year {{ request.year2 ? request.year2 : 2 }}</div>
-                    <div class="small text-muted" style="margin-top:5px;">1040 Personal Tax Return - Income</div>
-                  </a>
-                </h4>
-              </div>
-              <div id="personalTax2" class="panel-collapse collapse in">
-                <div class="panel-body">
-                  <div class="form-group cb-required">
-                    <div style="font-size: 12px" class="control-label">Tax year</div>
-                    <div class="wf-control">
-                      <select kendo-dropdownlist ng-model="request.year2">
-                        <option value=""></option>
-                        <option>2018</option>
-                        <option>2017</option>
-                        <option>2016</option>
-                        <option>2015</option>
-                        <option>2014</option>
-                        <option>2013</option>
-                        <option>2012</option>
-                        <option>2011</option>
-                        <option>2010</option>
-                        <option>2009</option>
-                        <option>2008</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div ng-if="request.year2 == ''" class="text-info small" style="font-weight:bold;">
-                    <span class="fa fa-info-circle"></span> Select tax year to populate the fields.
-                  </div>
-                  <div ng-if="request.year2 != ''" style="border-top: 1px dotted rgba(0,0,0,.2); padding-top: 15px; margin-top: 15px;">
-                    <div class="form-group cb-required">
-                      <div style="font-size: 12px" class="control-label">Capital gain or (loss). Attached Scehdule D if required (Line 13)</div>
-                      <div class="wf-control">
-                        <input type="number" kendo-numerictextbox k-spinners="false" />
+          <div id="fields" class="tab-pane cb-form cb-scrollable cb-grow">
+            <div class="panel-group" id="accordionFormType">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordionFormType" href="#collapse0">Identification</a>
+                  </h4>
+                </div>
+                <div id="collapse0" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <div class="form-group">
+                      <div class="control-label">Type of ID</div>
+                      <div class="cb-control">
+                        <select class="form-control" ng-model="$parent.shareholder.idType">
+                          <option>State Driver´s License</option>
+                          <option>Passport</option>
+                          <option>National identification</option>
+                          <option>Military ID</option>
+                        </select>
                       </div>
                     </div>
-                    <div class="form-group cb-required">
-                      <div style="font-size: 12px" class="control-label">Capital gain or (loss). Attached Scehdule D if required (Line 13)</div>
-                      <div class="wf-control">
-                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                    <div class="form-group">
+                      <div class="control-label">ID Number</div>
+                      <div class="cb-control">
+                        <input type="number" class="form-control" ng-model="$parent.shareholder.idNumber" />
                       </div>
                     </div>
-                    <div class="form-group cb-required">
-                      <div style="font-size: 12px" class="control-label">Other gains or (losses) Attached Form 4797 (Line 14)</div>
-                      <div class="wf-control">
-                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                    <div class="form-group" ng-if="!noExpirationDate">
+                      <div class="control-label">Expiration date</div>
+                      <div class="cb-control">
+                        <input type="date" kendo-datepicker k-ng-model="$parent.shareholder.expirationDate" />
                       </div>
                     </div>
-                    <div class="form-group cb-required">
-                      <div style="font-size: 12px" class="control-label">Rental Real Estate, Royalties, Partnerships, S coporations, trusts, etc. Attached Schedule E
-                        (Line 17)</div>
-                      <div class="wf-control">
-                        <input type="number" kendo-numerictextbox k-spinners="false" />
-                      </div>
-                    </div>
-                    <div class="form-group cb-required">
-                      <div style="font-size: 12px" class="control-label">Adjusted Gross Income (Line 37)</div>
-                      <div class="wf-control">
-                        <input type="number" kendo-numerictextbox k-spinners="false" />
-                      </div>
-                    </div>
-                    <div class="form-group cb-required">
-                      <div style="font-size: 12px" class="control-label">Total Tax (1040 Line 63)</div>
-                      <div class="wf-control">
-                        <input type="number" kendo-numerictextbox k-spinners="false" />
-                      </div>
-                    </div>
-                    <div class="form-group cb-required">
-                      <div style="font-size: 12px" class="control-label">Schedule C Part II: Depletion (Line 12)</div>
-                      <div class="wf-control">
-                        <input type="number" kendo-numerictextbox k-spinners="false" />
-                      </div>
-                    </div>
-                    <div class="form-group cb-required">
-                      <div style="font-size: 12px" class="control-label">Schedule C Part II: Depreciation and section 179 expenses (Line 13)</div>
-                      <div class="wf-control">
-                        <input type="number" kendo-numerictextbox k-spinners="false" />
-                      </div>
-                    </div>
-                    <div class="form-group cb-required">
-                      <div style="font-size: 12px" class="control-label">Schedule E Part I: Depreciation expense or depletion (Line 18)</div>
-                      <div class="wf-control">
-                        <input type="number" kendo-numerictextbox k-spinners="false" />
-                      </div>
-                    </div>
-                    <div class="form-group cb-required">
-                      <div style="font-size: 12px" class="control-label">Schedule E Part I: Total Rental Real Estate and Royalty Income (Loss) (Line 26)</div>
-                      <div class="wf-control">
-                        <input type="number" kendo-numerictextbox k-spinners="false" />
-                      </div>
-                    </div>
-                    <div class="form-group cb-required">
-                      <div style="font-size: 12px" class="control-label">Other Non-Cash Deductions</div>
-                      <div class="wf-control">
-                        <input type="number" kendo-numerictextbox k-spinners="false" />
-                      </div>
-                    </div>
-                    <div class="form-group cb-required">
-                      <div style="font-size: 12px">Owner's Annual Income</div>
-                      <div class="wf-control">
-                        <input type="number" kendo-numerictextbox k-spinners="false" />
+                    <div class="form-group">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" ng-model="noExpirationDate" /> No expiration date
+                        </label>
                       </div>
                     </div>
                   </div>
