@@ -216,7 +216,35 @@ define(function(require) {
           $scope.documentos.splice(index, 1);
         }
       };
-      
+      //Controlador de Kendo Tree
+      $scope.productos = new kendo.data.HierarchicalDataSource({
+        data: [{
+          "code": "1",
+          "text": "Productos",
+          "items": [{
+            "code": "22100",
+            "text": "ACTIVAS",
+            "items": [{
+              "code": "1300",
+              "text": "CARTERA",
+              "items": [{
+                "code": "1400",
+                "text": "Préstamo Vehicular",
+                "items": []
+              }]
+            }]
+          }]
+        }],
+        schema: {
+          model: {
+            children: 'items',
+            hasChildren: function(item) {
+              return item.items.length > 0;
+            }
+          }
+        }
+      });
+
       //OJO
         
         $scope.bankAccounts = {
