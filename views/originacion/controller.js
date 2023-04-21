@@ -246,7 +246,7 @@ define(function(require) {
       });
       $scope.marcarCheckboxes = function() {
         // Marcar los otros checkboxes si el checkbox1 está marcado
-        if ($scope.checkbox1) {
+        if ($scope.checkbox1==true) {
           $scope.checkbox2 = true;
           $scope.checkbox3 = true;
         }
