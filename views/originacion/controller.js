@@ -244,19 +244,18 @@ define(function(require) {
           }
         }
       });
-      $scope.marcarCheckboxes = function() {
-        // Marcar los otros checkboxes si el checkbox1 está marcado
-        if ($scope.checkbox1==true) {
-          $scope.checkbox2 = true;
-          $scope.checkbox3 = true;
-        }
-        // Desmarcar los otros checkboxes si el checkbox1 no está marcado
-        else {
-          $scope.checkbox2 = false;
-          $scope.checkbox3 = false;
-        }
-      };
-        
+      //Checbox Marck
+      $scope.checkbox1 = false;
+      $scope.checkbox2 = false;
+      $scope.checkbox3 = false;
+     
+        $scope.onCheckbox1Change = function() {
+          if ($scope.checkbox1) {
+            $scope.checkbox2 = true;
+            $scope.checkbox3 = true;
+          }
+        };
+
       //OJO
         
         $scope.bankAccounts = {
