@@ -244,23 +244,18 @@ define(function(require) {
           }
         }
       });
-        //Controlador de los checkboxes// Atencion Terminar
-        $scope.toggleCheckboxes = function() {
-          if ($scope.mainCheckbox) {
-            $scope.checkbox1Disabled = false;
-            $scope.checkbox2Disabled = false;
-          } else {
-            $scope.checkbox1Disabled = true;
-            $scope.checkbox2Disabled = true;
-          }
+      $scope.marcarCheckboxes = function() {
+        // Marcar los otros checkboxes si el checkbox1 está marcado
+        if ($scope.checkbox1) {
+          $scope.checkbox2 = true;
+          $scope.checkbox3 = true;
         }
-
-        // Estado inicial de los Checkbuttons
-        $scope.mainCheckbox = false;
-        $scope.checkbox1 = false;
-        $scope.checkbox2 = false;
-        $scope.checkbox1Disabled = true;
-        $scope.checkbox2Disabled = true;
+        // Desmarcar los otros checkboxes si el checkbox1 no está marcado
+        else {
+          $scope.checkbox2 = false;
+          $scope.checkbox3 = false;
+        }
+      };
         
       //OJO
         

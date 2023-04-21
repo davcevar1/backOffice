@@ -1777,17 +1777,17 @@ myDropzone.on("removedfile", file => {
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="systems-options" value="systems-check"  /> Run OFAC
+                  <input type="checkbox" name="systems-options" value="systems-check"  ng-model="checkbox2"/> Run OFAC
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="systems-options" value="systems-check"  /> Run BizChex
+                  <input type="checkbox" name="systems-options" value="systems-check" ng-model="checkbox2" /> Run BizChex
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="systems-options" value="systems-check" ng-model="" /> Run All Systems
+                  <input type="checkbox" name="systems-options" value="systems-check" ng-click="marcarCheckboxes()" /> Run All Systems
                 </label>
               </div>
             </div>
