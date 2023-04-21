@@ -217,7 +217,7 @@ define(function(require) {
         }
       };
       //Controlador de Kendo Tree
-      $scope.productos = new kendo.data.HierarchicalDataSource({
+      $scope.nodos = new kendo.data.HierarchicalDataSource({
         data: [{
           "code": "1",
           "text": "Nodo!",
@@ -244,7 +244,24 @@ define(function(require) {
           }
         }
       });
+        //Controlador de los checkboxes// Atencion Terminar
+        $scope.toggleCheckboxes = function() {
+          if ($scope.mainCheckbox) {
+            $scope.checkbox1Disabled = false;
+            $scope.checkbox2Disabled = false;
+          } else {
+            $scope.checkbox1Disabled = true;
+            $scope.checkbox2Disabled = true;
+          }
+        }
 
+        // Estado inicial de los Checkbuttons
+        $scope.mainCheckbox = false;
+        $scope.checkbox1 = false;
+        $scope.checkbox2 = false;
+        $scope.checkbox1Disabled = true;
+        $scope.checkbox2Disabled = true;
+        
       //OJO
         
         $scope.bankAccounts = {
