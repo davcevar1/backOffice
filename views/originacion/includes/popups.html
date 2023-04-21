@@ -1252,9 +1252,9 @@ myDropzone.on("removedfile", file => {
       <div class="modal-body dropzone dz-clickable" ng-show="docModal.upload">
         <div class="dz-default dz-message">
           <div class="dropZoneElement">
-          <div class="textWrapper">
+          <!--<div class="textWrapper">
                   <p class="dropImageHereText">Drop file here to upload</p>
-              </div>
+              </div>-->
               <iframe src="dropzone.html" style="width: 100%; height: fit-content;"></iframe>
 
           </div>
@@ -1777,17 +1777,17 @@ myDropzone.on("removedfile", file => {
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="systems-options" value="systems-check"  ng-model="checkbox2" ng-disabled="!mainCheckbox" /> Run OFAC
+                  <input type="checkbox" name="systems-options" value="systems-check"  /> Run OFAC
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="systems-options" value="systems-check"  ng-model="checkbox1" ng-disabled="!mainCheckbox"  /> Run BizChex
+                  <input type="checkbox" name="systems-options" value="systems-check"  /> Run BizChex
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="systems-options" value="systems-check" ng-model="mainCheckbox" ng-change="toggleCheckboxes()" /> Run All Systems
+                  <input type="checkbox" name="systems-options" value="systems-check" ng-model="" /> Run All Systems
                 </label>
               </div>
             </div>
