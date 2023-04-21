@@ -220,16 +220,16 @@ define(function(require) {
       $scope.productos = new kendo.data.HierarchicalDataSource({
         data: [{
           "code": "1",
-          "text": "Productos",
+          "text": "Nodo!",
           "items": [{
             "code": "22100",
-            "text": "ACTIVAS",
+            "text": "Nodo 2",
             "items": [{
               "code": "1300",
-              "text": "CARTERA",
+              "text": "Nodo 3",
               "items": [{
                 "code": "1400",
-                "text": "Préstamo Vehicular",
+                "text": "Nodo 4",
                 "items": []
               }]
             }]
