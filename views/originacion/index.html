@@ -210,6 +210,15 @@ myDropzone.on("removedfile", file => {
   console.log(`File removed: ${file.name}`);
 });
 
+// JavaScript
+var elemento = document.getElementById("mi-elemento");
+
+elemento.addEventListener("contextmenu", function(e) {
+  e.preventDefault(); // Evita que se abra el menú contextual predeterminado
+  // Aquí puedes crear tu propio menú contextual
+  alert("Has hecho clic derecho");
+});
+
 
   </script>
   <script src="node_modules/dropzone/dist/dropzone.js"></script>
@@ -1067,12 +1076,9 @@ myDropzone.on("removedfile", file => {
                 <span style="margin-right:20px;">Legend:</span>
                 <span class="text-muted" style="margin-right:20px;"><span class="cb-icon cb-nodata"></span> No records found</span>
                 <span class="text-danger"><span class="fa fa-search"></span> Records found</span>
-                <span class="fa fa-circle" class="text-muted" style="opacity: 0.4;; padding-right:5px"></span>No Clien</span>
-                <span class="fa fa-circle" class="text-muted" style="opacity: 0.4; color: #009f3c; padding-right:5px"></span>Client</span>
-                  <a ng-href="#systems" data-toggle="modal" ng-click="docModal={title:'State ID Card or Driver's License', value:1, upload:true}">
-                    <button class="btn btn-danger" style="border-radius: 5px; font-size: 12px;">Run Systems</button>
-                  </a>
-                
+                <span class="fa fa-circle" class="text-muted" style="opacity: 0.4; padding-right:5px; padding-left: 20px;"></span>No Clien</span>
+                <span class="fa fa-circle" class="text-muted" style="opacity: 0.4; color: #009f3c; padding-right:5px; padding-left: 20px;"></span>Client</span>
+                <div id="mi-elemento">Haz clic derecho aquí</div>
               </div>
               <div class="cb-group cb-group-collapsible">
                 <ul kendo-panel-bar>
