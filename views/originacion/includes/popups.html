@@ -1518,7 +1518,7 @@ myDropzone.on("removedfile", file => {
           </div>
           <div class="cb-flex cb-gutters-tiny cb-middle" ng-if="docModal.upload">
             
-            <button type="button" class="btn btn-primary" ng-click="agregarDiv()" ng-click="">Upload</button>
+            <button type="button" class="btn btn-primary" ng-click="agregarDiv()" data-dismiss="modal">Upload</button>
            <!-- <button type="button" class="btn btn-default" ng-click="docModal.upload=null" ng-if="!docModal.disallowCancel">Cancel</button>-->
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
@@ -1667,7 +1667,7 @@ myDropzone.on("removedfile", file => {
             <div class="col-sm-12" style="padding: 35px;">
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="systems-options" value="systems-check"  /> Jennifer Thompson
+                  <input  name="systems-options" value="systems-check"  /> Jennifer Thompson
                 </label>
                   <fieldset style="padding: 20px;">
                     <label>
