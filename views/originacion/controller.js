@@ -257,6 +257,9 @@ define(function(require) {
         };
 
       //OJO
+      $scope.setDocModal = function(docModal){
+           $scope.docModal = docModal ;        
+      };
         
         $scope.bankAccounts = {
           dataSource: {
