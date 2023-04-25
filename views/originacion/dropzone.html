@@ -396,9 +396,10 @@ $(document).ready(function() {
 </head>
 
 
-<form action="/file-upload"
-                    class="dropzone"
-                    id="my-awesome-dropzone">
+<form action="/file-upload" class="dropzone dz-clickable" id="my-awesome-dropzone">
+  <div class="dz-default dz-message">
+    <button class="dz-button" type="button"> <img src="images/uploadIcon.png" alt="upload your files">Click here <br>or<br> </Drop>Drop files here to upload</button>
+  </div>
 </form>
 
  
