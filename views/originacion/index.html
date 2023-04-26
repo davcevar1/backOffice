@@ -307,13 +307,13 @@ document.addEventListener("click", function() {
             </li>
             <li ng-show="owner.relationship=='Business'">
               <a href="#" class="text-center">
-                Shareholders
+                Shareholders/Signers
               </a>
             </li>
-            <li ng-show="owner.relationship=='Business'">
+            <!--<li ng-show="owner.relationship=='Business'">
               <a href="#" class="text-center">
                 Signers
-              </a>
+              </a>-->
             </li>
             <li ng-show="owner.relationship=='Personal'">
               <a href="#" class="text-center">
@@ -2315,12 +2315,93 @@ document.addEventListener("click", function() {
             <div class="container">
               <fieldset class="cb-group cb-group-simple">
                 <legend>Business Shareholders</legend>
-                <div>
-                  <kendo-tree-view k-data-source="nodos" />
-                </div>
+                <div id="example">
+
+                  <div id="treelist"></div>
+          
+                  <script id="photo-template" type="text/x-kendo-template">
+                     <div class='employee-photo'
+                          style='background-image: url(../content/web/treelist/people/#:data.EmployeeID#.jpg);'></div>
+                     <div class='employee-name'>#: FirstName #</div>
+                  </script>
+          
+                  <script>
+                      $(document).ready(function() {
+                          var service = "https://demos.telerik.com/kendo-ui/service";
+          
+                          $("#treelist").kendoTreeList({
+                              dataSource: {
+                                  transport: {
+                                      read: {
+                                          url: service + "/EmployeeDirectory/All",
+                                          dataType: "jsonp"
+                                      }
+                                  },
+                                  schema: {
+                                      model: {
+                                          id: "EmployeeID",
+                                          parentId: "ReportsTo",
+                                          fields: {
+                                              ReportsTo: { field: "ReportsTo",  nullable: true },
+                                              EmployeeID: { field: "EmployeeId", type: "number" },
+                                              Extension: { field: "Extension", type: "number" }
+                                          },
+                                          expanded: true
+                                      }
+                                  }
+                              },
+                              height: 540,
+                              filterable: true,
+                              sortable: true,
+                              columns: [
+                                  { field: "FirstName", title: "First Name", width: 280,
+                                    template: $("#photo-template").html() },
+                                  { field: "LastName", title: "Last Name", width: 160 },
+                                  { field: "Position" },
+                                  { field: "Phone", width: 200 },
+                                  { field: "Extension", width: 140 },
+                                  { field: "Address" }
+                              ],
+                              pageable: {
+                                  pageSize: 15,
+                                  pageSizes: true
+                              }
+                          });
+                      });
+                  </script>
+          
+                  <style>
+                      .employee-photo {
+                          display: inline-block;
+                          width: 32px;
+                          height: 32px;
+                          border-radius: 50%;
+                          background-size: 32px 35px;
+                          background-position: center center;
+                          vertical-align: middle;
+                          line-height: 32px;
+                          box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+                          margin-left: 5px;
+                      }
+          
+                      .employee-name {
+                          display: inline-block;
+                          vertical-align: middle;
+                          line-height: 32px;
+                          padding-left: 3px;
+                      }
+                  </style>
+              </div>
+  
                 <!--<div>
                   <kendo-grid options="shareholders"></kendo-grid>
                 </div>-->
+              </fieldset>
+              <fieldset class="cb-group cb-group-simple">
+                <legend>Business Signers</legend>
+                <div>
+                  <kendo-grid options="owners"></kendo-grid>
+                </div>
               </fieldset>
             </div>
           </div>
