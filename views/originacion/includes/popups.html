@@ -1260,7 +1260,7 @@ myDropzone.on("removedfile", file => {
           </div>
         </div>
       </div>
-      <div id="docManager"class="modal-body dropzone dz-clickable" ng-show="docModal.manageDocs">
+      <div id="docManager"class="modal-body dropzone dz-clickable" ng-show="docModal.manageDocs" ng-hide="!docModal.upload">
         <div class="list-group">
           <div style="display: flex; max-width: 800px;" id="contenedorDivs">
             <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
@@ -1294,7 +1294,7 @@ myDropzone.on("removedfile", file => {
               </div>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
       <div id="uploading" ng-if="docModal.upload && filesUpload.step==2">
         <ul class="list-group">
