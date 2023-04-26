@@ -1269,7 +1269,7 @@ myDropzone.on("removedfile", file => {
                   <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
                     <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
                   </div>
-                  <a ng-href="#viewer" data-toggle="modal" ng-click="setDocModal({title:'State ID Card', value:1, fields:true})">
+                  <a ng-href="#viewer" data-toggle="modal" ng-click="setDocModal({title:'State ID Card', value:1, fields:true, pdfViewer:true})">
                     <p class="card-text">StateIDCard.jpg</p>
                   </a>
                   <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
