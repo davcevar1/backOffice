@@ -1366,7 +1366,7 @@ document.addEventListener("click", function() {
                   <li class="k-state-active" ng-show="owner.relationship=='Business'">
                     Compani Co.
                     <div class="list-group">
-                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}" class="list-group-item">
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, docModal.manageDocs:true}" class="list-group-item">
                         <div class="cb-flex cb-gutters cb-middle">
                           <div>
                             <span class="fa fa-circle" title="Verified" ng-style="{'opacity' : !document.status ? 0.4 : 1}" ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
@@ -1438,7 +1438,7 @@ document.addEventListener("click", function() {
                                       <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
                                         <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
                                       </div>
-                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}">
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'State ID Card', value:1}">
                                         <p class="card-text">StateIDCard.jpg</p>
                                       </a>
                                       <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
@@ -1447,7 +1447,6 @@ document.addEventListener("click", function() {
                                     </div>
                                   </div>
                                 </div>
-                                
                               </div>
                               <div >
                                 <div class="card mb-3"  style=" align-items: center; padding: 10px; margin-top: 10px; float:right">
