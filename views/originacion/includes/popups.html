@@ -1504,10 +1504,9 @@ myDropzone.on("removedfile", file => {
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
           <div class="cb-flex cb-gutters-tiny cb-middle" ng-if="docModal.pdfViewer">
-            
             <button type="button" class="btn btn-primary" ng-click="agregarDiv()" data-dismiss="modal">Upload</button>
            <!-- <button type="button" class="btn btn-default" ng-click="docModal.upload=null" ng-if="!docModal.disallowCancel">Cancel</button>-->
-            <button type="button" class="btn btn-default" ng-show="docModal.manageDocs" >File Manager</button>
+            <button type="button" class="btn btn-default" ng-click="docModal.manageDocs=true" >File Manager</button>
           </div>
         </div>
       </div>
