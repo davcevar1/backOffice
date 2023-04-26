@@ -1249,7 +1249,18 @@ myDropzone.on("removedfile", file => {
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
           <h4 class="modal-title">{{ docModal.title }}</h4>
         </div>
-      <div id="docManager"class="modal-body dropzone dz-clickable" id="contenedorDivs" ng-show="docModal.manageDocs">
+      <div class="modal-body dropzone dz-clickable" ng-show="docModal.upload">
+        <div class="dz-default dz-message">
+          <div class="dropZoneElement">
+          <!--<div class="textWrapper">
+                  <p class="dropImageHereText">Drop file here to upload</p>
+              </div>-->
+              <iframe src="dropzone.html" style="width: 100%; height: 250px;"></iframe>
+
+          </div>
+        </div>
+      </div>
+      <div id="docManager"class="modal-body dropzone dz-clickable" ng-show="docModal.manageDocs">
         <div class="list-group">
           <div style="display: flex; max-width: 800px;" id="contenedorDivs">
             <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
@@ -1258,7 +1269,7 @@ myDropzone.on("removedfile", file => {
                   <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
                     <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
                   </div>
-                  <a ng-href="#viewer" data-toggle="modal" ng-click="setDocModal({title:'State ID Card', value:1, pdfViewer:true,fields:true})">
+                  <a ng-href="#viewer" data-toggle="modal" ng-click="setDocModal({title:'State ID Card', value:1, fields:true})">
                     <p class="card-text">StateIDCard.jpg</p>
                   </a>
                   <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
@@ -1285,16 +1296,6 @@ myDropzone.on("removedfile", file => {
           </div>
         </div>
       </div>
-      <div class="modal-body dropzone dz-clickable" ng-show="docModal.upload">
-        <div class="dz-default dz-message">
-          <div class="dropZoneElement">
-          <!--<div class="textWrapper">
-                  <p class="dropImageHereText">Drop file here to upload</p>
-              </div>-->
-              <iframe src="dropzone.html" style="width: 100%; height: 150px;"></iframe>
-          </div>
-        </div>
-      </div>
       <div id="uploading" ng-if="docModal.upload && filesUpload.step==2">
         <ul class="list-group">
           <li class="list-group-item cb-flex cb-middle cb-gutters" ng-class="{'cb-error':file.processed && file.error, 'cb-finished':file.processed && !file.error}" ng-repeat="file in filesUpload.files">
@@ -1316,7 +1317,7 @@ myDropzone.on("removedfile", file => {
           </li>
         </ul>
       </div>
-      <div class="cb-view-files modal-body" style="padding:0;" ng-show="docModal.pdfViewer">
+      <div class="cb-view-files modal-body" style="padding:0;" ng-show="!docModal.upload">
         <style>
           .cb-view-files .cb-form .panel-group>h4 {
             padding-left: 15px;
@@ -1465,32 +1466,6 @@ myDropzone.on("removedfile", file => {
               </div>
             </div>
           </div>
-          <div class="cb-grow">
-            <div class="cb-flex cb-gutters-tiny cb-middle" ng-show="pdfViewer">
-              <!--<button class="btn btn-default" style="min-width: initial;" ng-click="vm.previusDocument()" title="Previous"><span class="fa fa-arrow-left"></span></button>-->
-              <span class="hidden-xs">1 <span>of</span> 2</span>
-              <!--<button class="btn btn-default" style="min-width: initial;" ng-click="vm.nextDocument()" title="Next"><span class="fa fa-arrow-right"></span></button>-->
-              <button style="min-width: initial;" class="btn btn-default" ng-click="docModal.upload=true" title="Upload more files">
-                <div class="hidden-sm hidden-md hidden-lg"><span class="fa fa-upload"></span></div>
-                <div class="hidden-xs">Upload more files</div>
-              </button>
-              <div class="dropup" style="position: relative;">
-                <button class="btn btn-default" style="min-width: initial;" data-toggle="dropdown" title="Current file information"><span class="fa fa-info-circle"></span></button>
-                <ul class="dropdown-menu" style="color:#333; max-height:400px; overflow: auto;">
-                  <li>
-                    <div ng-repeat="field in header.fields | filter:{opened:false}" class="cb-flex cb-gutters" style="padding: 5px 0px; margin: 0px 10px; border-bottom: 1px solid rgb(221, 221, 221);" ng-style="{'border-bottom': !$last? '1px solid #ddd' : ''}">
-                      <strong class="cb-grow cb-no-wrap ng-binding">Creado por:</strong>
-                      <div class="cb-no-wrap ng-binding">Romero</div>
-                    </div>
-                    <div ng-repeat="field in header.fields | filter:{opened:false}" class="cb-flex cb-gutters" style="padding: 5px 0px; margin: 0px 10px; border-bottom: 1px solid rgb(221, 221, 221);" ng-style="{'border-bottom': !$last? '1px solid #ddd' : ''}">
-                      <strong class="cb-grow cb-no-wrap ng-binding">Fecha de creación:</strong>
-                      <div class="cb-no-wrap ng-binding">12/12/2018</div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
           <div class="cb-flex cb-gutters-tiny cb-middle" ng-if="!docModal.upload">
             <button type="button" class="btn btn-primary"  data-dismiss="modal">Save</button>
             <button class="btn btn-default"data-dismiss="modal" ng-click="rejectELement()">Reject</button>
@@ -1502,11 +1477,6 @@ myDropzone.on("removedfile", file => {
             <button type="button" class="btn btn-primary" ng-click="agregarDiv()" data-dismiss="modal">Upload</button>
            <!-- <button type="button" class="btn btn-default" ng-click="docModal.upload=null" ng-if="!docModal.disallowCancel">Cancel</button>-->
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-          <div class="cb-flex cb-gutters-tiny cb-middle" ng-if="docModal.pdfViewer">
-            <button type="button" class="btn btn-primary" ng-click="agregarDiv()" data-dismiss="modal">Upload</button>
-           <!-- <button type="button" class="btn btn-default" ng-click="docModal.upload=null" ng-if="!docModal.disallowCancel">Cancel</button>-->
-            <button type="button" class="btn btn-default" ng-click="docModal.manageDocs=true" >File Manager</button>
           </div>
         </div>
       </div>
