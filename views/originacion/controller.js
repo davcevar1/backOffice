@@ -177,7 +177,7 @@ define(function(require) {
                         .addClass('btn btn-danger')
                         .css({
                             "border-radius": "3px",
-                            "font-size": "10px"
+                            "font-size": "12px"
                         })
                         .append('<i class="fa fa-trash"></i>')
                         .text('Delete')
@@ -216,46 +216,8 @@ define(function(require) {
           $scope.documentos.splice(index, 1);
         }
       };
-      //Controlador de Kendo Tree
-      $scope.nodos = new kendo.data.HierarchicalDataSource({
-        data: [{
-          "code": "1",
-          "text": "Nodo!",
-          "items": [{
-            "code": "22100",
-            "text": "Nodo 2",
-            "items": [{
-              "code": "1300",
-              "text": "Nodo 3",
-              "items": [{
-                "code": "1400",
-                "text": "Nodo 4",
-                "items": []
-              }]
-            }]
-          }]
-        }],
-        schema: {
-          model: {
-            children: 'items',
-            hasChildren: function(item) {
-              return item.items.length > 0;
-            }
-          }
-        }
-      });
-      //Checbox Marck
-      $scope.checkbox1 = false;
-      $scope.checkbox2 = false;
-      $scope.checkbox3 = false;
-     
-        $scope.onCheckbox1Change = function() {
-          if ($scope.checkbox1) {
-            $scope.checkbox2 = true;
-            $scope.checkbox3 = true;
-          }
-        };
-
+      
+    
       //OJO
       $scope.setDocModal = function(docModal){
            $scope.docModal = docModal ;        
