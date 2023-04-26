@@ -1260,42 +1260,6 @@ myDropzone.on("removedfile", file => {
           </div>
         </div>
       </div>
-      <div id="docManager"class="modal-body dropzone dz-clickable" ng-show="docModal.manageDocs">
-        <div class="list-group">
-          <div style="display: flex; max-width: 800px;" id="contenedorDivs">
-            <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                    <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
-                  </div>
-                  <a ng-href="#viewer" data-toggle="modal" ng-click="setDocModal({title:'State ID Card', value:1, fields:true})">
-                    <p class="card-text">StateIDCard.jpg</p>
-                  </a>
-                  <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
-                    <i class="fa fa-trash"></i> Delete
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                    <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
-                  </div>
-                  <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Licence Card', value:1}">
-                    <p class="card-text">LicenceCard.jpg</p>
-                  </a>
-                  <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
-                    <i class="fa fa-trash"></i> Delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div id="uploading" ng-if="docModal.upload && filesUpload.step==2">
         <ul class="list-group">
           <li class="list-group-item cb-flex cb-middle cb-gutters" ng-class="{'cb-error':file.processed && file.error, 'cb-finished':file.processed && !file.error}" ng-repeat="file in filesUpload.files">
@@ -1483,6 +1447,7 @@ myDropzone.on("removedfile", file => {
     </div>
   </div>
 </div>
+<!--Viwere files manager-->
 <div id="viewer-files" class="modal fade">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -1501,7 +1466,7 @@ myDropzone.on("removedfile", file => {
           </div>
         </div>
       </div>
-      <div id="docManager"class="modal-body dropzone dz-clickable" ng-show="docModal.manageDocs">
+      <div id="docManager"class="modal-body dropzone dz-clickable" >
         <div class="list-group">
           <div style="display: flex; max-width: 800px;" id="contenedorDivs">
             <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
@@ -1510,7 +1475,7 @@ myDropzone.on("removedfile", file => {
                   <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
                     <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
                   </div>
-                  <a ng-href="#viewer" data-toggle="modal" ng-click="setDocModal({title:'State ID Card', value:1, fields:true})">
+                  <a ng-href="#viewer" data-toggle="modal" data-dismiss="modal" ng-click="setDocModal({title:'State ID Card', value:1, fields:true})">
                     <p class="card-text">StateIDCard.jpg</p>
                   </a>
                   <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
@@ -1548,6 +1513,9 @@ myDropzone.on("removedfile", file => {
                 <div class="hidden-sm hidden-md hidden-lg"><span class="fa fa-upload"></span></div>
                 <div class="hidden-xs">Upload more files</div>
               </button>
+              <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'State ID Card', value:1, upload:true}">
+                <button class="btn btn-danger" style="border-radius: 5px; font-size: 12px;">+ Upload Files</button>
+            </a>
               <div class="dropup" style="position: relative;">
                 <button class="btn btn-default" style="min-width: initial;" data-toggle="dropdown" title="Current file information"><span class="fa fa-info-circle"></span></button>
                 <ul class="dropdown-menu" style="color:#333; max-height:400px; overflow: auto;">
