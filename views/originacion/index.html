@@ -149,7 +149,7 @@
 </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
   <script>
-  function descargarZIP() {
+  function descargarZIP3() {
   const zip = new JSZip();
 
   zip.file("Account-Signature Card.pdf", "Contenido del archivo 1");
@@ -169,7 +169,7 @@
     archivo.click();
   });
 }
-function descargarZIP2() {
+function descargarZIP5() {
   const zip = new JSZip();
 
   zip.file("Business-Signature.pdf", "Contenido del archivo 1");
@@ -2731,8 +2731,8 @@ document.addEventListener("click", function() {
                   </li>
                 </ul>
                 <div style="align-items: center;">
-                  <button ng-show="owner.relationship=='Personal'" class="btn btn-primary navbar-btn" onclick="descargarZIP()">Download Folder</button>
-                   <button ng-show="owner.relationship=='Business'" class="btn btn-primary navbar-btn" onclick="descargarZIP2()">Download Folder</button>
+                  <button ng-show="owner.relationship=='Personal'" class="btn btn-primary navbar-btn" onclick="descargarZIP3()">Download Folder</button>
+                   <button ng-show="owner.relationship=='Business'" class="btn btn-primary navbar-btn" onclick="descargarZIP5()">Download Folder</button>
         
                 </div>
               </div>
