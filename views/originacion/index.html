@@ -1401,7 +1401,7 @@ document.addEventListener("click", function() {
                   <li class="k-state-active">
                     Martina Flores
                     <div class="list-group">
-                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, manageDocs:true, pdfViewer:false, upload:false }" class="list-group-item">
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
                         <div class="cb-flex cb-gutters cb-middle">
                           <div>
                             <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
@@ -2398,7 +2398,7 @@ document.addEventListener("click", function() {
               <fieldset>
               <legend>Business Shareholders</legend>
               <div>
-                  <kendo-grid options="shareholders"></kendo-grid>
+                  <kendo-tree-list options="shareholders"></kendo-tree-list>
                 </div>
               </fieldset>
               <fieldset class="cb-group cb-group-simple">

@@ -222,6 +222,7 @@ define(function(require) {
       $scope.setDocModal = function(docModal){
            $scope.docModal = docModal ;        
       };
+      
         
         $scope.bankAccounts = {
           dataSource: {
@@ -737,7 +738,12 @@ define(function(require) {
                 contentType: "application/json; charset=utf-8",
                 dataType: "json"
               }
-            }
+            },
+            schema: {
+              model: {
+                  id: "id",
+                  parentId: "parentId"}
+              }
           },
           scrollable: false,
           selectable: true,
