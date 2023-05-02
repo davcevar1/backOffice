@@ -777,7 +777,7 @@ define(function(require) {
           toolbar: '<div class="cb-flex cb-middle"><button class="btn btn-primary" ng-if="isAdvanced"><span class="fa fa-search"></span> Search</button><div class="cb-flex cb-middle cb-right cb-grow text-right"><div class="text-muted small" style="margin-right:10px;">Export:</div><button class="btn btn-default" style="margin:0;" title="Export PDF"><span class="fa fa-file-pdf-o" style="margin:0;"></span></button><button class="btn btn-default" style="margin:0;" title="Export Excel"><span class="fa fa-file-excel-o" style="margin:0;"></span></button></div></div>'
         };
         $scope.addShareholder = function (){
-          $scope.shareholders.dataSource.add(
+          $scope.shareholdersList.dataSource.add(
             {
               "lastName": "Thompson",
               "firstName": "Jeniffer",
