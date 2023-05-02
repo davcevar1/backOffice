@@ -267,7 +267,7 @@ define(function(require) {
       };
   
       $scope.setViewState = function(viewState) {
-        $scope.viewState = viewState;
+        $scope.docModal.viewState = viewState;
       };
       $scope.openOwner = function(){
         $('#owner').modal();
