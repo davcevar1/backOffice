@@ -269,8 +269,9 @@ define(function(require) {
       $scope.setViewState = function(viewState) {
         $scope.viewState = viewState;
       };
-      
-        
+      $scope.openOwner = function(){
+        $('#owner').modal();
+      };
         $scope.bankAccounts = {
           dataSource: {
             data: [
@@ -797,6 +798,7 @@ define(function(require) {
           change: function() {
             $('#owner').modal();
           },
+          toolbar:'<button type="button" class="btn btn-default" ng-click="showModal(\'owner\', $event);"> Add Shareholder</button>',
           columns: [{
               field: "lastName",
               title: "Name",
@@ -818,7 +820,14 @@ define(function(require) {
             {
               field: "ownership",
               title: "Ownership"
-            }
+            },
+            {
+                            width: 165,
+                            attributes: {
+                              class: 'cb-actions'
+                            },
+                            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-sm" title="Editar" onclick="event.stopPropagation();" ng-click="showModal(\'owner\', $event);"><span class="fa fa-pencil"></span></button><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="event.stopPropagation();"><span class="fa fa-times"></span></button></div>'
+                          }
           ]
         };
         $scope.activate();
