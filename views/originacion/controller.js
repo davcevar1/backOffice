@@ -815,7 +815,7 @@ define(function(require) {
           change: function() {
             $('#owner').modal();
           },
-          toolbar:'<button type="button" class="btn btn-default" ng-click="showModal(\'owner\', $event);"> Add Shareholder</button>',
+          toolbar:'<button type="button" class="btn btn-default fa fa-plus" ng-click="showModal(\'owner\', $event);"> Add Shareholder</button>',
           columns: [{
               field: "lastName",
               title: "Name",
