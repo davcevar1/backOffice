@@ -217,6 +217,25 @@ define(function(require) {
         }
       };
       
+      $scope.descargarZIP3 = function() {
+        const zip = new JSZip();
+  
+        zip.file("Account-Signature Card.pdf", "Contenido del archivo 1");
+        zip.file("Account-FTA.pdf", "Contenido del archivo 2");
+        zip.file("W8 Personal.pdf", "Contenido del archivo 3");
+        zip.file("W8 Suplement.pdf", "Contenido del archivo 4");
+        zip.file("Account-Service Request.pdf", "Contenido del archivo 5");
+        zip.file("Checklist-Personal Account_FILLABLE_Rev 2020-07.pdf", "Contenido del archivo 6");
+  
+        zip.file("nebraska-drivers-license.pdf", "images/nebraska-drivers-license.pdf", { binary: true });
+  
+        zip.generateAsync({ type: "blob" }).then(function (contenido) {
+          const archivo = document.createElement("a");
+          archivo.href = URL.createObjectURL(contenido);
+          archivo.download = "US-MartinaFlores-020320231045";
+          archivo.click();
+        });
+      };
     
       //OJO
       $scope.setDocModal = function(docModal){
