@@ -265,6 +265,10 @@ define(function(require) {
       $scope.setDocModal = function(docModal){
            $scope.docModal = docModal ;        
       };
+  
+      $scope.setViewState = function(viewState) {
+        $scope.viewState = viewState;
+      };
       
         
         $scope.bankAccounts = {

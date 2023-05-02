@@ -1481,7 +1481,7 @@ myDropzone.on("removedfile", file => {
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
           <div class="cb-flex cb-gutters-tiny cb-middle" ng-show="docModal.viewState == 'fileManager'">
-            <button style="min-width: initial;" class="btn btn-default" ng-click="docModal.upload=true" title="Upload more files">
+            <button style="min-width: initial;" class="btn btn-default" ng-click="setViewState('upload')" title="Upload more files">
               <div class="hidden-sm hidden-md hidden-lg"><span class="fa fa-upload"></span></div>
               <div class="hidden-xs">Upload more files</div>
             </button>
