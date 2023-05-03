@@ -192,6 +192,24 @@ define(function(require) {
         
         
       };
+      $scope.divs = [];
+      $scope.addDoc = function(){
+        $scope.divs.push('<div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">'+
+        '<div class="card mb-3">'+
+        '<div class="card-body">'+
+        '<div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">'+
+        '<img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">'+
+        '</div>'+
+        '<a ng-href="#viewer" data-toggle="modal" ng-click="setDocModal({title:\'State ID Card\', value:1, viewState : \'pdfViewer\'})">'+
+        '<p class="card-text">StateIDCard.jpg</p>'+
+        '</a>'+
+        '<button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">'+
+        '<i class="fa fa-trash"></i> Delete'+
+        '</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>');
+      };
       $scope.documentos = [
         {id: 1, nombre: 'Documento 1', url: 'documento1.pdf'},
         {id: 2, nombre: 'Documento 2', url: 'documento2.pdf'},
