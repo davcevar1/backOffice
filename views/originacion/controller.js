@@ -194,21 +194,22 @@ define(function(require) {
       };
       $scope.divs = [];
       $scope.addDoc = function(){
-        $scope.divs.push('<div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">'+
+        var nuevoDiv ='<div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">'+
         '<div class="card mb-3">'+
-        '<div class="card-body">'+
-        '<div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">'+
-        '<img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">'+
+          '<div class="card-body">'+
+            '<div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">'+
+              '<img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">'+
+            '</div>'+
+            '<a ng-href="#viewer" data-toggle="modal" ng-click="setDocModal({title:\'State ID Card\', value:1, viewState : \'pdfViewer\'}, this)">'+
+              '<p class="card-text">StateIDCard.jpg</p>'+
+            '</a>'+
+            '<button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">'+
+              '<i class="fa fa-trash"></i> Delete'+
+            '</button>'+
+          '</div>'+
         '</div>'+
-        '<a ng-href="#viewer" data-toggle="modal" ng-click="setDocModal({title:\'State ID Card\', value:1, viewState : \'pdfViewer\'})">'+
-        '<p class="card-text">StateIDCard.jpg</p>'+
-        '</a>'+
-        '<button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">'+
-        '<i class="fa fa-trash"></i> Delete'+
-        '</button>'+
-        '</div>'+
-        '</div>'+
-        '</div>');
+      '</div>';
+      $scope.divs.push(nuevoDiv);
       };
       $scope.documentos = [
         {id: 1, nombre: 'Documento 1', url: 'documento1.pdf'},
@@ -256,7 +257,7 @@ define(function(require) {
       };
     
       //OJO
-      $scope.setDocModal = function(docModal){
+      $scope.setDocModal = function(docModal,doc,div){
            $scope.docModal = docModal ;        
       };
       $scope.descargarZIP5 = function() {
