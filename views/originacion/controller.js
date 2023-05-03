@@ -793,6 +793,23 @@ define(function(require) {
             }
           );
         };
+        $scope.addShareholderFa = function (){
+          $scope.shareholdersList.dataSource.add(
+            {
+              "lastName": "Thompson",
+              "firstName": "Jeniffer",
+              "middleName": "C",
+              "id":5,
+              "parentId":null,
+              "dob": "06/15/1979",
+              "ssn": "12-456231",
+              "type": "Shareholder",
+              "phone": "(908) 207 8822",
+              "address": "234 Main St., NJ 20435, United States",
+              "ownership": "33%"
+            }
+          );
+        };
         $scope.requestType = 'from-loan';
         $scope.shareholder = {};
         $scope.shareholders = {
@@ -815,7 +832,7 @@ define(function(require) {
           change: function() {
             $('#owner').modal();
           },
-          toolbar:'<button type="button" class="btn btn-default fa fa-plus" ng-click="showModal(\'owner\', $event);"> Add Shareholder</button>',
+          toolbar:'<button type="button" class="btn btn-default fa fa-plus" ng-click="addShareholder()"> Add Shareholder</button>',
           columns: [{
               field: "lastName",
               title: "Name",
