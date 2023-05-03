@@ -203,7 +203,7 @@ define(function(require) {
             '<a ng-href="#viewer" data-toggle="modal" ng-click="setDocModal({title:\'State ID Card\', value:1, viewState : \'pdfViewer\'}, this)">'+
               '<p class="card-text">StateIDCard.jpg</p>'+
             '</a>'+
-            '<button class="btn btn-danger" ng-click="eliminarDiv($index)" style="border-radius: 3px; font-size: 12px;">'+
+            '<button class="btn btn-danger" ng-click="deleteDoc($index)" style="border-radius: 3px; font-size: 12px;">'+
               '<i class="fa fa-trash"></i> Delete'+
             '</button>'+
           '</div>'+
