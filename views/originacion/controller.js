@@ -194,6 +194,7 @@ define(function(require) {
       };
       $scope.divs = [];
       $scope.addDoc = function(){
+        myDropzone.removeAllFiles(true);
         var nuevoDiv ='<div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">'+
         '<div class="card mb-3">'+
           '<div class="card-body">'+

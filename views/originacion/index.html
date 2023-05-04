@@ -181,7 +181,7 @@ const { Dropzone } = require("dropzone");
 // then you need to disabled the autoDiscover behaviour here:
 Dropzone.autoDiscover = true;
 
-let myDropzone = new Dropzone("#my-awesome-dropzone", {
+var myDropzone = new Dropzone("#my-awesome-dropzone", {
   addRemoveLinks: true,
   url: "/file-upload"
 });
