@@ -803,14 +803,14 @@ define(function(require) {
           ],
           toolbar: '<div class="cb-flex cb-middle"><button class="btn btn-primary" ng-if="isAdvanced"><span class="fa fa-search"></span> Search</button><div class="cb-flex cb-middle cb-right cb-grow text-right"><div class="text-muted small" style="margin-right:10px;">Export:</div><button class="btn btn-default" style="margin:0;" title="Export PDF"><span class="fa fa-file-pdf-o" style="margin:0;"></span></button><button class="btn btn-default" style="margin:0;" title="Export Excel"><span class="fa fa-file-excel-o" style="margin:0;"></span></button></div></div>'
         };
-        $scope.addShareholder = function (){
+        $scope.addShareholder = function (parentId){
           $scope.shareholdersList.dataSource.add(
             {
               "lastName": "Thompson",
               "firstName": "Jeniffer",
               "middleName": "C",
-              "id":4,
-              "parentId":3,
+              "id":Math.round(Math.random() * 10000),
+              "parentId":parentId,
               "dob": "06/15/1979",
               "ssn": "12-456231",
               "type": "Shareholder",
@@ -887,7 +887,7 @@ define(function(require) {
                             attributes: {
                               class: 'cb-actions'
                             },
-                            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="addShareholder()"><span class="fa fa-plus"></span></button><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="event.stopPropagation();"><span class="fa fa-times"></span></button></div>'
+                            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="addShareholder(#:dataItem.id#)"><span class="fa fa-plus"></span></button><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="event.stopPropagation();"><span class="fa fa-times"></span></button></div>'
                           }
           ]
         };
