@@ -219,7 +219,12 @@ define(function(require) {
         {id: 2, nombre: 'Documento 2', url: 'documento2.pdf'},
         {id: 3, nombre: 'Documento 3', url: 'documento3.pdf'}
       ];
-      
+      $scope.files= [
+        {id: 1, nombre: 'Documento 1', url: 'documento1.pdf'},
+        {id: 2, nombre: 'Documento 2', url: 'documento2.pdf'},
+        {id: 3, nombre: 'Documento 3', url: 'documento3.pdf'}
+      ]; 
+
       $scope.abrirModal = function(documento) {
         // Aquí abres la pantalla modal utilizando los datos del documento que recibes como parámetro
         console.log('Abriendo modal para el documento:', documento);
