@@ -1332,7 +1332,7 @@ document.addEventListener("click", function() {
               <div class="cb-group cb-group-collapsible">
                 <ul kendo-panel-bar>
                   <li class="k-state-active" ng-show="owner.relationship=='Business'">
-                    Compani Co.
+                   Compani Co.  <span style="font-size:11px;font-weight: lighter; float:right">(Owner,Signer,Shareholder)</span> 
                     <div class="list-group">
                       <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
                         <div class="cb-flex cb-gutters cb-middle">
@@ -1471,7 +1471,7 @@ document.addEventListener("click", function() {
                     </div>
                   </li>
                   <li class="k-state-active">
-                    Martina Flores
+                    Martina Flores  <span style="font-size:11px;font-weight: lighter; float:right">(Owner,Signer,Shareholder)</span> 
                     <div class="list-group">
                       <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
                         <div class="cb-flex cb-gutters cb-middle">
@@ -1607,265 +1607,304 @@ document.addEventListener("click", function() {
                           </div>
                         </div>
                       </a>
+                      <div class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle" style="align-items: flex-start;">
+                          <div>
+                            <span class="fa fa-circle" title="Verified" ng-style="{'opacity' : !document.status ? 0.4 : 1}" ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
+                              style="opacity: 0.4; padding-top: 16px;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x" style="padding-top: 10px;"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Sign Documents</strong>
+                            <div class="small text-muted">1 file uploaded</div>
+                            <div class="small text-danger">
+                              <a href="#"ng-click="descargarZIP3()">8 files to upload</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </li>
                 
                   <li class="k-state-active">
-                    Frank Morris<br><legend>(Owner,Signer,Shareholder)</legend> 
+                    Frank Morris
+                    <span style="font-size:11px;font-weight: lighter; float:right">(Signer,Shareholder)</span> 
                     <div class="list-group">
-                      <div class="list-group-item">
-                        <div class="cb-flex cb-gutters cb-middle" style="align-items: flex-start;">
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
                           <div>
                             <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
-                              style="opacity: 0.4; padding-top: 16px; "></span>
+                              style="opacity: 0.4;  "></span>
                             <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
-                              style="opacity: 0.4; padding-top: 16px; color: #a94442;"></span>
+                              style="opacity: 0.4;  color: #a94442;"></span>
                           </div>
                           <div>
-                            <span class="fa fa-file-text-o fa-2x" style="padding-top: 10px;"></span>
+                            <span class="fa fa-file-text-o fa-2x"></span>
                           </div>
                           <div class="cb-grow">
-                            <details>
-                              <summary style="margin: 10px;"><strong>State ID Card or Driver's License</strong><div class="small text-muted">1 file uploaded</div></summary>
-                             <!-- <form action="/target" class="dropzone" id="my-great-dropzone"></form>-->
-                              <div style="display: flex; max-width: 800px;" id="contenedorDivs">
-                                <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
-                                  <div class="card mb-3">
-                                    <div class="card-body">
-                                      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                                        <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
-                                      </div>
-                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1, upload:false, pdfViewer:true, manageDocs:false}">
-                                        <p class="card-text">StateIDCard.jpg</p>
-                                      </a>
-                                      <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
-                                        <i class="fa fa-trash"></i> Delete
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
-                                  <div class="card mb-3">
-                                    <div class="card-body">
-                                      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                                        <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
-                                      </div>
-                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}">
-                                        <p class="card-text">StateIDCard.jpg</p>
-                                      </a>
-                                      <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
-                                        <i class="fa fa-trash"></i> Delete
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                              </div>
-                              <div >
-                                <div class="card mb-3"  style=" align-items: center; padding: 10px; margin-top: 10px; float:right">
-                                  <div class="card-body">
-                                    <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1, upload:true}">
-                                      <button class="btn btn-danger" style="border-radius: 5px; font-size: 12px;">+ Upload Files</button>
-                                     
-                                  </a>
-                                 <!-- <button class="btn btn-primary" ng-click="agregarDiv()">Agregar</button>-->
-                                  </div>
-                                </div>
-                              </div>
-                            </details>
+                            <strong>State ID Card or Driver´s License</strong>
+                            <div class="small text-muted">1 file uploaded</div>
                           </div>
                         </div>
-                      </div>
-                      <div class="list-group-item">
-                        <div class="cb-flex cb-gutters cb-middle" style="align-items: flex-start;">
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
                           <div>
                             <span class="fa fa-circle" title="Verified" ng-style="{'opacity' : !document.status ? 0.4 : 1}" ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
-                              style="opacity: 0.4; padding-top: 16px;"></span>
+                              style="opacity: 0.4;"></span>
                           </div>
                           <div>
-                            <span class="fa fa-file-text-o fa-2x" style="padding-top: 10px;"></span>
+                            <span class="fa fa-file-text-o fa-2x"></span>
                           </div>
                           <div class="cb-grow">
-                            <details>
-                              <summary style="margin: 10px;"><strong>Social Security Card or Passport</strong><div class="small text-muted">1 file uploaded</div></summary>
-                             <!-- <form action="/target" class="dropzone" id="my-great-dropzone"></form>-->
-                              <div style="display: flex; max-width: 800px;" id="contenedorDivs">
-                                <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 2px;">
-                                  <div class="card mb-3">
-                                    <div class="card-body">
-                                      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                                        <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
-                                      </div>
-                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Social Security Card or Passport', value:1}">
-                                        <p class="card-text">SocialSecurity.png</p>
-                                      </a>
-                                      <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
-                                        <i class="fa fa-trash"></i> Delete
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 2px;">
-                                  <div class="card mb-3">
-                                    <div class="card-body">
-                                      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                                        <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
-                                      </div>
-                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Social Security Card or Passport', value:1}">
-                                        <p class="card-text">SocialSecurity.png</p>
-                                      </a>
-                                      <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
-                                        <i class="fa fa-trash"></i> Delete
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                              </div>
-                              <div >
-                                <div class="card mb-3"  style=" align-items: center; padding: 10px; margin-top: 10px; float:right">
-                                  <div class="card-body">
-                                    <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1, upload:true}">
-                                      <button class="btn btn-danger" style="border-radius: 5px; font-size: 12px;">+ Upload Files</button>
-                                     
-                                  </a>
-                                 <!-- <button class="btn btn-primary" ng-click="agregarDiv()">Agregar</button>-->
-                                  </div>
-                                </div>
-                              </div>
-                            </details>
+                            <strong>Social Security Card or Passport</strong>
+                            <div class="small text-muted">1 file uploaded</div>
                           </div>
                         </div>
-                      </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4; "></span>
+                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  color: #a94442;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Copy of Initial Deposit</strong>
+                            <div class="small text-muted">1 file uploaded</div>
+                          </div>
+                        </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  "></span>
+                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  color: #a94442;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Attorney Trust Account AML Disclosure Form </strong>
+                            <div class="small text-muted">1 file uploaded</div>
+                          </div>
+                        </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  "></span>
+                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  color: #a94442;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Receipt of Time Deposit </strong>
+                            <div class="small text-muted">1 file uploaded</div>
+                          </div>
+                        </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  "></span>
+                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  color: #a94442;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Memo Approved by Management & BSA </strong>
+                            <div class="small text-muted">1 file uploaded</div>
+                          </div>
+                        </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  "></span>
+                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  color: #a94442;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Reference Letter</strong>
+                            <div class="small text-muted">1 file uploaded</div>
+                          </div>
+                        </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  "></span>
+                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  color: #a94442;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Proof of Physical Address</strong>
+                            <div class="small text-muted">1 file uploaded</div>
+                          </div>
+                        </div>
+                      </a>
                     </div>
                   </li>
                   <li class="k-state-active" ng-show="owner.relationship=='Personal'" >
-                    John Johnson
+                    John Johnson  <span style="font-size:11px;font-weight: lighter; float:right">(Signer)</span> 
                     <div class="list-group">
-                      <div class="list-group-item">
-                        <div class="cb-flex cb-gutters cb-middle" style="align-items: flex-start;">
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
                           <div>
                             <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
-                              style="opacity: 0.4; padding-top: 16px; "></span>
+                              style="opacity: 0.4;  "></span>
                             <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
-                              style="opacity: 0.4; padding-top: 16px; color: #a94442;"></span>
+                              style="opacity: 0.4;  color: #a94442;"></span>
                           </div>
                           <div>
-                            <span class="fa fa-file-text-o fa-2x" style="padding-top: 10px;"></span>
+                            <span class="fa fa-file-text-o fa-2x"></span>
                           </div>
                           <div class="cb-grow">
-                            <details>
-                              <summary style="margin: 10px;"><strong>State ID Card or Driver's License</strong><div class="small text-muted">1 file uploaded</div></summary>
-                             <!-- <form action="/target" class="dropzone" id="my-great-dropzone"></form>-->
-                              <div style="display: flex; max-width: 800px;" id="contenedorDivs">
-                                <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
-                                  <div class="card mb-3">
-                                    <div class="card-body">
-                                      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                                        <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
-                                      </div>
-                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}">
-                                        <p class="card-text">StateIDCard.jpg</p>
-                                      </a>
-                                      <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
-                                        <i class="fa fa-trash"></i> Delete
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
-                                  <div class="card mb-3">
-                                    <div class="card-body">
-                                      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                                        <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
-                                      </div>
-                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1}">
-                                        <p class="card-text">StateIDCard.jpg</p>
-                                      </a>
-                                      <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
-                                        <i class="fa fa-trash"></i> Delete
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                              </div>
-                              <div >
-                                <div class="card mb-3"  style=" align-items: center; padding: 10px; margin-top: 10px; float:right">
-                                  <div class="card-body">
-                                    <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1, upload:true}">
-                                      <button class="btn btn-danger" style="border-radius: 5px; font-size: 12px;">+ Upload Files</button>
-                                     
-                                  </a>
-                                 <!-- <button class="btn btn-primary" ng-click="agregarDiv()">Agregar</button>-->
-                                  </div>
-                                </div>
-                              </div>
-                            </details>
+                            <strong>State ID Card or Driver´s License</strong>
+                            <div class="small text-muted">1 file uploaded</div>
                           </div>
                         </div>
-                      </div>
-                      <div class="list-group-item">
-                        <div class="cb-flex cb-gutters cb-middle" style="align-items: flex-start;">
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
                           <div>
                             <span class="fa fa-circle" title="Verified" ng-style="{'opacity' : !document.status ? 0.4 : 1}" ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
-                              style="opacity: 0.4; padding-top: 16px;"></span>
+                              style="opacity: 0.4;"></span>
                           </div>
                           <div>
-                            <span class="fa fa-file-text-o fa-2x" style="padding-top: 10px;"></span>
+                            <span class="fa fa-file-text-o fa-2x"></span>
                           </div>
                           <div class="cb-grow">
-                            <details>
-                              <summary style="margin: 10px;"><strong>Social Security Card or Passport</strong><div class="small text-muted">1 file uploaded</div></summary>
-                             <!-- <form action="/target" class="dropzone" id="my-great-dropzone"></form>-->
-                              <div style="display: flex; max-width: 800px;" id="contenedorDivs">
-                                <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 2px;">
-                                  <div class="card mb-3">
-                                    <div class="card-body">
-                                      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                                        <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
-                                      </div>
-                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Social Security Card or Passport', value:1}">
-                                        <p class="card-text">SocialSecurity.png</p>
-                                      </a>
-                                      <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
-                                        <i class="fa fa-trash"></i> Delete
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div style="margin-right: 15px; border: 1px solid #ddd; padding: 15px; border-radius: 2px;">
-                                  <div class="card mb-3">
-                                    <div class="card-body">
-                                      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-                                        <img src="images/icon-pdf.png" alt="Imagen del archivo" style="max-width: 100%; max-height: 100%;">
-                                      </div>
-                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Social Security Card or Passport', value:1}">
-                                        <p class="card-text">SocialSecurity.png</p>
-                                      </a>
-                                      <button class="btn btn-danger" ng-click="eliminarDiv($event)" style="border-radius: 3px; font-size: 12px;">
-                                        <i class="fa fa-trash"></i> Delete
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                              </div>
-                              <div >
-                                <div class="card mb-3"  style=" align-items: center; padding: 10px; margin-top: 10px; float:right">
-                                  <div class="card-body">
-                                    <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'Two Years of Business Tax Returns', value:1, upload:true}">
-                                      <button class="btn btn-danger" style="border-radius: 5px; font-size: 12px;">+ Upload Files</button>
-                                     
-                                  </a>
-                                 <!-- <button class="btn btn-primary" ng-click="agregarDiv()">Agregar</button>-->
-                                  </div>
-                                </div>
-                              </div>
-                            </details>
+                            <strong>Social Security Card or Passport</strong>
+                            <div class="small text-muted">1 file uploaded</div>
                           </div>
                         </div>
-                      </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4; "></span>
+                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  color: #a94442;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Copy of Initial Deposit</strong>
+                            <div class="small text-muted">1 file uploaded</div>
+                          </div>
+                        </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  "></span>
+                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  color: #a94442;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Attorney Trust Account AML Disclosure Form </strong>
+                            <div class="small text-muted">1 file uploaded</div>
+                          </div>
+                        </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  "></span>
+                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  color: #a94442;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Receipt of Time Deposit </strong>
+                            <div class="small text-muted">1 file uploaded</div>
+                          </div>
+                        </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  "></span>
+                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  color: #a94442;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Memo Approved by Management & BSA </strong>
+                            <div class="small text-muted">1 file uploaded</div>
+                          </div>
+                        </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  "></span>
+                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  color: #a94442;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Reference Letter</strong>
+                            <div class="small text-muted">1 file uploaded</div>
+                          </div>
+                        </div>
+                      </a>
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle">
+                          <div>
+                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  "></span>
+                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                              style="opacity: 0.4;  color: #a94442;"></span>
+                          </div>
+                          <div>
+                            <span class="fa fa-file-text-o fa-2x"></span>
+                          </div>
+                          <div class="cb-grow">
+                            <strong>Proof of Physical Address</strong>
+                            <div class="small text-muted">1 file uploaded</div>
+                          </div>
+                        </div>
+                      </a>
                     </div>
                   </li>
                 </ul>
