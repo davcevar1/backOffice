@@ -822,9 +822,10 @@ define(function(require) {
           );
         };
         $scope.removeShareholder = function (dataItem){
-          $scope.shareholdersList.dataSource.remove(
-            dataItem
-          );
+          var index = $scope.shareholdersList.dataSource.findIndex((dataAux) => dataItem.id === dataAux.id);
+          if (index !== -1) {
+            $scope.shareholdersList.dataSource.splice(index, 1);
+          }
         };
         $scope.addShareholderFa = function (){
           $scope.shareholdersList.dataSource.add(
