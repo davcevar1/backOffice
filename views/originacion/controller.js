@@ -821,21 +821,8 @@ define(function(require) {
             }
           );
         };
-        $scope.removeShareholder = function (parentId){
+        $scope.removeShareholder = function (dataItem){
           $scope.shareholdersList.dataSource.remove(
-            {
-              "lastName": "Morris",
-              "firstName": "Frank",
-              "middleName": "A",
-              "id":2,
-              "parentId":1,
-              "dob": "02/11/1975",
-              "ssn": "78-546555",
-              "type": "Shareholder",
-              "phone": "(908) 546 2342",
-              "address": "987 Main St., NJ 20435, United States",
-              "ownership": "33%"
-            }
           );
         };
         $scope.addShareholderFa = function (){
@@ -905,7 +892,7 @@ define(function(require) {
                             attributes: {
                               class: 'cb-actions'
                             },
-                            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="addShareholder(#:data.id#)"><span class="fa fa-plus"></span></button><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="event.stopPropagation(); ng-click="removeShareholder(#:data.id#)"><span class="fa fa-times"></span></button></div>'
+                            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="addShareholder(#:data.id#)"><span class="fa fa-plus"></span></button><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="event.stopPropagation(); ng-click="removeShareholder(dataItem)"><span class="fa fa-times"></span></button></div>'
                           }
           ]
         };
