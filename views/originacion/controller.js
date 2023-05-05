@@ -828,9 +828,7 @@ define(function(require) {
         };
         */
         $scope.removeShareholder = function (dataItem){
-          var index = $scope.shareholdersList.dataSource((dataAux) => dataItem.id === dataAux.id);
-          $scope.shareholdersList.dataSource.splice(index,1)
-          console.log($scope.shareholdersList.dataSource.get(dataItem))
+          console.log("OBjeto: "+ $scope.shareholdersList.dataSource.get(dataItem));
           };
       
 
