@@ -823,6 +823,7 @@ define(function(require) {
         };
         $scope.removeShareholder = function (dataItem){
           $scope.shareholdersList.dataSource.remove(
+            dataItem
           );
         };
         $scope.addShareholderFa = function (){
@@ -892,7 +893,7 @@ define(function(require) {
                             attributes: {
                               class: 'cb-actions'
                             },
-                            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="addShareholder(#:data.id#)"><span class="fa fa-plus"></span></button><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="event.stopPropagation(); ng-click="removeShareholder(dataItem)"><span class="fa fa-times"></span></button></div>'
+                            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="addShareholder(#:data.id#)"><span class="fa fa-plus"></span></button><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="event.stopPropagation(); ng-click="removeShareholder(data)"><span class="fa fa-times"></span></button></div>'
                           }
           ]
         };
