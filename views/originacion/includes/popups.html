@@ -1493,13 +1493,14 @@ myDropzone.on("removedfile", file => {
            <button type="button" class="btn btn-default" ng-click="setViewState('fileManager')">Manage Fields</button>
           </div>
           <div class="cb-flex cb-gutters-tiny cb-middle" ng-show="docModal.viewState == 'fileManager'">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button style="min-width: initial;" class="btn btn-default" ng-click="setViewState('upload')" title="Upload more files">
               <div class="hidden-sm hidden-md hidden-lg"><span class="fa fa-upload"></span></div>
               <div class="hidden-xs">Upload more files</div>
             </button>
            <!-- <button type="button" class="btn btn-primary" ng-click="agregarDiv()" data-dismiss="modal">Upload More Files</button>-->
            <!-- <button type="button" class="btn btn-default" ng-click="docModal.upload=null" ng-if="!docModal.disallowCancel">Cancel</button>-->
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            
           </div>
         </div>
       </div>
@@ -1843,9 +1844,9 @@ myDropzone.on("removedfile", file => {
   <div class="cb-view-files modal-footer">
     <div class="cb-flex-md-up" style="float:right" >
       <div class="cb-flex cb-gutters-tiny cb-middle">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary"  data-dismiss="modal">Run Systems</button>
        <!-- <button type="button" class="btn btn-default" ng-click="docModal.upload=null" ng-if="!docModal.disallowCancel">Cancel</button>-->
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
