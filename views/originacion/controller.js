@@ -828,6 +828,8 @@ define(function(require) {
         };
         */
         $scope.removeShareholder = function (dataItem){
+          var object = $scope.shareholdersList.dataSource.get(dataItem);
+          $scope.shareholdersList.dataSource.remove(object)
           console.log("OBjeto: "+ $scope.shareholdersList.dataSource.get(dataItem));
           };
       
