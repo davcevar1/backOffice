@@ -824,16 +824,16 @@ define(function(require) {
         $scope.removeShareholder = function (parentId){
           $scope.shareholdersList.dataSource.remove(
             {
-              "lastName": "Thompson",
-              "firstName": "Jeniffer",
-              "middleName": "C",
-              "id":Math.round(Math.random() * 10000),
-              "parentId":parentId,
-              "dob": "06/15/1979",
-              "ssn": "12-456231",
+              "lastName": "Morris",
+              "firstName": "Frank",
+              "middleName": "A",
+              "id":2,
+              "parentId":1,
+              "dob": "02/11/1975",
+              "ssn": "78-546555",
               "type": "Shareholder",
-              "phone": "(908) 207 8822",
-              "address": "234 Main St., NJ 20435, United States",
+              "phone": "(908) 546 2342",
+              "address": "987 Main St., NJ 20435, United States",
               "ownership": "33%"
             }
           );
