@@ -1400,7 +1400,7 @@ document.addEventListener("click", function() {
                           </div>
                         </div>
                       </a>
-                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'pdfViewer' , fileManager:false, manageDocs:true, upload:false }" class="list-group-item">
                         <div class="cb-flex cb-gutters cb-middle">
                           <div>
                             <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
@@ -1620,7 +1620,7 @@ document.addEventListener("click", function() {
                             <strong>Sign Documents</strong>
                             <div class="small text-muted">1 file uploaded</div>
                             <div class="small text-danger">
-                              <a href="#"ng-click="descargarZIP3()">8 files to upload</a>
+                              <a href="#"ng-click="descargarZIP3()">8 files to sign</a>
                             </div>
                           </div>
                         </div>
