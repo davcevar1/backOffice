@@ -821,6 +821,23 @@ define(function(require) {
             }
           );
         };
+        $scope.removeShareholder = function (parentId){
+          $scope.shareholdersList.dataSource.remove(
+            {
+              "lastName": "Thompson",
+              "firstName": "Jeniffer",
+              "middleName": "C",
+              "id":Math.round(Math.random() * 10000),
+              "parentId":parentId,
+              "dob": "06/15/1979",
+              "ssn": "12-456231",
+              "type": "Shareholder",
+              "phone": "(908) 207 8822",
+              "address": "234 Main St., NJ 20435, United States",
+              "ownership": "33%"
+            }
+          );
+        };
         $scope.addShareholderFa = function (){
           $scope.shareholdersList.dataSource.add(
             {
@@ -888,7 +905,7 @@ define(function(require) {
                             attributes: {
                               class: 'cb-actions'
                             },
-                            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="addShareholder(#:data.id#)"><span class="fa fa-plus"></span></button><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="event.stopPropagation();"><span class="fa fa-times"></span></button></div>'
+                            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="addShareholder(#:data.id#)"><span class="fa fa-plus"></span></button><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="event.stopPropagation();ng-click="removeShareholder(#:data.id#)""><span class="fa fa-times"></span></button></div>'
                           }
           ]
         };
