@@ -807,8 +807,8 @@ define(function(require) {
         $scope.addShareholder = function (parentId){
           $scope.shareholdersList.dataSource.add(
             {
-              "isPerson":true,
-              "Name": $scope.owner.name,
+              "isPerson":Number($scope.owner.isPerson),
+              "name": $scope.owner.name,
               "lastName": $scope.owner.lastName,
               "firstName": "Jeniffer",
               "middleName": "C",

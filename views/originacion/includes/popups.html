@@ -180,7 +180,8 @@ myDropzone.on("removedfile", file => {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" ng-click="$dismiss('close')"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">{{ owner.firstName }} {{ owner.middleName }} {{ owner.lastName }}</h4>
+        <h4 class="modal-title" ng-if="owner.isPerson">{{ owner.firstName }} {{ owner.middleName }} {{ owner.lastName }}</h4>
+        <h4 class="modal-title" ng-if="!owner.isPerson">{{ owner.name }}</h4>
       </div>
       <div class="modal-body">
         <fieldset class="cb-group cb-group-simple">
@@ -197,6 +198,23 @@ myDropzone.on("removedfile", file => {
                   <div class="radio" style="margin-left:20px;">
                     <label>
                       <input type="radio" name="resident" value="no" ng-model="owner.resident" /> No
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group wf-required">
+                <div class="control-label">Is the shareholder/signer a US Citizen or US Resident?</div>
+                <div class="wf-control form-inline">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="resident" value="1" ng-model="owner.isPerson" /> Persona
+                    </label>
+                  </div>
+                  <div class="radio" style="margin-left:20px;">
+                    <label>
+                      <input type="radio" name="resident" value="0" ng-model="owner.isPerson" /> Business
                     </label>
                   </div>
                 </div>
