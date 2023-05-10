@@ -50,7 +50,7 @@
     "middleName": "",
     "id":3,
     "parentId":2,
-    "isPerson":false,
+    "isPerson":true,
     "dob": "06/01/1978",
     "ssn": "78-546555",
     "type": "Shareholder",
