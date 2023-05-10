@@ -807,7 +807,9 @@ define(function(require) {
         $scope.addShareholder = function (parentId){
           $scope.shareholdersList.dataSource.add(
             {
-              "lastName": "Thompson",
+              "isPerson":true,
+              "Name": $scope.owner.name,
+              "lastName": $scope.owner.lastName,
               "firstName": "Jeniffer",
               "middleName": "C",
               "id":Math.round(Math.random() * 10000),
@@ -821,6 +823,7 @@ define(function(require) {
             }
           );
         };
+      
         /**
         $scope.removeShareholder = function (dataItem){
           $scope.shareholdersList.dataSource.remove(dataItem);
@@ -879,7 +882,7 @@ define(function(require) {
               field: "lastName",
               title: "Name",
               width: 180,
-              template: "#: firstName # #: middleName #, #: lastName #"
+              template: "#if(isPerson) {# #: firstName # #: middleName #, #: lastName # #} else {# #:name # #}#"
             },
             {
               field: "dob",

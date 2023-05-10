@@ -1,9 +1,11 @@
-[{
+[{  
+    "name":"",
     "lastName": "Thompson",
     "firstName": "Jeniffer",
     "middleName": "C",
     "id":1,
     "parentId":null,
+    "isPerson":true,
     "dob": "06/15/1979",
     "ssn": "12-456231",
     "type": "Shareholder",
@@ -12,11 +14,13 @@
     "ownership": "33%"
   },
   {
+    "name":"",
     "lastName": "Morris",
     "firstName": "Frank",
     "middleName": "A",
     "id":2,
     "parentId":1,
+    "isPerson":true,
     "dob": "02/11/1975",
     "ssn": "78-546555",
     "type": "Shareholder",
@@ -25,11 +29,28 @@
     "ownership": "33%"
   },
   {
+    "name":"",
     "lastName": "Johnson",
     "firstName": "John",
     "middleName": "F",
     "id":3,
     "parentId":2,
+    "isPerson":true,
+    "dob": "06/01/1978",
+    "ssn": "78-546555",
+    "type": "Shareholder",
+		"phone": "(908) 546 2342",
+		"address": "987 Main St., NJ 20435, United States",
+    "ownership": "34%"
+  },
+  {
+    "name": "Company",
+    "lastName": "",
+    "firstName": "",
+    "middleName": "",
+    "id":3,
+    "parentId":2,
+    "isPerson":false,
     "dob": "06/01/1978",
     "ssn": "78-546555",
     "type": "Shareholder",
@@ -37,4 +58,5 @@
 		"address": "987 Main St., NJ 20435, United States",
     "ownership": "34%"
   }
+  
 ]
