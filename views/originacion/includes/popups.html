@@ -205,7 +205,7 @@ myDropzone.on("removedfile", file => {
             </div>
             <div class="col-sm-12">
               <div class="form-group wf-required">
-                <div class="control-label">Is the shareholder Person or Business ?</div>
+                <div class="control-label">Selec the type of shareholder</div>
                 <div class="wf-control form-inline">
                   <div class="radio">
                     <label>
@@ -253,7 +253,7 @@ myDropzone.on("removedfile", file => {
                 </div>
               </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4" ng-show="owner.isPerson == 1">
               <div class="form-group cb-required">
                 <div class="control-label">First Name</div>
                 <div class="cb-control">
@@ -261,7 +261,7 @@ myDropzone.on("removedfile", file => {
                 </div>
               </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4" ng-show="owner.isPerson == 1">
               <div class="form-group">
                 <div class="control-label">Middle Name</div>
                 <div class="cb-control">
@@ -269,9 +269,17 @@ myDropzone.on("removedfile", file => {
                 </div>
               </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4" ng-show="owner.isPerson == 1">
               <div class="form-group cb-required">
                 <div class="control-label">Last Name</div>
+                <div class="cb-control">
+                  <input name="lastName" type="text" class="form-control" ng-model="owner.lastName" required />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4" ng-show="owner.isPerson == 0">
+              <div class="form-group cb-required">
+                <div class="control-label">Name</div>
                 <div class="cb-control">
                   <input name="lastName" type="text" class="form-control" ng-model="owner.lastName" required />
                 </div>
