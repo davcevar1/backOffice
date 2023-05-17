@@ -49,8 +49,8 @@ define(function (require) {
     })
     .controller('controller', ['$scope', '$http', '$q', '$filter', '$location',
       function ($scope, $http, $q, $filter, $location) {
-        var urlParams = new URLSearchParams($location.search());
-        var activeTab = urlParams.get('tab');
+        // Obtener el valor del parámetro 'tab' de la URL
+        var activeTab = $location.search().tab;
 
         // Activar la pestaña correspondiente
         $scope.activateTab = function (tabId) {
@@ -59,6 +59,7 @@ define(function (require) {
 
         // Activar la pestaña inicial si hay un valor en el parámetro 'tab'
         if (activeTab) {
+          console.log(activeTab)
           $scope.activateTab(activeTab);
         }
         $scope.activate = function () {
