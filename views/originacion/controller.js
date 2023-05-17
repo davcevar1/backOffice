@@ -52,12 +52,6 @@ define(function (require) {
         var urlParams = new URLSearchParams(window.location.search);
         var activeTab = urlParams.get('tab');
         console.log(activeTab)
-        // Activar el tab correspondiente
-        var tabStrip = $("#tabs").data("kendoTabStrip");
-        var tab = tabStrip.tabGroup.find("li[aria-controls='" + activeTab + "']");
-        if (tab.length > 0) {
-          tabStrip.select(tab.index());
-        }
         $scope.activate = function () {
           $http.get('../../mocks/canales-usuarios.json')
             .then(function (response) {
