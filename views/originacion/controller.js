@@ -47,20 +47,16 @@ define(function (require) {
         return e;
       }
     })
-    .controller('controller', ['$scope', '$http', '$q', '$filter', '$location',
-      function ($scope, $http, $q, $filter, $location) {
-        // Obtener el valor del parámetro 'tab' de la URL
-        var activeTab = $location.search().tab;
+    .controller('controller', ['$scope', '$http', '$q', '$filter',
+      function ($scope, $http, $q, $filter) {
+        var urlParams = new URLSearchParams(window.location.search);
+        var activeTab = urlParams.get('tab');
         console.log(activeTab)
-        // Activar la pestaña correspondiente
-        var tabs = document.querySelectorAll('.cb-flex li');
-        for (var i = 0; i < tabs.length; i++) {
-          var tab = tabs[i];
-          if (tab.id === activeTab) {
-            tab.classList.add('k-state-active');
-          } else {
-            tab.classList.remove('k-state-active');
-          }
+        // Activar el tab correspondiente
+        var tabStrip = $("#tabs").data("kendoTabStrip");
+        var tab = tabStrip.tabGroup.find("li[aria-controls='" + activeTab + "']");
+        if (tab.length > 0) {
+          tabStrip.select(tab.index());
         }
         $scope.activate = function () {
           $http.get('../../mocks/canales-usuarios.json')
@@ -100,7 +96,7 @@ define(function (require) {
             credits: 8343.18
           };
           $scope.decisionLogicBalance = $scope.decisionLogic.credits - $scope.decisionLogic.debits;
-          if (location.search) {
+          if (location.search) {8
             $scope.owner.relationship = location.search.split('=')[1];
           }
           //Urls
