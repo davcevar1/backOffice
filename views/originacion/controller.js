@@ -52,6 +52,16 @@ define(function (require) {
         var urlParams = new URLSearchParams(window.location.search);
         var activeTab = urlParams.get('tab');
         console.log(activeTab)
+        var tabs = document.querySelectorAll('.cb-flex li');
+        for (var i = 0; i < tabs.length; i++) {
+          var tab = tabs[i];
+          if(activeTab) {
+            tab.classList.remove('k-state-active');
+          }
+          if (tab.id === activeTab) {
+            tab.classList.add('k-state-active');
+          }
+        }
         $scope.activate = function () {
           $http.get('../../mocks/canales-usuarios.json')
             .then(function (response) {
@@ -90,7 +100,8 @@ define(function (require) {
             credits: 8343.18
           };
           $scope.decisionLogicBalance = $scope.decisionLogic.credits - $scope.decisionLogic.debits;
-          if (location.search) {8
+          if (location.search) {
+            8
             $scope.owner.relationship = location.search.split('=')[1];
           }
           //Urls
