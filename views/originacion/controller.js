@@ -51,16 +51,16 @@ define(function (require) {
       function ($scope, $http, $q, $filter, $location) {
         // Obtener el valor del parámetro 'tab' de la URL
         var activeTab = $location.search().tab;
-
+        console.log(activeTab)
         // Activar la pestaña correspondiente
-        $scope.activateTab = function (tabId) {
-          $scope.activeTab = tabId;
-        };
-
-        // Activar la pestaña inicial si hay un valor en el parámetro 'tab'
-        if (activeTab) {
-          console.log(activeTab)
-          $scope.activateTab(activeTab);
+        var tabs = document.querySelectorAll('.cb-flex li');
+        for (var i = 0; i < tabs.length; i++) {
+          var tab = tabs[i];
+          if (tab.id === activeTab) {
+            tab.classList.add('k-state-active');
+          } else {
+            tab.classList.remove('k-state-active');
+          }
         }
         $scope.activate = function () {
           $http.get('../../mocks/canales-usuarios.json')
