@@ -286,10 +286,14 @@ myDropzone.on("removedfile", file => {
               </div>
             </div>
             <div class="col-sm-4" ng-if="owner.relationship!='Business' || owner.ownershipPercentage>10">
-              <div class="form-group">
+              <div class="form-group" ng-if ="owner.isPerson == 1">
                 <div class="control-label">{{ owner.resident=='yes'? 'Social Security #' : 'Foreign Tax ID' }} </div>
                 <div class="wf-control" ng-if="owner.resident=='yes'"><input class="form-control" ng-focus="setType($event, 'text')" ng-blur="setType($event, 'password')" kendo-masked-text-box k-mask="'999-99-9999'" type="text" /></div>
                 <div class="wf-control" ng-if="owner.resident!='yes'"><input class="form-control" ng-focus="setType($event, 'text')" ng-blur="setType($event, 'password')" type="text" /></div>
+              </div>
+              <div class="form-group" ng-if ="owner.isPerson == 0">
+                <div class="control-label">Tax ID </div>
+                <div class="wf-control" ><input class="form-control" ng-focus="setType($event, 'text')" ng-blur="setType($event, 'password')" type="text" /></div>
               </div>
             </div>
             <div class="col-sm-4" ng-if="owner.relationship!='Business' || owner.ownershipPercentage>10">
@@ -1262,7 +1266,7 @@ myDropzone.on("removedfile", file => {
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addShareholder()">Save</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
