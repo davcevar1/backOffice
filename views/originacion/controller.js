@@ -893,6 +893,7 @@ define(function (require) {
           selectable: true,
           change: function () {
             $('#owner').modal();
+            $scope.owner = this.dataItem(this.select()[0]);
           },
           toolbar: '<button type="button" class="btn btn-default fa fa-plus" ng-click="addShareholder()"> Add Shareholder</button>',
           columns: [{
