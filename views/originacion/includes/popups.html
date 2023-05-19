@@ -188,6 +188,23 @@ myDropzone.on("removedfile", file => {
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group wf-required">
+                <div class="control-label">Is the shareholder a</div>
+                <div class="wf-control form-inline">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="person" value="1" ng-model="owner.isPerson" /> Person
+                    </label>
+                  </div>
+                  <div class="radio" style="margin-left:20px;">
+                    <label>
+                      <input type="radio" name="business" value="0" ng-model="owner.isPerson" /> Non-Personal Entity
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group wf-required">
                 <div class="control-label">Is the shareholder/signer a US Citizen or US Resident?</div>
                 <div class="wf-control form-inline">
                   <div class="radio">
@@ -198,23 +215,6 @@ myDropzone.on("removedfile", file => {
                   <div class="radio" style="margin-left:20px;">
                     <label>
                       <input type="radio" name="resident" value="no" ng-model="owner.resident" /> No
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="form-group wf-required">
-                <div class="control-label">Selec the type of shareholder</div>
-                <div class="wf-control form-inline">
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="person" value="1" ng-model="owner.isPerson" /> Person
-                    </label>
-                  </div>
-                  <div class="radio" style="margin-left:20px;">
-                    <label>
-                      <input type="radio" name="business" value="0" ng-model="owner.isPerson" /> Business
                     </label>
                   </div>
                 </div>
@@ -291,14 +291,24 @@ myDropzone.on("removedfile", file => {
                 <div class="wf-control" ng-if="owner.resident=='yes'"><input class="form-control" ng-focus="setType($event, 'text')" ng-blur="setType($event, 'password')" kendo-masked-text-box k-mask="'999-99-9999'" type="text" /></div>
                 <div class="wf-control" ng-if="owner.resident!='yes'"><input class="form-control" ng-focus="setType($event, 'text')" ng-blur="setType($event, 'password')" type="text" /></div>
               </div>
-              <div class="form-group" ng-if ="owner.isPerson == 0">
+              <div class="form-group" ng-if ="owner.isPerson == '0' && owner.resident=='yes'">
                 <div class="control-label">Tax ID </div>
+                <div class="wf-control" ><input class="form-control" ng-focus="setType($event, 'text')" ng-blur="setType($event, 'password')" type="text" /></div>
+              </div>
+              <div class="form-group" ng-if ="owner.isPerson == '0' && owner.resident=='no'">
+                <div class="control-label">Foreing Tax ID </div>
                 <div class="wf-control" ><input class="form-control" ng-focus="setType($event, 'text')" ng-blur="setType($event, 'password')" type="text" /></div>
               </div>
             </div>
             <div class="col-sm-4" ng-if="owner.relationship!='Business' || owner.ownershipPercentage>10">
-              <div class="form-group cb-required">
-                <div class="control-label">Date of Birth</div>
+              <div class="form-group cb-required" ng-show="owner.isPerson == 1">
+                <div class="control-label" >Date of Birth</div>
+                <div class="cb-control cb-flex cb-gutters-tiny">
+                  <input type="date" k-options="{dateInput: true}" kendo-datepicker />
+                </div>
+              </div>
+              <div class="form-group cb-required" ng-show="owner.isPerson == 0">
+                <div class="control-label" >Constitution Date</div>
                 <div class="cb-control cb-flex cb-gutters-tiny">
                   <input type="date" k-options="{dateInput: true}" kendo-datepicker />
                 </div>
