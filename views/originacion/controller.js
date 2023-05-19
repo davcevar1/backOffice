@@ -859,17 +859,19 @@ define(function (require) {
         $scope.addShareholderFa = function () {
           $scope.shareholdersList.dataSource.add(
             {
-              "lastName": "Thompson",
-              "firstName": "Jeniffer",
-              "middleName": "C",
-              "id": 5,
-              "parentId": null,
-              "dob": "06/15/1979",
-              "ssn": "12-456231",
+              "name": "GMC",
+              "lastName": "",
+              "firstName": "",
+              "middleName": "",
+              "id":7,
+              "parentId":null,
+              "isPerson":false,
+              "dob": "06/01/1978",
+              "ssn": "78-546555",
               "type": "Shareholder",
-              "phone": "(908) 207 8822",
-              "address": "234 Main St., NJ 20435, United States",
-              "ownership": "33%"
+              "phone": "(908) 546 2342",
+              "address": "987 Main St., NJ 20435, United States",
+              "ownership": "34%"
             }
           );
         };
@@ -896,7 +898,7 @@ define(function (require) {
           change: function () {
             $('#owner').modal();
           },
-          toolbar: '<button type="button" class="btn btn-default fa fa-plus" ng-click="$(\'\\#owner\').modal()"> Add Shareholder</button>',
+          toolbar: '<button type="button" class="btn btn-default fa fa-plus" ng-click="addShareholderFa()"> Add Shareholder</button>',
           columns: [{
             field: "lastName",
             title: "Name",
