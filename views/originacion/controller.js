@@ -857,23 +857,7 @@ define(function (require) {
 
 
         $scope.addShareholderFa = function () {
-          $scope.shareholdersList.dataSource.add(
-            {
-              "name": "GMC",
-              "lastName": "",
-              "firstName": "",
-              "middleName": "",
-              "id":7,
-              "parentId":null,
-              "isPerson":false,
-              "dob": "06/01/1978",
-              "ssn": "78-546555",
-              "type": "Shareholder",
-              "phone": "(908) 546 2342",
-              "address": "987 Main St., NJ 20435, United States",
-              "ownership": "34%"
-            }
-          );
+          $('#owner').modal();
         };
         $scope.requestType = 'from-loan';
         $scope.shareholder = {};
