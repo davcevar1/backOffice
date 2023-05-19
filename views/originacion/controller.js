@@ -59,7 +59,7 @@ define(function (require) {
             tab.classList.remove('k-state-active');
           }
           if (tab.id === activeTab) {
-            tab.classList.add('!k-state-active');
+            tab.classList.add('k-state-active');
           }
         }
         $scope.activate = function () {
