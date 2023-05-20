@@ -821,7 +821,7 @@ define(function (require) {
           toolbar: '<div class="cb-flex cb-middle"><button class="btn btn-primary" ng-if="isAdvanced"><span class="fa fa-search"></span> Search</button><div class="cb-flex cb-middle cb-right cb-grow text-right"><div class="text-muted small" style="margin-right:10px;">Export:</div><button class="btn btn-default" style="margin:0;" title="Export PDF"><span class="fa fa-file-pdf-o" style="margin:0;"></span></button><button class="btn btn-default" style="margin:0;" title="Export Excel"><span class="fa fa-file-excel-o" style="margin:0;"></span></button></div></div>'
         };
         $scope.addShareholder = function () {
-          const parentId = $scope.shareholdersList.dataItem($scope.shareholdersList.select()[0]).id ; 
+          const parentId = $scope.shareholdersList.select()[0] ? $scope.shareholdersList.dataItem($scope.shareholdersList.select()[0]).id : null ; 
           $scope.shareholdersList.dataSource.add(
             {
               "isPerson": Number($scope.owner.isPerson),
@@ -882,7 +882,7 @@ define(function (require) {
           change: function () {
             $('#owner').modal();
           },
-          toolbar: '<button type="button" class="btn btn-default fa fa-plus" ng-click="addShareholderFa()"> Add Shareholder</button>',
+          toolbar: '<button type="button" class="btn btn-default fa fa-plus" ng-click="addShareholderFa()" > Add Shareholder</button>',
           columns: [{
             field: "lastName",
             title: "Name",
