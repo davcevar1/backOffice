@@ -910,7 +910,7 @@ define(function (require) {
             attributes: {
               class: 'cb-actions'
             },
-            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="event.stopPropagation();"  ng-click="removeShareholder(#:data.id#)"><span class="fa fa-times"></span></button> #if(!isPerson) {#<button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="$(\'\\#owner\').modal()"><span class="fa fa-plus"></span></button>#}#</div>'
+            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="event.stopPropagation();" ng-click="$(\'\\#deleteSh\').modal()" ><span class="fa fa-times"></span></button> #if(!isPerson) {#<button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="$(\'\\#owner\').modal()"><span class="fa fa-plus"></span></button>#}#</div>'
           }
           ]
         };
