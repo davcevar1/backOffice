@@ -1895,32 +1895,35 @@ myDropzone.on("removedfile", file => {
 </div>
 <!--Aqui termina el de Servicios-->
 <!---Comienza el eliminar shareholders-->
-<div id="deleteSh " class="modal fade">
+<div id="deleteSha" class="modal fade">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">Indicators Systems</h4>
+        <h4 class="modal-title">Delete Shareholder</h4>
       </div>
       <div class="dz-default dz-message">
-        <div class="col-sm-12">
-          <img src="../images/delete.png"  alt="Shareholder Image">
-          <p>Are you sure you want to delete the shareholder?</p>
-        </div>
-      </div>
-        <div class="cb-view-files modal-footer">
-          <div class="cb-flex-md-up" style="float:right" >
-            <div class="cb-flex cb-gutters-tiny cb-middle">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary"  ng-click="" data-dismiss="modal">Delete</button>
-              <!--
-                ng-click="removeShareholder(#:data.id#)"
-              -->
+        <div>
+          <div class="row">
+            <div class="col-sm-12" style="padding: 35px;">
+              <img src="./images/deletePop.png" alt="Delete Shareholder" style=" width: 23%;">
+              <h4>Delete Shareholder</h4>
+              <p>Are you sure you want to delete the shareholder?</p>
             </div>
-          </div>
-        </div>
+      </div>
     </div>
   </div>
+  <div class="cb-view-files modal-footer">
+    <div class="cb-flex-md-up" style="float:right" >
+      <div class="cb-flex cb-gutters-tiny cb-middle">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary"  data-dismiss="modal" ng-click="removeShareholder()">Confirm</button>
+       <!-- <button type="button" class="btn btn-default" ng-click="docModal.upload=null" ng-if="!docModal.disallowCancel">Cancel</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </div>
 <!-- Aqui termina eliminar shareholders-->
 <div id="reports" class="modal fade">

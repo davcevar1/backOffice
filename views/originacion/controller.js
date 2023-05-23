@@ -848,14 +848,17 @@ define(function (require) {
           console.log(dataItem);
         };
         */
-        $scope.removeShareholder = function (dataItem) {
-          var object = $scope.shareholdersList.dataSource.get(dataItem);
+        $scope.removeShareholder = function () {
+          const parentId =$scope.shareholdersList.dataItem($scope.shareholdersList.select()[0]).id;
+          var object = $scope.shareholdersList.dataSource.get(parentId);
           $scope.shareholdersList.dataSource.remove(object)
-          console.log("OBjeto: " + $scope.shareholdersList.dataSource.get(dataItem));
+          console.log("OBjeto: " + $scope.shareholdersList.dataSource.get(parentId));
         };
 
 
-
+        $scope.modalDelete = function () {
+          $('#deleteSha').modal();
+        };
         $scope.addShareholderFa = function () {
           $('#owner').modal();
         };
@@ -910,7 +913,7 @@ define(function (require) {
             attributes: {
               class: 'cb-actions'
             },
-            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="event.stopPropagation();" ng-click="$(\'\\#deleteSh\').modal()" ><span class="fa fa-times"></span></button> #if(!isPerson) {#<button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="$(\'\\#owner\').modal()"><span class="fa fa-plus"></span></button>#}#</div>'
+            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="event.stopPropagation();" ng-click="modalDelete()"><span class="fa fa-times"></span></button> #if(!isPerson) {#<button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="$(\'\\#owner\').modal()"><span class="fa fa-plus"></span></button>#}#</div>'
           }
           ]
         };
