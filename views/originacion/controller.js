@@ -854,8 +854,6 @@ define(function (require) {
           $scope.shareholdersList.dataSource.remove(object)
           console.log("OBjeto: " + $scope.shareholdersList.dataSource.get(parentId));
         };
-
-
         $scope.modalDelete = function () {
           $('#deleteSha').modal();
         };
@@ -913,7 +911,7 @@ define(function (require) {
             attributes: {
               class: 'cb-actions'
             },
-            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-sm" title="Eliminar" onclick="event.stopPropagation();" ng-click="modalDelete()"><span class="fa fa-times"></span></button> #if(!isPerson) {#<button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="$(\'\\#owner\').modal()"><span class="fa fa-plus"></span></button>#}#</div>'
+            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-md" title="Delete" onclick="event.stopPropagation();" ng-click="modalDelete()" style="font-weight:bold">x</button> #if(!isPerson) {#<button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="$(\'\\#owner\').modal()"><span class="fa fa-plus"></span></button>#}#</div>'
           }
           ]
         };
