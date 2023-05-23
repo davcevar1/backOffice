@@ -909,9 +909,9 @@ define(function (require) {
           {
             width: 165,
             attributes: {
-              class: 'cb-actions'
+              class: 'cb-actions '
             },
-            template: '<div class="cb-flex"><button type="button" class="btn btn-default btn-md" title="Delete" onclick="event.stopPropagation();" ng-click="modalDelete()" style="font-weight:bold">x</button> #if(!isPerson) {#<button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="$(\'\\#owner\').modal()"><span class="fa fa-plus"></span></button>#}#</div>'
+            template: '<div class="cb-flex"><div><button type="button" class="btn btn-default btn-md" title="Delete" onclick="event.stopPropagation();" ng-click="modalDelete()"><span class="fa fa-times ng-click="modalDelete()"></span></button></div> #if(!isPerson) {#<button type="button" class="btn btn-default btn-sm" title="Agregar" onclick="event.stopPropagation();" ng-click="$(\'\\#owner\').modal()"><span class="fa fa-plus"></span></button>#}#</div>'
           }
           ]
         };
