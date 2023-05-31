@@ -1622,6 +1622,197 @@ document.addEventListener("click", function() {
                           </div>
                         </div>
                       </a>
+                      <div class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle" style="align-items: flex-start;">
+                           <div>
+                              <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                 style="opacity: 0.4; padding-top: 16px; "></span>
+                              <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                 style="opacity: 0.4; padding-top: 16px; color: #a94442;"></span>
+                           </div>
+                           <div>
+                              <span class="fa fa-file-text-o fa-2x" style="padding-top: 10px;"></span>
+                           </div>
+                           <div class="cb-grow">
+                              <details>
+                                 <summary style="margin: 10px;">
+                                    <strong style="color:#555">State ID Card or Driver's License</strong>
+                                    <div class="small text-muted">1 file uploaded</div>
+                                 </summary>
+                                 <!-- <form action="/target" class="dropzone" id="my-great-dropzone"></form>-->
+                                 <div style="display: flex; max-width: 800px;" id="contenedorDivs">
+                                    <div class="col-sm-12">
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>State ID Card or Driver´s License</strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'pdfViewer' , fileManager:false, manageDocs:true, upload:false }" class="list-group-item"ng-model="oneFile">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span class="fa fa-circle" title="Verified" ng-style="{'opacity' : !document.status ? 0.4 : 1}" ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
+                                              style="opacity: 0.4;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Social Security Card or Passport</strong>
+                                            <div class="small text-muted">1 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4; "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Copy of Initial Deposit</strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Attorney Trust Account AML Disclosure Form </strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Receipt of Time Deposit </strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Memo Approved by Management & BSA </strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Reference Letter</strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Proof of Physical Address</strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Sign Documents</strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                            <!--<div class="small text-muted" style="color: red" ng-click="descargarZIP3()">
+                                              <span clas="k-icon k-i-download">Prefill docs</span>
+                                            </div>-->
+                                            
+                                          </div>
+                                          <button style="float:right" class="btn btn-primary navbar-btn" ng-click="descargarZIP5()">
+                                            <img src="images/donwload.png" style ="height: 21px;" alt="Pretil Docs">
+                                            <span style="padding: 5px;">Prefill Docs</span>
+                                          </button>
+                                        </div>
+                                      </a>
+                                    </div>
+                                 </div>
+                              </details>
+                           </div>
+                           <div>
+                              <button style="float:right" class="btn btn-primary navbar-btn" ng-click="descargarZIP5()">
+                              <img src="images/donwload.png" style ="height: 21px;" alt="Pretil Docs">
+                              <span style="padding: 5px;">Prefill Docs</span>
+                              </button> 
+                           </div>
+                        </div>
+                     </div>
                   </li>
                 
                   <li class="k-state-active">
@@ -1761,6 +1952,197 @@ document.addEventListener("click", function() {
                           </div>
                         </div>
                       </a>
+                      <div class="list-group-item">
+                        <div class="cb-flex cb-gutters cb-middle" style="align-items: flex-start;">
+                           <div>
+                              <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                 style="opacity: 0.4; padding-top: 16px; "></span>
+                              <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                 style="opacity: 0.4; padding-top: 16px; color: #a94442;"></span>
+                           </div>
+                           <div>
+                              <span class="fa fa-file-text-o fa-2x" style="padding-top: 10px;"></span>
+                           </div>
+                           <div class="cb-grow">
+                              <details>
+                                 <summary style="margin: 10px;">
+                                    <strong style="color:#555">State ID Card or Driver's License</strong>
+                                    <div class="small text-muted">1 file uploaded</div>
+                                 </summary>
+                                 <!-- <form action="/target" class="dropzone" id="my-great-dropzone"></form>-->
+                                 <div style="display: flex; max-width: 800px;" id="contenedorDivs">
+                                    <div class="col-sm-12">
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>State ID Card or Driver´s License</strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'pdfViewer' , fileManager:false, manageDocs:true, upload:false }" class="list-group-item"ng-model="oneFile">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span class="fa fa-circle" title="Verified" ng-style="{'opacity' : !document.status ? 0.4 : 1}" ng-class="{'text-danger': document.status === 'R', 'fa-minus-circle':  document.status === 'R', 'fa-circle': document.status == null, 'text-success': document.status === 'A', 'fa-check-circle':  document.status === 'A'}"
+                                              style="opacity: 0.4;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Social Security Card or Passport</strong>
+                                            <div class="small text-muted">1 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4; "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Copy of Initial Deposit</strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Attorney Trust Account AML Disclosure Form </strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Receipt of Time Deposit </strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Memo Approved by Management & BSA </strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Reference Letter</strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Proof of Physical Address</strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                          </div>
+                                        </div>
+                                      </a>
+                                      <a ng-href="#viewer" data-toggle="modal" ng-click="docModal={title:'File Manager', value:1, viewState:'fileManager' , pdfViewer:false, manageDocs:true, upload:false }" class="list-group-item">
+                                        <div class="cb-flex cb-gutters cb-middle">
+                                          <div>
+                                            <span ng-if="mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  "></span>
+                                            <span ng-if="!mostrarReject" class="fa fa-circle" title="Verified" 
+                                              style="opacity: 0.4;  color: #a94442;"></span>
+                                          </div>
+                                          <div>
+                                            <span class="fa fa-file-text-o fa-2x"></span>
+                                          </div>
+                                          <div class="cb-grow">
+                                            <strong>Sign Documents</strong>
+                                            <div class="small text-muted">2 file uploaded</div>
+                                            <!--<div class="small text-muted" style="color: red" ng-click="descargarZIP3()">
+                                              <span clas="k-icon k-i-download">Prefill docs</span>
+                                            </div>-->
+                                            
+                                          </div>
+                                          <button style="float:right" class="btn btn-primary navbar-btn" ng-click="descargarZIP5()">
+                                            <img src="images/donwload.png" style ="height: 21px;" alt="Pretil Docs">
+                                            <span style="padding: 5px;">Prefill Docs</span>
+                                          </button>
+                                        </div>
+                                      </a>
+                                    </div>
+                                 </div>
+                              </details>
+                           </div>
+                           <div>
+                              <button style="float:right" class="btn btn-primary navbar-btn" ng-click="descargarZIP5()">
+                              <img src="images/donwload.png" style ="height: 21px;" alt="Pretil Docs">
+                              <span style="padding: 5px;">Prefill Docs</span>
+                              </button> 
+                           </div>
+                        </div>
+                     </div>
                     </div>
                   </li>
                   <li class="k-state-active" ng-show="owner.relationship=='Personal'" >
